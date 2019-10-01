@@ -28,7 +28,6 @@
                 out.println("<li>Apellido: " + usuario.getApellido() + "</li>");
                 out.println("<li>Canal " + usuario.getCanal()+ "</li>");
                 
-                
             %>
             </ul>
         </div>
