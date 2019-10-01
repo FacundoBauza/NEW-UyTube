@@ -197,6 +197,8 @@ public class Sistema extends javax.swing.JFrame {
         ScrollerListRep = new javax.swing.JScrollPane();
         ListasReprod = new javax.swing.JList<>();
         PanelImagen = new javax.swing.JLabel();
+        Contrasenia = new javax.swing.JLabel();
+        contrasenia = new javax.swing.JTextField();
         VerCategorias = new javax.swing.JInternalFrame();
         AgregarCategoria = new javax.swing.JTextField();
         AgragarCategoriaButton = new javax.swing.JButton();
@@ -576,7 +578,7 @@ public class Sistema extends javax.swing.JFrame {
                 .addComponent(ASeguir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(SeguirButton)
-                .addContainerGap(186, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
 
         VerVideo.setClosable(true);
@@ -997,6 +999,8 @@ public class Sistema extends javax.swing.JFrame {
         PanelImagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PanelImagen.setText("<Imagen>");
 
+        Contrasenia.setText("Contrasenia");
+
         javax.swing.GroupLayout VerUsuarioLayout = new javax.swing.GroupLayout(VerUsuario.getContentPane());
         VerUsuario.getContentPane().setLayout(VerUsuarioLayout);
         VerUsuarioLayout.setHorizontalGroup(
@@ -1016,7 +1020,7 @@ public class Sistema extends javax.swing.JFrame {
                                 .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(VerUsuarioLayout.createSequentialGroup()
                                 .addComponent(Nickname)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                                 .addComponent(nickname, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(VerUsuarioLayout.createSequentialGroup()
                                 .addComponent(nomlabelss)
@@ -1029,7 +1033,11 @@ public class Sistema extends javax.swing.JFrame {
                             .addGroup(VerUsuarioLayout.createSequentialGroup()
                                 .addComponent(VidLAbel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Lisreplabel)))
+                                .addComponent(Lisreplabel))
+                            .addGroup(VerUsuarioLayout.createSequentialGroup()
+                                .addComponent(Contrasenia)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                                .addComponent(contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(VerUsuarioLayout.createSequentialGroup()
                                 .addGap(100, 100, 100)
@@ -1069,7 +1077,11 @@ public class Sistema extends javax.swing.JFrame {
                         .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(nickname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(Nickname))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Contrasenia))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(emaillabels))
@@ -1451,7 +1463,7 @@ public class Sistema extends javax.swing.JFrame {
                         .addComponent(Contra)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(EntradaContrasenia)))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         AltaUsuarioLayout.setVerticalGroup(
             AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1821,7 +1833,7 @@ public class Sistema extends javax.swing.JFrame {
         OpcionesCategoriaLayout.setVerticalGroup(
             OpcionesCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionesCategoriaLayout.createSequentialGroup()
-                .addContainerGap(159, Short.MAX_VALUE)
+                .addContainerGap(163, Short.MAX_VALUE)
                 .addGroup(OpcionesCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(OpcionesCategoriaLayout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -2587,6 +2599,7 @@ public class Sistema extends javax.swing.JFrame {
         ModifNombre.setText(this.usuarioSeleccionado.getNombre());
         ModifApellido.setText(this.usuarioSeleccionado.getApellido());
         
+        
         //Cargar lista videos
         DefaultListModel model = new DefaultListModel();
         for(String v : s.listarVideos(this.usuarioSeleccionado.getNickname())) {
@@ -2775,7 +2788,7 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_ModifVideosButtonActionPerformed
 
     private void ConfirmCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmCambiosActionPerformed
-        s.modificarUsuario(nickname.getText(), ModifNombre.getText(), ModifApellido.getText(), 
+        s.modificarUsuario(nickname.getText(), Contrasenia.getText(), ModifNombre.getText(), ModifApellido.getText(), 
             FechaVerUsuario.getDate(), PanelImagen.toString(), "");
         JOptionPane.showMessageDialog(this, "Usuario modificado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_ConfirmCambiosActionPerformed
@@ -3464,6 +3477,7 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JButton ConsultaModifDatos;
     private javax.swing.JButton ConsultarVideo;
     private javax.swing.JLabel Contra;
+    private javax.swing.JLabel Contrasenia;
     private javax.swing.JLabel Correo;
     private javax.swing.JInternalFrame CrearLista;
     private javax.swing.JLabel CuadroImagen;
@@ -3611,6 +3625,7 @@ public class Sistema extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser cambioFecha;
     private javax.swing.JButton confirmarCambiosLista;
     private javax.swing.JButton confirmarCambiosVideo;
+    private javax.swing.JTextField contrasenia;
     private javax.swing.JTextField email;
     private javax.swing.JLabel emaillabels;
     private com.toedter.calendar.JDateChooser jDateChooserAltaVideo;

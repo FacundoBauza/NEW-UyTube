@@ -45,7 +45,7 @@ public class Login extends HttpServlet {
             session.setAttribute("UserPass", user.getContrasenia());
 
           
-            response.sendRedirect("Perfil");
+            response.sendRedirect("homeLogIn");
             }
         else{
             response.sendRedirect("index.jsp");
