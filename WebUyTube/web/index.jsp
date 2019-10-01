@@ -34,38 +34,34 @@
 
 
         <div class="menu">
+            
             <div class="card" style="width: 18rem;">
-                <ul class="list-group list-group-flush"></ul>
-                <li class="list-group-item"><a href="#" role="button"><i class="fas fa-user"></i> Mi perfil</a></li>
-            </div>    
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">USUARIOS:</li>
+                    <li class="list-group-item"><a href="#" role="button">Consulta de usuario</a></li>
+                </ul>
+            </div>
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">VIDEOS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Subir videos</a></li>
-                    <li class="list-group-item"><a href="#" role="button">Ver videos</a></li>
+                    <li class="list-group-item"><a href="#" role="button">Consulta de video</a></li>
                 </ul>
             </div>
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">LISTAS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Crear lista</a></li>
-                    <li class="list-group-item"><a href="#" role="button">Ver más tarde</a></li>
-                    <li class="list-group-item"><a href="#" role="button">Me gusta</a></li>
-                    <li class="list-group-item"><a href="#" role="button">Música para estudiar</a></li>
+                    <li class="list-group-item"><a href="#" role="button">Consulta de lista de reproducción</a></li>  
                 </ul>
             </div>
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">CATEGORÍAS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Música</a></li>
-                    <li class="list-group-item"><a href="#" role="button">Juegos</a></li>
-                    <li class="list-group-item"><a href="#" role="button">Deportes</a></li>
+                    <li class="list-group-item"><a href="#" role="button">Consulta de categoría</a></li>
+                    <li class="list-group-item"><a href="#" role="button">listar categorias existentes</a></li>
+                    
                 </ul>
             </div>
-            <div class="card" style="width: 18rem;">
-                <ul class="list-group list-group-flush"></ul>
-                <li class="list-group-item"><a href="../src/java/Servlets/Logout.java" role="button"><i class="fas fa-sign-out-alt"></i> Salir</a></li>
-            </div>
+            
         </div>
         
         
