@@ -1,10 +1,20 @@
 <%-- 
-    Document   : homeLogIn
-    Created on : 01/10/2019, 04:24:44 PM
+    Document   : MiPerfilUsuario
+    Created on : 01/10/2019, 08:54:43 PM
     Author     : Usuario
 --%>
 
+<%@page import="logica.DT.DTUsuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    DTUsuario usuario = null;
+    if (request.getSession().getAttribute("UserNick") == null) {
+        response.sendRedirect("index.jsp");
+    } else {
+        usuario = (DTUsuario) request.getAttribute("userInfo");
+    }
+
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,9 +26,8 @@
         <!-- GOOGLE FONT-->
         <link href="https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./resources/css/css.css">
-        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>UyTube</title>
+        <title>Mi perfil</title>
     </head>
     <body>
         <header>
@@ -41,50 +50,22 @@
                 </div>     
             </nav>   
         </header>
+        <%
+                if(usuario!=null){
+                    out.println("<img src=\""+usuario.getImagen().substring(14)+"\" height=\"200\" width=\"200\">");
+                    out.println("<p> Nick: "+ usuario.getNickname() + "<br>"
+                            + "Mail: " + usuario.getEmail()+ "<br>"
+                            + "Nombre: " + usuario.getNombre() + "<br>"
+                            + "Apellido: " + usuario.getApellido() + "<br>"
+                            + "Canal " + usuario.getCanal() + "<br>");
+                }            
+            %>
 
-
-        <div class="menu">
-            
-            <div class="card" style="width: 18rem;">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">USUARIOS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Consulta de usuario</a></li>
-                </ul>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">VIDEOS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Subir video</a></li>
-                    <li class="list-group-item"><a href="#" role="button">Ver videos</a></li>
-                </ul>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">LISTAS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Crear lista</a></li>  
-                    <li class="list-group-item"><a href="#" role="button">Ver más tarde</a></li>
-                    <li class="list-group-item"><a href="#" role="button">Me gusta</a></li>
-                    <li class="list-group-item"><a href="#" role="button">Música para estudiar</a></li>
-                </ul>
-            </div>
-            <div class="card" style="width: 18rem;">
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">CATEGORÍAS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Consulta de categoría</a></li>
-                    <li class="list-group-item"><a href="#" role="button">listar categorias existentes</a></li>
-                    
-                </ul>
-            </div>
-            
-        </div>
-        
-        
-        <footer>
+    <footer>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         </footer>
-
     </body>
-</html>
 
+</html>
