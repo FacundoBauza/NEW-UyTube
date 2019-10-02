@@ -33,10 +33,10 @@
                         ${UserNick}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="../src/java/Servlets/Miperfil.java">Mi perfil</a>
+                        <a class="dropdown-item" href="Miperfil">Mi perfil</a>
                         <a class="dropdown-item" href="#">Modificar datos de usuario</a>
                         <a class="dropdown-item" href="#">Darse de baja</a>
-                        <a class="dropdown-item" href="../src/java/Servlets/Logout.java">Cerrar sesión</a>
+                        <a class="dropdown-item" href="Logout">Cerrar sesión</a>
                     </div>
                 </div>     
             </nav>   
@@ -48,7 +48,7 @@
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">USUARIOS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Consulta de usuario</a></li>
+                    <li class="list-group-item"><a href="/WebUyTube/consultausuario.jsp" role="button">Consulta de usuario</a></li>
                 </ul>
             </div>
             <div class="card" style="width: 18rem;">

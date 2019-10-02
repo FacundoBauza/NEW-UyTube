@@ -42,7 +42,7 @@ public class verinfousuario extends HttpServlet {
             request.getSession().setAttribute("userConsult", u.getNickname());
             request.setAttribute("userInfo", u);
             if(u instanceof DTUsuario){
-                getServletConfig().getServletContext().getRequestDispatcher("/infoconsultausuario.jsp").forward(request,response);
+                getServletConfig().getServletContext().getRequestDispatcher("/WebUyTube/infoconsultausuario.jsp").forward(request,response);
             }
             
         }

@@ -21,7 +21,7 @@
     </head>
     <body>
         <h1>Consultar Usuario</h1>
-        <form name="ConsultarUsuario" action="../src/java/Servlets/verinfousuario.java" method="GET">
+        <form name="ConsultarUsuario" action="verinfousuario" method="GET">
             Nick o Mail del usuario:
             <input type="Text" size="20" name="dataname">
             <input type="submit" value="Buscar">
