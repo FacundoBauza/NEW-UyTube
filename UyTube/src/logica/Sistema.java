@@ -51,9 +51,10 @@ public class Sistema implements ISistema{
             return null;
     }
     
-    public void modificarUsuario(String nickname, String nombre, String apellido, Date fechaNac, String imagen, String canal){
+    public void modificarUsuario(String nickname, String contrasenia, String nombre, String apellido, Date fechaNac, String imagen, String canal){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(nickname);
+        u.setContrasenia(contrasenia);
         Canal c = u.getCanal();
         u.setApellido(apellido);
         u.setCanal(c);

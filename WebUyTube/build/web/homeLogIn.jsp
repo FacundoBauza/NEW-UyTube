@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 27/09/2019, 03:02:47 PM
+    Document   : homeLogIn
+    Created on : 01/10/2019, 04:24:44 PM
     Author     : Usuario
 --%>
 
@@ -28,7 +28,17 @@
                     <input class="form-control mr-sm-2" type="search" placeholder="video, lista, canal" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
                 </form>
-                <a class="btn btn-primary" href="/WebUyTube/login.jsp" role="button"><i class="fas fa-sign-in-alt"></i> INGRESAR</a>     
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        ${UserNick}
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="../src/java/Servlets/Miperfil.java">Mi perfil</a>
+                        <a class="dropdown-item" href="#">Modificar datos de usuario</a>
+                        <a class="dropdown-item" href="#">Darse de baja</a>
+                        <a class="dropdown-item" href="#">Cerrar sesión</a>
+                    </div>
+                </div>     
             </nav>   
         </header>
 
@@ -44,13 +54,17 @@
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">VIDEOS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Consulta de video</a></li>
+                    <li class="list-group-item"><a href="#" role="button">Subir video</a></li>
+                    <li class="list-group-item"><a href="#" role="button">Ver videos</a></li>
                 </ul>
             </div>
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">LISTAS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Consulta de lista de reproducción</a></li>  
+                    <li class="list-group-item"><a href="#" role="button">Crear lista</a></li>  
+                    <li class="list-group-item"><a href="#" role="button">Ver más tarde</a></li>
+                    <li class="list-group-item"><a href="#" role="button">Me gusta</a></li>
+                    <li class="list-group-item"><a href="#" role="button">Música para estudiar</a></li>
                 </ul>
             </div>
             <div class="card" style="width: 18rem;">
@@ -73,3 +87,4 @@
 
     </body>
 </html>
+
