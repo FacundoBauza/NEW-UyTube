@@ -50,10 +50,8 @@ public class Manejador {
         
         
         EntityManager em = Manejador.getEntityManager();
-                Query query = Manejador.getEntityManager().createQuery(
-                "select c from Categoria c");
-                
-                
+        Query query = Manejador.getEntityManager().createQuery("select c from Categoria c");
+
         List<Categoria> aux = (List<Categoria>) query.getResultList();
         
         ArrayList<DTCategoria> result = new ArrayList<DTCategoria>();
@@ -74,7 +72,14 @@ public class Manejador {
     
     
     public void addUsuario(Usuario usu){
-        usuarios.add(usu);
+            
+       /* EntityManager em = Manejador.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        //em.persist(usu.getCanal());
+        em.persist(usu);
+        tx.commit();*/
+        //usuarios.add(usu);
     }
     
     public void addCategoria (Categoria cat){
@@ -87,7 +92,12 @@ public class Manejador {
     }
     
     public void addLista (String lista){
-        listasPorDefecto.add(lista);
+        EntityManager em = Manejador.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.persist(lista);
+        tx.commit();
+        //listasPorDefecto.add(lista);
     }
     
     public Usuario buscarUsuario(String nickname){
@@ -222,23 +232,5 @@ public class Manejador {
        
         return ret;
     }
-    
-    public DTUsuario getUserData(String identificador) {
-        DTUsuario ret = null;
-        Usuario u;
-        Iterator it = usuarios.iterator();
-        while(it.hasNext()){
-            u =(Usuario) it.next();
-            if(u.getNickname().equals(identificador) || u.getEmail().equals(identificador)){
-                ret=new DTUsuario(u);
-                break;
-            }            
-        }        
-                
-        return ret;
-    }
-
-    
-    
     
 }

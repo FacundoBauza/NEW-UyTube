@@ -16,7 +16,8 @@ import javax.persistence.Temporal;
 @Table(name="Lista")
 public class Comentario {
     public static int proxid = 1;
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id 
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String texto;
     @Temporal(javax.persistence.TemporalType.DATE)

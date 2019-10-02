@@ -9,7 +9,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Valoracion")
 public class Valoracion {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
     private boolean meGusta;
     private Usuario usuario;
     private Video video;
@@ -22,6 +25,14 @@ public class Valoracion {
 
     public Valoracion() {
         
+    }
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
     
     public boolean isMeGusta() {
