@@ -12,16 +12,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import logica.DT.DTSesion;
+import logica.DT.DTUsuario;
+import logica.Fabrica;
 import logica.ISistema;
-import logica.Sistema;
+import logica.Manejador;
 
 /**
  *
  * @author Usuario
  */
-@WebServlet (urlPatterns = {"/Login"})
-public class Login extends HttpServlet {
+@WebServlet(name = "Miperfil", urlPatterns = {"/Miperfil"})
+public class Miperfil extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,24 +34,21 @@ public class Login extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String nickname = request.getParameter("username");
-        String contrasenia = request.getParameter("password");
-        ISistema is = new Sistema();
-        DTSesion user = is.getUserSession(nickname, contrasenia);
-        if(user!=null){
+        throws ServletException, IOException {
             HttpSession session = request.getSession();
-            session.setAttribute("UserNick", user.getNickname());
-            
-            session.setAttribute("UserPass", user.getContrasenia());
-
-          
-            response.sendRedirect("homeLogIn");
+            if(session.getAttribute("UserNick")!=null){
+                String nick  = (String) session.getAttribute("UserNick");
+                ISistema s = Fabrica.getInstance();
+                Manejador m = Manejador.getinstance();
+                DTUsuario usuario = m.getUserData(nick);
+                request.setAttribute("userInfo", usuario);
+                getServletConfig().getServletContext().getRequestDispatcher("/MiPerfilUsuario.jsp").forward(request,response); 
+                                                
             }
-        else{
-            response.sendRedirect("index.jsp");
+            else{
+                response.sendRedirect("index.jsp");
+            }
         }
-    }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -92,3 +90,4 @@ public class Login extends HttpServlet {
     }// </editor-fold>
 
 }
+

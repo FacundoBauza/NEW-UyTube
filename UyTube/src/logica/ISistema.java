@@ -13,7 +13,7 @@ public interface ISistema {
     public abstract void comentarVideo(String usuario,DTComentario comentario,String video, int padre);
     public abstract void valorarVideo(String usuario,String video, DTValoracion valoracion );
     public abstract void modificarVideo (DTVideo video, String usuario, String nomVideo);
-    public abstract void modificarUsuario(String nickname, String nombre, String apellido, Date fechaNac, String imagen, String canal);
+    public abstract void modificarUsuario(String nickname, String contrasenia, String nombre, String apellido, Date fechaNac, String imagen, String canal);
     public abstract void modificarListaPart(String usuario, String nombreLista, String categoria, Boolean privado);
     public abstract void agregarVideoAlista(String usuario, String video, String usuario2, String nombreLista);
     public abstract void quitarVideoDeLista(String usuario, String video, String nombreLista);

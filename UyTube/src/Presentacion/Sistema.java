@@ -38,8 +38,8 @@ public class Sistema extends javax.swing.JFrame {
     
     
     public Sistema() {
-        
-        this.setExtendedState(MAXIMIZED_BOTH);
+        //Prueba github lala
+        //ComentarioFacundo1
         s = Fabrica.getInstance();
         m = Manejador.getinstance();
         initComponents();
@@ -145,11 +145,13 @@ public class Sistema extends javax.swing.JFrame {
         ComentarVideoButton = new javax.swing.JButton();
         CambioCategorias = new javax.swing.JComboBox<>();
         confirmarCambiosVideo = new javax.swing.JButton();
+        cambioFecha = new com.toedter.calendar.JDateChooser();
         Nombrelabl = new javax.swing.JLabel();
         URLLAbl = new javax.swing.JLabel();
         DuracionLabl = new javax.swing.JLabel();
         DescLabl = new javax.swing.JLabel();
         Fechalabl = new javax.swing.JLabel();
+        FechaComentValor = new com.toedter.calendar.JDateChooser();
         ComentarioComent = new javax.swing.JTextField();
         ComentLabl = new javax.swing.JLabel();
         NickNameLabl = new javax.swing.JLabel();
@@ -167,8 +169,6 @@ public class Sistema extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        cambioFecha = new com.toedter.calendar.JDateChooser();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
         VerUsuario = new javax.swing.JInternalFrame();
         ModifNombre = new javax.swing.JTextField();
         ModifApellido = new javax.swing.JTextField();
@@ -178,6 +178,7 @@ public class Sistema extends javax.swing.JFrame {
         ConfirmCambios = new javax.swing.JButton();
         nickname = new javax.swing.JTextField();
         email = new javax.swing.JTextField();
+        FechaVerUsuario = new com.toedter.calendar.JDateChooser();
         VidLAbel = new javax.swing.JLabel();
         Lisreplabel = new javax.swing.JLabel();
         Seguidoslab = new javax.swing.JLabel();
@@ -196,7 +197,8 @@ public class Sistema extends javax.swing.JFrame {
         ScrollerListRep = new javax.swing.JScrollPane();
         ListasReprod = new javax.swing.JList<>();
         PanelImagen = new javax.swing.JLabel();
-        FechaVerUsuario = new com.toedter.calendar.JDateChooser();
+        Contrasenia = new javax.swing.JLabel();
+        contrasenia = new javax.swing.JTextField();
         VerCategorias = new javax.swing.JInternalFrame();
         AgregarCategoria = new javax.swing.JTextField();
         AgragarCategoriaButton = new javax.swing.JButton();
@@ -224,6 +226,7 @@ public class Sistema extends javax.swing.JFrame {
         EntradaNomCanal = new javax.swing.JTextField();
         EntradaDescripcionCanal = new javax.swing.JTextField();
         Registro = new javax.swing.JButton();
+        Fecha = new com.toedter.calendar.JDateChooser();
         Nick = new javax.swing.JLabel();
         Nom = new javax.swing.JLabel();
         Apellido = new javax.swing.JLabel();
@@ -233,7 +236,6 @@ public class Sistema extends javax.swing.JFrame {
         Desc = new javax.swing.JLabel();
         EntradaContrasenia = new javax.swing.JTextField();
         Contra = new javax.swing.JLabel();
-        Fecha = new com.toedter.calendar.JDateChooser();
         verLista = new javax.swing.JInternalFrame();
         CategoriaListaRep = new javax.swing.JComboBox<>();
         Privacidad = new javax.swing.JCheckBox();
@@ -259,6 +261,7 @@ public class Sistema extends javax.swing.JFrame {
         DescVideo = new javax.swing.JTextArea();
         PrivacidadCheckbox = new javax.swing.JCheckBox();
         DuracionVideo = new javax.swing.JTextField();
+        jDateChooserAltaVideo = new com.toedter.calendar.JDateChooser();
         Usu = new javax.swing.JLabel();
         Nombr = new javax.swing.JLabel();
         Descrip = new javax.swing.JLabel();
@@ -266,7 +269,6 @@ public class Sistema extends javax.swing.JFrame {
         Url = new javax.swing.JLabel();
         Fechalab = new javax.swing.JLabel();
         CatLAb = new javax.swing.JLabel();
-        jDateChooserAltaVideo = new com.toedter.calendar.JDateChooser();
         OpcionesCategoria = new javax.swing.JInternalFrame();
         ScrollUsuVid = new javax.swing.JScrollPane();
         NombreUsuarioVideo = new javax.swing.JList<>();
@@ -326,14 +328,13 @@ public class Sistema extends javax.swing.JFrame {
         Menu.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Menu.setMaximumSize(new java.awt.Dimension(900, 650));
         Menu.setPreferredSize(new java.awt.Dimension(900, 650));
-        Menu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         ConsultaLista.setClosable(true);
         ConsultaLista.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         ConsultaLista.setTitle("Consulta lista");
         ConsultaLista.setAlignmentX(0.0F);
         ConsultaLista.setAlignmentY(0.0F);
-        ConsultaLista.setVisible(false);
+        ConsultaLista.setVisible(true);
 
         ListaVideosModel.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Lista videos" };
@@ -406,7 +407,7 @@ public class Sistema extends javax.swing.JFrame {
                                 .addGroup(ConsultaListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(MostrarTipo1)
                                     .addComponent(MostrarNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
                         .addComponent(ScrollerListRep1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ConsultaListaLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
@@ -446,15 +447,13 @@ public class Sistema extends javax.swing.JFrame {
                     .addComponent(ScrollerListRep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(ConsultarVideo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
             .addGroup(ConsultaListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(ConsultaListaLayout.createSequentialGroup()
                     .addGap(36, 36, 36)
                     .addComponent(ScrollerListRep2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(229, Short.MAX_VALUE)))
         );
-
-        Menu.add(ConsultaLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 424, 0, 0));
 
         CrearLista.setClosable(true);
         CrearLista.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -536,8 +535,6 @@ public class Sistema extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Menu.add(CrearLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 300, 380));
-
         SeguirUsuario.setClosable(true);
         SeguirUsuario.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         SeguirUsuario.setIconifiable(true);
@@ -545,7 +542,7 @@ public class Sistema extends javax.swing.JFrame {
         SeguirUsuario.setResizable(true);
         SeguirUsuario.setTitle("Seguir Usuario");
         SeguirUsuario.setAutoscrolls(true);
-        SeguirUsuario.setVisible(false);
+        SeguirUsuario.setVisible(true);
 
         SeguirButton.setText("Seguir");
         SeguirButton.addActionListener(new java.awt.event.ActionListener() {
@@ -566,9 +563,9 @@ public class Sistema extends javax.swing.JFrame {
         SeguirUsuarioLayout.setHorizontalGroup(
             SeguirUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SeguirUsuarioLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(63, Short.MAX_VALUE)
                 .addComponent(ASeguir, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
             .addGroup(SeguirUsuarioLayout.createSequentialGroup()
                 .addGap(87, 87, 87)
                 .addComponent(SeguirButton)
@@ -581,10 +578,8 @@ public class Sistema extends javax.swing.JFrame {
                 .addComponent(ASeguir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(SeguirButton)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(190, Short.MAX_VALUE))
         );
-
-        Menu.add(SeguirUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(1069, 0, 0, 0));
 
         VerVideo.setClosable(true);
         VerVideo.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -595,7 +590,7 @@ public class Sistema extends javax.swing.JFrame {
         VerVideo.setMinimumSize(new java.awt.Dimension(710, 480));
         VerVideo.setNormalBounds(new java.awt.Rectangle(0, 0, 0, 0));
         VerVideo.setPreferredSize(new java.awt.Dimension(710, 480));
-        VerVideo.setVisible(false);
+        VerVideo.setVisible(true);
 
         Comentarios.setSelectionModel(null);
         Scrollercomments.setViewportView(Comentarios);
@@ -734,152 +729,148 @@ public class Sistema extends javax.swing.JFrame {
             VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VerVideoLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(ScrollerListVid3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel4)
+                    .addComponent(ScrollerListVid2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(435, 435, 435))
+            .addGroup(VerVideoLayout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DescLabl)
+                    .addComponent(jLabel11)
+                    .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Nombrelabl)
+                            .addComponent(URLLAbl))
+                        .addComponent(DuracionLabl)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(CambioNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                    .addComponent(CambioUrrl)
+                    .addComponent(CambioDuracion)
+                    .addComponent(CambioDescrip)
+                    .addComponent(CambioCategorias, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cambioFecha, javax.swing.GroupLayout.DEFAULT_SIZE, 120, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Scrollercomments, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(130, 130, 130))
+            .addGroup(VerVideoLayout.createSequentialGroup()
                 .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(VerVideoLayout.createSequentialGroup()
-                        .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(VerVideoLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel5))
-                            .addComponent(ScrollerListVid3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(10, 10, 10)
-                        .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
-                            .addGroup(VerVideoLayout.createSequentialGroup()
-                                .addComponent(ScrollerListVid2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(confirmarCambiosVideo)))
-                        .addContainerGap())
+                        .addGap(149, 149, 149)
+                        .addComponent(Fechalabl))
                     .addGroup(VerVideoLayout.createSequentialGroup()
+                        .addGap(202, 202, 202)
                         .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(ScrollerListVid1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(confirmarCambiosVideo)
+                            .addComponent(PrivadoCheck)))
+                    .addGroup(VerVideoLayout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(ScrollerListVid1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel3))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerVideoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerVideoLayout.createSequentialGroup()
+                        .addComponent(MeGustaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(NoMeGustaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
+                        .addComponent(ComentarVideoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerVideoLayout.createSequentialGroup()
                         .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(DuracionLabl)
-                            .addComponent(DescLabl)
-                            .addComponent(Fechalabl)
-                            .addComponent(jLabel11)
-                            .addGroup(VerVideoLayout.createSequentialGroup()
-                                .addGap(5, 5, 5)
-                                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Nombrelabl)
-                                    .addComponent(URLLAbl))))
-                        .addGap(4, 4, 4)
-                        .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(VerVideoLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(ComentLabl)
-                                    .addComponent(FechaComentLabl))
-                                .addGap(15, 15, 15)
-                                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ComentarioComent, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ComentarVideoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(20, 20, 20))
-                            .addGroup(VerVideoLayout.createSequentialGroup()
-                                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CambioNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(CambioUrrl, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(CambioDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(CambioDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(CambioCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cambioFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(PrivadoCheck))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Scrollercomments, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(27, 27, 27))))
-                    .addGroup(VerVideoLayout.createSequentialGroup()
-                        .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(VerVideoLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerVideoLayout.createSequentialGroup()
                                 .addComponent(NickNameLabl)
-                                .addGap(15, 15, 15)
-                                .addComponent(usuarioValora, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(39, 39, 39))
+                            .addComponent(usuarioValora, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(VerVideoLayout.createSequentialGroup()
-                                .addComponent(NoMeGustaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(MeGustaButton, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 452, Short.MAX_VALUE))))
+                                .addComponent(FechaComentLabl)
+                                .addGap(51, 51, 51))
+                            .addComponent(FechaComentValor, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ComentarioComent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(VerVideoLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(ComentLabl)
+                                .addGap(26, 26, 26))))))
         );
         VerVideoLayout.setVerticalGroup(
             VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VerVideoLayout.createSequentialGroup()
                 .addGap(6, 6, 6)
-                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(VerVideoLayout.createSequentialGroup()
-                        .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(VerVideoLayout.createSequentialGroup()
-                                .addComponent(CambioNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(4, 4, 4)
-                                .addComponent(CambioUrrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(6, 6, 6)
-                                .addComponent(CambioDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(11, 11, 11)
-                                .addComponent(CambioDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(cambioFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addComponent(CambioCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(VerVideoLayout.createSequentialGroup()
-                                .addGap(3, 3, 3)
-                                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(VerVideoLayout.createSequentialGroup()
-                                        .addComponent(jLabel3)
-                                        .addGap(4, 4, 4)
-                                        .addComponent(ScrollerListVid1, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(VerVideoLayout.createSequentialGroup()
-                                        .addComponent(Nombrelabl)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(URLLAbl)
-                                        .addGap(12, 12, 12)
-                                        .addComponent(DuracionLabl)
-                                        .addGap(17, 17, 17)
-                                        .addComponent(DescLabl)
-                                        .addGap(14, 14, 14)
-                                        .addComponent(Fechalabl)
-                                        .addGap(9, 9, 9)
-                                        .addComponent(jLabel11)))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(PrivadoCheck)
-                        .addGap(30, 30, 30)
-                        .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(NickNameLabl)
-                            .addComponent(usuarioValora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(NoMeGustaButton)
-                            .addComponent(MeGustaButton)))
-                    .addGroup(VerVideoLayout.createSequentialGroup()
-                        .addComponent(Scrollercomments, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(VerVideoLayout.createSequentialGroup()
-                                .addGap(28, 28, 28)
-                                .addComponent(ComentarVideoButton))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerVideoLayout.createSequentialGroup()
-                                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(FechaComentLabl)
-                                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(ComentarioComent)
-                                    .addComponent(ComentLabl, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
                 .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(VerVideoLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(10, 10, 10)
+                        .addComponent(ScrollerListVid1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(ScrollerListVid3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(VerVideoLayout.createSequentialGroup()
+                        .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(VerVideoLayout.createSequentialGroup()
+                                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                        .addComponent(Nombrelabl)
+                                        .addComponent(CambioNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerVideoLayout.createSequentialGroup()
+                                        .addGap(24, 24, 24)
+                                        .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                            .addComponent(URLLAbl)
+                                            .addComponent(CambioUrrl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(DuracionLabl)
+                                    .addComponent(CambioDuracion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(DescLabl)
+                                    .addComponent(CambioDescrip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(cambioFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(Fechalabl))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(CambioCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel11))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(PrivadoCheck)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(confirmarCambiosVideo))
+                            .addComponent(Scrollercomments, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                         .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ScrollerListVid2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(confirmarCambiosVideo))
-                .addGap(11, 11, 11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(VerVideoLayout.createSequentialGroup()
+                                .addGap(5, 5, 5)
+                                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                                    .addComponent(ComentLabl)
+                                    .addComponent(NickNameLabl)
+                                    .addComponent(FechaComentLabl))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(FechaComentValor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(ComentarioComent, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(usuarioValora, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(11, 11, 11)
+                                .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(ComentarVideoButton)
+                                    .addComponent(NoMeGustaButton)
+                                    .addComponent(MeGustaButton)))
+                            .addComponent(ScrollerListVid2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(30, 30, 30))
         );
-
-        Menu.add(VerVideo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 690, 490));
 
         VerUsuario.setClosable(true);
         VerUsuario.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -889,7 +880,7 @@ public class Sistema extends javax.swing.JFrame {
         VerUsuario.setTitle("Ver Usuario");
         VerUsuario.setMaximumSize(new java.awt.Dimension(1000, 600));
         VerUsuario.setNormalBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        VerUsuario.setVisible(false);
+        VerUsuario.setVisible(true);
         VerUsuario.addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -1008,6 +999,8 @@ public class Sistema extends javax.swing.JFrame {
         PanelImagen.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         PanelImagen.setText("<Imagen>");
 
+        Contrasenia.setText("Contrasenia");
+
         javax.swing.GroupLayout VerUsuarioLayout = new javax.swing.GroupLayout(VerUsuario.getContentPane());
         VerUsuario.getContentPane().setLayout(VerUsuarioLayout);
         VerUsuarioLayout.setHorizontalGroup(
@@ -1015,108 +1008,123 @@ public class Sistema extends javax.swing.JFrame {
             .addGroup(VerUsuarioLayout.createSequentialGroup()
                 .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(VerUsuarioLayout.createSequentialGroup()
-                        .addGap(106, 106, 106)
-                        .addComponent(ModifVideosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(ModifListaRepButton, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(ConfirmCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(VerUsuarioLayout.createSequentialGroup()
                         .addGap(20, 20, 20)
-                        .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(VerUsuarioLayout.createSequentialGroup()
+                                .addComponent(Fechlabels)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(FechaVerUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(VerUsuarioLayout.createSequentialGroup()
+                                .addComponent(emaillabels)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(VerUsuarioLayout.createSequentialGroup()
+                                .addComponent(Nickname)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                                .addComponent(nickname, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(VerUsuarioLayout.createSequentialGroup()
+                                .addComponent(nomlabelss)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ModifNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(VerUsuarioLayout.createSequentialGroup()
+                                .addComponent(Apellidolabs)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(ModifApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(VerUsuarioLayout.createSequentialGroup()
                                 .addComponent(VidLAbel)
-                                .addGap(69, 69, 69)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(Lisreplabel))
                             .addGroup(VerUsuarioLayout.createSequentialGroup()
-                                .addComponent(ScrollerListVid, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(14, 14, 14)
-                                .addComponent(ScrollerListRep, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
+                                .addComponent(Contrasenia)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                                .addComponent(contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ScrollerUsuariosSeguidos, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Seguidoslab))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ScrollerSeguidores, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(seguidoreslab)))
+                            .addGroup(VerUsuarioLayout.createSequentialGroup()
+                                .addGap(100, 100, 100)
+                                .addComponent(ModifImagen))
+                            .addGroup(VerUsuarioLayout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(Seguidoslab)
+                                .addGap(75, 75, 75)
+                                .addComponent(seguidoreslab))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerUsuarioLayout.createSequentialGroup()
+                                .addGap(54, 54, 54)
+                                .addComponent(PanelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(VerUsuarioLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Nickname)
-                            .addComponent(emaillabels)
-                            .addComponent(nomlabelss)
-                            .addComponent(Apellidolabs)
-                            .addComponent(Fechlabels))
-                        .addGap(21, 21, 21)
-                        .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nickname, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ModifNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ModifApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(FechaVerUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(54, 54, 54)
-                        .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(PanelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ModifImagen))))
-                .addGap(58, 58, 58))
+                        .addContainerGap()
+                        .addComponent(ScrollerListVid, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ScrollerListRep, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ScrollerUsuariosSeguidos, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ScrollerSeguidores, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(VerUsuarioLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(ModifVideosButton, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ModifListaRepButton, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ConfirmCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         VerUsuarioLayout.setVerticalGroup(
             VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(VerUsuarioLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(VerUsuarioLayout.createSequentialGroup()
-                        .addGap(3, 3, 3)
-                        .addComponent(Nickname)
-                        .addGap(17, 17, 17)
-                        .addComponent(emaillabels)
-                        .addGap(17, 17, 17)
-                        .addComponent(nomlabelss)
-                        .addGap(17, 17, 17)
-                        .addComponent(Apellidolabs))
-                    .addGroup(VerUsuarioLayout.createSequentialGroup()
-                        .addComponent(nickname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addComponent(ModifNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(11, 11, 11)
-                        .addComponent(ModifApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(PanelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(FechaVerUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Fechlabels)
-                    .addComponent(ModifImagen))
-                .addGap(51, 51, 51)
-                .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(VerUsuarioLayout.createSequentialGroup()
+                        .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nickname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Nickname))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Contrasenia))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(emaillabels))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ModifNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nomlabelss))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ModifApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Apellidolabs))
                         .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(VerUsuarioLayout.createSequentialGroup()
-                                .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(VidLAbel)
-                                    .addComponent(Lisreplabel))
-                                .addGap(6, 6, 6))
+                                .addGap(12, 12, 12)
+                                .addComponent(Fechlabels)
+                                .addGap(32, 32, 32))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerUsuarioLayout.createSequentialGroup()
-                                .addComponent(seguidoreslab)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ScrollerListVid, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ScrollerListRep, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(ScrollerSeguidores, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(FechaVerUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29))))
                     .addGroup(VerUsuarioLayout.createSequentialGroup()
-                        .addComponent(Seguidoslab)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ScrollerUsuariosSeguidos, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(53, 53, 53)
+                        .addComponent(PanelImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(9, 9, 9)
+                        .addComponent(ModifImagen)
+                        .addGap(18, 18, 18)))
+                .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Lisreplabel)
+                    .addComponent(Seguidoslab)
+                    .addComponent(seguidoreslab)
+                    .addComponent(VidLAbel))
+                .addGap(18, 18, 18)
                 .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ModifVideosButton)
+                    .addComponent(ScrollerListVid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ScrollerListRep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ScrollerUsuariosSeguidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ScrollerSeguidores, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ConfirmCambios)
                     .addComponent(ModifListaRepButton)
-                    .addComponent(ConfirmCambios)))
+                    .addComponent(ModifVideosButton))
+                .addGap(20, 20, 20))
         );
-
-        Menu.add(VerUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 500, 490));
 
         VerCategorias.setClosable(true);
         VerCategorias.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -1129,7 +1137,7 @@ public class Sistema extends javax.swing.JFrame {
         VerCategorias.setMinimumSize(new java.awt.Dimension(228, 345));
         VerCategorias.setNormalBounds(new java.awt.Rectangle(0, 0, 0, 0));
         VerCategorias.setPreferredSize(new java.awt.Dimension(340, 345));
-        VerCategorias.setVisible(false);
+        VerCategorias.setVisible(true);
 
         AgregarCategoria.setText("Nueva categoria");
         AgregarCategoria.addActionListener(new java.awt.event.ActionListener() {
@@ -1200,9 +1208,6 @@ public class Sistema extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        Menu.setLayer(VerCategorias, javax.swing.JLayeredPane.MODAL_LAYER);
-        Menu.add(VerCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(1319, 0, 0, 0));
-
         OperacionesSobreUsuarios.setClosable(true);
         OperacionesSobreUsuarios.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         OperacionesSobreUsuarios.setIconifiable(true);
@@ -1213,7 +1218,7 @@ public class Sistema extends javax.swing.JFrame {
         OperacionesSobreUsuarios.setMinimumSize(new java.awt.Dimension(205, 410));
         OperacionesSobreUsuarios.setNormalBounds(new java.awt.Rectangle(0, 0, 0, 0));
         OperacionesSobreUsuarios.setPreferredSize(new java.awt.Dimension(205, 410));
-        OperacionesSobreUsuarios.setVisible(false);
+        OperacionesSobreUsuarios.setVisible(true);
 
         ConsultaModifDatos.setText("Consultar / Modificar Datos");
         ConsultaModifDatos.addActionListener(new java.awt.event.ActionListener() {
@@ -1289,10 +1294,10 @@ public class Sistema extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(OperacionesSobreUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(ModifVideosUsuarioButton, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                            .addComponent(SeguirBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(SeguirBoton, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                             .addComponent(ModificarListaUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ConsultaListaUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
         OperacionesSobreUsuariosLayout.setVerticalGroup(
             OperacionesSobreUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1312,8 +1317,6 @@ public class Sistema extends javax.swing.JFrame {
                 .addComponent(ConsultaListaUsuario))
         );
 
-        Menu.add(OperacionesSobreUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 430, 420));
-
         AltaUsuario.setClosable(true);
         AltaUsuario.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         AltaUsuario.setIconifiable(true);
@@ -1323,7 +1326,7 @@ public class Sistema extends javax.swing.JFrame {
         AltaUsuario.setMinimumSize(new java.awt.Dimension(250, 470));
         AltaUsuario.setPreferredSize(new java.awt.Dimension(250, 470));
         AltaUsuario.setRequestFocusEnabled(false);
-        AltaUsuario.setVisible(false);
+        AltaUsuario.setVisible(true);
         AltaUsuario.addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -1367,11 +1370,6 @@ public class Sistema extends javax.swing.JFrame {
         });
 
         BotonPrivado.setText("Privado");
-        BotonPrivado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonPrivadoActionPerformed(evt);
-            }
-        });
 
         JFileCImagen.setText("Imagen");
         JFileCImagen.addActionListener(new java.awt.event.ActionListener() {
@@ -1411,9 +1409,9 @@ public class Sistema extends javax.swing.JFrame {
 
         Fech.setText("Fecha");
 
-        NomCanal.setText("Nombre Canal");
+        NomCanal.setText("Canal Nom");
 
-        Desc.setText("Descripción");
+        Desc.setText("Descripcion");
 
         EntradaContrasenia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1428,48 +1426,44 @@ public class Sistema extends javax.swing.JFrame {
         AltaUsuarioLayout.setHorizontalGroup(
             AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                            .addComponent(Contra)
-                            .addGap(18, 18, 18)
-                            .addComponent(EntradaContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                            .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Nick)
-                                .addComponent(Nom)
-                                .addComponent(Apellido)
-                                .addComponent(Correo))
-                            .addGap(29, 29, 29)
-                            .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(EntradaNombre, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 288, Short.MAX_VALUE)
-                                    .addComponent(EntradaApellido, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addComponent(EntradaNick, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(JFileCImagen)
-                    .addComponent(CuadroImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                            .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(NomCanal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(BotonPrivado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(Desc, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGap(16, 16, 16)
-                            .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(EntradaNomCanal, javax.swing.GroupLayout.DEFAULT_SIZE, 279, Short.MAX_VALUE)
-                                .addComponent(EntradaDescripcionCanal)))
-                        .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                            .addComponent(Fech)
-                            .addGap(45, 45, 45)
-                            .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(EntradaCorreoEl, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(152, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AltaUsuarioLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(JFileCImagen))
+                    .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                                .addComponent(Fech)
+                                .addGap(13, 13, 13)
+                                .addComponent(CuadroImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Nick)
+                                    .addComponent(Nom)
+                                    .addComponent(Apellido)
+                                    .addComponent(Correo)
+                                    .addComponent(NomCanal)
+                                    .addComponent(Desc))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(EntradaDescripcionCanal)
+                                    .addComponent(Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                    .addComponent(EntradaCorreoEl)
+                                    .addComponent(EntradaApellido)
+                                    .addComponent(EntradaNick)
+                                    .addComponent(EntradaNombre)
+                                    .addComponent(EntradaNomCanal)
+                                    .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                                        .addGap(10, 10, 10)
+                                        .addComponent(BotonPrivado, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(Contra)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(EntradaContrasenia)))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         AltaUsuarioLayout.setVerticalGroup(
             AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1498,27 +1492,24 @@ public class Sistema extends javax.swing.JFrame {
                 .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Fech)
                     .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(24, 24, 24)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JFileCImagen)
-                .addGap(3, 3, 3)
-                .addComponent(CuadroImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NomCanal)
-                    .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                        .addComponent(EntradaNomCanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(EntradaDescripcionCanal, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Desc))))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CuadroImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EntradaNomCanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(NomCanal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EntradaDescripcionCanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Desc))
+                .addGap(9, 9, 9)
                 .addComponent(BotonPrivado)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(Registro)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
-
-        Menu.add(AltaUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 540, 530));
 
         verLista.setClosable(true);
         verLista.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -1527,7 +1518,7 @@ public class Sistema extends javax.swing.JFrame {
         verLista.setTitle("Modificar Lista");
         verLista.setMinimumSize(new java.awt.Dimension(580, 280));
         verLista.setPreferredSize(new java.awt.Dimension(580, 280));
-        verLista.setVisible(false);
+        verLista.setVisible(true);
 
         CategoriaListaRep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Categoria" }));
 
@@ -1591,7 +1582,7 @@ public class Sistema extends javax.swing.JFrame {
                             .addComponent(CategoriaListaRep, 0, 100, Short.MAX_VALUE)
                             .addComponent(MostrarTipo)
                             .addComponent(MostrarNombre))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(241, Short.MAX_VALUE))
         );
         verListaLayout.setVerticalGroup(
             verListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1617,12 +1608,10 @@ public class Sistema extends javax.swing.JFrame {
                         .addGroup(verListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(CategoriaListaRep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(confirmarCambiosLista)
                 .addGap(21, 21, 21))
         );
-
-        Menu.add(verLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(1319, 0, 0, 0));
 
         DejarSeguir.setClosable(true);
         DejarSeguir.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -1630,7 +1619,7 @@ public class Sistema extends javax.swing.JFrame {
         DejarSeguir.setMaximizable(true);
         DejarSeguir.setResizable(true);
         DejarSeguir.setTitle("Dejar de Seguir Usuario");
-        DejarSeguir.setVisible(false);
+        DejarSeguir.setVisible(true);
 
         SeguirButton1.setText("Dejar de Seguir");
         SeguirButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -1651,23 +1640,21 @@ public class Sistema extends javax.swing.JFrame {
         DejarSeguirLayout.setHorizontalGroup(
             DejarSeguirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DejarSeguirLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(23, Short.MAX_VALUE)
                 .addGroup(DejarSeguirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(SeguirButton1)
                     .addComponent(ListSeguidos, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         DejarSeguirLayout.setVerticalGroup(
             DejarSeguirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DejarSeguirLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(ListSeguidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addComponent(SeguirButton1)
                 .addGap(34, 34, 34))
         );
-
-        Menu.add(DejarSeguir, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         AltaVideo.setClosable(true);
         AltaVideo.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -1680,7 +1667,7 @@ public class Sistema extends javax.swing.JFrame {
         AltaVideo.setName(""); // NOI18N
         AltaVideo.setNormalBounds(new java.awt.Rectangle(0, 0, 0, 0));
         AltaVideo.setPreferredSize(new java.awt.Dimension(230, 500));
-        AltaVideo.setVisible(false);
+        AltaVideo.setVisible(true);
 
         AltaVideoButton.setText("Crear");
         AltaVideoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1729,90 +1716,89 @@ public class Sistema extends javax.swing.JFrame {
         AltaVideoLayout.setHorizontalGroup(
             AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AltaVideoLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, AltaVideoLayout.createSequentialGroup()
-                        .addGap(347, 347, 347)
-                        .addComponent(AltaVideoButton))
                     .addGroup(AltaVideoLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(EntradaNomVid, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(UsuarioComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, AltaVideoLayout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addComponent(Usu))
+                            .addComponent(ScrollerDescVid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DuracionVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EntradaURLVid, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jDateChooserAltaVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CategoriaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(AltaVideoLayout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(Nombr))
+                    .addGroup(AltaVideoLayout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(Descrip))
+                    .addGroup(AltaVideoLayout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(Duracion))
+                    .addGroup(AltaVideoLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(Url))
+                    .addGroup(AltaVideoLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(Fechalab))
+                    .addGroup(AltaVideoLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addComponent(CatLAb))
+                    .addGroup(AltaVideoLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
                         .addGroup(AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(PrivacidadCheckbox)
-                            .addGroup(AltaVideoLayout.createSequentialGroup()
-                                .addGroup(AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CatLAb)
-                                    .addComponent(Url)
-                                    .addComponent(Duracion)
-                                    .addComponent(Fechalab))
-                                .addGap(18, 18, 18)
-                                .addGroup(AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jDateChooserAltaVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(DuracionVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(EntradaURLVid, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(CategoriaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(AltaVideoLayout.createSequentialGroup()
-                                .addGroup(AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Usu)
-                                    .addComponent(Nombr))
-                                .addGroup(AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(AltaVideoLayout.createSequentialGroup()
-                                        .addGap(25, 25, 25)
-                                        .addComponent(UsuarioComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(AltaVideoLayout.createSequentialGroup()
-                                        .addGap(26, 26, 26)
-                                        .addComponent(EntradaNomVid, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(AltaVideoLayout.createSequentialGroup()
-                                .addComponent(Descrip)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(ScrollerDescVid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 183, Short.MAX_VALUE)))
-                .addContainerGap())
+                            .addComponent(AltaVideoButton))))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         AltaVideoLayout.setVerticalGroup(
             AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AltaVideoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Usu)
-                    .addComponent(UsuarioComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Nombr)
-                    .addComponent(EntradaNomVid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Descrip)
-                    .addComponent(ScrollerDescVid, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Duracion)
-                    .addComponent(DuracionVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(11, 11, 11)
-                .addGroup(AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EntradaURLVid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Url))
-                .addGap(18, 18, 18)
-                .addGroup(AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Fechalab)
-                    .addComponent(jDateChooserAltaVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CategoriaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CatLAb))
-                .addGap(18, 18, 18)
+                .addComponent(Usu)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(UsuarioComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(Nombr)
+                .addGap(2, 2, 2)
+                .addComponent(EntradaNomVid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(2, 2, 2)
+                .addComponent(Descrip)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ScrollerDescVid, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(Duracion)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(DuracionVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(3, 3, 3)
+                .addComponent(Url)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(EntradaURLVid, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(4, 4, 4)
+                .addComponent(Fechalab)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jDateChooserAltaVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(CatLAb)
+                .addGap(10, 10, 10)
+                .addComponent(CategoriaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(PrivacidadCheckbox)
-                .addGap(22, 22, 22)
+                .addGap(18, 18, 18)
                 .addComponent(AltaVideoButton)
-                .addGap(83, 83, 83))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
-
-        Menu.add(AltaVideo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 450, 420));
 
         OpcionesCategoria.setClosable(true);
         OpcionesCategoria.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         OpcionesCategoria.setIconifiable(true);
         OpcionesCategoria.setMaximizable(true);
         OpcionesCategoria.setTitle("Consultar Categoria");
-        OpcionesCategoria.setVisible(false);
+        OpcionesCategoria.setVisible(true);
 
         ScrollUsuVid.setViewportView(NombreUsuarioVideo);
 
@@ -1833,7 +1819,7 @@ public class Sistema extends javax.swing.JFrame {
                 .addGroup(OpcionesCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(OpcionesCategoriaLayout.createSequentialGroup()
                         .addComponent(nomCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(263, Short.MAX_VALUE))
                     .addGroup(OpcionesCategoriaLayout.createSequentialGroup()
                         .addGroup(OpcionesCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -1847,7 +1833,7 @@ public class Sistema extends javax.swing.JFrame {
         OpcionesCategoriaLayout.setVerticalGroup(
             OpcionesCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionesCategoriaLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(163, Short.MAX_VALUE)
                 .addGroup(OpcionesCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(OpcionesCategoriaLayout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -1862,15 +1848,13 @@ public class Sistema extends javax.swing.JFrame {
                 .addGap(102, 102, 102))
         );
 
-        Menu.add(OpcionesCategoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 844, 0, 0));
-
         QuitarVideoDeLista.setClosable(true);
         QuitarVideoDeLista.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         QuitarVideoDeLista.setIconifiable(true);
         QuitarVideoDeLista.setMaximizable(true);
         QuitarVideoDeLista.setTitle("Quitar Video de Lista");
         QuitarVideoDeLista.setMinimumSize(new java.awt.Dimension(340, 450));
-        QuitarVideoDeLista.setVisible(false);
+        QuitarVideoDeLista.setVisible(true);
 
         UsuQuitarVideo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1935,7 +1919,7 @@ public class Sistema extends javax.swing.JFrame {
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         QuitarVideoDeListaLayout.setVerticalGroup(
             QuitarVideoDeListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1954,10 +1938,8 @@ public class Sistema extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(BotonQuitarVideo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
-
-        Menu.add(QuitarVideoDeLista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
 
         AgregarVideoALista.setClosable(true);
         AgregarVideoALista.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -1965,7 +1947,7 @@ public class Sistema extends javax.swing.JFrame {
         AgregarVideoALista.setMaximizable(true);
         AgregarVideoALista.setTitle("Agregar Video a Lista");
         AgregarVideoALista.setMinimumSize(new java.awt.Dimension(340, 450));
-        AgregarVideoALista.setVisible(false);
+        AgregarVideoALista.setVisible(true);
 
         UsuAgregarVideo1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -2028,7 +2010,7 @@ public class Sistema extends javax.swing.JFrame {
         AgregarVideoALista.getContentPane().setLayout(AgregarVideoAListaLayout);
         AgregarVideoAListaLayout.setHorizontalGroup(
             AgregarVideoAListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Label4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Label4, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
             .addGroup(AgregarVideoAListaLayout.createSequentialGroup()
                 .addGroup(AgregarVideoAListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AgregarVideoAListaLayout.createSequentialGroup()
@@ -2091,10 +2073,124 @@ public class Sistema extends javax.swing.JFrame {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(BotonAgregarALista1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
-        Menu.add(AgregarVideoALista, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 0, 0));
+        Menu.setLayer(ConsultaLista, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Menu.setLayer(CrearLista, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Menu.setLayer(SeguirUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Menu.setLayer(VerVideo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Menu.setLayer(VerUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Menu.setLayer(VerCategorias, javax.swing.JLayeredPane.MODAL_LAYER);
+        Menu.setLayer(OperacionesSobreUsuarios, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Menu.setLayer(AltaUsuario, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Menu.setLayer(verLista, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Menu.setLayer(DejarSeguir, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Menu.setLayer(AltaVideo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Menu.setLayer(OpcionesCategoria, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Menu.setLayer(QuitarVideoDeLista, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Menu.setLayer(AgregarVideoALista, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout MenuLayout = new javax.swing.GroupLayout(Menu);
+        Menu.setLayout(MenuLayout);
+        MenuLayout.setHorizontalGroup(
+            MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(MenuLayout.createSequentialGroup()
+                                .addComponent(VerUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(OperacionesSobreUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(MenuLayout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(SeguirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AltaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(AltaVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(VerCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addComponent(VerVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(OpcionesCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CrearLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(verLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MenuLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(DejarSeguir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(714, Short.MAX_VALUE)))
+            .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MenuLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(QuitarVideoDeLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(909, 909, 909)))
+            .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MenuLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(AgregarVideoALista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(901, 901, 901)))
+            .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MenuLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(ConsultaLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
+        MenuLayout.setVerticalGroup(
+            MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(MenuLayout.createSequentialGroup()
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(verLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addComponent(AltaVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(VerCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(MenuLayout.createSequentialGroup()
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(MenuLayout.createSequentialGroup()
+                            .addComponent(OperacionesSobreUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(SeguirUsuario))
+                        .addComponent(AltaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(VerUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(VerVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addComponent(OpcionesCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CrearLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MenuLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(DejarSeguir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(850, Short.MAX_VALUE)))
+            .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MenuLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(QuitarVideoDeLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(328, Short.MAX_VALUE)))
+            .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MenuLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(AgregarVideoALista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(767, Short.MAX_VALUE)))
+            .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(MenuLayout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(ConsultaLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
+        );
 
         Menu1Usuarios.setText("Usuarios");
 
@@ -2223,13 +2319,17 @@ public class Sistema extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Menu, javax.swing.GroupLayout.DEFAULT_SIZE, 1350, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 1177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(708, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 848, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 22, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 1070, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(215, Short.MAX_VALUE))
         );
 
         pack();
@@ -2280,6 +2380,34 @@ public class Sistema extends javax.swing.JFrame {
         centrar(OperacionesSobreUsuarios);
     }//GEN-LAST:event_M1IOperacionesUsuariosActionPerformed
 
+    private void EntradaNickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaNickActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaNickActionPerformed
+
+    private void EntradaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaNombreActionPerformed
+
+    private void EntradaApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaApellidoActionPerformed
+
+    private void EntradaCorreoElActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaCorreoElActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaCorreoElActionPerformed
+
+    private void EntradaNomCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaNomCanalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaNomCanalActionPerformed
+
+    private void EntradaDescripcionCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaDescripcionCanalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaDescripcionCanalActionPerformed
+
+    private void AgregarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AgregarCategoriaActionPerformed
+
     private void M4IAltaCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M4IAltaCatActionPerformed
         DefaultListModel model = new DefaultListModel();
         for(DTCategoria c : m.getCategorias()) {
@@ -2288,6 +2416,31 @@ public class Sistema extends javax.swing.JFrame {
         ListaCategoriasPrincipal.setModel(model);
         centrar(VerCategorias);
     }//GEN-LAST:event_M4IAltaCatActionPerformed
+
+    private void AgragarCategoriaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgragarCategoriaButtonActionPerformed
+        DTCategoria cat = new DTCategoria(AgregarCategoria.getText());
+        if(!AgregarCategoria.getText().equals("")){    
+            if(m.nombreCategoriaLibre(AgregarCategoria.getText())){
+                s.altaCategoria(cat);
+                AgregarCategoria.setText("");
+                DefaultListModel model = new DefaultListModel();
+                for(DTCategoria c : m.getCategorias()) {
+                    model.addElement(c.getNombre());
+                }
+                ListaCategoriasPrincipal.setModel(model);
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Nombre de categoría en uso", "Error", JOptionPane.ERROR_MESSAGE); 
+                return;
+            }
+        }
+        else
+            JOptionPane.showMessageDialog(this, "Campos vacios", "Error", JOptionPane.ERROR_MESSAGE);   
+    }//GEN-LAST:event_AgragarCategoriaButtonActionPerformed
+
+    private void UsuarioComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsuarioComboBoxActionPerformed
        
     private void M2IAltaVidActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M2IAltaVidActionPerformed
         UsuarioComboBox1.removeAllItems();
@@ -2344,7 +2497,424 @@ public class Sistema extends javax.swing.JFrame {
         ConsultaListaUsuario.setVisible(false);
         centrar(OperacionesSobreUsuarios);
     }//GEN-LAST:event_M3IOperacionesListaRepActionPerformed
+
+    private void ConfirmarListPrivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarListPrivActionPerformed
+        DTLista lista = new DTLista(NomListaRep.getText(), porDefecto.isSelected(), PrivacidadCheck.isSelected(), ComboBoxCategoria.getSelectedItem().toString());
+        if(!NomListaRep.getText().equals("")){
+            if(m.nombreListaLibre(NomListaRep.getText())){
+                if (porDefecto.isSelected() == true)
+                    s.altaListaPorDefecto(lista);
+                else
+                    s.altaLista(lista, UsuarioComboBox.getSelectedItem().toString()); 
+            JOptionPane.showMessageDialog(this, "Lista creada.", "Exito", JOptionPane.INFORMATION_MESSAGE);
+            this.NomListaRep.setText("");
+            }
+            
+            else{
+                JOptionPane.showMessageDialog(this, "Nombre de lista en uso", "Error", JOptionPane.INFORMATION_MESSAGE); 
+            }
+        }
+        else
+            JOptionPane.showMessageDialog(this, "Campos vacios", "Error", JOptionPane.INFORMATION_MESSAGE);    
+    }//GEN-LAST:event_ConfirmarListPrivActionPerformed
+
+    private void RegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroActionPerformed
+        DTCanal canal = new DTCanal(EntradaNomCanal.getText(), EntradaDescripcionCanal.getText(), BotonPrivado.isSelected(), null, null);
+        DTUsuario usuario = new DTUsuario(EntradaNick.getText(),EntradaContrasenia.getText() , EntradaNombre.getText(), EntradaApellido.getText(),
+                EntradaCorreoEl.getText(), Fecha.getDate(), CuadroImagen.getText(), canal.getNombre());
+        if(!EntradaNick.getText().equals("") && !EntradaCorreoEl.getText().equals("")){
+            if(m.nicknameLibre(EntradaNick.getText())){
+                if(m.mailLibre(EntradaCorreoEl.getText())){
+                    s.altaUsuario(usuario, canal);    
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Email en uso", "Error", JOptionPane.ERROR_MESSAGE); 
+                    return; 
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Nickname en uso", "Error", JOptionPane.ERROR_MESSAGE); 
+                return;
+            }
+            JOptionPane.showMessageDialog(this, "Usuario creado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
+
+            this.EntradaNick.setText("");
+            this.EntradaNombre.setText("");
+            this.EntradaApellido.setText("");
+            this.EntradaCorreoEl.setText("");
+            this.CuadroImagen.setText("");
+            this.EntradaNomCanal.setText("");
+            this.EntradaDescripcionCanal.setText("");   
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Campos vacios", "Error", JOptionPane.ERROR_MESSAGE);
+        }       
+    }//GEN-LAST:event_RegistroActionPerformed
+
+    private void UsuarioComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_UsuarioComboBox1ActionPerformed
+
+    private void AltaVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AltaVideoButtonActionPerformed
+        String duracion;
+        boolean priv;
+        if (DuracionVideo.getText() == null)
+            duracion = "0";
+        else
+            duracion = DuracionVideo.getText();
+        if (PrivacidadCheckbox.isSelected() == true)
+            priv = true;
+        else
+            priv = false;
+            
+        if (EntradaNomVid.getText().isEmpty() || EntradaNomVid.getText() == null ||
+                EntradaURLVid.getText().isEmpty() || EntradaURLVid.getText() == null ||
+                CategoriaComboBox.getSelectedItem().toString().isEmpty() || CategoriaComboBox.getSelectedItem().toString() == null)
+            JOptionPane.showMessageDialog(this, "Campos vacios", "Error", JOptionPane.ERROR_MESSAGE);
+            else{
+            DTVideo video = new DTVideo (EntradaNomVid.getText(), DescVideo.getText(), duracion, jDateChooserAltaVideo.getDate() , 
+                    EntradaURLVid.getText(), priv, CategoriaComboBox.getSelectedItem().toString());
+            s.altaVideo(video, UsuarioComboBox1.getSelectedItem().toString());
+            JOptionPane.showMessageDialog(this, "Video creado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
+            EntradaNomVid.setText("");
+            DescVideo.setText("");
+            DuracionVideo.setText("");
+            jDateChooserAltaVideo.setDate(new Date());
+            EntradaURLVid.setText("");
+            PrivacidadCheckbox.setSelected(false);
+            CategoriaComboBox.setSelectedIndex(0);
+        }
+    }//GEN-LAST:event_AltaVideoButtonActionPerformed
+
+    private void ModifNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ModifNombreActionPerformed
+
+    private void ConsultaModifDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaModifDatosActionPerformed
+        nickname.setText(this.usuarioSeleccionado.getNickname());
+        email.setText(this.usuarioSeleccionado.getEmail());
+        nickname.enable(false);
+        email.enable(false);
+        FechaVerUsuario.setDate(this.usuarioSeleccionado.getFechaNac());
+        ModifNombre.setText(this.usuarioSeleccionado.getNombre());
+        ModifApellido.setText(this.usuarioSeleccionado.getApellido());
+        
+        
+        //Cargar lista videos
+        DefaultListModel model = new DefaultListModel();
+        for(String v : s.listarVideos(this.usuarioSeleccionado.getNickname())) {
+            model.addElement(v);
+        }
+        ListVideos.setModel(model);
+        
+        //Cargar lista de listas
+        DefaultListModel model2 = new DefaultListModel();
+        for(String l : s.listarListas(this.usuarioSeleccionado.getNickname())) {
+            model2.addElement(l);
+        }
+        ListasReprod.setModel(model2);
+        
+        //cargar seguidores
+        DefaultListModel model3 = new DefaultListModel();
+        for(String seg : s.consultaUsuario(this.usuarioSeleccionado.getNickname()).getSeguidores()) {
+            model3.addElement(seg);
+        }
+        ListaSeguidores.setModel(model3);
+        
+        //Cargar seguidos
+        DefaultListModel model4 = new DefaultListModel();
+        for(String x : s.consultaUsuario(this.usuarioSeleccionado.getNickname()).getSeguidos()) {
+            model4.addElement(x);
+        }
+        ListaSeguidos.setModel(model4);
+       
+        //Carga Imagen
+        ImageIcon ImagenM = new ImageIcon(this.usuarioSeleccionado.getImagen());
+        String pathM = this.usuarioSeleccionado.getImagen();
+        PanelImagen.setIcon(ImagenM);
+        PanelImagen.setText(pathM);
+        
+        centrar(VerUsuario, OperacionesSobreUsuarios);
+    }//GEN-LAST:event_ConsultaModifDatosActionPerformed
                                      
+    private void ModifVideosUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifVideosUsuarioButtonActionPerformed
+        DefaultListModel model = new DefaultListModel();
+        for(String v : s.listarVideos(this.usuarioSeleccionado.getNickname())) {
+            model.addElement(v);
+        }
+        ListaVideos.setModel(model);
+        
+        CambioCategorias.removeAllItems();
+        for (DTCategoria c : m.getCategorias()){
+            CambioCategorias.addItem(c.getNombre());
+        }
+            
+        //Cargar comboBox usuarios para comentarios y valoraciones
+        usuarioValora.removeAllItems();
+        for (String u : m.listarUsuarios()){
+            if(!u.equals(this.usuarioSeleccionado.getNickname()))
+                usuarioValora.addItem(u);
+        }
+        
+        centrar(VerVideo, OperacionesSobreUsuarios);
+    }//GEN-LAST:event_ModifVideosUsuarioButtonActionPerformed
+
+    private void ComboBoxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxCategoriaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxCategoriaActionPerformed
+
+    private void ListarCategoriasButtionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarCategoriasButtionActionPerformed
+       String categoria = ListaCategoriasPrincipal.getSelectedValue();
+       nomCategoria.setText(categoria);
+       nomCategoria.enable(false);
+       DefaultListModel model = new DefaultListModel();
+       if (s.consultaVideosPorCategoria(categoria) != null) {
+        for(DTVideoUsuario v : s.consultaVideosPorCategoria(categoria)) {
+             String video = v.getVideo() + "(" + v.getUsuario() + ")";
+             model.addElement(video);
+         }
+         NombreUsuarioVideo.setModel(model);
+       }
+       
+       if (s.consultaListasPorCategoria(categoria) != null){
+        DefaultListModel model1 = new DefaultListModel();
+        for(DTListaUsuario l : s.consultaListasPorCategoria(categoria)) {
+            String lista = l.getLista() + "(" + l.getUsuario() + ")";
+            model1.addElement(lista);
+        }
+        NombreUsuarioListaRep.setModel(model1);
+       }
+              
+       centrar(OpcionesCategoria, VerCategorias);
+    }//GEN-LAST:event_ListarCategoriasButtionActionPerformed
+
+    private void CambioDescripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambioDescripActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CambioDescripActionPerformed
+
+    private void ModifListaRepButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifListaRepButtonActionPerformed
+    String listaNombre = ListasReprod.getSelectedValue();
+    String usuario = this.usuarioSeleccionado.getNickname();
+    DTLista lista = s.consultaLista(usuario, listaNombre);
+    CategoriaListaRep.removeAllItems();
+    for (DTCategoria c : m.getCategorias()){
+        CategoriaListaRep.addItem(c.getNombre());
+    }
+       
+    if(this.usuarioSeleccionado != null){
+        DefaultListModel model = new DefaultListModel();
+        for(DTLista l : s.listasParticulares(this.usuarioSeleccionado.getNickname()))
+            model.addElement(l.getNombre());
+        listasConsultarLista.setModel(model);
+    }
+    
+        
+    MostrarNombre.setText(lista.getNombre());
+    Privacidad.setSelected(lista.isPrivado());
+    String tipo;
+    if (lista.isPorDefecto()== true){
+        tipo = "Por Defecto";
+    }
+    else{
+        tipo= "Particular";
+    }
+    MostrarTipo.setText(tipo);
+    CategoriaListaRep.setSelectedItem(lista.getCategoria());
+    
+    MostrarNombre.enable(false);
+    MostrarTipo.enable(false);
+    centrar(verLista, VerUsuario);
+    }//GEN-LAST:event_ModifListaRepButtonActionPerformed
+
+    private void ModifVideosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifVideosButtonActionPerformed
+        DefaultListModel model = new DefaultListModel();
+        for(String v : s.listarVideos(this.usuarioSeleccionado.getNickname())) {
+            model.addElement(v);
+        }
+        ListaVideos.setModel(model);
+        
+        CambioCategorias.removeAllItems();
+        for (DTCategoria c : m.getCategorias()){
+            CambioCategorias.addItem(c.getNombre());
+        }
+        DTVideo video;
+        if (this.videoSeleccionado != null){
+            video = s.consultarVideo(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
+            if (video.getNombre() != null && !video.getNombre().isEmpty())
+                CambioNombre.setText(video.getNombre());
+            if (video.getUrl() != null && !video.getUrl().isEmpty())
+                CambioUrrl.setText(video.getUrl());
+            if (video.getDescripcion() != null && !video.getDescripcion().isEmpty())
+                CambioDescrip.setText(video.getDescripcion());
+            if(video.getDuracion() != null && !video.getDuracion().isEmpty())
+                CambioDuracion.setText(video.getDuracion());
+            if(video.getFecha() != null)
+                cambioFecha.setDate(video.getFecha());
+            if (video.getCategoria().isEmpty() || video.getCategoria() == null)
+                CambioCategorias.setSelectedIndex(0);
+            else
+                CambioCategorias.setSelectedItem(video.getCategoria());
+            if (video.isPrivado() == true)
+                PrivadoCheck.setSelected(true);
+           
+             //Cargar Valoraciones
+            DefaultListModel model1 = new DefaultListModel();
+            List<String> listaMG = s.listarMG(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
+            if(!(listaMG.isEmpty()) && listaMG != null){
+                for (String mg : listaMG)
+                    model1.addElement(mg);
+            }
+            ListaMeGusta.setModel(model1);
+            
+            DefaultListModel model2 = new DefaultListModel();
+            List<String> listaNMG = s.listarNMG(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
+            if(!(listaNMG.isEmpty()) && listaNMG != null){
+                for (String nmg : listaNMG)
+                    model2.addElement(nmg);
+            }
+            ListaNoMeGusta.setModel(model2);
+            
+            //Cargar comboBox usuarios para comentarios y valoraciones
+            usuarioValora.removeAllItems();
+            for (String u : m.listarUsuarios()){
+                if(!u.equals(this.usuarioSeleccionado.getNickname()))
+                    usuarioValora.addItem(u);
+            }
+            
+            centrar(VerVideo, VerUsuario);
+        }
+        else
+            JOptionPane.showMessageDialog(this, "Video no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_ModifVideosButtonActionPerformed
+
+    private void ConfirmCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmCambiosActionPerformed
+        s.modificarUsuario(nickname.getText(), Contrasenia.getText(), ModifNombre.getText(), ModifApellido.getText(), 
+            FechaVerUsuario.getDate(), PanelImagen.toString(), "");
+        JOptionPane.showMessageDialog(this, "Usuario modificado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_ConfirmCambiosActionPerformed
+
+    private void ComentarVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComentarVideoButtonActionPerformed
+        // TODO add your handling code here:
+        String usuarioComentario = usuarioValora.getSelectedItem().toString();
+        String comentarioTexto = ComentarioComent.getText().toString();
+        DTComentario comentario = new DTComentario(usuarioComentario, comentarioTexto);
+        if(!(this.ComentarioComent.getText().equals(""))){
+            DefaultMutableTreeNode select = (DefaultMutableTreeNode) Comentarios.getLastSelectedPathComponent();
+            Integer SelectedId;
+            if(select!=null)
+                SelectedId = select.getIndex(select);
+            else
+                SelectedId=0;
+            s.comentarVideo(this.usuarioSeleccionado.getNickname(), comentario, this.videoSeleccionado, SelectedId);
+            
+            //PopulateTree(Comentarios);
+        }        
+    }//GEN-LAST:event_ComentarVideoButtonActionPerformed
+
+//    private void PopulateTree(JTree tree){
+//        DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("General");
+//        CreCatTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+//        
+//        Categoria categoria=is.GetCategoria();
+//        DefaultTreeModel model = (DefaultTreeModel)tree.getModel();
+//        DefaultMutableTreeNode root = (DefaultMutableTreeNode)model.getRoot();
+//        Iterator it = categoria.getHijos().iterator();
+//        while(it.hasNext()){
+//            root.add(RecursivePopulate((Categoria)it.next()));
+//        }
+//        model.reload(root);
+//        tree.revalidate();   
+//        
+//    }
+//    
+//    private DefaultMutableTreeNode RecursivePopulate(Categoria c){
+//        DefaultMutableTreeNode nodo= new DefaultMutableTreeNode(c.getNombreCat());
+//        Iterator it=c.getHijos().iterator();
+//        Categoria aux;
+//        while(it.hasNext()){
+//            aux=(Categoria)it.next();
+//            nodo.add(RecursivePopulate(aux));
+//        }
+//        return nodo;
+//    }
+    
+    private void confirmarCambiosVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarCambiosVideoActionPerformed
+        DTVideo video = new DTVideo(CambioNombre.getText(), CambioDescrip.getText(), DuracionVideo.getText(), cambioFecha.getDate(), 
+                CambioUrrl.getText(), PrivadoCheck.isSelected(), Arrays.toString(CambioCategorias.getSelectedObjects()));
+        s.modificarVideo(video, this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
+        JOptionPane.showMessageDialog(this, "Video modificado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
+    }//GEN-LAST:event_confirmarCambiosVideoActionPerformed
+
+    private void SeguirBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeguirBotonActionPerformed
+        ASeguir.removeAllItems();
+        List<String> seguidos = this.usuarioSeleccionado.getSeguidos();
+        for (DTUsuario u : m.getUsuarios()){
+            if (seguidos.contains(u.getNickname()) == false && !u.equals(this.usuarioSeleccionado.getNickname()))
+            ASeguir.addItem(u.getNickname());
+        }
+        centrar(SeguirUsuario, OperacionesSobreUsuarios);
+    }//GEN-LAST:event_SeguirBotonActionPerformed
+
+    private void DuracionVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DuracionVideoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_DuracionVideoActionPerformed
+
+    private void ModifApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ModifApellidoActionPerformed
+
+    private void ASeguirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ASeguirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ASeguirActionPerformed
+
+    private void CambioCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambioCategoriasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CambioCategoriasActionPerformed
+
+    private void PrivadoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrivadoCheckActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PrivadoCheckActionPerformed
+
+    private void CambioNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambioNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CambioNombreActionPerformed
+
+    private void JFileCImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JFileCImagenActionPerformed
+    JFileChooser file = new JFileChooser();
+        file.setCurrentDirectory(new File(System.getProperty("user.home")));
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images", "jpg","png");
+        file.addChoosableFileFilter(filter);
+        int result = file.showSaveDialog(null);
+            if(result == JFileChooser.APPROVE_OPTION){
+                File selectedFile = file.getSelectedFile();
+                String path = selectedFile.getAbsolutePath();
+                ImageIcon Imagen = new ImageIcon(path);
+                CuadroImagen.setIcon(Imagen);
+                CuadroImagen.setText(path);
+            }
+        else if(result == JFileChooser.CANCEL_OPTION){
+              System.out.println("No hay Seleccion");
+        }
+    }//GEN-LAST:event_JFileCImagenActionPerformed
+
+    private void ComentarioComentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComentarioComentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComentarioComentActionPerformed
+
+    private void ListVideosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListVideosValueChanged
+        this.videoSeleccionado = ListVideos.getSelectedValue();
+    }//GEN-LAST:event_ListVideosValueChanged
+
+    private void ListasReprodValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListasReprodValueChanged
+
+    }//GEN-LAST:event_ListasReprodValueChanged
+
+    private void ListaUsuariosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaUsuariosValueChanged
+        String usuario = ListaUsuarios.getSelectedValue();
+        if (usuario != null)
+        this.usuarioSeleccionado = s.consultaUsuario(usuario);
+    }//GEN-LAST:event_ListaUsuariosValueChanged
+
     private void M4IConsultarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M4IConsultarCategoriaActionPerformed
         DefaultListModel model = new DefaultListModel();
         for(DTCategoria c : m.getCategorias()) {
@@ -2354,6 +2924,125 @@ public class Sistema extends javax.swing.JFrame {
         ListarCategoriasButtion.setVisible(true);
         centrar(VerCategorias);
     }//GEN-LAST:event_M4IConsultarCategoriaActionPerformed
+
+    private void ListaVideosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaVideosValueChanged
+        String v = ListaVideos.getSelectedValue();
+        if (v != null)
+            this.videoSeleccionado = v;
+        DTVideo video;
+        if (this.videoSeleccionado != null){
+            video = s.consultarVideo(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
+            if (video.getNombre() != null && !video.getNombre().isEmpty())
+                CambioNombre.setText(video.getNombre());
+            if (video.getUrl() != null && !video.getUrl().isEmpty())
+                CambioUrrl.setText(video.getUrl());
+            if (video.getDescripcion() != null && !video.getDescripcion().isEmpty())
+                CambioDescrip.setText(video.getDescripcion());
+            if(video.getDuracion() != null && !video.getDuracion().isEmpty())
+                CambioDuracion.setText(video.getDuracion());
+            if(video.getFecha() != null)
+                cambioFecha.setDate(video.getFecha());
+            if (video.getCategoria().isEmpty() || video.getCategoria() == null)
+                CambioCategorias.setSelectedIndex(0);
+            else
+                CambioCategorias.setSelectedItem(video.getCategoria());
+            if (video.isPrivado() == true)
+                PrivadoCheck.setSelected(true);
+           
+             //Cargar Valoraciones
+            DefaultListModel model1 = new DefaultListModel();
+            List<String> listaMG = s.listarMG(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
+            if(!(listaMG.isEmpty()) && listaMG != null){
+                for (String mg : listaMG)
+                    model1.addElement(mg);
+            }
+            ListaMeGusta.setModel(model1);
+            
+            DefaultListModel model2 = new DefaultListModel();
+            List<String> listaNMG = s.listarNMG(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
+            if(!(listaNMG.isEmpty()) && listaNMG != null){
+                for (String nmg : listaNMG)
+                    model2.addElement(nmg);
+            }
+            ListaNoMeGusta.setModel(model2);
+            
+        }
+        else
+            JOptionPane.showMessageDialog(this, "Video no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_ListaVideosValueChanged
+
+    private void ListSeguidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListSeguidosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ListSeguidosActionPerformed
+
+    private void SeguirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeguirButtonActionPerformed
+        if (ASeguir.getSelectedIndex() == 0)
+            JOptionPane.showMessageDialog(this, "Seleccione un usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+        else{
+            String u = ASeguir.getSelectedItem().toString();
+            if(u != null){
+                s.seguirUsuario(this.usuarioSeleccionado.getNickname(), u);
+                JOptionPane.showMessageDialog(this, "Usuario Seguido.", "Exito", JOptionPane.INFORMATION_MESSAGE);
+            }else
+                JOptionPane.showMessageDialog(this, "Usuario no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_SeguirButtonActionPerformed
+
+    private void DejarDeSeguirBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DejarDeSeguirBotonActionPerformed
+        ListSeguidos.removeAllItems();
+        for (String u : this.usuarioSeleccionado.getSeguidos())
+            ListSeguidos.addItem(u);
+
+        centrar(DejarSeguir, OperacionesSobreUsuarios);
+    }//GEN-LAST:event_DejarDeSeguirBotonActionPerformed
+
+    private void SeguirButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeguirButton1ActionPerformed
+        if (ListSeguidos.getSelectedIndex() == 0)
+            JOptionPane.showMessageDialog(this, "Seleccione un usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+        else{
+            String u = ListSeguidos.getSelectedItem().toString();
+            if (u == null)
+                JOptionPane.showMessageDialog(this, "Usuario no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
+            else{
+                s.dejarDeSeguirUsuario(this.usuarioSeleccionado.getNickname(), u);
+                JOptionPane.showMessageDialog(this, "Dejo de seguir al usuario.", "Exito", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_SeguirButton1ActionPerformed
+
+    private void MeGustaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MeGustaButtonActionPerformed
+        DTValoracion v = null;
+        String user = usuarioValora.getSelectedItem().toString();;
+       
+        if (this.videoSeleccionado != null && user != null){
+            v = new DTValoracion(true, user, this.videoSeleccionado);
+            s.valorarVideo(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado, v);
+            JOptionPane.showMessageDialog(this, "Video valorado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_MeGustaButtonActionPerformed
+
+    private void NoMeGustaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoMeGustaButtonActionPerformed
+        DTValoracion v = null;
+        String user = usuarioValora.getSelectedItem().toString();
+        
+        if (this.videoSeleccionado != null && user != null){
+            v = new DTValoracion(false, user, this.videoSeleccionado);
+            s.valorarVideo(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado, v);
+            JOptionPane.showMessageDialog(this, "Video valorado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_NoMeGustaButtonActionPerformed
+
+    private void ListaNoMeGustaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaNoMeGustaValueChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ListaNoMeGustaValueChanged
+
+    private void ListaMeGustaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaMeGustaValueChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ListaMeGustaValueChanged
+
+    private void CambioUrrlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambioUrrlActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CambioUrrlActionPerformed
 
     private void M3IAgregarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M3IAgregarVideoActionPerformed
 //        UsuAgregarVideo1.removeAllItems();
@@ -2396,6 +3085,183 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_M3IQuitarVideoActionPerformed
 
         
+    private void ModifImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifImagenActionPerformed
+        JFileChooser file = new JFileChooser();
+        file.setCurrentDirectory(new File(System.getProperty("user.home")));
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images", "jpg","png");
+        file.addChoosableFileFilter(filter);
+        int result = file.showSaveDialog(null);
+            if(result == JFileChooser.APPROVE_OPTION){
+                File selectedFile = file.getSelectedFile();
+                String path = selectedFile.getAbsolutePath();
+                ImageIcon Imagen = new ImageIcon(path);
+                PanelImagen.setIcon(Imagen);
+                PanelImagen.setText(path);
+            }
+            else if(result == JFileChooser.CANCEL_OPTION){
+                System.out.println("No hay Seleccion");
+            }
+    }//GEN-LAST:event_ModifImagenActionPerformed
+
+    private void listasConsultarListaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listasConsultarListaValueChanged
+    String listaNombre = listasConsultarLista.getSelectedValue().toString();
+    DTLista lista = s.consultaLista(this.usuarioSeleccionado.getNickname(), listaNombre);
+    MostrarNombre.setText(lista.getNombre());
+    Privacidad.setSelected(lista.isPrivado());
+    String tipo;
+    if (lista.isPorDefecto()== true){
+        tipo = "Por Defecto";
+    }
+    else{
+        tipo= "Particular";
+    }
+    MostrarTipo.setText(tipo);
+    CategoriaListaRep.setSelectedItem(lista.getCategoria());
+    
+    MostrarNombre.enable(false);
+    MostrarTipo.enable(false);
+       
+    
+    
+    }//GEN-LAST:event_listasConsultarListaValueChanged
+
+    private void ModificarListaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarListaUsuarioActionPerformed
+    // boton modif lista
+    
+    //cargar categoria de la lista
+    CategoriaListaRep.removeAllItems();
+    for (DTCategoria c : m.getCategorias()){
+        CategoriaListaRep.addItem(c.getNombre());
+    }
+    
+    //cargar listas de usuario
+    if(this.usuarioSeleccionado != null){
+        DefaultListModel model = new DefaultListModel();
+        for(DTLista l : s.listasParticulares(this.usuarioSeleccionado.getNickname()))
+            model.addElement(l.getNombre());
+        listasConsultarLista.setModel(model);
+    }
+    
+    MostrarNombre.enable(false);
+    MostrarTipo.enable(false);
+    centrar(verLista, OperacionesSobreUsuarios);
+    }//GEN-LAST:event_ModificarListaUsuarioActionPerformed
+
+    private void confirmarCambiosListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarCambiosListaActionPerformed
+        if(this.usuarioSeleccionado.getNombre() != null && !this.usuarioSeleccionado.getNombre().isEmpty()){
+            if (!MostrarNombre.getText().isEmpty() && MostrarNombre.getText() != null){
+                s.modificarListaPart(this.usuarioSeleccionado.getNickname(), MostrarNombre.getText(), 
+                CategoriaListaRep.getSelectedItem().toString(), Privacidad.isSelected());
+                JOptionPane.showMessageDialog(this, "Lista de reproduccion modificada.", "Exito", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else
+                JOptionPane.showMessageDialog(this, "Lista no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+            JOptionPane.showMessageDialog(this, "Usuario no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
+        
+    }//GEN-LAST:event_confirmarCambiosListaActionPerformed
+
+    private void UsuAgregarVideo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuAgregarVideo1ActionPerformed
+//        if(UsuAgregarVideo1.)
+//        this.usuarioSeleccionado = s.consultaUsuario(UsuAgregarVideo1.getSelectedItem().toString());
+//        //VideosAgregar1.removeAll();
+//        
+//        DefaultListModel model = new DefaultListModel();
+//        for (String v : s.listarVideos(UsuAgregarVideo1.getSelectedItem().toString()))
+//                model.addElement(v);
+//        VideosAgregar1.setModel(model);
+    }//GEN-LAST:event_UsuAgregarVideo1ActionPerformed
+
+    private void UsuAgregarLista1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuAgregarLista1ActionPerformed
+//        DefaultListModel model = new DefaultListModel();
+//        for (String l : s.listarListas(UsuAgregarLista1.getSelectedItem().toString()))
+//                model.addElement(l);
+//        ListasAgregar1.setModel(model);
+    }//GEN-LAST:event_UsuAgregarLista1ActionPerformed
+
+    private void BotonAgregarALista1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarALista1ActionPerformed
+        if (VideosAgregar1.getSelectedValue() == null)
+            JOptionPane.showMessageDialog(this, "Seleccione un video.", "Error", JOptionPane.ERROR_MESSAGE);
+        if (ListasAgregar1.getSelectedValue() == null)
+            JOptionPane.showMessageDialog(this, "Seleccione una lista.", "Error", JOptionPane.ERROR_MESSAGE);
+        if(UsuAgregarVideo1.getSelectedItem().toString() != null &&
+            VideosAgregar1.getSelectedValue() != null && UsuAgregarLista1.getSelectedItem().toString() != null &&
+            ListasAgregar1.getSelectedValue() != null){
+                s.agregarVideoAlista(UsuAgregarVideo1.getSelectedItem().toString(), VideosAgregar1.getSelectedValue(),
+                UsuAgregarLista1.getSelectedItem().toString(), ListasAgregar1.getSelectedValue());
+                JOptionPane.showMessageDialog(this, "Video agregado", "Exito", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }//GEN-LAST:event_BotonAgregarALista1ActionPerformed
+
+    private void UsuQuitarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuQuitarVideoActionPerformed
+        //Cargar lista de listas
+        DefaultListModel model2 = new DefaultListModel();
+        if(UsuQuitarVideo.getSelectedItem() != null){
+            for(String l : s.listarListas(UsuQuitarVideo.getSelectedItem().toString())) {
+                model2.addElement(l);
+            }
+            ListasQuitar.setModel(model2);
+        }
+        else
+             JOptionPane.showMessageDialog(this, "Seleccione un usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_UsuQuitarVideoActionPerformed
+
+    private void ListasQuitarValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListasQuitarValueChanged
+        if(UsuQuitarVideo.getSelectedItem() != null){
+//            if (ListasQuitar.getSelectedValue() != null){
+                DefaultListModel model = new DefaultListModel();
+                for(String v : s.listarVideosLista(UsuQuitarVideo.getSelectedItem().toString(), ListasQuitar.getSelectedValue())) {
+                    model.addElement(v);
+                }
+                VideosQuitar.setModel(model);
+//            }
+//            else
+//                JOptionPane.showMessageDialog(this, "Seleccione una lista.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+            JOptionPane.showMessageDialog(this, "Seleccione un usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+    }//GEN-LAST:event_ListasQuitarValueChanged
+
+    private void BotonQuitarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonQuitarVideoActionPerformed
+         if(UsuQuitarVideo.getSelectedItem() != null){
+            if (ListasQuitar.getSelectedValue() != null){
+                if(VideosQuitar.getSelectedValue() != null){
+                    s.quitarVideoDeLista(UsuQuitarVideo.getSelectedItem().toString(), VideosQuitar.getSelectedValue(), ListasQuitar.getSelectedValue());
+                    JOptionPane.showMessageDialog(this, "Video removido de la lista", "Exito", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else
+                    JOptionPane.showMessageDialog(this, "Seleccione un video.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+            else
+                JOptionPane.showMessageDialog(this, "Seleccione una lista.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        else
+            JOptionPane.showMessageDialog(this, "Seleccione un usuario.", "Error", JOptionPane.ERROR_MESSAGE);
+        
+    }//GEN-LAST:event_BotonQuitarVideoActionPerformed
+
+    private void UsuAgregarVideo1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_UsuAgregarVideo1ItemStateChanged
+        if(UsuAgregarVideo1.getSelectedItem().toString() != null && !UsuAgregarVideo1.getSelectedItem().toString().isEmpty()){
+            this.usuarioSeleccionado = s.consultaUsuario(UsuAgregarVideo1.getSelectedItem().toString());
+             //VideosAgregar1.removeAll();
+
+             DefaultListModel model = new DefaultListModel();
+             for (String v : s.listarVideos(UsuAgregarVideo1.getSelectedItem().toString()))
+                     model.addElement(v);
+             VideosAgregar1.setModel(model);
+        }
+    }//GEN-LAST:event_UsuAgregarVideo1ItemStateChanged
+
+    private void UsuAgregarLista1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_UsuAgregarLista1ItemStateChanged
+        if(UsuAgregarLista1.getSelectedItem().toString()!= null && !UsuAgregarLista1.getSelectedItem().toString().isEmpty()){
+            DefaultListModel model = new DefaultListModel();
+            for (String l : s.listarListas(UsuAgregarLista1.getSelectedItem().toString()))
+                    model.addElement(l);
+            ListasAgregar1.setModel(model);
+        }
+    }//GEN-LAST:event_UsuAgregarLista1ItemStateChanged
+
     private void M3IConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M3IConsultaActionPerformed
         DefaultListModel model = new DefaultListModel();
         for (DTUsuario u : m.getUsuarios()){
@@ -2411,882 +3277,35 @@ public class Sistema extends javax.swing.JFrame {
         centrar(OperacionesSobreUsuarios);
     }//GEN-LAST:event_M3IConsultaActionPerformed
 
-    private void BotonAgregarALista1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonAgregarALista1ActionPerformed
-        if (VideosAgregar1.getSelectedValue() == null)
-        JOptionPane.showMessageDialog(this, "Seleccione un video.", "Error", JOptionPane.ERROR_MESSAGE);
-        if (ListasAgregar1.getSelectedValue() == null)
-        JOptionPane.showMessageDialog(this, "Seleccione una lista.", "Error", JOptionPane.ERROR_MESSAGE);
-        if(UsuAgregarVideo1.getSelectedItem().toString() != null &&
-            VideosAgregar1.getSelectedValue() != null && UsuAgregarLista1.getSelectedItem().toString() != null &&
-            ListasAgregar1.getSelectedValue() != null){
-            s.agregarVideoAlista(UsuAgregarVideo1.getSelectedItem().toString(), VideosAgregar1.getSelectedValue(),
-                UsuAgregarLista1.getSelectedItem().toString(), ListasAgregar1.getSelectedValue());
-            JOptionPane.showMessageDialog(this, "Video agregado", "Exito", JOptionPane.INFORMATION_MESSAGE);
-        }
-    }//GEN-LAST:event_BotonAgregarALista1ActionPerformed
-
-    private void UsuAgregarLista1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuAgregarLista1ActionPerformed
-        //        DefaultListModel model = new DefaultListModel();
-        //        for (String l : s.listarListas(UsuAgregarLista1.getSelectedItem().toString()))
-        //                model.addElement(l);
-        //        ListasAgregar1.setModel(model);
-    }//GEN-LAST:event_UsuAgregarLista1ActionPerformed
-
-    private void UsuAgregarLista1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_UsuAgregarLista1ItemStateChanged
-        if(UsuAgregarLista1.getSelectedItem().toString()!= null && !UsuAgregarLista1.getSelectedItem().toString().isEmpty()){
-            DefaultListModel model = new DefaultListModel();
-            for (String l : s.listarListas(UsuAgregarLista1.getSelectedItem().toString()))
-            model.addElement(l);
-            ListasAgregar1.setModel(model);
-        }
-    }//GEN-LAST:event_UsuAgregarLista1ItemStateChanged
-
-    private void UsuAgregarVideo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuAgregarVideo1ActionPerformed
-        //        if(UsuAgregarVideo1.)
-        //        this.usuarioSeleccionado = s.consultaUsuario(UsuAgregarVideo1.getSelectedItem().toString());
-        //        //VideosAgregar1.removeAll();
-        //
-        //        DefaultListModel model = new DefaultListModel();
-        //        for (String v : s.listarVideos(UsuAgregarVideo1.getSelectedItem().toString()))
-        //                model.addElement(v);
-        //        VideosAgregar1.setModel(model);
-    }//GEN-LAST:event_UsuAgregarVideo1ActionPerformed
-
-    private void UsuAgregarVideo1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_UsuAgregarVideo1ItemStateChanged
-        if(UsuAgregarVideo1.getSelectedItem().toString() != null && !UsuAgregarVideo1.getSelectedItem().toString().isEmpty()){
-            this.usuarioSeleccionado = s.consultaUsuario(UsuAgregarVideo1.getSelectedItem().toString());
-            //VideosAgregar1.removeAll();
-
-            DefaultListModel model = new DefaultListModel();
-            for (String v : s.listarVideos(UsuAgregarVideo1.getSelectedItem().toString()))
-            model.addElement(v);
-            VideosAgregar1.setModel(model);
-        }
-    }//GEN-LAST:event_UsuAgregarVideo1ItemStateChanged
-
-    private void ListasQuitarValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListasQuitarValueChanged
-        if(UsuQuitarVideo.getSelectedItem() != null){
-            if (ListasQuitar.getSelectedValue() != null){
-                DefaultListModel model = new DefaultListModel();
-                for(String v : s.listarVideosLista(UsuQuitarVideo.getSelectedItem().toString(), ListasQuitar.getSelectedValue())) {
-                    model.addElement(v);
-                }
-                VideosQuitar.setModel(model);
-            }
-            else
-                JOptionPane.showMessageDialog(this, "Seleccione una lista.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        else
-        JOptionPane.showMessageDialog(this, "Seleccione un usuario.", "Error", JOptionPane.ERROR_MESSAGE);
-    }//GEN-LAST:event_ListasQuitarValueChanged
-
-    private void BotonQuitarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonQuitarVideoActionPerformed
-        if(UsuQuitarVideo.getSelectedItem() != null){
-            if (ListasQuitar.getSelectedValue() != null){
-                if(VideosQuitar.getSelectedValue() != null){
-                    s.quitarVideoDeLista(UsuQuitarVideo.getSelectedItem().toString(), VideosQuitar.getSelectedValue(), ListasQuitar.getSelectedValue());
-                    JOptionPane.showMessageDialog(this, "Video removido de la lista", "Exito", JOptionPane.INFORMATION_MESSAGE);
-                }
-                else
-                JOptionPane.showMessageDialog(this, "Seleccione un video.", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-            else
-            JOptionPane.showMessageDialog(this, "Seleccione una lista.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        else
-        JOptionPane.showMessageDialog(this, "Seleccione un usuario.", "Error", JOptionPane.ERROR_MESSAGE);
-
-    }//GEN-LAST:event_BotonQuitarVideoActionPerformed
-
-    private void UsuQuitarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuQuitarVideoActionPerformed
-        //Cargar lista de listas
-        DefaultListModel model2 = new DefaultListModel();
-        if(UsuQuitarVideo.getSelectedItem() != null){
-            for(String l : s.listarListas(UsuQuitarVideo.getSelectedItem().toString())) {
-                model2.addElement(l);
-            }
-            ListasQuitar.setModel(model2);
-        }
-        else
-        JOptionPane.showMessageDialog(this, "Seleccione un usuario.", "Error", JOptionPane.ERROR_MESSAGE);
-    }//GEN-LAST:event_UsuQuitarVideoActionPerformed
-
-    private void DuracionVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DuracionVideoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DuracionVideoActionPerformed
-
-    private void UsuarioComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsuarioComboBox1ActionPerformed
-
-    private void AltaVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AltaVideoButtonActionPerformed
-        String duracion;
-        boolean priv;
-        if (DuracionVideo.getText() == null)
-        duracion = "0";
-        else
-        duracion = DuracionVideo.getText();
-        if (PrivacidadCheckbox.isSelected() == true)
-        priv = true;
-        else
-        priv = false;
-
-        if (EntradaNomVid.getText().isEmpty() || EntradaNomVid.getText() == null ||
-            EntradaURLVid.getText().isEmpty() || EntradaURLVid.getText() == null ||
-            CategoriaComboBox.getSelectedItem().toString().isEmpty() || CategoriaComboBox.getSelectedItem().toString() == null)
-        JOptionPane.showMessageDialog(this, "Campos vacios", "Error", JOptionPane.ERROR_MESSAGE);
-        else{
-            DTVideo video = new DTVideo (EntradaNomVid.getText(), DescVideo.getText(), duracion, jDateChooserAltaVideo.getDate() ,
-            EntradaURLVid.getText(), priv, CategoriaComboBox.getSelectedItem().toString());
-            s.altaVideo(video, UsuarioComboBox1.getSelectedItem().toString());
-            JOptionPane.showMessageDialog(this, "Video creado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
-            EntradaNomVid.setText("");
-            DescVideo.setText("");
-            DuracionVideo.setText("");
-            jDateChooserAltaVideo.setDate(new Date());
-            EntradaURLVid.setText("");
-            PrivacidadCheckbox.setSelected(false);
-            CategoriaComboBox.setSelectedIndex(0);
-        }
-    }//GEN-LAST:event_AltaVideoButtonActionPerformed
-
-    private void ListSeguidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListSeguidosActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListSeguidosActionPerformed
-
-    private void SeguirButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeguirButton1ActionPerformed
-        if (ListSeguidos.getSelectedIndex() == 0)
-        JOptionPane.showMessageDialog(this, "Seleccione un usuario.", "Error", JOptionPane.ERROR_MESSAGE);
-        else{
-            String u = ListSeguidos.getSelectedItem().toString();
-            if (u == null)
-            JOptionPane.showMessageDialog(this, "Usuario no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
-            else{
-                s.dejarDeSeguirUsuario(this.usuarioSeleccionado.getNickname(), u);
-                JOptionPane.showMessageDialog(this, "Dejo de seguir al usuario.", "Exito", JOptionPane.INFORMATION_MESSAGE);
-            }
-        }
-    }//GEN-LAST:event_SeguirButton1ActionPerformed
-
-    private void confirmarCambiosListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarCambiosListaActionPerformed
-        if(this.usuarioSeleccionado.getNombre() != null && !this.usuarioSeleccionado.getNombre().isEmpty()){
-            if (!MostrarNombre.getText().isEmpty() && MostrarNombre.getText() != null){
-                s.modificarListaPart(this.usuarioSeleccionado.getNickname(), MostrarNombre.getText(),
-                    CategoriaListaRep.getSelectedItem().toString(), Privacidad.isSelected());
-                JOptionPane.showMessageDialog(this, "Lista de reproduccion modificada.", "Exito", JOptionPane.INFORMATION_MESSAGE);
-            }
-            else
-            JOptionPane.showMessageDialog(this, "Lista no encontrada.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        else
-        JOptionPane.showMessageDialog(this, "Usuario no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
-
-    }//GEN-LAST:event_confirmarCambiosListaActionPerformed
-
-    private void listasConsultarListaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listasConsultarListaValueChanged
-        String listaNombre = listasConsultarLista.getSelectedValue().toString();
-        DTLista lista = s.consultaLista(this.usuarioSeleccionado.getNickname(), listaNombre);
-        MostrarNombre.setText(lista.getNombre());
-        Privacidad.setSelected(lista.isPrivado());
-        String tipo;
-        if (lista.isPorDefecto()== true){
-            tipo = "Por Defecto";
-        }
-        else{
-            tipo= "Particular";
-        }
-        MostrarTipo.setText(tipo);
-        CategoriaListaRep.setSelectedItem(lista.getCategoria());
-
-        MostrarNombre.enable(false);
-        MostrarTipo.enable(false);
-
-    }//GEN-LAST:event_listasConsultarListaValueChanged
-
-    private void MostrarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MostrarNombreActionPerformed
-
-    private void AltaUsuarioInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_AltaUsuarioInternalFrameClosing
-        CuadroImagen.setIcon(null);
-        CuadroImagen.setText(null);
-        PanelImagen.setIcon(null);
-        PanelImagen.setText(null);
-    }//GEN-LAST:event_AltaUsuarioInternalFrameClosing
-
-    private void EntradaContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaContraseniaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EntradaContraseniaActionPerformed
-
-    private void RegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroActionPerformed
-        DTCanal canal = new DTCanal(EntradaNomCanal.getText(), EntradaDescripcionCanal.getText(), BotonPrivado.isSelected(), null, null);
-        DTUsuario usuario = new DTUsuario(EntradaNick.getText(),EntradaContrasenia.getText() , EntradaNombre.getText(), EntradaApellido.getText(),
-            EntradaCorreoEl.getText(), Fecha.getDate(), CuadroImagen.getText(), canal.getNombre());
-        if(!EntradaNick.getText().equals("") && !EntradaCorreoEl.getText().equals("")){
-            if(m.nicknameLibre(EntradaNick.getText())){
-                if(m.mailLibre(EntradaCorreoEl.getText())){
-                    s.altaUsuario(usuario, canal);
-                }
-                else{
-                    JOptionPane.showMessageDialog(this, "Email en uso", "Error", JOptionPane.ERROR_MESSAGE);
-                    return;
-                }
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "Nickname en uso", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-            JOptionPane.showMessageDialog(this, "Usuario creado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
-
-            this.EntradaNick.setText("");
-            this.EntradaNombre.setText("");
-            this.EntradaApellido.setText("");
-            this.EntradaCorreoEl.setText("");
-            this.CuadroImagen.setText("");
-            this.EntradaNomCanal.setText("");
-            this.EntradaDescripcionCanal.setText("");
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "Campos vacios", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_RegistroActionPerformed
-
-    private void EntradaDescripcionCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaDescripcionCanalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EntradaDescripcionCanalActionPerformed
-
-    private void EntradaNomCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaNomCanalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EntradaNomCanalActionPerformed
-
-    private void JFileCImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JFileCImagenActionPerformed
-        JFileChooser file = new JFileChooser();
-        file.setCurrentDirectory(new File(System.getProperty("user.home")));
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images", "jpg","png");
-        file.addChoosableFileFilter(filter);
-        int result = file.showSaveDialog(null);
-        if(result == JFileChooser.APPROVE_OPTION){
-            File selectedFile = file.getSelectedFile();
-            String path = selectedFile.getAbsolutePath();
-            ImageIcon Imagen = new ImageIcon(path);
-            CuadroImagen.setIcon(Imagen);
-            CuadroImagen.setText(path);
-        }
-        else if(result == JFileChooser.CANCEL_OPTION){
-            System.out.println("No hay Seleccion");
-        }
-    }//GEN-LAST:event_JFileCImagenActionPerformed
-
-    private void EntradaCorreoElActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaCorreoElActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EntradaCorreoElActionPerformed
-
-    private void EntradaApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EntradaApellidoActionPerformed
-
-    private void EntradaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EntradaNombreActionPerformed
-
-    private void EntradaNickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaNickActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EntradaNickActionPerformed
-
     private void ConsultaListaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaListaUsuarioActionPerformed
-        // boton consulta lista en Lista
-
+         // boton consulta lista en Lista
+        
         //cargar listas de usuario
         if(this.usuarioSeleccionado != null){
             DefaultListModel model = new DefaultListModel();
             for(String l : s.listarListas(this.usuarioSeleccionado.getNickname()))
-            model.addElement(l);
+                model.addElement(l);
             ListaDeListasRep1.setModel(model);
         }
-
+        
         centrar(ConsultaLista, OperacionesSobreUsuarios);
     }//GEN-LAST:event_ConsultaListaUsuarioActionPerformed
 
-    private void ModificarListaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModificarListaUsuarioActionPerformed
-        // boton modif lista
-
-        //cargar categoria de la lista
-        CategoriaListaRep.removeAllItems();
-        for (DTCategoria c : m.getCategorias()){
-            CategoriaListaRep.addItem(c.getNombre());
-        }
-
-        //cargar listas de usuario
-        if(this.usuarioSeleccionado != null){
-            DefaultListModel model = new DefaultListModel();
-            for(DTLista l : s.listasParticulares(this.usuarioSeleccionado.getNickname()))
-            model.addElement(l.getNombre());
-            listasConsultarLista.setModel(model);
-        }
-
-        MostrarNombre.enable(false);
-        MostrarTipo.enable(false);
-        centrar(verLista, OperacionesSobreUsuarios);
-    }//GEN-LAST:event_ModificarListaUsuarioActionPerformed
-
-    private void DejarDeSeguirBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DejarDeSeguirBotonActionPerformed
-        ListSeguidos.removeAllItems();
-        for (String u : this.usuarioSeleccionado.getSeguidos())
-        ListSeguidos.addItem(u);
-
-        centrar(DejarSeguir, OperacionesSobreUsuarios);
-    }//GEN-LAST:event_DejarDeSeguirBotonActionPerformed
-
-    private void ListaUsuariosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaUsuariosValueChanged
-        String usuario = ListaUsuarios.getSelectedValue();
-        if (usuario != null)
-        this.usuarioSeleccionado = s.consultaUsuario(usuario);
-    }//GEN-LAST:event_ListaUsuariosValueChanged
-
-    private void ModifVideosUsuarioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifVideosUsuarioButtonActionPerformed
-        DefaultListModel model = new DefaultListModel();
-        for(String v : s.listarVideos(this.usuarioSeleccionado.getNickname())) {
-            model.addElement(v);
-        }
-        ListaVideos.setModel(model);
-
-        CambioCategorias.removeAllItems();
-        for (DTCategoria c : m.getCategorias()){
-            CambioCategorias.addItem(c.getNombre());
-        }
-
-        //Cargar comboBox usuarios para comentarios y valoraciones
-        usuarioValora.removeAllItems();
-        for (String u : m.listarUsuarios()){
-            if(!u.equals(this.usuarioSeleccionado.getNickname()))
-            usuarioValora.addItem(u);
-        }
-
-        centrar(VerVideo, OperacionesSobreUsuarios);
-    }//GEN-LAST:event_ModifVideosUsuarioButtonActionPerformed
-
-    private void SeguirBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeguirBotonActionPerformed
-        ASeguir.removeAllItems();
-        List<String> seguidos = this.usuarioSeleccionado.getSeguidos();
-        for (DTUsuario u : m.getUsuarios()){
-            if (seguidos.contains(u.getNickname()) == false && !u.equals(this.usuarioSeleccionado.getNickname()))
-            ASeguir.addItem(u.getNickname());
-        }
-        centrar(SeguirUsuario, OperacionesSobreUsuarios);
-    }//GEN-LAST:event_SeguirBotonActionPerformed
-
-    private void ConsultaModifDatosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultaModifDatosActionPerformed
-        nickname.setText(this.usuarioSeleccionado.getNickname());
-        email.setText(this.usuarioSeleccionado.getEmail());
-        nickname.enable(false);
-        email.enable(false);
-        FechaVerUsuario.setDate(this.usuarioSeleccionado.getFechaNac());
-        ModifNombre.setText(this.usuarioSeleccionado.getNombre());
-        ModifApellido.setText(this.usuarioSeleccionado.getApellido());
-
-        //Cargar lista videos
-        DefaultListModel model = new DefaultListModel();
-        for(String v : s.listarVideos(this.usuarioSeleccionado.getNickname())) {
-            model.addElement(v);
-        }
-        ListVideos.setModel(model);
-
-        //Cargar lista de listas
-        DefaultListModel model2 = new DefaultListModel();
-        for(String l : s.listarListas(this.usuarioSeleccionado.getNickname())) {
-            model2.addElement(l);
-        }
-        ListasReprod.setModel(model2);
-
-        //cargar seguidores
-        DefaultListModel model3 = new DefaultListModel();
-        for(String seg : s.consultaUsuario(this.usuarioSeleccionado.getNickname()).getSeguidores()) {
-            model3.addElement(seg);
-        }
-        ListaSeguidores.setModel(model3);
-
-        //Cargar seguidos
-        DefaultListModel model4 = new DefaultListModel();
-        for(String x : s.consultaUsuario(this.usuarioSeleccionado.getNickname()).getSeguidos()) {
-            model4.addElement(x);
-        }
-        ListaSeguidos.setModel(model4);
-
-        //Carga Imagen
-        ImageIcon ImagenM = new ImageIcon(this.usuarioSeleccionado.getImagen());
-        String pathM = this.usuarioSeleccionado.getImagen();
-        PanelImagen.setIcon(ImagenM);
-        PanelImagen.setText(pathM);
-
-        centrar(VerUsuario, OperacionesSobreUsuarios);
-    }//GEN-LAST:event_ConsultaModifDatosActionPerformed
-
-    private void ListarCategoriasButtionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarCategoriasButtionActionPerformed
-        String categoria = ListaCategoriasPrincipal.getSelectedValue();
-        nomCategoria.setText(categoria);
-        nomCategoria.enable(false);
-        DefaultListModel model = new DefaultListModel();
-        if (s.consultaVideosPorCategoria(categoria) != null) {
-            for(DTVideoUsuario v : s.consultaVideosPorCategoria(categoria)) {
-                String video = v.getVideo() + "(" + v.getUsuario() + ")";
-                model.addElement(video);
-            }
-            NombreUsuarioVideo.setModel(model);
-        }
-
-        if (s.consultaListasPorCategoria(categoria) != null){
-            DefaultListModel model1 = new DefaultListModel();
-            for(DTListaUsuario l : s.consultaListasPorCategoria(categoria)) {
-                String lista = l.getLista() + "(" + l.getUsuario() + ")";
-                model1.addElement(lista);
-            }
-            NombreUsuarioListaRep.setModel(model1);
-        }
-
-        centrar(OpcionesCategoria, VerCategorias);
-    }//GEN-LAST:event_ListarCategoriasButtionActionPerformed
-
-    private void AgragarCategoriaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgragarCategoriaButtonActionPerformed
-        DTCategoria cat = new DTCategoria(AgregarCategoria.getText());
-        if(!AgregarCategoria.getText().equals("")){
-            if(m.nombreCategoriaLibre(AgregarCategoria.getText())){
-                s.altaCategoria(cat);
-                AgregarCategoria.setText("");
-                DefaultListModel model = new DefaultListModel();
-                for(DTCategoria c : m.getCategorias()) {
-                    model.addElement(c.getNombre());
-                }
-                ListaCategoriasPrincipal.setModel(model);
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "Nombre de categoría en uso", "Error", JOptionPane.ERROR_MESSAGE);
-                return;
-            }
-        }
-        else
-        JOptionPane.showMessageDialog(this, "Campos vacios", "Error", JOptionPane.ERROR_MESSAGE);
-    }//GEN-LAST:event_AgragarCategoriaButtonActionPerformed
-
-    private void AgregarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCategoriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AgregarCategoriaActionPerformed
-
-    private void VerUsuarioInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_VerUsuarioInternalFrameClosing
-        CuadroImagen.setIcon(null);
-        CuadroImagen.setText(null);
-        PanelImagen.setIcon(null);
-        PanelImagen.setText(null);
-    }//GEN-LAST:event_VerUsuarioInternalFrameClosing
-
-    private void ListasReprodValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListasReprodValueChanged
-
-    }//GEN-LAST:event_ListasReprodValueChanged
-
-    private void ListVideosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListVideosValueChanged
-        this.videoSeleccionado = ListVideos.getSelectedValue();
-    }//GEN-LAST:event_ListVideosValueChanged
-
-    private void ConfirmCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmCambiosActionPerformed
-        s.modificarUsuario(nickname.getText(), ModifNombre.getText(), ModifApellido.getText(),
-        FechaVerUsuario.getDate(), PanelImagen.toString(), "");
-        JOptionPane.showMessageDialog(this, "Usuario modificado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_ConfirmCambiosActionPerformed
-
-    private void ModifListaRepButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifListaRepButtonActionPerformed
-        String listaNombre = ListasReprod.getSelectedValue();
-        String usuario = this.usuarioSeleccionado.getNickname();
-        DTLista lista = s.consultaLista(usuario, listaNombre);
-        CategoriaListaRep.removeAllItems();
-        for (DTCategoria c : m.getCategorias()){
-            CategoriaListaRep.addItem(c.getNombre());
-        }
-
-        if(this.usuarioSeleccionado != null){
-            DefaultListModel model = new DefaultListModel();
-            for(DTLista l : s.listasParticulares(this.usuarioSeleccionado.getNickname()))
-            model.addElement(l.getNombre());
-            listasConsultarLista.setModel(model);
-        }
-
-        MostrarNombre.setText(lista.getNombre());
-        Privacidad.setSelected(lista.isPrivado());
-        String tipo;
-        if (lista.isPorDefecto()== true){
-            tipo = "Por Defecto";
-        }
-        else{
-            tipo= "Particular";
-        }
-        MostrarTipo.setText(tipo);
-        CategoriaListaRep.setSelectedItem(lista.getCategoria());
-
-        MostrarNombre.enable(false);
-        MostrarTipo.enable(false);
-        centrar(verLista, VerUsuario);
-    }//GEN-LAST:event_ModifListaRepButtonActionPerformed
-
-    private void ModifVideosButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifVideosButtonActionPerformed
-        DefaultListModel model = new DefaultListModel();
-        for(String v : s.listarVideos(this.usuarioSeleccionado.getNickname())) {
-            model.addElement(v);
-        }
-        ListaVideos.setModel(model);
-
-        CambioCategorias.removeAllItems();
-        for (DTCategoria c : m.getCategorias()){
-            CambioCategorias.addItem(c.getNombre());
-        }
-        DTVideo video;
-        if (this.videoSeleccionado != null){
-            video = s.consultarVideo(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
-            if (video.getNombre() != null && !video.getNombre().isEmpty())
-            CambioNombre.setText(video.getNombre());
-            if (video.getUrl() != null && !video.getUrl().isEmpty())
-            CambioUrrl.setText(video.getUrl());
-            if (video.getDescripcion() != null && !video.getDescripcion().isEmpty())
-            CambioDescrip.setText(video.getDescripcion());
-            if(video.getDuracion() != null && !video.getDuracion().isEmpty())
-            CambioDuracion.setText(video.getDuracion());
-            if(video.getFecha() != null)
-                cambioFecha.setDate(video.getFecha());
-            if (video.getCategoria().isEmpty() || video.getCategoria() == null)
-            CambioCategorias.setSelectedIndex(0);
-            else
-            CambioCategorias.setSelectedItem(video.getCategoria());
-            if (video.isPrivado() == true)
-            PrivadoCheck.setSelected(true);
-
-            //Cargar Valoraciones
-            DefaultListModel model1 = new DefaultListModel();
-            List<String> listaMG = s.listarMG(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
-            if(!(listaMG.isEmpty()) && listaMG != null){
-                for (String mg : listaMG)
-                model1.addElement(mg);
-            }
-            ListaMeGusta.setModel(model1);
-
-            DefaultListModel model2 = new DefaultListModel();
-            List<String> listaNMG = s.listarNMG(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
-            if(!(listaNMG.isEmpty()) && listaNMG != null){
-                for (String nmg : listaNMG)
-                model2.addElement(nmg);
-            }
-            ListaNoMeGusta.setModel(model2);
-
-            //Cargar comboBox usuarios para comentarios y valoraciones
-            usuarioValora.removeAllItems();
-            for (String u : m.listarUsuarios()){
-                if(!u.equals(this.usuarioSeleccionado.getNickname()))
-                usuarioValora.addItem(u);
-            }
-
-            centrar(VerVideo, VerUsuario);
-        }
-        else
-        JOptionPane.showMessageDialog(this, "Video no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
-    }//GEN-LAST:event_ModifVideosButtonActionPerformed
-
-    private void ModifImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifImagenActionPerformed
-        JFileChooser file = new JFileChooser();
-        file.setCurrentDirectory(new File(System.getProperty("user.home")));
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images", "jpg","png");
-        file.addChoosableFileFilter(filter);
-        int result = file.showSaveDialog(null);
-        if(result == JFileChooser.APPROVE_OPTION){
-            File selectedFile = file.getSelectedFile();
-            String path = selectedFile.getAbsolutePath();
-            ImageIcon Imagen = new ImageIcon(path);
-            PanelImagen.setIcon(Imagen);
-            PanelImagen.setText(path);
-        }
-        else if(result == JFileChooser.CANCEL_OPTION){
-            System.out.println("No hay Seleccion");
-        }
-    }//GEN-LAST:event_ModifImagenActionPerformed
-
-    private void ModifApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ModifApellidoActionPerformed
-
-    private void ModifNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ModifNombreActionPerformed
-
-    private void ListaMeGustaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaMeGustaValueChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListaMeGustaValueChanged
-
-    private void ListaNoMeGustaValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaNoMeGustaValueChanged
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ListaNoMeGustaValueChanged
-
-    private void ListaVideosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaVideosValueChanged
-        String v = ListaVideos.getSelectedValue();
-        if (v != null)
-        this.videoSeleccionado = v;
-        DTVideo video;
-        if (this.videoSeleccionado != null){
-            video = s.consultarVideo(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
-            if (video.getNombre() != null && !video.getNombre().isEmpty())
-            CambioNombre.setText(video.getNombre());
-            if (video.getUrl() != null && !video.getUrl().isEmpty())
-            CambioUrrl.setText(video.getUrl());
-            if (video.getDescripcion() != null && !video.getDescripcion().isEmpty())
-            CambioDescrip.setText(video.getDescripcion());
-            if(video.getDuracion() != null && !video.getDuracion().isEmpty())
-            CambioDuracion.setText(video.getDuracion());
-            if(video.getFecha() != null)
-                cambioFecha.setDate(video.getFecha());
-            if (video.getCategoria().isEmpty() || video.getCategoria() == null)
-            CambioCategorias.setSelectedIndex(0);
-            else
-            CambioCategorias.setSelectedItem(video.getCategoria());
-            if (video.isPrivado() == true)
-            PrivadoCheck.setSelected(true);
-
-            //Cargar Valoraciones
-            DefaultListModel model1 = new DefaultListModel();
-            List<String> listaMG = s.listarMG(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
-            if(!(listaMG.isEmpty()) && listaMG != null){
-                for (String mg : listaMG)
-                model1.addElement(mg);
-            }
-            ListaMeGusta.setModel(model1);
-
-            DefaultListModel model2 = new DefaultListModel();
-            List<String> listaNMG = s.listarNMG(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
-            if(!(listaNMG.isEmpty()) && listaNMG != null){
-                for (String nmg : listaNMG)
-                model2.addElement(nmg);
-            }
-            ListaNoMeGusta.setModel(model2);
-
-        }
-        else
-        JOptionPane.showMessageDialog(this, "Video no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
-    }//GEN-LAST:event_ListaVideosValueChanged
-
-    private void NoMeGustaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoMeGustaButtonActionPerformed
-        DTValoracion v = null;
-        String user = usuarioValora.getSelectedItem().toString();
-
-        if (this.videoSeleccionado != null && user != null){
-            v = new DTValoracion(false, user, this.videoSeleccionado);
-            s.valorarVideo(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado, v);
-            JOptionPane.showMessageDialog(this, "Video valorado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
-        }
-    }//GEN-LAST:event_NoMeGustaButtonActionPerformed
-
-    private void MeGustaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MeGustaButtonActionPerformed
-        DTValoracion v = null;
-        String user = usuarioValora.getSelectedItem().toString();;
-
-        if (this.videoSeleccionado != null && user != null){
-            v = new DTValoracion(true, user, this.videoSeleccionado);
-            s.valorarVideo(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado, v);
-            JOptionPane.showMessageDialog(this, "Video valorado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
-        }
-    }//GEN-LAST:event_MeGustaButtonActionPerformed
-
-    private void ComentarioComentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComentarioComentActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComentarioComentActionPerformed
-
-//    private void PopulateTree(JTree tree){
-//        DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("General");
-//        CreCatTree.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-//        
-//        Categoria categoria=is.GetCategoria();
-//        DefaultTreeModel model = (DefaultTreeModel)tree.getModel();
-//        DefaultMutableTreeNode root = (DefaultMutableTreeNode)model.getRoot();
-//        Iterator it = categoria.getHijos().iterator();
-//        while(it.hasNext()){
-//            root.add(RecursivePopulate((Categoria)it.next()));
-//        }
-//        model.reload(root);
-//        tree.revalidate();   
-//        
-//    }
-//    
-//    private DefaultMutableTreeNode RecursivePopulate(Categoria c){
-//        DefaultMutableTreeNode nodo= new DefaultMutableTreeNode(c.getNombreCat());
-//        Iterator it=c.getHijos().iterator();
-//        Categoria aux;
-//        while(it.hasNext()){
-//            aux=(Categoria)it.next();
-//            nodo.add(RecursivePopulate(aux));
-//        }
-//        return nodo;
-//    }
-    
-    private void confirmarCambiosVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarCambiosVideoActionPerformed
-        DTVideo video = new DTVideo(CambioNombre.getText(), CambioDescrip.getText(), DuracionVideo.getText(), cambioFecha.getDate(),
-        CambioUrrl.getText(), PrivadoCheck.isSelected(), Arrays.toString(CambioCategorias.getSelectedObjects()));
-        s.modificarVideo(video, this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
-        JOptionPane.showMessageDialog(this, "Video modificado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_confirmarCambiosVideoActionPerformed
-
-    private void CambioCategoriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambioCategoriasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CambioCategoriasActionPerformed
-
-    private void ComentarVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComentarVideoButtonActionPerformed
-        // TODO add your handling code here:
-        String usuarioComentario = usuarioValora.getSelectedItem().toString();
-        String comentarioTexto = ComentarioComent.getText().toString();
-        DTComentario comentario = new DTComentario(usuarioComentario, comentarioTexto);
-        if(!(this.ComentarioComent.getText().equals(""))){
-            DefaultMutableTreeNode select = (DefaultMutableTreeNode) Comentarios.getLastSelectedPathComponent();
-            Integer SelectedId;
-            if(select!=null)
-            SelectedId = select.getIndex(select);
-            else
-            SelectedId=0;
-            s.comentarVideo(this.usuarioSeleccionado.getNickname(), comentario, this.videoSeleccionado, SelectedId);
-
-            //PopulateTree(Comentarios);
-        }
-    }//GEN-LAST:event_ComentarVideoButtonActionPerformed
-
-    private void CambioDescripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambioDescripActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CambioDescripActionPerformed
-
-    private void CambioUrrlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambioUrrlActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CambioUrrlActionPerformed
-
-    private void CambioNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambioNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CambioNombreActionPerformed
-
-    private void PrivadoCheckActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrivadoCheckActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_PrivadoCheckActionPerformed
-
-    private void ASeguirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ASeguirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ASeguirActionPerformed
-
-    private void SeguirButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SeguirButtonActionPerformed
-        if (ASeguir.getSelectedIndex() == 0)
-        JOptionPane.showMessageDialog(this, "Seleccione un usuario.", "Error", JOptionPane.ERROR_MESSAGE);
-        else{
-            String u = ASeguir.getSelectedItem().toString();
-            if(u != null){
-                s.seguirUsuario(this.usuarioSeleccionado.getNickname(), u);
-                JOptionPane.showMessageDialog(this, "Usuario Seguido.", "Exito", JOptionPane.INFORMATION_MESSAGE);
-            }else
-            JOptionPane.showMessageDialog(this, "Usuario no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_SeguirButtonActionPerformed
-
-    private void ComboBoxCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxCategoriaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_ComboBoxCategoriaActionPerformed
-
-    private void UsuarioComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_UsuarioComboBoxActionPerformed
-
-    private void ConfirmarListPrivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarListPrivActionPerformed
-        DTLista lista = new DTLista(NomListaRep.getText(), porDefecto.isSelected(), PrivacidadCheck.isSelected(), ComboBoxCategoria.getSelectedItem().toString());
-        if(!NomListaRep.getText().equals("")){
-            if(m.nombreListaLibre(NomListaRep.getText())){
-                if (porDefecto.isSelected() == true)
-                s.altaListaPorDefecto(lista);
-                else
-                s.altaLista(lista, UsuarioComboBox.getSelectedItem().toString());
-                JOptionPane.showMessageDialog(this, "Lista creada.", "Exito", JOptionPane.INFORMATION_MESSAGE);
-                this.NomListaRep.setText("");
-            }
-
-            else{
-                JOptionPane.showMessageDialog(this, "Nombre de lista en uso", "Error", JOptionPane.INFORMATION_MESSAGE);
-            }
-        }
-        else
-        JOptionPane.showMessageDialog(this, "Campos vacios", "Error", JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_ConfirmarListPrivActionPerformed
-
-    private void MostrarCatListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarCatListaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MostrarCatListaActionPerformed
-
-    private void ConsultarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarVideoActionPerformed
-        DefaultListModel model = new DefaultListModel();
-        for(String v : s.listarVideos(this.usuarioSeleccionado.getNickname())) {
-            model.addElement(v);
-        }
-
-        ListaVideos.setModel(model);
-
-        CambioCategorias.removeAllItems();
-        for (DTCategoria c : m.getCategorias()){
-            CambioCategorias.addItem(c.getNombre());
-        }
-        DTVideo video;
-        if (this.videoSeleccionado != null){
-            video = s.consultarVideo(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
-            if (video.getNombre() != null && !video.getNombre().isEmpty())
-            CambioNombre.setText(video.getNombre());
-            if (video.getUrl() != null && !video.getUrl().isEmpty())
-            CambioUrrl.setText(video.getUrl());
-            if (video.getDescripcion() != null && !video.getDescripcion().isEmpty())
-            CambioDescrip.setText(video.getDescripcion());
-            if(video.getDuracion() != null && !video.getDuracion().isEmpty())
-            CambioDuracion.setText(video.getDuracion());
-            if(video.getFecha() != null)
-                cambioFecha.setDate(video.getFecha());
-            if (video.getCategoria().isEmpty() || video.getCategoria() == null)
-            CambioCategorias.setSelectedIndex(0);
-            else
-            CambioCategorias.setSelectedItem(video.getCategoria());
-            if (video.isPrivado() == true)
-            PrivadoCheck.setSelected(true);
-
-            //Cargar Valoraciones
-            DefaultListModel model1 = new DefaultListModel();
-            List<String> listaMG = s.listarMG(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
-            if(!(listaMG.isEmpty()) && listaMG != null){
-                for (String mg : listaMG)
-                model1.addElement(mg);
-            }
-            ListaMeGusta.setModel(model1);
-
-            DefaultListModel model2 = new DefaultListModel();
-            List<String> listaNMG = s.listarNMG(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
-            if(!(listaNMG.isEmpty()) && listaNMG != null){
-                for (String nmg : listaNMG)
-                model2.addElement(nmg);
-            }
-            ListaNoMeGusta.setModel(model2);
-
-            //Cargar comboBox usuarios para comentarios y valoraciones
-            usuarioValora.removeAllItems();
-            for (String u : m.listarUsuarios()){
-                if(!u.equals(this.usuarioSeleccionado.getNickname()))
-                usuarioValora.addItem(u);
-            }
-
-            centrar(VerVideo, VerUsuario);
-        }
-        else
-        JOptionPane.showMessageDialog(this, "Video no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);
-        centrar(VerVideo, ConsultaLista);
-    }//GEN-LAST:event_ConsultarVideoActionPerformed
+    private void ListaVideosModelValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaVideosModelValueChanged
+        this.videoSeleccionado = ListaVideosModel.getSelectedValue();
+    }//GEN-LAST:event_ListaVideosModelValueChanged
 
     private void ListaDeListasRep1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaDeListasRep1ValueChanged
         String listaNombre = ListaDeListasRep1.getSelectedValue();   //para la lista seleccionada
-        DTLista lista = s.consultaLista(this.usuarioSeleccionado.getNickname(), listaNombre);
-
+        DTLista lista = s.consultaLista(this.usuarioSeleccionado.getNickname(), listaNombre); 
+        
         //Cargar lista de videos que tiene esa lista
         DefaultListModel model2 = new DefaultListModel();
         for(String v : s.listarVideosLista(this.usuarioSeleccionado.getNickname(), lista.getNombre())) {
             model2.addElement(v);
         }
         ListaVideosModel.setModel(model2);
-
+        
         MostrarNombre1.setText(lista.getNombre());
         Privacidad1.setSelected(lista.isPrivado());
         String tipo;
@@ -3298,16 +3317,97 @@ public class Sistema extends javax.swing.JFrame {
         }
         MostrarTipo1.setText(tipo);
         MostrarCatLista.setText(lista.getCategoria());
-
+        
     }//GEN-LAST:event_ListaDeListasRep1ValueChanged
 
-    private void ListaVideosModelValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaVideosModelValueChanged
-        this.videoSeleccionado = ListaVideosModel.getSelectedValue();
-    }//GEN-LAST:event_ListaVideosModelValueChanged
-
-    private void BotonPrivadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPrivadoActionPerformed
+    private void MostrarNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarNombreActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_BotonPrivadoActionPerformed
+    }//GEN-LAST:event_MostrarNombreActionPerformed
+
+    private void ConsultarVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarVideoActionPerformed
+        DefaultListModel model = new DefaultListModel();
+        for(String v : s.listarVideos(this.usuarioSeleccionado.getNickname())) {
+            model.addElement(v);
+        }
+        
+        ListaVideos.setModel(model);
+        
+        CambioCategorias.removeAllItems();
+        for (DTCategoria c : m.getCategorias()){
+            CambioCategorias.addItem(c.getNombre());
+        }
+        DTVideo video;
+        if (this.videoSeleccionado != null){
+            video = s.consultarVideo(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
+            if (video.getNombre() != null && !video.getNombre().isEmpty())
+                CambioNombre.setText(video.getNombre());
+            if (video.getUrl() != null && !video.getUrl().isEmpty())
+                CambioUrrl.setText(video.getUrl());
+            if (video.getDescripcion() != null && !video.getDescripcion().isEmpty())
+                CambioDescrip.setText(video.getDescripcion());
+            if(video.getDuracion() != null && !video.getDuracion().isEmpty())
+                CambioDuracion.setText(video.getDuracion());
+            if(video.getFecha() != null)
+                cambioFecha.setDate(video.getFecha());
+            if (video.getCategoria().isEmpty() || video.getCategoria() == null)
+                CambioCategorias.setSelectedIndex(0);
+            else
+                CambioCategorias.setSelectedItem(video.getCategoria());
+            if (video.isPrivado() == true)
+                PrivadoCheck.setSelected(true);
+           
+             //Cargar Valoraciones
+            DefaultListModel model1 = new DefaultListModel();
+            List<String> listaMG = s.listarMG(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
+            if(!(listaMG.isEmpty()) && listaMG != null){
+                for (String mg : listaMG)
+                    model1.addElement(mg);
+            }
+            ListaMeGusta.setModel(model1);
+            
+            DefaultListModel model2 = new DefaultListModel();
+            List<String> listaNMG = s.listarNMG(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
+            if(!(listaNMG.isEmpty()) && listaNMG != null){
+                for (String nmg : listaNMG)
+                    model2.addElement(nmg);
+            }
+            ListaNoMeGusta.setModel(model2);
+            
+            //Cargar comboBox usuarios para comentarios y valoraciones
+            usuarioValora.removeAllItems();
+            for (String u : m.listarUsuarios()){
+                if(!u.equals(this.usuarioSeleccionado.getNickname()))
+                    usuarioValora.addItem(u);
+            }
+            
+            centrar(VerVideo, VerUsuario);
+        }
+        else
+            JOptionPane.showMessageDialog(this, "Video no encontrado.", "Error", JOptionPane.ERROR_MESSAGE);                      
+        centrar(VerVideo, ConsultaLista);
+    }//GEN-LAST:event_ConsultarVideoActionPerformed
+
+    private void MostrarCatListaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarCatListaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MostrarCatListaActionPerformed
+
+    private void VerUsuarioInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_VerUsuarioInternalFrameClosing
+    CuadroImagen.setIcon(null);
+    CuadroImagen.setText(null);
+    PanelImagen.setIcon(null);
+    PanelImagen.setText(null);
+    }//GEN-LAST:event_VerUsuarioInternalFrameClosing
+
+    private void AltaUsuarioInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_AltaUsuarioInternalFrameClosing
+    CuadroImagen.setIcon(null);
+    CuadroImagen.setText(null);
+    PanelImagen.setIcon(null);
+    PanelImagen.setText(null);
+    }//GEN-LAST:event_AltaUsuarioInternalFrameClosing
+
+    private void EntradaContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaContraseniaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaContraseniaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3377,6 +3477,7 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JButton ConsultaModifDatos;
     private javax.swing.JButton ConsultarVideo;
     private javax.swing.JLabel Contra;
+    private javax.swing.JLabel Contrasenia;
     private javax.swing.JLabel Correo;
     private javax.swing.JInternalFrame CrearLista;
     private javax.swing.JLabel CuadroImagen;
@@ -3401,6 +3502,7 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JLabel Fech;
     private com.toedter.calendar.JDateChooser Fecha;
     private javax.swing.JLabel FechaComentLabl;
+    private com.toedter.calendar.JDateChooser FechaComentValor;
     private com.toedter.calendar.JDateChooser FechaVerUsuario;
     private javax.swing.JLabel Fechalab;
     private javax.swing.JLabel Fechalabl;
@@ -3523,9 +3625,9 @@ public class Sistema extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser cambioFecha;
     private javax.swing.JButton confirmarCambiosLista;
     private javax.swing.JButton confirmarCambiosVideo;
+    private javax.swing.JTextField contrasenia;
     private javax.swing.JTextField email;
     private javax.swing.JLabel emaillabels;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private com.toedter.calendar.JDateChooser jDateChooserAltaVideo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

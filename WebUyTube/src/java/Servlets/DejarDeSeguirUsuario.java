@@ -6,13 +6,12 @@
 package Servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import logica.DT.DTSesion;
 import logica.ISistema;
 import logica.Sistema;
 
@@ -20,8 +19,8 @@ import logica.Sistema;
  *
  * @author Usuario
  */
-@WebServlet (urlPatterns = {"/Login"})
-public class Login extends HttpServlet {
+@WebServlet(name = "DejarDeSeguirUsuario", urlPatterns = {"/DejarDeSeguirUsuario"})
+public class DejarDeSeguirUsuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,23 +31,15 @@ public class Login extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String nickname = request.getParameter("username");
-        String contrasenia = request.getParameter("password");
-        ISistema is = new Sistema();
-        DTSesion user = is.getUserSession(nickname, contrasenia);
-        if(user!=null){
-            HttpSession session = request.getSession();
-            session.setAttribute("UserNick", user.getNickname());
-            
-            session.setAttribute("UserPass", user.getContrasenia());
-
-          
-            response.sendRedirect("homeLogIn");
-            }
-        else{
-            response.sendRedirect("index.jsp");
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+        PrintWriter out = response.getWriter();
+        String user = (String) request.getSession().getAttribute("UserNick");
+        String user_seguir = (String) request.getSession().getAttribute("userConsult");
+        if(!(user.equals(user_seguir))){
+            ISistema sistema = new Sistema();
+            sistema.dejarDeSeguirUsuario(user, user_seguir);
+            out.println("<html><body onload=\"alert('Dejaste de seguir a: "+ user_seguir +"')\"></body></html>");
+            response.setHeader("Refresh", "0; URL=http://localhost:8084/UyTube/");
         }
     }
 
