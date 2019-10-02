@@ -233,4 +233,18 @@ public class Manejador {
         return ret;
     }
     
+    public DTUsuario getUserData(String identificador) {
+        DTUsuario ret = null;
+        Usuario u;
+        Iterator it = usuarios.iterator();
+        while(it.hasNext()){
+            u =(Usuario) it.next();
+            if(u.getNickname().equals(identificador) || u.getEmail().equals(identificador)){
+                ret=new DTUsuario(u);
+                break;
+            }            
+        }        
+                
+        return ret;
+    }
 }

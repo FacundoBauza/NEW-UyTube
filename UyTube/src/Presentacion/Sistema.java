@@ -1,12 +1,14 @@
 package Presentacion;
 
 import java.awt.Component;
+import java.awt.Image;
 import java.io.File;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JInternalFrame;
@@ -40,6 +42,7 @@ public class Sistema extends javax.swing.JFrame {
     public Sistema() {
         //Prueba github lala
         //ComentarioFacundo1
+        this.setExtendedState(MAXIMIZED_BOTH);
         s = Fabrica.getInstance();
         m = Manejador.getinstance();
         initComponents();
@@ -334,7 +337,7 @@ public class Sistema extends javax.swing.JFrame {
         ConsultaLista.setTitle("Consulta lista");
         ConsultaLista.setAlignmentX(0.0F);
         ConsultaLista.setAlignmentY(0.0F);
-        ConsultaLista.setVisible(true);
+        ConsultaLista.setVisible(false);
 
         ListaVideosModel.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Lista videos" };
@@ -407,7 +410,7 @@ public class Sistema extends javax.swing.JFrame {
                                 .addGroup(ConsultaListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(MostrarTipo1)
                                     .addComponent(MostrarNombre1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(ScrollerListRep1, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(ConsultaListaLayout.createSequentialGroup()
                         .addGap(19, 19, 19)
@@ -447,7 +450,7 @@ public class Sistema extends javax.swing.JFrame {
                     .addComponent(ScrollerListRep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(ConsultarVideo)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(ConsultaListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(ConsultaListaLayout.createSequentialGroup()
                     .addGap(36, 36, 36)
@@ -461,7 +464,7 @@ public class Sistema extends javax.swing.JFrame {
         CrearLista.setResizable(true);
         CrearLista.setTitle("Crear Lista de Reproduccion");
         CrearLista.setNormalBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        CrearLista.setVisible(true);
+        CrearLista.setVisible(false);
 
         PrivacidadCheck.setText("Privado");
 
@@ -542,7 +545,7 @@ public class Sistema extends javax.swing.JFrame {
         SeguirUsuario.setResizable(true);
         SeguirUsuario.setTitle("Seguir Usuario");
         SeguirUsuario.setAutoscrolls(true);
-        SeguirUsuario.setVisible(true);
+        SeguirUsuario.setVisible(false);
 
         SeguirButton.setText("Seguir");
         SeguirButton.addActionListener(new java.awt.event.ActionListener() {
@@ -563,9 +566,9 @@ public class Sistema extends javax.swing.JFrame {
         SeguirUsuarioLayout.setHorizontalGroup(
             SeguirUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, SeguirUsuarioLayout.createSequentialGroup()
-                .addContainerGap(63, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ASeguir, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(64, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(SeguirUsuarioLayout.createSequentialGroup()
                 .addGap(87, 87, 87)
                 .addComponent(SeguirButton)
@@ -578,7 +581,7 @@ public class Sistema extends javax.swing.JFrame {
                 .addComponent(ASeguir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(SeguirButton)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         VerVideo.setClosable(true);
@@ -590,7 +593,7 @@ public class Sistema extends javax.swing.JFrame {
         VerVideo.setMinimumSize(new java.awt.Dimension(710, 480));
         VerVideo.setNormalBounds(new java.awt.Rectangle(0, 0, 0, 0));
         VerVideo.setPreferredSize(new java.awt.Dimension(710, 480));
-        VerVideo.setVisible(true);
+        VerVideo.setVisible(false);
 
         Comentarios.setSelectionModel(null);
         Scrollercomments.setViewportView(Comentarios);
@@ -732,7 +735,7 @@ public class Sistema extends javax.swing.JFrame {
                 .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(ScrollerListVid3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel4)
                     .addComponent(ScrollerListVid2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -848,7 +851,7 @@ public class Sistema extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(confirmarCambiosVideo))
                             .addComponent(Scrollercomments, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(VerVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -880,7 +883,7 @@ public class Sistema extends javax.swing.JFrame {
         VerUsuario.setTitle("Ver Usuario");
         VerUsuario.setMaximumSize(new java.awt.Dimension(1000, 600));
         VerUsuario.setNormalBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        VerUsuario.setVisible(true);
+        VerUsuario.setVisible(false);
         VerUsuario.addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -1066,7 +1069,7 @@ public class Sistema extends javax.swing.JFrame {
                         .addComponent(ModifListaRepButton, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(ConfirmCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         VerUsuarioLayout.setVerticalGroup(
             VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1137,7 +1140,7 @@ public class Sistema extends javax.swing.JFrame {
         VerCategorias.setMinimumSize(new java.awt.Dimension(228, 345));
         VerCategorias.setNormalBounds(new java.awt.Rectangle(0, 0, 0, 0));
         VerCategorias.setPreferredSize(new java.awt.Dimension(340, 345));
-        VerCategorias.setVisible(true);
+        VerCategorias.setVisible(false);
 
         AgregarCategoria.setText("Nueva categoria");
         AgregarCategoria.addActionListener(new java.awt.event.ActionListener() {
@@ -1218,7 +1221,7 @@ public class Sistema extends javax.swing.JFrame {
         OperacionesSobreUsuarios.setMinimumSize(new java.awt.Dimension(205, 410));
         OperacionesSobreUsuarios.setNormalBounds(new java.awt.Rectangle(0, 0, 0, 0));
         OperacionesSobreUsuarios.setPreferredSize(new java.awt.Dimension(205, 410));
-        OperacionesSobreUsuarios.setVisible(true);
+        OperacionesSobreUsuarios.setVisible(false);
 
         ConsultaModifDatos.setText("Consultar / Modificar Datos");
         ConsultaModifDatos.addActionListener(new java.awt.event.ActionListener() {
@@ -1297,7 +1300,7 @@ public class Sistema extends javax.swing.JFrame {
                             .addComponent(SeguirBoton, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
                             .addComponent(ModificarListaUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(ConsultaListaUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         OperacionesSobreUsuariosLayout.setVerticalGroup(
             OperacionesSobreUsuariosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1370,6 +1373,11 @@ public class Sistema extends javax.swing.JFrame {
         });
 
         BotonPrivado.setText("Privado");
+        BotonPrivado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonPrivadoActionPerformed(evt);
+            }
+        });
 
         JFileCImagen.setText("Imagen");
         JFileCImagen.addActionListener(new java.awt.event.ActionListener() {
@@ -1426,89 +1434,101 @@ public class Sistema extends javax.swing.JFrame {
         AltaUsuarioLayout.setHorizontalGroup(
             AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
                 .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                        .addGap(88, 88, 88)
-                        .addComponent(JFileCImagen))
-                    .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                                .addComponent(Fech)
-                                .addGap(13, 13, 13)
-                                .addComponent(CuadroImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(AltaUsuarioLayout.createSequentialGroup()
                                 .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Nick)
+                                    .addComponent(Contra)
                                     .addComponent(Nom)
-                                    .addComponent(Apellido)
-                                    .addComponent(Correo)
-                                    .addComponent(NomCanal)
-                                    .addComponent(Desc))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(EntradaDescripcionCanal)
-                                    .addComponent(Fecha, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                                    .addComponent(EntradaCorreoEl)
-                                    .addComponent(EntradaApellido)
-                                    .addComponent(EntradaNick)
-                                    .addComponent(EntradaNombre)
-                                    .addComponent(EntradaNomCanal)
+                                    .addComponent(Apellido))
+                                .addGap(2, 2, 2)
+                                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(EntradaNick, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                                        .addGap(10, 10, 10)
-                                        .addComponent(BotonPrivado, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGap(2, 2, 2)
+                                        .addComponent(EntradaContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(EntradaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(EntradaApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(100, 100, 100)
+                                .addComponent(CuadroImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                                .addComponent(Correo)
+                                .addGap(25, 25, 25)
+                                .addComponent(EntradaCorreoEl, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(102, 102, 102)
+                                .addComponent(JFileCImagen))
+                            .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                                .addComponent(Fech)
+                                .addGap(29, 29, 29)
+                                .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                                .addComponent(NomCanal)
+                                .addGap(9, 9, 9)
+                                .addComponent(EntradaNomCanal, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                                .addComponent(Desc)
+                                .addGap(6, 6, 6)
+                                .addComponent(EntradaDescripcionCanal, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(10, 10, 10))
                     .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(Contra)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(EntradaContrasenia)))
-                .addContainerGap(16, Short.MAX_VALUE))
+                        .addComponent(BotonPrivado, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31))))
         );
         AltaUsuarioLayout.setVerticalGroup(
             AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EntradaNick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Nick))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EntradaContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Contra))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(10, 10, 10)
                 .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Nom)
-                    .addComponent(EntradaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EntradaApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Apellido))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EntradaCorreoEl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Correo))
+                    .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(Nick)
+                        .addGap(12, 12, 12)
+                        .addComponent(Contra)
+                        .addGap(9, 9, 9)
+                        .addComponent(Nom)
+                        .addGap(15, 15, 15)
+                        .addComponent(Apellido))
+                    .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(EntradaNick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(EntradaContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(EntradaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(EntradaApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CuadroImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1)
+                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(Correo))
+                    .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(EntradaCorreoEl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(JFileCImagen))
                 .addGap(9, 9, 9)
                 .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Fech)
                     .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(JFileCImagen)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CuadroImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(56, 56, 56)
+                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(NomCanal)
+                    .addComponent(EntradaNomCanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(10, 10, 10)
+                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Desc, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EntradaDescripcionCanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EntradaNomCanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NomCanal))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EntradaDescripcionCanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Desc))
-                .addGap(9, 9, 9)
-                .addComponent(BotonPrivado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(Registro)
-                .addContainerGap(50, Short.MAX_VALUE))
+                    .addComponent(BotonPrivado)
+                    .addComponent(Registro))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         verLista.setClosable(true);
@@ -1518,7 +1538,7 @@ public class Sistema extends javax.swing.JFrame {
         verLista.setTitle("Modificar Lista");
         verLista.setMinimumSize(new java.awt.Dimension(580, 280));
         verLista.setPreferredSize(new java.awt.Dimension(580, 280));
-        verLista.setVisible(true);
+        verLista.setVisible(false);
 
         CategoriaListaRep.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Categoria" }));
 
@@ -1582,7 +1602,7 @@ public class Sistema extends javax.swing.JFrame {
                             .addComponent(CategoriaListaRep, 0, 100, Short.MAX_VALUE)
                             .addComponent(MostrarTipo)
                             .addComponent(MostrarNombre))))
-                .addContainerGap(241, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         verListaLayout.setVerticalGroup(
             verListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1608,7 +1628,7 @@ public class Sistema extends javax.swing.JFrame {
                         .addGroup(verListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(CategoriaListaRep, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel10))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(confirmarCambiosLista)
                 .addGap(21, 21, 21))
         );
@@ -1619,7 +1639,7 @@ public class Sistema extends javax.swing.JFrame {
         DejarSeguir.setMaximizable(true);
         DejarSeguir.setResizable(true);
         DejarSeguir.setTitle("Dejar de Seguir Usuario");
-        DejarSeguir.setVisible(true);
+        DejarSeguir.setVisible(false);
 
         SeguirButton1.setText("Dejar de Seguir");
         SeguirButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -1640,18 +1660,18 @@ public class Sistema extends javax.swing.JFrame {
         DejarSeguirLayout.setHorizontalGroup(
             DejarSeguirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DejarSeguirLayout.createSequentialGroup()
-                .addContainerGap(23, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(DejarSeguirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(SeguirButton1)
                     .addComponent(ListSeguidos, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         DejarSeguirLayout.setVerticalGroup(
             DejarSeguirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DejarSeguirLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(ListSeguidos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(SeguirButton1)
                 .addGap(34, 34, 34))
         );
@@ -1667,7 +1687,7 @@ public class Sistema extends javax.swing.JFrame {
         AltaVideo.setName(""); // NOI18N
         AltaVideo.setNormalBounds(new java.awt.Rectangle(0, 0, 0, 0));
         AltaVideo.setPreferredSize(new java.awt.Dimension(230, 500));
-        AltaVideo.setVisible(true);
+        AltaVideo.setVisible(false);
 
         AltaVideoButton.setText("Crear");
         AltaVideoButton.addActionListener(new java.awt.event.ActionListener() {
@@ -1753,7 +1773,7 @@ public class Sistema extends javax.swing.JFrame {
                         .addGroup(AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(PrivacidadCheckbox)
                             .addComponent(AltaVideoButton))))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         AltaVideoLayout.setVerticalGroup(
             AltaVideoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1790,7 +1810,7 @@ public class Sistema extends javax.swing.JFrame {
                 .addComponent(PrivacidadCheckbox)
                 .addGap(18, 18, 18)
                 .addComponent(AltaVideoButton)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         OpcionesCategoria.setClosable(true);
@@ -1798,7 +1818,7 @@ public class Sistema extends javax.swing.JFrame {
         OpcionesCategoria.setIconifiable(true);
         OpcionesCategoria.setMaximizable(true);
         OpcionesCategoria.setTitle("Consultar Categoria");
-        OpcionesCategoria.setVisible(true);
+        OpcionesCategoria.setVisible(false);
 
         ScrollUsuVid.setViewportView(NombreUsuarioVideo);
 
@@ -1819,7 +1839,7 @@ public class Sistema extends javax.swing.JFrame {
                 .addGroup(OpcionesCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(OpcionesCategoriaLayout.createSequentialGroup()
                         .addComponent(nomCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(263, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(OpcionesCategoriaLayout.createSequentialGroup()
                         .addGroup(OpcionesCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -1833,7 +1853,7 @@ public class Sistema extends javax.swing.JFrame {
         OpcionesCategoriaLayout.setVerticalGroup(
             OpcionesCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, OpcionesCategoriaLayout.createSequentialGroup()
-                .addContainerGap(163, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(OpcionesCategoriaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(OpcionesCategoriaLayout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -1854,7 +1874,7 @@ public class Sistema extends javax.swing.JFrame {
         QuitarVideoDeLista.setMaximizable(true);
         QuitarVideoDeLista.setTitle("Quitar Video de Lista");
         QuitarVideoDeLista.setMinimumSize(new java.awt.Dimension(340, 450));
-        QuitarVideoDeLista.setVisible(true);
+        QuitarVideoDeLista.setVisible(false);
 
         UsuQuitarVideo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1919,7 +1939,7 @@ public class Sistema extends javax.swing.JFrame {
                         .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         QuitarVideoDeListaLayout.setVerticalGroup(
             QuitarVideoDeListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1938,7 +1958,7 @@ public class Sistema extends javax.swing.JFrame {
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38)
                 .addComponent(BotonQuitarVideo)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         AgregarVideoALista.setClosable(true);
@@ -1947,7 +1967,7 @@ public class Sistema extends javax.swing.JFrame {
         AgregarVideoALista.setMaximizable(true);
         AgregarVideoALista.setTitle("Agregar Video a Lista");
         AgregarVideoALista.setMinimumSize(new java.awt.Dimension(340, 450));
-        AgregarVideoALista.setVisible(true);
+        AgregarVideoALista.setVisible(false);
 
         UsuAgregarVideo1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -2010,7 +2030,7 @@ public class Sistema extends javax.swing.JFrame {
         AgregarVideoALista.getContentPane().setLayout(AgregarVideoAListaLayout);
         AgregarVideoAListaLayout.setHorizontalGroup(
             AgregarVideoAListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Label4, javax.swing.GroupLayout.DEFAULT_SIZE, 427, Short.MAX_VALUE)
+            .addComponent(Label4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(AgregarVideoAListaLayout.createSequentialGroup()
                 .addGroup(AgregarVideoAListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AgregarVideoAListaLayout.createSequentialGroup()
@@ -2073,7 +2093,7 @@ public class Sistema extends javax.swing.JFrame {
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(BotonAgregarALista1)
-                .addContainerGap(36, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Menu.setLayer(ConsultaLista, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -2101,96 +2121,99 @@ public class Sistema extends javax.swing.JFrame {
                     .addGroup(MenuLayout.createSequentialGroup()
                         .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(MenuLayout.createSequentialGroup()
-                                .addComponent(VerUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(OperacionesSobreUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 359, Short.MAX_VALUE)
+                                .addComponent(SeguirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(250, 250, 250))
                             .addGroup(MenuLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(SeguirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(VerUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(AltaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(OperacionesSobreUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(AltaVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(VerCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(AltaVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(VerCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(260, 260, 260))
                     .addGroup(MenuLayout.createSequentialGroup()
-                        .addComponent(VerVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(VerVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(OpcionesCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(CrearLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(OpcionesCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(CrearLista, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addComponent(verLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(verLista, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                .addContainerGap(31, Short.MAX_VALUE))
+            .addGroup(MenuLayout.createSequentialGroup()
+                .addGap(180, 180, 180)
+                .addComponent(AltaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MenuLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(DejarSeguir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(714, Short.MAX_VALUE)))
+                    .addComponent(DejarSeguir, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(900, Short.MAX_VALUE)))
             .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MenuLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(QuitarVideoDeLista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(QuitarVideoDeLista, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGap(909, 909, 909)))
             .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MenuLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(AgregarVideoALista, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(AgregarVideoALista, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGap(901, 901, 901)))
             .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MenuLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(ConsultaLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaLista, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         MenuLayout.setVerticalGroup(
             MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(MenuLayout.createSequentialGroup()
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(verLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(verLista, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(MenuLayout.createSequentialGroup()
-                        .addComponent(AltaVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 537, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(AltaVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(VerCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 303, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(MenuLayout.createSequentialGroup()
-                            .addComponent(OperacionesSobreUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(SeguirUsuario))
-                        .addComponent(AltaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(VerUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(VerVideo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(VerCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(MenuLayout.createSequentialGroup()
-                        .addComponent(OpcionesCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(OperacionesSobreUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CrearLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(SeguirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(VerUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(AltaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(VerVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addComponent(OpcionesCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(CrearLista, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 173, Short.MAX_VALUE))
             .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MenuLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(DejarSeguir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(850, Short.MAX_VALUE)))
+                    .addComponent(DejarSeguir, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(650, Short.MAX_VALUE)))
             .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MenuLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(QuitarVideoDeLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(328, Short.MAX_VALUE)))
+                    .addComponent(QuitarVideoDeLista, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(650, Short.MAX_VALUE)))
             .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MenuLayout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(AgregarVideoALista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(767, Short.MAX_VALUE)))
+                    .addComponent(AgregarVideoALista, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(650, Short.MAX_VALUE)))
             .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MenuLayout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(ConsultaLista, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(ConsultaLista, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
+
+        getContentPane().add(Menu, java.awt.BorderLayout.CENTER);
 
         Menu1Usuarios.setText("Usuarios");
 
@@ -2314,23 +2337,6 @@ public class Sistema extends javax.swing.JFrame {
         BarraMenuSistema.add(Menu4Categorias);
 
         setJMenuBar(BarraMenuSistema);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 1177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(708, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Menu, javax.swing.GroupLayout.PREFERRED_SIZE, 1070, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(215, Short.MAX_VALUE))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -2519,7 +2525,12 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_ConfirmarListPrivActionPerformed
 
     private void RegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroActionPerformed
-        DTCanal canal = new DTCanal(EntradaNomCanal.getText(), EntradaDescripcionCanal.getText(), BotonPrivado.isSelected(), null, null);
+        DTCanal canal;
+        if(EntradaNomCanal.getText().length() == 0)
+            canal = new DTCanal(EntradaNombre.getText(), EntradaDescripcionCanal.getText(), BotonPrivado.isSelected(), null, null);
+        else
+            canal = new DTCanal(EntradaNomCanal.getText(), EntradaDescripcionCanal.getText(), BotonPrivado.isSelected(), null, null);
+        
         DTUsuario usuario = new DTUsuario(EntradaNick.getText(),EntradaContrasenia.getText() , EntradaNombre.getText(), EntradaApellido.getText(),
                 EntradaCorreoEl.getText(), Fecha.getDate(), CuadroImagen.getText(), canal.getNombre());
         if(!EntradaNick.getText().equals("") && !EntradaCorreoEl.getText().equals("")){
@@ -2540,6 +2551,7 @@ public class Sistema extends javax.swing.JFrame {
 
             this.EntradaNick.setText("");
             this.EntradaNombre.setText("");
+            this.EntradaContrasenia.setText("");
             this.EntradaApellido.setText("");
             this.EntradaCorreoEl.setText("");
             this.CuadroImagen.setText("");
@@ -2880,7 +2892,7 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_CambioNombreActionPerformed
 
     private void JFileCImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JFileCImagenActionPerformed
-    JFileChooser file = new JFileChooser();
+        JFileChooser file = new JFileChooser();
         file.setCurrentDirectory(new File(System.getProperty("user.home")));
         FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images", "jpg","png");
         file.addChoosableFileFilter(filter);
@@ -2889,7 +2901,11 @@ public class Sistema extends javax.swing.JFrame {
                 File selectedFile = file.getSelectedFile();
                 String path = selectedFile.getAbsolutePath();
                 ImageIcon Imagen = new ImageIcon(path);
-                CuadroImagen.setIcon(Imagen);
+                
+                Image imgEscalada = Imagen.getImage().getScaledInstance(CuadroImagen.getWidth(), CuadroImagen.getHeight(), Image.SCALE_SMOOTH);
+                Icon iconoEscalado = new ImageIcon(imgEscalada);
+                CuadroImagen.setIcon(iconoEscalado);
+                //CuadroImagen.setIcon(Imagen);
                 CuadroImagen.setText(path);
             }
         else if(result == JFileChooser.CANCEL_OPTION){
@@ -3408,6 +3424,10 @@ public class Sistema extends javax.swing.JFrame {
     private void EntradaContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaContraseniaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EntradaContraseniaActionPerformed
+
+    private void BotonPrivadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPrivadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonPrivadoActionPerformed
 
     /**
      * @param args the command line arguments
