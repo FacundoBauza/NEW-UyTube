@@ -15,8 +15,13 @@ import logica.DT.DTVideo;
 @Entity
 @Table(name="Lista")
 public class Lista {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
     private String nombre;
+    
     private boolean porDefecto;
     private boolean privado;
     private Categoria categoria;
@@ -39,6 +44,14 @@ public class Lista {
             this.privado = privado;
             this.categoria = categoria;
         }
+    }
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {

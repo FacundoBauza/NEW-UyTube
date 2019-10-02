@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import logica.DT.DTSesion;
@@ -17,8 +18,9 @@ import logica.DT.DTSesion;
 @Entity
 @Table(name="Usuario")
 public class Usuario {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private String nickname;
+    
     private String contrasenia;
     private String nombre;
     private String apellido;
@@ -26,6 +28,7 @@ public class Usuario {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaNac;
     private String imagen;
+    @OneToOne
     private Canal canal;
     
     @OneToMany
@@ -70,7 +73,7 @@ public class Usuario {
     public String getApellido() {
         return apellido;
     }
-
+    
     public String getEmail() {
         return email;
     }
