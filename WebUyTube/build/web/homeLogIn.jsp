@@ -36,7 +36,7 @@
                         <a class="dropdown-item" href="../src/java/Servlets/Miperfil.java">Mi perfil</a>
                         <a class="dropdown-item" href="#">Modificar datos de usuario</a>
                         <a class="dropdown-item" href="#">Darse de baja</a>
-                        <a class="dropdown-item" href="#">Cerrar sesión</a>
+                        <a class="dropdown-item" href="../src/java/Servlets/Logout.java">Cerrar sesión</a>
                     </div>
                 </div>     
             </nav>   
