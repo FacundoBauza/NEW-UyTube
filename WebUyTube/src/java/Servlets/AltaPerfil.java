@@ -21,7 +21,7 @@ import logica.Sistema;
  *
  * @author Usuario
  */
-@WebServlet(name = "Registrar", urlPatterns = {"/Registrar"})
+@WebServlet(name = "AltaPerfil", urlPatterns = {"/AltaPerfil"})
 public class AltaPerfil extends HttpServlet {
 
     /**
