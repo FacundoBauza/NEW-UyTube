@@ -73,13 +73,13 @@ public class Manejador {
     
     public void addUsuario(Usuario usu){
             
-       /* EntityManager em = Manejador.getEntityManager();
+        EntityManager em = Manejador.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
-        //em.persist(usu.getCanal());
+        em.persist(usu.getCanal());
         em.persist(usu);
-        tx.commit();*/
-        //usuarios.add(usu);
+        tx.commit();
+
     }
     
     public void addCategoria (Categoria cat){

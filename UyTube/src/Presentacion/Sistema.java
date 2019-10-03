@@ -239,6 +239,7 @@ public class Sistema extends javax.swing.JFrame {
         Desc = new javax.swing.JLabel();
         EntradaContrasenia = new javax.swing.JTextField();
         Contra = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         verLista = new javax.swing.JInternalFrame();
         CategoriaListaRep = new javax.swing.JComboBox<>();
         Privacidad = new javax.swing.JCheckBox();
@@ -1387,6 +1388,7 @@ public class Sistema extends javax.swing.JFrame {
         });
 
         CuadroImagen.setBackground(new java.awt.Color(102, 102, 102));
+        CuadroImagen.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         EntradaNomCanal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1429,55 +1431,68 @@ public class Sistema extends javax.swing.JFrame {
 
         Contra.setText("Contraseña");
 
+        jButton1.setText("Editar Canal");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout AltaUsuarioLayout = new javax.swing.GroupLayout(AltaUsuario.getContentPane());
         AltaUsuario.getContentPane().setLayout(AltaUsuarioLayout);
         AltaUsuarioLayout.setHorizontalGroup(
             AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
                         .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Nick)
-                                    .addComponent(Contra)
-                                    .addComponent(Nom)
-                                    .addComponent(Apellido))
-                                .addGap(2, 2, 2)
-                                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(EntradaNick, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                                        .addGap(2, 2, 2)
-                                        .addComponent(EntradaContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(EntradaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(EntradaApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(100, 100, 100)
-                                .addComponent(CuadroImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                                .addComponent(Correo)
-                                .addGap(25, 25, 25)
-                                .addComponent(EntradaCorreoEl, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(102, 102, 102)
-                                .addComponent(JFileCImagen))
-                            .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                                .addComponent(Fech)
-                                .addGap(29, 29, 29)
-                                .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                                .addComponent(NomCanal)
-                                .addGap(9, 9, 9)
-                                .addComponent(EntradaNomCanal, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                                .addComponent(Desc)
-                                .addGap(6, 6, 6)
-                                .addComponent(EntradaDescripcionCanal, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(10, 10, 10))
+                            .addComponent(Nick)
+                            .addComponent(Contra)
+                            .addComponent(Nom))
+                        .addGap(24, 24, 24)
+                        .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(EntradaNick, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EntradaContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EntradaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 60, 60)
+                        .addComponent(CuadroImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                        .addComponent(BotonPrivado, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31))))
+                        .addGap(10, 10, 10)
+                        .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Apellido)
+                            .addComponent(Correo))
+                        .addGap(43, 43, 43)
+                        .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(EntradaApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(EntradaCorreoEl, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 60, 60)
+                        .addComponent(JFileCImagen))
+                    .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(Fech)
+                        .addGap(51, 51, 51)
+                        .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(NomCanal)
+                        .addGap(29, 29, 29)
+                        .addComponent(EntradaNomCanal, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(BotonPrivado, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(Desc)
+                .addGap(26, 26, 26)
+                .addComponent(EntradaDescripcionCanal, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(Registro, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
         );
         AltaUsuarioLayout.setVerticalGroup(
             AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1488,47 +1503,48 @@ public class Sistema extends javax.swing.JFrame {
                         .addGap(4, 4, 4)
                         .addComponent(Nick)
                         .addGap(12, 12, 12)
-                        .addComponent(Contra)
-                        .addGap(9, 9, 9)
-                        .addComponent(Nom)
-                        .addGap(15, 15, 15)
-                        .addComponent(Apellido))
+                        .addComponent(Contra, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(Nom, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                        .addGap(1, 1, 1)
                         .addComponent(EntradaNick, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
+                        .addGap(10, 10, 10)
                         .addComponent(EntradaContrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(EntradaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
-                        .addComponent(EntradaApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(10, 10, 10)
+                        .addComponent(EntradaNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(CuadroImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(1, 1, 1)
+                .addGap(3, 3, 3)
                 .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addComponent(Correo))
+                        .addComponent(Apellido, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
+                        .addComponent(Correo, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(AltaUsuarioLayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
+                        .addComponent(EntradaApellido, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(10, 10, 10)
                         .addComponent(EntradaCorreoEl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(JFileCImagen))
-                .addGap(9, 9, 9)
-                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Fech)
-                    .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(56, 56, 56)
-                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(NomCanal)
-                    .addComponent(EntradaNomCanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(AltaUsuarioLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(JFileCImagen)))
                 .addGap(10, 10, 10)
                 .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Fech, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(13, 13, 13)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(7, 7, 7)
+                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(NomCanal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EntradaNomCanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(BotonPrivado)
+                .addGap(29, 29, 29)
+                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Desc, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EntradaDescripcionCanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonPrivado)
-                    .addComponent(Registro))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(AltaUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(EntradaDescripcionCanal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(Registro)))
+                .addGap(88, 88, 88))
         );
 
         verLista.setClosable(true);
@@ -2119,16 +2135,11 @@ public class Sistema extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(MenuLayout.createSequentialGroup()
-                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(MenuLayout.createSequentialGroup()
-                                .addGap(0, 359, Short.MAX_VALUE)
-                                .addComponent(SeguirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(250, 250, 250))
-                            .addGroup(MenuLayout.createSequentialGroup()
-                                .addComponent(VerUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(OperacionesSobreUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(VerUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(OperacionesSobreUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(SeguirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(AltaVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(VerCategorias, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -2139,12 +2150,10 @@ public class Sistema extends javax.swing.JFrame {
                         .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(OpcionesCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(CrearLista, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(AltaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 339, Short.MAX_VALUE)))
                 .addComponent(verLista, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                .addContainerGap(31, Short.MAX_VALUE))
-            .addGroup(MenuLayout.createSequentialGroup()
-                .addGap(180, 180, 180)
-                .addComponent(AltaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MenuLayout.createSequentialGroup()
@@ -2181,16 +2190,20 @@ public class Sistema extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(SeguirUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(VerUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(AltaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(VerVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(MenuLayout.createSequentialGroup()
-                        .addComponent(OpcionesCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(CrearLista, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 173, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(VerVideo, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(MenuLayout.createSequentialGroup()
+                                .addComponent(OpcionesCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(CrearLista, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(MenuLayout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(AltaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 451, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 166, Short.MAX_VALUE))))
             .addGroup(MenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(MenuLayout.createSequentialGroup()
                     .addContainerGap()
@@ -2353,6 +2366,9 @@ public class Sistema extends javax.swing.JFrame {
 
     private void M1IAltaUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M1IAltaUsuarioActionPerformed
         Fecha.setDate(new Date());
+        BotonPrivado.setVisible(false);
+        EntradaNomCanal.setVisible(false);
+        NomCanal.setVisible(false);
         centrar(AltaUsuario);
     }//GEN-LAST:event_M1IAltaUsuarioActionPerformed
 
@@ -2385,30 +2401,6 @@ public class Sistema extends javax.swing.JFrame {
         ConsultaListaUsuario.setVisible(false);
         centrar(OperacionesSobreUsuarios);
     }//GEN-LAST:event_M1IOperacionesUsuariosActionPerformed
-
-    private void EntradaNickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaNickActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EntradaNickActionPerformed
-
-    private void EntradaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaNombreActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EntradaNombreActionPerformed
-
-    private void EntradaApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaApellidoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EntradaApellidoActionPerformed
-
-    private void EntradaCorreoElActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaCorreoElActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EntradaCorreoElActionPerformed
-
-    private void EntradaNomCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaNomCanalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EntradaNomCanalActionPerformed
-
-    private void EntradaDescripcionCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaDescripcionCanalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_EntradaDescripcionCanalActionPerformed
 
     private void AgregarCategoriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgregarCategoriaActionPerformed
         // TODO add your handling code here:
@@ -2523,45 +2515,6 @@ public class Sistema extends javax.swing.JFrame {
         else
             JOptionPane.showMessageDialog(this, "Campos vacios", "Error", JOptionPane.INFORMATION_MESSAGE);    
     }//GEN-LAST:event_ConfirmarListPrivActionPerformed
-
-    private void RegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroActionPerformed
-        DTCanal canal;
-        if(EntradaNomCanal.getText().length() == 0)
-            canal = new DTCanal(EntradaNombre.getText(), EntradaDescripcionCanal.getText(), BotonPrivado.isSelected(), null, null);
-        else
-            canal = new DTCanal(EntradaNomCanal.getText(), EntradaDescripcionCanal.getText(), BotonPrivado.isSelected(), null, null);
-        
-        DTUsuario usuario = new DTUsuario(EntradaNick.getText(),EntradaContrasenia.getText() , EntradaNombre.getText(), EntradaApellido.getText(),
-                EntradaCorreoEl.getText(), Fecha.getDate(), CuadroImagen.getText(), canal.getNombre());
-        if(!EntradaNick.getText().equals("") && !EntradaCorreoEl.getText().equals("")){
-            if(m.nicknameLibre(EntradaNick.getText())){
-                if(m.mailLibre(EntradaCorreoEl.getText())){
-                    s.altaUsuario(usuario, canal);    
-                }
-                else{
-                    JOptionPane.showMessageDialog(this, "Email en uso", "Error", JOptionPane.ERROR_MESSAGE); 
-                    return; 
-                }
-            }
-            else{
-                JOptionPane.showMessageDialog(this, "Nickname en uso", "Error", JOptionPane.ERROR_MESSAGE); 
-                return;
-            }
-            JOptionPane.showMessageDialog(this, "Usuario creado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
-
-            this.EntradaNick.setText("");
-            this.EntradaNombre.setText("");
-            this.EntradaContrasenia.setText("");
-            this.EntradaApellido.setText("");
-            this.EntradaCorreoEl.setText("");
-            this.CuadroImagen.setText("");
-            this.EntradaNomCanal.setText("");
-            this.EntradaDescripcionCanal.setText("");   
-        }
-        else{
-            JOptionPane.showMessageDialog(this, "Campos vacios", "Error", JOptionPane.ERROR_MESSAGE);
-        }       
-    }//GEN-LAST:event_RegistroActionPerformed
 
     private void UsuarioComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioComboBox1ActionPerformed
         // TODO add your handling code here:
@@ -2890,28 +2843,6 @@ public class Sistema extends javax.swing.JFrame {
     private void CambioNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambioNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_CambioNombreActionPerformed
-
-    private void JFileCImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JFileCImagenActionPerformed
-        JFileChooser file = new JFileChooser();
-        file.setCurrentDirectory(new File(System.getProperty("user.home")));
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images", "jpg","png");
-        file.addChoosableFileFilter(filter);
-        int result = file.showSaveDialog(null);
-            if(result == JFileChooser.APPROVE_OPTION){
-                File selectedFile = file.getSelectedFile();
-                String path = selectedFile.getAbsolutePath();
-                ImageIcon Imagen = new ImageIcon(path);
-                
-                Image imgEscalada = Imagen.getImage().getScaledInstance(CuadroImagen.getWidth(), CuadroImagen.getHeight(), Image.SCALE_SMOOTH);
-                Icon iconoEscalado = new ImageIcon(imgEscalada);
-                CuadroImagen.setIcon(iconoEscalado);
-                //CuadroImagen.setIcon(Imagen);
-                CuadroImagen.setText(path);
-            }
-        else if(result == JFileChooser.CANCEL_OPTION){
-              System.out.println("No hay Seleccion");
-        }
-    }//GEN-LAST:event_JFileCImagenActionPerformed
 
     private void ComentarioComentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComentarioComentActionPerformed
         // TODO add your handling code here:
@@ -3415,19 +3346,110 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_VerUsuarioInternalFrameClosing
 
     private void AltaUsuarioInternalFrameClosing(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_AltaUsuarioInternalFrameClosing
-    CuadroImagen.setIcon(null);
-    CuadroImagen.setText(null);
-    PanelImagen.setIcon(null);
-    PanelImagen.setText(null);
+        CuadroImagen.setIcon(null);
+        CuadroImagen.setText(null);
+        PanelImagen.setIcon(null);
+        PanelImagen.setText(null);
     }//GEN-LAST:event_AltaUsuarioInternalFrameClosing
 
     private void EntradaContraseniaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaContraseniaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EntradaContraseniaActionPerformed
 
+    private void RegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroActionPerformed
+        DTCanal canal;
+        if(EntradaNomCanal.getText().length() == 0)
+        canal = new DTCanal(EntradaNombre.getText(), EntradaDescripcionCanal.getText(), BotonPrivado.isSelected(), null, null);
+        else
+        canal = new DTCanal(EntradaNomCanal.getText(), EntradaDescripcionCanal.getText(), BotonPrivado.isSelected(), null, null);
+
+        DTUsuario usuario = new DTUsuario(EntradaNick.getText(),EntradaContrasenia.getText() , EntradaNombre.getText(), EntradaApellido.getText(),
+            EntradaCorreoEl.getText(), Fecha.getDate(), CuadroImagen.getText(), canal.getNombre());
+        if(!EntradaNick.getText().equals("") && !EntradaCorreoEl.getText().equals("")){
+            if(m.nicknameLibre(EntradaNick.getText())){
+                if(m.mailLibre(EntradaCorreoEl.getText())){
+                    s.altaUsuario(usuario, canal);
+                }
+                else{
+                    JOptionPane.showMessageDialog(this, "Email en uso", "Error", JOptionPane.ERROR_MESSAGE);
+                    return;
+                }
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Nickname en uso", "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            JOptionPane.showMessageDialog(this, "Usuario creado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
+
+            this.EntradaNick.setText("");
+            this.EntradaNombre.setText("");
+            this.EntradaContrasenia.setText("");
+            this.EntradaApellido.setText("");
+            this.EntradaCorreoEl.setText("");
+            this.CuadroImagen.setText("");
+            this.EntradaNomCanal.setText("");
+            this.EntradaDescripcionCanal.setText("");
+        }
+        else{
+            JOptionPane.showMessageDialog(this, "Campos vacios", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_RegistroActionPerformed
+
+    private void EntradaDescripcionCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaDescripcionCanalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaDescripcionCanalActionPerformed
+
+    private void EntradaNomCanalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaNomCanalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaNomCanalActionPerformed
+
+    private void JFileCImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JFileCImagenActionPerformed
+        JFileChooser file = new JFileChooser();
+        file.setCurrentDirectory(new File(System.getProperty("user.home")));
+        FileNameExtensionFilter filter = new FileNameExtensionFilter("*.Images", "jpg","png");
+        file.addChoosableFileFilter(filter);
+        int result = file.showSaveDialog(null);
+        if(result == JFileChooser.APPROVE_OPTION){
+            File selectedFile = file.getSelectedFile();
+            String path = selectedFile.getAbsolutePath();
+            ImageIcon Imagen = new ImageIcon(path);
+
+            Image imgEscalada = Imagen.getImage().getScaledInstance(CuadroImagen.getWidth(), CuadroImagen.getHeight(), Image.SCALE_SMOOTH);
+            Icon iconoEscalado = new ImageIcon(imgEscalada);
+            CuadroImagen.setIcon(iconoEscalado);
+            //CuadroImagen.setIcon(Imagen);
+            CuadroImagen.setText(path);
+        }
+        else if(result == JFileChooser.CANCEL_OPTION){
+            System.out.println("No hay Seleccion");
+        }
+    }//GEN-LAST:event_JFileCImagenActionPerformed
+
     private void BotonPrivadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPrivadoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_BotonPrivadoActionPerformed
+
+    private void EntradaCorreoElActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaCorreoElActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaCorreoElActionPerformed
+
+    private void EntradaApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaApellidoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaApellidoActionPerformed
+
+    private void EntradaNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaNombreActionPerformed
+
+    private void EntradaNickActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EntradaNickActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EntradaNickActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        BotonPrivado.setVisible(true);
+        EntradaNomCanal.setVisible(true);
+        NomCanal.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -3648,6 +3670,7 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JTextField contrasenia;
     private javax.swing.JTextField email;
     private javax.swing.JLabel emaillabels;
+    private javax.swing.JButton jButton1;
     private com.toedter.calendar.JDateChooser jDateChooserAltaVideo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

@@ -31,10 +31,7 @@ public class Sistema implements ISistema{
             }
         }
         String nombre;
-        if(c.getNombre() == null)
-            nombre = c.getNombre();
-        else
-            nombre = u.getNombre();
+        nombre = c.getNombre();
         Canal canal = new Canal(nombre, c.getDesc(), c.isPrivado(), listas);
         Usuario usuario = new Usuario(u.getNickname(), u.getContrasenia(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), canal);
         m.addUsuario(usuario);
