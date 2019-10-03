@@ -57,7 +57,7 @@ public class AltaPerfil extends HttpServlet {
            sistema.altaUsuario(u, c);
             out.println("<html><body onload=\"alert ('Usuario Creado')\"></body></html>");
            
-           response.setHeader("Refresh", "0; URL=http://localhost:8084/UyTube/");
+           response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/");
         }
     }
     
