@@ -1,3 +1,9 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -10,12 +16,6 @@ import logica.DT.DTCanal;
 import logica.DT.DTUsuario;
 import logica.ISistema;
 import logica.Sistema;
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 /**
  *
@@ -60,7 +60,6 @@ public class AltaPerfil extends HttpServlet {
            response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/");
         }
     }
-    
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -99,5 +98,5 @@ public class AltaPerfil extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-}
 
+}

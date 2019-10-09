@@ -36,7 +36,7 @@
                             <h3>Registrarse</h3>
                         </div>
                         <div class="card-body">
-                            <form action="/WebUyTube/AltaPerfil" method="POST">
+                            <form action="AltaPerfil" method="POST">
                                 <div class="form-group">
                                     <input id="userNick" type="text" name='nickname' placeholder="Nickname" class='form-control' autofocus required><z id="UsedMail"></z>
                                 </div>

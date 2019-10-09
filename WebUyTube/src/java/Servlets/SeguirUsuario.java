@@ -83,4 +83,3 @@ public class SeguirUsuario extends HttpServlet {
     }// </editor-fold>
 
 }
-
