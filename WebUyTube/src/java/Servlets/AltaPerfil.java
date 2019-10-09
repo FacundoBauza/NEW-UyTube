@@ -56,8 +56,8 @@ public class AltaPerfil extends HttpServlet {
            DTCanal c = new DTCanal(canal, descrcanal, priv, null, null);
            sistema.altaUsuario(u, c);
            out.println("<html><body onload=\"alert ('Usuario Creado')\"></body></html>");
-           
-           response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/");
+           response.sendRedirect("http://localhost:8084/WebUyTube/"); 
+           //response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/");
         }
     }
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
