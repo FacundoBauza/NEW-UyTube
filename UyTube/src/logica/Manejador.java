@@ -214,7 +214,7 @@ public class Manejador {
         Iterator it=usuarios.iterator();
         while(it.hasNext()){
             u=(Usuario) it.next();
-            if((u.getNickname().equals(identificador) && (u.getContrasenia().equals(pass)))){
+            if((u.getNickname().equals(identificador)) && (u.getContrasenia().equals(pass))){
                 ret=u.getSesion();
                 break;
             }
