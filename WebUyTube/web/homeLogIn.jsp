@@ -33,7 +33,7 @@
                         ${UserNick}
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="Miperfil">Mi perfil</a>
+                        <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
                         <a class="dropdown-item" href="#">Modificar datos de usuario</a>
                         <a class="dropdown-item" href="#">Darse de baja</a>
                         <a class="dropdown-item" href="Logout">Cerrar sesión</a>
