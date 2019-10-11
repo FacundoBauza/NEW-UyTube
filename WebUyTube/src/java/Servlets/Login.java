@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import logica.DT.DTSesion;
+
+import logica.Fabrica;
 import logica.ISistema;
 import logica.Sistema;
 
@@ -21,7 +23,7 @@ import logica.Sistema;
  *
  * @author Usuario
  */
-@WebServlet (urlPatterns = {"/Login"})
+@WebServlet (name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
 
     /**
@@ -37,8 +39,8 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         String nickname = request.getParameter("username");
         String contrasenia = request.getParameter("password");
-        ISistema is = new Sistema();
-        DTSesion user = is.getUserSession(nickname, contrasenia);
+        ISistema sistema = Fabrica.getInstance();
+        DTSesion user = sistema.getUserSession(nickname, contrasenia);
         if(user!=null){
             HttpSession session = request.getSession();
             session.setAttribute("UserNick", user.getNickname());
