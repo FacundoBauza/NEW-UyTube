@@ -42,6 +42,10 @@ public class DTUsuario {
         this.seguidos = u.listarSeguidos();
     }
 
+    public DTUsuario(String facu95, String facundoBauza25, String facundo, String bauza_) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getNickname() {
         return nickname;
     }

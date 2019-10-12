@@ -69,7 +69,11 @@ public class Canal {
     public boolean isPrivado() {
         return privado;
     }
-
+    
+    public boolean getPrivado() {
+        return privado;
+    }
+    
     public void setPrivado(boolean privado) {
         this.privado = privado;
     }
@@ -123,6 +127,7 @@ public class Canal {
         String nombre;
         Video v;
         ArrayList<String> videos = new ArrayList();
+        //System.out.print("La cantidad de videos es: " + videos.size());
         Iterator it = this.videos.iterator();
         while(it.hasNext()){
             v = (Video) it.next();
