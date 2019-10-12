@@ -9,7 +9,7 @@ public interface ISistema {
     public abstract void altaVideo(DTVideo video, String usuario);
     public abstract void altaCategoria(DTCategoria categoria);
     public abstract void altaLista(DTLista lista, String usuario);
-    public abstract void altaListaPorDefecto(DTLista lista);
+    public abstract void altaListaPorDefecto(DTLista lista, String usuario);
     public abstract void comentarVideo(String usuario,DTComentario comentario,String video, int padre);
     public abstract void valorarVideo(String usuario,String video, DTValoracion valoracion );
     public abstract void modificarVideo (DTVideo video, String usuario, String nomVideo);
