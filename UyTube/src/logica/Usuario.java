@@ -5,20 +5,24 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import logica.DT.DTSesion;
+import org.eclipse.persistence.annotations.CascadeOnDelete;
 
 @Entity
 @Table(name="Usuario")
 public class Usuario {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
     private String nickname;
+    
     private String contrasenia;
     private String nombre;
     private String apellido;
@@ -26,6 +30,7 @@ public class Usuario {
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fechaNac;
     private String imagen;
+    @OneToOne
     private Canal canal;
     
     @OneToMany
@@ -70,7 +75,7 @@ public class Usuario {
     public String getApellido() {
         return apellido;
     }
-
+    
     public String getEmail() {
         return email;
     }
@@ -132,13 +137,13 @@ public class Usuario {
         this.imagen = imagen;
     }
     
-
     public void addSeguidor(Usuario seguidor) {
         this.seguidores.add(seguidor);
     }
     
     public void removeSeguidor(Usuario seguidor) {
         this.seguidores.remove(seguidor);
+      
     }
     
     public void addSeguido(Usuario seguido) {

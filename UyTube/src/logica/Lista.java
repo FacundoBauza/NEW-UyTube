@@ -9,25 +9,46 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import logica.DT.DTVideo;
 
 @Entity
 @Table(name="Lista")
 public class Lista {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    /**
+     * @return the usuario_nickname
+     */
+    public String getUsuario_nickname() {
+        return usuario_nickname;
+    }
+
+    /**
+     * @param usuario_nickname the usuario_nickname to set
+     */
+    public void setUsuario_nickname(String usuario_nickname) {
+        this.usuario_nickname = usuario_nickname;
+    }
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    
     private String nombre;
+    
     private boolean porDefecto;
     private boolean privado;
+    @OneToOne
     private Categoria categoria;
-    
+    private String usuario_nickname;
     @ManyToMany
     private List<Video> videos;
 
     public Lista() {
     }
 
-    public Lista(String nombre, boolean porDefecto, boolean privado, Categoria categoria) {
+    public Lista(String nombre, boolean porDefecto, boolean privado, Categoria categoria, String usuario_nickname) {
         this.nombre = nombre;
         this.porDefecto = porDefecto;
         this.videos = new ArrayList();
@@ -39,6 +60,15 @@ public class Lista {
             this.privado = privado;
             this.categoria = categoria;
         }
+        this.usuario_nickname = usuario_nickname;
+    }
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {

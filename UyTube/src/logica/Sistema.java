@@ -1,9 +1,13 @@
 package logica;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 import logica.DT.DTCanal;
 import logica.DT.DTCategoria;
 import logica.DT.DTComentario;
@@ -19,6 +23,7 @@ public class Sistema implements ISistema{
 
     public Sistema() {
     }
+    @Override
     public void altaUsuario(DTUsuario u, DTCanal c){
         List<Lista> listas = new ArrayList();
         Manejador m = Manejador.getinstance();
@@ -26,15 +31,12 @@ public class Sistema implements ISistema{
         if(!listasNombres.isEmpty()){
             Lista list;
             for(String l : listasNombres){
-                list = new Lista(l, true, true, null);
+                list = new Lista(l, true, true, null, u.getNickname());
                 listas.add(list);
             }
         }
         String nombre;
-        if(c.getNombre() == null)
-            nombre = c.getNombre();
-        else
-            nombre = u.getNombre();
+        nombre = c.getNombre();
         Canal canal = new Canal(nombre, c.getDesc(), c.isPrivado(), listas);
         Usuario usuario = new Usuario(u.getNickname(), u.getContrasenia(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), canal);
         m.addUsuario(usuario);
@@ -51,16 +53,31 @@ public class Sistema implements ISistema{
             return null;
     }
     
+    @Override
     public void modificarUsuario(String nickname, String contrasenia, String nombre, String apellido, Date fechaNac, String imagen, String canal){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(nickname);
-        u.setContrasenia(contrasenia);
-        Canal c = u.getCanal();
-        u.setApellido(apellido);
-        u.setCanal(c);
-        u.setFechaNac(fechaNac);
-        u.setImagen(imagen);
-        u.setNombre(nombre);
+        if(u != null)
+        {
+            Canal c1 = u.getCanal();
+            Canal c = new Canal();
+            c.setDesc(c1.getDesc());
+            c.setNombre(canal);
+            c.setPrivado(c1.getPrivado());
+           
+            u.setContrasenia(contrasenia);
+            u.setApellido(apellido);
+            u.setCanal(c);
+            u.setFechaNac(fechaNac);
+            u.setImagen(imagen);
+            u.setNombre(nombre);
+            EntityManager em = Manejador.getEntityManager();
+            EntityTransaction tx = em.getTransaction();
+            tx.begin();
+            em.merge(c);
+            em.merge(u);
+            tx.commit();
+        }
         
     }
     
@@ -74,6 +91,16 @@ public class Sistema implements ISistema{
         Usuario u = m.buscarUsuario(usuario);
         Canal c = u.getCanal();
         c.addVideo(v);
+        EntityManager em5 = Manejador.getEntityManager();
+        EntityTransaction tx = em5.getTransaction();
+        tx.begin();
+        em5.persist(v);
+        em5.merge(c);
+        tx.commit();
+        /*Usuario u = m.buscarUsuario(usuario);
+        Canal c = u.getCanal();
+        c.addVideo(v);*/
+        
     }
     
     public void modificarVideo (DTVideo video, String usuario, String nomVideo){
@@ -93,50 +120,60 @@ public class Sistema implements ISistema{
     public void altaLista(DTLista lista, String usuario){ // particular valga la redundancia
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(usuario);
-        Canal c = u.getCanal();
+        //Canal_Lista cl = new Canal_Lista();
         Lista l;
         Categoria cat = m.buscarCategoria(lista.getCategoria());
-        Lista list = c.buscarLista(lista.getNombre());
+        Lista list = m.buscarLista(lista.getNombre(), usuario);
         if(list == null){
-            l = new Lista(lista.getNombre(), false, lista.isPrivado(), cat );
-            c.addLista(l);   
-        }          
-    }
-    
-    public void altaListaPorDefecto(DTLista lista){
-        Manejador m = Manejador.getinstance();
-        List<DTUsuario> usuarios = m.getUsuarios();
-        Usuario u;
-        Lista l;
-        Canal c;
-        for (DTUsuario usuario : usuarios){
-            u = m.buscarUsuario(usuario.getNickname());
-            c = u.getCanal();
-            Lista list = c.buscarLista(lista.getNombre());
-            if(list == null){
-                l = new Lista(lista.getNombre(), true, true, null);
-                c.addLista(l);
-            }
+            l = new Lista(lista.getNombre(), false, true, cat, u.getNickname());
+            m.addLista(l, usuario);
         }
-        m.addLista(lista.getNombre());
+        
     }
     
-    public void modificarListaPart(String usuario, String nombreLista, String categoria, Boolean privado){
+    public void altaListaPorDefecto(DTLista lista, String usuario){
         Manejador m = Manejador.getinstance();
-        Usuario u = m.buscarUsuario(usuario);
-         if (u == null)
-            System.out.println("no hay usuario");
-        Canal c = u.getCanal();
-        if (c == null)
-            System.out.println("no hay canal");
-        Categoria cat = m.buscarCategoria(categoria);
-         if (cat == null)
-            System.out.println("no hay categoria");
-        Lista listaModificar = c.buscarLista(nombreLista);
-         if (listaModificar == null)
-            System.out.println("no hay lista");
-        listaModificar.setCategoria(cat);
-        listaModificar.setPrivado(privado);
+       //Usuario u = m.buscarUsuario(usuario);
+        Lista l;
+        Categoria cat = m.buscarCategoria(lista.getCategoria());
+        Lista list = m.buscarLista(lista.getNombre(), usuario);
+        if(list == null){
+            List<DTUsuario> l1 = m.getUsuarios();
+            
+            for(int x=0; x<l1.size(); x++)
+            {
+               l = new Lista(lista.getNombre(), true, false, cat, l1.get(x).getNickname());
+               m.addLista(l, usuario);
+            }
+        }        
+    }
+    
+    public void modificarListaPart(String Usuario, String nombreLista, String categoria, Boolean privado){
+        Manejador m = Manejador.getinstance();
+       
+        Lista c1 = m.buscarLista(nombreLista, Usuario);
+        if(categoria.length() != 0)
+        {
+            Categoria cat = m.buscarCategoria(categoria);
+            c1.setCategoria(cat);
+        }
+        
+        if(privado)
+        {
+            c1.setPorDefecto(false);
+            c1.setPrivado(true);
+        }
+        else
+        {
+            c1.setPorDefecto(true);
+            c1.setPrivado(false);
+        }
+        
+        EntityManager em = Manejador.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.merge(c1);
+        tx.commit();
     }
     
     public void agregarVideoAlista(String usuario, String video, String usuario2, String nombreLista){
@@ -148,6 +185,13 @@ public class Sistema implements ISistema{
         Canal c2 = u2.getCanal();
         Lista listaAgregarVideo = c2.buscarLista(nombreLista);
         listaAgregarVideo.addVideo(v);
+       
+        EntityManager em5 = Manejador.getEntityManager();
+        EntityTransaction tx = em5.getTransaction();
+        tx.begin();
+        em5.merge(listaAgregarVideo);
+        tx.commit();
+        
         //c2.addVideo(v); 
     }
     
@@ -156,10 +200,15 @@ public class Sistema implements ISistema{
         Usuario u = m.buscarUsuario(usuario);
         Canal c = u.getCanal();
         c.listarListas();
-        Lista listaQuitarVideo= c.buscarLista(nombreLista);
-        listaQuitarVideo.listarVideosEnLista();
+        Lista listaQuitarVideo = c.buscarLista(nombreLista);
+        //listaQuitarVideo.listarVideosEnLista();
         Video videoQuitar = listaQuitarVideo.buscarVideoEnLista(video);
-        listaQuitarVideo.removeVideo(videoQuitar);   
+        listaQuitarVideo.removeVideo(videoQuitar);
+        EntityManager em = Manejador.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.merge(listaQuitarVideo);
+        tx.commit();
     }
     
     public DTLista consultaLista(String usuario, String nombreLista){
@@ -257,13 +306,23 @@ public class Sistema implements ISistema{
     }
     
     public void seguirUsuario(String nickSeguidor, String nickSeguido){
-         Manejador m = Manejador.getinstance();
-         Usuario seguidor = m.buscarUsuario(nickSeguidor);
-         Usuario seguido = m.buscarUsuario(nickSeguido);
-         if(seguidor!=null && seguido!=null){
-            seguido.addSeguidor(seguidor);
-            seguidor.addSeguido(seguido);
-         } 
+        Manejador m = Manejador.getinstance();
+        Usuario seguidor = m.buscarUsuario(nickSeguidor);
+        Usuario seguido = m.buscarUsuario(nickSeguido);
+        
+        if(seguidor!=null && seguido!=null){
+           System.out.print(seguido.getNickname() + seguidor.getNickname());
+           seguido.addSeguidor(seguidor);
+           seguidor.addSeguido(seguido);
+           EntityManager em = Manejador.getEntityManager();
+           EntityTransaction tx = em.getTransaction();
+           tx.begin();
+           em.merge(seguido);
+           em.merge(seguidor);
+           tx.commit();
+        }
+        else
+            System.out.print("No reconoce al Usuario wey");
     }
     
     public void dejarDeSeguirUsuario(String nickSeguidor, String nickSeguido){
@@ -273,6 +332,22 @@ public class Sistema implements ISistema{
         if(seguidor!=null && seguido!=null){
             seguido.removeSeguidor(seguidor);
             seguidor.removeSeguido(seguido);
+            EntityManager em = Manejador.getEntityManager();
+            EntityTransaction tx = em.getTransaction();
+            /*tx.begin();
+            em.refresh(seguidor);
+            em.refresh(seguido);
+            //em.merge(seguidor);
+            //em.merge(seguido);
+            tx.commit();*/
+            String Consulta = "Delete From Usuario_Usuario u "
+                    + "Where u.usuario_nickname = u_n "
+                    + "and u.seguidos_nickname = s_n";
+            Query q = em.createNativeQuery(Consulta);
+            q.setParameter("u_n", nickSeguidor);
+            q.setParameter("s_n", nickSeguido);
+            
+            BigInteger aux = (BigInteger)q.getSingleResult();
         }
     }
     
@@ -281,6 +356,7 @@ public class Sistema implements ISistema{
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(nickUsuario);
         Canal c = u.getCanal();
+        //System.out.print(c.getVideos().size());
         return c.listarVideos();    
     } 
     
@@ -325,8 +401,6 @@ public class Sistema implements ISistema{
     public DTSesion getUserSession(String identificador, String pass){
         Manejador M=Manejador.getinstance();
         return M.getUserSession(identificador, pass);
-    } 
-    
-    
+    }  
 }
 

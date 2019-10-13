@@ -17,31 +17,34 @@ import javax.persistence.Table;
 @Entity
 @Table(name="Canal")
 public class Canal {
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id   
     private String nombre;
-    private String desc;
+    
+    private String descripcion;
+    
     private boolean privado;
     
     @OneToMany
     private List<Video> videos;
+    
     @OneToMany
     private List<Lista> listas;
+
+    public Canal(String nombre, String desc, boolean privado, List<Lista> listas) {
+        this.nombre = nombre;
+        this.descripcion = desc;
+        this.privado = privado;
+        this.videos = new ArrayList();
+        this.listas = listas;
+    }
     
     public Canal() {
         
     }
 
-    public Canal(String nombre, String desc, boolean privado, List<Lista> listas) {
-        this.nombre = nombre;
-        this.desc = desc;
-        this.privado = privado;
-        this.videos = new ArrayList();
-        this.listas = listas;
-    }
-
     public Canal(String nombre, String desc, boolean privado, List<Video> videos, List<Lista> listas) {
         this.nombre = nombre;
-        this.desc = desc;
+        this.descripcion = desc;
         this.privado = privado;
         this.videos = new ArrayList();
         this.listas = listas;
@@ -56,17 +59,21 @@ public class Canal {
     }
 
     public String getDesc() {
-        return desc;
+        return descripcion;
     }
 
     public void setDesc(String desc) {
-        this.desc = desc;
+        this.descripcion = desc;
     }
 
     public boolean isPrivado() {
         return privado;
     }
-
+    
+    public boolean getPrivado() {
+        return privado;
+    }
+    
     public void setPrivado(boolean privado) {
         this.privado = privado;
     }
@@ -120,6 +127,7 @@ public class Canal {
         String nombre;
         Video v;
         ArrayList<String> videos = new ArrayList();
+        //System.out.print("La cantidad de videos es: " + videos.size());
         Iterator it = this.videos.iterator();
         while(it.hasNext()){
             v = (Video) it.next();
