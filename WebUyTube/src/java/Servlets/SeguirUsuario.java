@@ -39,7 +39,7 @@ public class SeguirUsuario extends HttpServlet {
             ISistema sistema = new Sistema();
             sistema.seguirUsuario(user, user_seguir);
             out.println("<html><body onload=\"alert('Ahora Sigues a: "+ user_seguir +"')\"></body></html>");
-            response.setHeader("Refresh", "0; URL=http://localhost:8084/UyTube/");
+            response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/");
         }
     }
 

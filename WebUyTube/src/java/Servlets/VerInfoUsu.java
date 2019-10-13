@@ -34,7 +34,6 @@ public class VerInfoUsu extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         String nick = request.getParameter("dataname");
-        ISistema s = Fabrica.getInstance();
         Manejador m = Manejador.getinstance();
         DTUsuario u = m.getUserData(nick);
         if(u!=null){
