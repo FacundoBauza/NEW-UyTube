@@ -40,8 +40,9 @@ public class Login extends HttpServlet {
             throws ServletException, IOException {
         String nickname = request.getParameter("username");
         String contrasenia = request.getParameter("password");
-        ISistema sistema = Fabrica.getInstance();
-        DTSesion user = sistema.getUserSession(nickname, contrasenia);
+        ISistema s = null;
+        s = Fabrica.getInstance();
+        DTSesion user = s.getUserSession(nickname, contrasenia);
         if(user!=null){
             HttpSession session = request.getSession();
             session.setAttribute("UserNick", user.getNickname());
@@ -49,7 +50,7 @@ public class Login extends HttpServlet {
             session.setAttribute("UserPass", user.getContrasenia());
 
           
-            response.sendRedirect("homeLogIn");
+            response.sendRedirect("homeLogIn.jsp");
         }
         else{
             response.sendRedirect("index.jsp");

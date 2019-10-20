@@ -334,20 +334,27 @@ public class Sistema implements ISistema{
             seguidor.removeSeguido(seguido);
             EntityManager em = Manejador.getEntityManager();
             EntityTransaction tx = em.getTransaction();
-            /*tx.begin();
-            em.refresh(seguidor);
-            em.refresh(seguido);
-            //em.merge(seguidor);
-            //em.merge(seguido);
-            tx.commit();*/
+            tx.begin();
             String Consulta = "Delete From Usuario_Usuario u "
-                    + "Where u.usuario_nickname = u_n "
-                    + "and u.seguidos_nickname = s_n";
+                    + "Where u.usuario_nickname = ? "
+                    + "and u.seguidos_nickname = ?";
             Query q = em.createNativeQuery(Consulta);
-            q.setParameter("u_n", nickSeguidor);
-            q.setParameter("s_n", nickSeguido);
+            q.setParameter(1, nickSeguidor);
+            q.setParameter(2, nickSeguido);
             
-            BigInteger aux = (BigInteger)q.getSingleResult();
+            int rowCount = q.executeUpdate();
+            
+            String Consulta2 = "Delete From Usuario_Usuario u "
+                    + "Where u.usuario_nickname = ? "
+                    + "and u.seguidores_nickname = ?";
+            Query q2 = em.createNativeQuery(Consulta2);
+            q2.setParameter(1, nickSeguido);
+            q2.setParameter(2, nickSeguidor);
+            
+            int rowCount2 = q2.executeUpdate();
+            tx.commit();
+            
+            //https://wiki.eclipse.org/EclipseLink/UserGuide/JPA/Basic_JPA_Development/Querying/Native#Native_SQL_query_examples
         }
     }
     

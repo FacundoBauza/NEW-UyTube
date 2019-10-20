@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import logica.DT.DTCanal;
 import logica.DT.DTSesion;
 import org.eclipse.persistence.annotations.CascadeOnDelete;
 

@@ -9,13 +9,14 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import logica.DT.DTCanal;
 import logica.DT.DTCategoria;
 import logica.DT.DTSesion;
 import logica.DT.DTUsuario;
 
 
 public class Manejador {
-    private static Manejador instancia;
+    private static Manejador instancia = null;
     private List<Usuario> usuarios;
     private List<Categoria> categorias;
     private List<String> listasPorDefecto;
@@ -51,7 +52,8 @@ public class Manejador {
         ArrayList<DTUsuario> result = new ArrayList<DTUsuario>();
         
         aux.forEach(x -> {
-            result.add(new DTUsuario(x.getNickname(),x.getContrasenia(), x.getNombre(), x.getApellido(), x.getEmail(), x.getFechaNac(), x.getImagen(), x.getCanal().getNombre()));
+            DTCanal canal = new DTCanal(x.getCanal());
+            result.add(new DTUsuario(x.getNickname(),x.getContrasenia(), x.getNombre(), x.getApellido(), x.getEmail(), x.getFechaNac(), x.getImagen(), canal));
         });
         
         return result;
@@ -276,7 +278,19 @@ public class Manejador {
         List<Usuario> aux = (List<Usuario>) query.getResultList();
         
          for(int i=0; i<aux.size(); i++)
-             if(aux.get(i).getEmail().equalsIgnoreCase(mail))
+             if(aux.get(i).getEmail().equals(mail))
+                 return aux.get(i);
+        return null;
+    }
+    
+    public Usuario obtenerUsuarioPorNickname(String nickname){
+        EntityManager em = Manejador.getEntityManager();
+        Query query = Manejador.getEntityManager().createQuery("select u from Usuario u");
+
+        List<Usuario> aux = (List<Usuario>) query.getResultList();
+        
+         for(int i=0; i<aux.size(); i++)
+             if(aux.get(i).getNickname().equals(nickname))
                  return aux.get(i);
         return null;
     }
@@ -345,7 +359,7 @@ public class Manejador {
         Iterator it=usuarios.iterator();
         while(it.hasNext()){
             u=(Usuario) it.next();
-            if((u.getNickname().equals(identificador) && (u.getContrasenia().equals(pass)))){
+            if(u.getNickname().equals(identificador) && (u.getContrasenia().equals(pass))){
                 ret=u.getSesion();
                 break;
             }

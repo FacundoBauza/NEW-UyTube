@@ -61,12 +61,15 @@ public class SistemaTest {
         Date fechaNac = new Date("01/25/1996");
         String imagen = "imagenPerfil";
         String canalNombre = "canalKuki";
-        DTUsuario u = new DTUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, canalNombre);
         String desc = "descripcion canal";
         Boolean privado = true;
         List<DTVideo> videos = new ArrayList();
         List<DTLista> listas = new ArrayList();
         DTCanal c = new DTCanal ( canalNombre, desc, privado, videos, listas);
+        DTUsuario u = new DTUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c);
+      
+        
+        
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();
         List L = new ArrayList();
@@ -92,12 +95,13 @@ public class SistemaTest {
         Date fechaNac = new Date("01/26/1996");
         String imagen = "imagenPerfil";
         String canalNombre = "canal";
-        DTUsuario u = new DTUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, canalNombre);
         String desc = "descripcion canal";
         Boolean privado = false;
         List<DTVideo> videos = new ArrayList();
         List<DTLista> listas = new ArrayList();
         DTCanal c = new DTCanal ( canalNombre, desc, privado, videos, listas);
+        DTUsuario u = new DTUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c);
+        
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();
         List L = new ArrayList();
@@ -123,12 +127,13 @@ public class SistemaTest {
         Date fechaNac = new Date("01/26/1970");
         String imagen = "imagenPerfil";
         String canalNombre = "nombreCanal";
-        DTUsuario u = new DTUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, canalNombre);
         String desc = "descripcion canal";
         Boolean privado = true;
         List<DTVideo> videos = new ArrayList();
         List<DTLista> listas = new ArrayList();
         DTCanal c = new DTCanal ( canalNombre, desc, privado, videos, listas);
+        DTUsuario u = new DTUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c);
+        
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();
         List L = new ArrayList();

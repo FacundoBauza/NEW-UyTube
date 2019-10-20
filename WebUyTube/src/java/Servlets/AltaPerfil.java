@@ -38,14 +38,15 @@ public class AltaPerfil extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
-            ISistema sistema = Fabrica.getInstance();
+            
+            ISistema s = null;
+            s = Fabrica.getInstance();
             String nickname = request.getParameter("nickname");
             String nombre = request.getParameter("nombre");
             String apellido = request.getParameter("apellido");
             String contrasenia = request.getParameter("contrasenia");
             String email = request.getParameter("email");
-            String fNac = request.getParameter("fecha_nac");
+            //String fNac = request.getParameter("fecha_nac");
             //String imagen = request.getParameter("imagen");
             String canal = request.getParameter("canal");
             String descrcanal = request.getParameter("descripcion_canal");
@@ -54,13 +55,14 @@ public class AltaPerfil extends HttpServlet {
             if (privado == null) {
                 priv = false;
             }
+            DTCanal c = new DTCanal(canal, descrcanal, priv, null, null); 
+            DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, null, " ", c);
+                       
+            s.altaUsuario(u, c);
 
-            DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, null, "", canal);
-            DTCanal c = new DTCanal(canal, descrcanal, priv, null, null);
-            sistema.altaUsuario(u, c);
             out.println("<html><body onload=\"alert ('Usuario Creado')\"></body></html>");
             response.sendRedirect("http://localhost:8084/WebUyTube/login.jsp");
-            //response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/");
+            
         }
     }
 
