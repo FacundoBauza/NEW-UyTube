@@ -32,6 +32,7 @@ import logica.Comentario;
 import logica.DT.DTComentario;
 import logica.Lista;
 import logica.Usuario;
+import logica.Video;
 
 public class Sistema extends javax.swing.JFrame {
 
@@ -65,8 +66,8 @@ public class Sistema extends javax.swing.JFrame {
         QuitarVideoDeLista.setVisible(false);
         ConsultaLista.setVisible(false);
         
-       // cargarUsuarios();
-        cargarCategorias();
+        //cargarUsuarios();
+        //cargarCategorias();
         
     }
 
@@ -180,6 +181,9 @@ public class Sistema extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
+        Editar = new javax.swing.JButton();
+        Borrar = new javax.swing.JButton();
+        usuarioValora1 = new javax.swing.JComboBox<>();
         VerUsuario = new javax.swing.JInternalFrame();
         ModifNombre = new javax.swing.JTextField();
         ModifApellido = new javax.swing.JTextField();
@@ -213,13 +217,6 @@ public class Sistema extends javax.swing.JFrame {
         ModifCanal = new javax.swing.JTextField();
         Apellidolabs1 = new javax.swing.JLabel();
         DirImagen = new javax.swing.JTextField();
-        VerCategorias = new javax.swing.JInternalFrame();
-        AgregarCategoria = new javax.swing.JTextField();
-        AgragarCategoriaButton = new javax.swing.JButton();
-        ListarCategoriasButtion = new javax.swing.JButton();
-        CatLAbels = new javax.swing.JLabel();
-        ScrollerListCategoriasPrincipal = new javax.swing.JScrollPane();
-        ListaCategoriasPrincipal = new javax.swing.JList<>();
         OperacionesSobreUsuarios = new javax.swing.JInternalFrame();
         ConsultaModifDatos = new javax.swing.JButton();
         SeguirBoton = new javax.swing.JButton();
@@ -229,6 +226,13 @@ public class Sistema extends javax.swing.JFrame {
         DejarDeSeguirBoton = new javax.swing.JButton();
         ModificarListaUsuario = new javax.swing.JButton();
         ConsultaListaUsuario = new javax.swing.JButton();
+        VerCategorias = new javax.swing.JInternalFrame();
+        AgregarCategoria = new javax.swing.JTextField();
+        AgragarCategoriaButton = new javax.swing.JButton();
+        ListarCategoriasButtion = new javax.swing.JButton();
+        CatLAbels = new javax.swing.JLabel();
+        ScrollerListCategoriasPrincipal = new javax.swing.JScrollPane();
+        ListaCategoriasPrincipal = new javax.swing.JList<>();
         AltaUsuario = new javax.swing.JInternalFrame();
         EntradaNick = new javax.swing.JTextField();
         EntradaNombre = new javax.swing.JTextField();
@@ -316,6 +320,7 @@ public class Sistema extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         ListasAgregar1 = new javax.swing.JList<>();
+        jLabel14 = new javax.swing.JLabel();
         BarraMenuSistema = new javax.swing.JMenuBar();
         Menu1Usuarios = new javax.swing.JMenu();
         M1IAltaUsuario = new javax.swing.JMenuItem();
@@ -592,7 +597,7 @@ public class Sistema extends javax.swing.JFrame {
                 .addGroup(SeguirUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(SeguirButton)
                     .addComponent(ASeguir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(SeguirUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, 270, 170));
@@ -628,12 +633,12 @@ public class Sistema extends javax.swing.JFrame {
                 .addComponent(ListarQuitar, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(SeguirButton1)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
         DejarSeguirLayout.setVerticalGroup(
             DejarSeguirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(DejarSeguirLayout.createSequentialGroup()
-                .addContainerGap(41, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(DejarSeguirLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ListarQuitar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SeguirButton1))
@@ -741,7 +746,7 @@ public class Sistema extends javax.swing.JFrame {
         VerVideo.getContentPane().add(ComentLabl, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 322, -1, -1));
 
         NickNameLabl.setText("Usuario");
-        VerVideo.getContentPane().add(NickNameLabl, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 237, -1, 20));
+        VerVideo.getContentPane().add(NickNameLabl, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 230, -1, 20));
 
         FechaComentLabl.setText("Fecha");
         VerVideo.getContentPane().add(FechaComentLabl, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 353, 37, 20));
@@ -774,13 +779,18 @@ public class Sistema extends javax.swing.JFrame {
         });
         ScrollerListVid1.setViewportView(ListaVideos);
 
-        VerVideo.getContentPane().add(ScrollerListVid1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 31, 110, -1));
+        VerVideo.getContentPane().add(ScrollerListVid1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 110, -1));
 
         jLabel3.setText("Videos");
-        VerVideo.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+        VerVideo.getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, 20));
 
         usuarioValora.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario" }));
-        VerVideo.getContentPane().add(usuarioValora, new org.netbeans.lib.awtextra.AbsoluteConstraints(474, 237, 103, -1));
+        usuarioValora.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuarioValoraActionPerformed(evt);
+            }
+        });
+        VerVideo.getContentPane().add(usuarioValora, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 230, 103, -1));
 
         ListaNoMeGusta.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "No Me Gusta" };
@@ -818,6 +828,35 @@ public class Sistema extends javax.swing.JFrame {
 
         jLabel11.setText("Categoria");
         VerVideo.getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(149, 147, -1, -1));
+
+        Editar.setText("Editar");
+        Editar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditarActionPerformed(evt);
+            }
+        });
+        VerVideo.getContentPane().add(Editar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 460, -1, -1));
+
+        Borrar.setText("Borrar");
+        Borrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BorrarActionPerformed(evt);
+            }
+        });
+        VerVideo.getContentPane().add(Borrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 460, -1, -1));
+
+        usuarioValora1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Usuario" }));
+        usuarioValora1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                usuarioValora1ItemStateChanged(evt);
+            }
+        });
+        usuarioValora1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuarioValora1ActionPerformed(evt);
+            }
+        });
+        VerVideo.getContentPane().add(usuarioValora1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 103, -1));
 
         getContentPane().add(VerVideo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 700, 580));
 
@@ -1106,90 +1145,6 @@ public class Sistema extends javax.swing.JFrame {
 
         getContentPane().add(VerUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 520, 560));
 
-        VerCategorias.setClosable(true);
-        VerCategorias.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
-        VerCategorias.setIconifiable(true);
-        VerCategorias.setMaximizable(true);
-        VerCategorias.setResizable(true);
-        VerCategorias.setTitle("Categorias");
-        VerCategorias.setToolTipText("");
-        VerCategorias.setMaximumSize(new java.awt.Dimension(345, 500));
-        VerCategorias.setMinimumSize(new java.awt.Dimension(228, 345));
-        VerCategorias.setNormalBounds(new java.awt.Rectangle(0, 0, 0, 0));
-        VerCategorias.setPreferredSize(new java.awt.Dimension(340, 345));
-        VerCategorias.setVisible(false);
-
-        AgregarCategoria.setText("Nueva categoria");
-        AgregarCategoria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgregarCategoriaActionPerformed(evt);
-            }
-        });
-
-        AgragarCategoriaButton.setText("Agregar");
-        AgragarCategoriaButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AgragarCategoriaButtonActionPerformed(evt);
-            }
-        });
-
-        ListarCategoriasButtion.setText("Consultar categoría");
-        ListarCategoriasButtion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ListarCategoriasButtionActionPerformed(evt);
-            }
-        });
-
-        CatLAbels.setText("Categorias");
-
-        ListaCategoriasPrincipal.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Categorias" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        ScrollerListCategoriasPrincipal.setViewportView(ListaCategoriasPrincipal);
-
-        javax.swing.GroupLayout VerCategoriasLayout = new javax.swing.GroupLayout(VerCategorias.getContentPane());
-        VerCategorias.getContentPane().setLayout(VerCategoriasLayout);
-        VerCategoriasLayout.setHorizontalGroup(
-            VerCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(VerCategoriasLayout.createSequentialGroup()
-                .addGroup(VerCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(VerCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(VerCategoriasLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(AgregarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(VerCategoriasLayout.createSequentialGroup()
-                            .addGap(36, 36, 36)
-                            .addGroup(VerCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(AgragarCategoriaButton)
-                                .addComponent(CatLAbels, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(VerCategoriasLayout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(ListarCategoriasButtion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(VerCategoriasLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(ScrollerListCategoriasPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
-        VerCategoriasLayout.setVerticalGroup(
-            VerCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(VerCategoriasLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(AgregarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(AgragarCategoriaButton)
-                .addGap(10, 10, 10)
-                .addComponent(CatLAbels)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ScrollerListCategoriasPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ListarCategoriasButtion)
-                .addContainerGap())
-        );
-
-        getContentPane().add(VerCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 200, 300));
-
         OperacionesSobreUsuarios.setClosable(true);
         OperacionesSobreUsuarios.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         OperacionesSobreUsuarios.setIconifiable(true);
@@ -1280,7 +1235,7 @@ public class Sistema extends javax.swing.JFrame {
                                         .addComponent(ConsultaModifDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addComponent(SeguirBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 77, Short.MAX_VALUE)))
+                        .addGap(0, 116, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         OperacionesSobreUsuariosLayout.setVerticalGroup(
@@ -1303,6 +1258,88 @@ public class Sistema extends javax.swing.JFrame {
         );
 
         getContentPane().add(OperacionesSobreUsuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 530, 440));
+
+        VerCategorias.setClosable(true);
+        VerCategorias.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        VerCategorias.setIconifiable(true);
+        VerCategorias.setMaximizable(true);
+        VerCategorias.setResizable(true);
+        VerCategorias.setTitle("Categorias");
+        VerCategorias.setToolTipText("");
+        VerCategorias.setMaximumSize(new java.awt.Dimension(345, 500));
+        VerCategorias.setMinimumSize(new java.awt.Dimension(228, 345));
+        VerCategorias.setNormalBounds(new java.awt.Rectangle(0, 0, 0, 0));
+        VerCategorias.setPreferredSize(new java.awt.Dimension(340, 345));
+        VerCategorias.setVisible(false);
+
+        AgregarCategoria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgregarCategoriaActionPerformed(evt);
+            }
+        });
+
+        AgragarCategoriaButton.setText("Agregar");
+        AgragarCategoriaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AgragarCategoriaButtonActionPerformed(evt);
+            }
+        });
+
+        ListarCategoriasButtion.setText("Consultar Categoría");
+        ListarCategoriasButtion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ListarCategoriasButtionActionPerformed(evt);
+            }
+        });
+
+        CatLAbels.setText("Categorías");
+
+        ListaCategoriasPrincipal.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Categorias" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        ScrollerListCategoriasPrincipal.setViewportView(ListaCategoriasPrincipal);
+
+        javax.swing.GroupLayout VerCategoriasLayout = new javax.swing.GroupLayout(VerCategorias.getContentPane());
+        VerCategorias.getContentPane().setLayout(VerCategoriasLayout);
+        VerCategoriasLayout.setHorizontalGroup(
+            VerCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VerCategoriasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(VerCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(VerCategoriasLayout.createSequentialGroup()
+                        .addComponent(AgregarCategoria)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(AgragarCategoriaButton))
+                    .addGroup(VerCategoriasLayout.createSequentialGroup()
+                        .addGroup(VerCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(VerCategoriasLayout.createSequentialGroup()
+                                .addComponent(ScrollerListCategoriasPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(ListarCategoriasButtion))
+                            .addComponent(CatLAbels, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        VerCategoriasLayout.setVerticalGroup(
+            VerCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(VerCategoriasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(VerCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(AgregarCategoria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(AgragarCategoriaButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(VerCategoriasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(VerCategoriasLayout.createSequentialGroup()
+                        .addComponent(CatLAbels)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ScrollerListCategoriasPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(ListarCategoriasButtion))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(VerCategorias, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, 320, 240));
 
         AltaUsuario.setClosable(true);
         AltaUsuario.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
@@ -1751,7 +1788,7 @@ public class Sistema extends javax.swing.JFrame {
                         .addComponent(jLabel6)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(21, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, QuitarVideoDeListaLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(BotonQuitarVideo)
@@ -1855,7 +1892,7 @@ public class Sistema extends javax.swing.JFrame {
                         .addGap(64, 64, 64))
                     .addGroup(AgregarVideoAListaLayout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addContainerGap(42, Short.MAX_VALUE))))
             .addGroup(AgregarVideoAListaLayout.createSequentialGroup()
                 .addGroup(AgregarVideoAListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1891,12 +1928,16 @@ public class Sistema extends javax.swing.JFrame {
                 .addGroup(AgregarVideoAListaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(UsuAgregarLista1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(BotonAgregarALista1)
                 .addContainerGap())
         );
 
         getContentPane().add(AgregarVideoALista, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, 380, 440));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Fondos/x.jpg"))); // NOI18N
+        jLabel14.setText("jLabel14");
+        getContentPane().add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, 1600, 920));
 
         Menu1Usuarios.setText("Usuarios");
 
@@ -2136,16 +2177,20 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_AgregarCategoriaActionPerformed
 
     private void M4IAltaCatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_M4IAltaCatActionPerformed
+        CatLAbels.setVisible(false);
+        ListaCategoriasPrincipal.setVisible(false);
+        ListarCategoriasButtion.setVisible(false);
+        
         AltaVideo.setVisible(false);
         AltaUsuario.setVisible(false);
         CrearLista.setVisible(false);
-        VerCategorias.setVisible(false);
+        VerCategorias.setVisible(true);
         VerVideo.setVisible(false);
         VerUsuario.setVisible(false);
         OperacionesSobreUsuarios.setVisible(false);
         SeguirUsuario.setVisible(false);
         DejarSeguir.setVisible(false);
-        OpcionesCategoria.setVisible(true);
+        OpcionesCategoria.setVisible(false);
         verLista.setVisible(false);
         AgregarVideoALista.setVisible(false);
         QuitarVideoDeLista.setVisible(false);
@@ -2165,6 +2210,7 @@ public class Sistema extends javax.swing.JFrame {
             if(m.nombreCategoriaLibre(AgregarCategoria.getText())){
                 s.altaCategoria(cat);
                 AgregarCategoria.setText("");
+                JOptionPane.showMessageDialog(this, "Categoría guardada correctamente", "Exito", JOptionPane.ERROR_MESSAGE);
                 DefaultListModel model = new DefaultListModel();
                 for(DTCategoria c : m.getCategorias()) {
                     model.addElement(c.getNombre());
@@ -2177,7 +2223,7 @@ public class Sistema extends javax.swing.JFrame {
             }
         }
         else
-            JOptionPane.showMessageDialog(this, "Campos vacios", "Error", JOptionPane.ERROR_MESSAGE);   
+            JOptionPane.showMessageDialog(this, "Campos vacios", "Error", JOptionPane.INFORMATION_MESSAGE);   
     }//GEN-LAST:event_AgragarCategoriaButtonActionPerformed
 
     private void UsuarioComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioComboBoxActionPerformed
@@ -2228,11 +2274,15 @@ public class Sistema extends javax.swing.JFrame {
         ConsultaLista.setVisible(false);
 
         //item menu consultar/modificar Video
-        DefaultListModel model = new DefaultListModel();
+        List<DTUsuario> Us = m.getUsuarios();
+        for(int i=0; i<Us.size(); i++)
+            usuarioValora1.addItem(Us.get(i).getNickname());
+        
+       /* DefaultListModel model = new DefaultListModel();
         for (DTUsuario u : m.getUsuarios()){
             model.addElement(u.getNickname());
         }
-        ListaUsuarios.setModel(model);
+        ListaUsuarios.setModel(model);*/
         ConsultaModifDatos.setVisible(false);
         SeguirBoton.setVisible(false);
         DejarDeSeguirBoton.setVisible(false);
@@ -2389,7 +2439,7 @@ public class Sistema extends javax.swing.JFrame {
         FechaVerUsuario.setDate(this.usuarioSeleccionado.getFechaNac());
         ModifNombre.setText(this.usuarioSeleccionado.getNombre());
         ModifApellido.setText(this.usuarioSeleccionado.getApellido());
-        ModifCanal.setText(this.usuarioSeleccionado.getCanal());
+        ModifCanal.setText(this.usuarioSeleccionado.getCanal().getNombre());
         contrasenia.setText(this.usuarioSeleccionado.getContrasenia());
         
         
@@ -2747,11 +2797,16 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_M4IConsultarCategoriaActionPerformed
 
     private void ListaVideosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaVideosValueChanged
-        String v = ListaVideos.getSelectedValue();
-        if (v != null)
-            this.videoSeleccionado = v;
-        DTVideo video;
-        if (this.videoSeleccionado != null){
+        //List<DTUsuario> Us = m.getUsuarios();
+        /*for(int i=0; i<Us.size(); i++)
+            usuarioValora.addItem(Us.get(i).getNickname());
+        */
+        String v1 = ListaVideos.getSelectedValue();
+        DTVideo video = s.consultarVideo(usuarioValora1.getSelectedItem().toString(), v1);
+        
+        System.out.print(video.getNombre());
+        
+        if(video != null){
             video = s.consultarVideo(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
             if (video.getNombre() != null && !video.getNombre().isEmpty())
                 CambioNombre.setText(video.getNombre());
@@ -3326,7 +3381,7 @@ public class Sistema extends javax.swing.JFrame {
         canal = new DTCanal(EntradaNomCanal.getText(), EntradaDescripcionCanal.getText(), BotonPrivado.isSelected(), null, null);
 
         DTUsuario usuario = new DTUsuario(EntradaNick.getText(),EntradaContrasenia.getText() , EntradaNombre.getText(), EntradaApellido.getText(),
-            EntradaCorreoEl.getText(), Fecha.getDate(), CuadroImagen.getText(), canal.getNombre());
+            EntradaCorreoEl.getText(), Fecha.getDate(), CuadroImagen.getText(), canal, false);
         if(!EntradaNick.getText().equals("") && !EntradaCorreoEl.getText().equals("")){
             if(m.nicknameLibre(EntradaNick.getText())){
                 if(m.mailLibre(EntradaCorreoEl.getText())){
@@ -3455,6 +3510,54 @@ public class Sistema extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_ListarQuitarActionPerformed
 
+    private void EditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditarActionPerformed
+        DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Comentarios.getSelectionPath().getLastPathComponent();
+
+        selectedNode.setUserObject(ComentarioComent.getText());
+
+        DefaultTreeModel model = (DefaultTreeModel)Comentarios.getModel();
+        model.reload();
+    }//GEN-LAST:event_EditarActionPerformed
+
+    private void BorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BorrarActionPerformed
+        DefaultMutableTreeNode selectedNode = (DefaultMutableTreeNode) Comentarios.getSelectionPath().getLastPathComponent();
+
+        if(selectedNode != Comentarios.getModel().getRoot())
+        {
+            DefaultTreeModel model = (DefaultTreeModel)Comentarios.getModel();
+
+            model.removeNodeFromParent(selectedNode);
+
+            model.reload();
+        }
+    }//GEN-LAST:event_BorrarActionPerformed
+
+    private void usuarioValoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioValoraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuarioValoraActionPerformed
+
+    private void usuarioValora1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioValora1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuarioValora1ActionPerformed
+
+    private void usuarioValora1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_usuarioValora1ItemStateChanged
+        Usuario U = m.obtenerUsuarioPorNickname(usuarioValora1.getSelectedItem().toString());
+        List<Video> V = U.getCanal().getVideos();
+        if(V.size() > 0)
+        {
+            DefaultListModel model = new DefaultListModel();
+            for(int i=0; i<V.size(); i++)
+            {
+                model.addElement(V.get(i).getNombre());
+                System.out.print(V.get(i).getNombre());
+            }
+            ListaVideos.setModel(model);
+        }
+        else
+            JOptionPane.showMessageDialog(this, "Este Usuario no tiene Videos asociados", "Error", JOptionPane.ERROR_MESSAGE);
+
+    }//GEN-LAST:event_usuarioValora1ItemStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -3500,6 +3603,7 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JLabel Apellidolabs;
     private javax.swing.JLabel Apellidolabs1;
     private javax.swing.JMenuBar BarraMenuSistema;
+    private javax.swing.JButton Borrar;
     private javax.swing.JToggleButton BotonAgregarALista1;
     private javax.swing.JCheckBox BotonPrivado;
     private javax.swing.JToggleButton BotonQuitarVideo;
@@ -3538,6 +3642,7 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JLabel Duracion;
     private javax.swing.JLabel DuracionLabl;
     private javax.swing.JTextField DuracionVideo;
+    private javax.swing.JButton Editar;
     private javax.swing.JTextField EntradaApellido;
     private javax.swing.JTextField EntradaContrasenia;
     private javax.swing.JTextField EntradaCorreoEl;
@@ -3685,6 +3790,7 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -3705,6 +3811,7 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JCheckBox porDefecto;
     private javax.swing.JLabel seguidoreslab;
     private javax.swing.JComboBox<String> usuarioValora;
+    private javax.swing.JComboBox<String> usuarioValora1;
     private javax.swing.JInternalFrame verLista;
     // End of variables declaration//GEN-END:variables
 }

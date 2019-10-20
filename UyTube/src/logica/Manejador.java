@@ -9,6 +9,7 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import logica.DT.DTCanal;
 import logica.DT.DTCategoria;
 import logica.DT.DTSesion;
 import logica.DT.DTUsuario;
@@ -51,7 +52,8 @@ public class Manejador {
         ArrayList<DTUsuario> result = new ArrayList<DTUsuario>();
         
         aux.forEach(x -> {
-            result.add(new DTUsuario(x.getNickname(),x.getContrasenia(), x.getNombre(), x.getApellido(), x.getEmail(), x.getFechaNac(), x.getImagen(), x.getCanal().getNombre()));
+            DTCanal canal = new DTCanal(x.getCanal());
+            result.add(new DTUsuario(x.getNickname(),x.getContrasenia(), x.getNombre(), x.getApellido(), x.getEmail(), x.getFechaNac(), x.getImagen(), canal, x.getEliminado()));
         });
         
         return result;
@@ -64,7 +66,7 @@ public class Manejador {
 
         List<Categoria> aux = (List<Categoria>) query.getResultList();
         
-        ArrayList<DTCategoria> result = new ArrayList<DTCategoria>();
+        ArrayList<DTCategoria> result = new ArrayList<>();
         
         aux.forEach(x -> {
             result.add(new DTCategoria(x.getNombre()));
@@ -276,7 +278,19 @@ public class Manejador {
         List<Usuario> aux = (List<Usuario>) query.getResultList();
         
          for(int i=0; i<aux.size(); i++)
-             if(aux.get(i).getEmail().equalsIgnoreCase(mail))
+             if(aux.get(i).getEmail().equals(mail))
+                 return aux.get(i);
+        return null;
+    }
+    
+    public Usuario obtenerUsuarioPorNickname(String nickname){
+        EntityManager em = Manejador.getEntityManager();
+        Query query = Manejador.getEntityManager().createQuery("select u from Usuario u");
+
+        List<Usuario> aux = (List<Usuario>) query.getResultList();
+        
+         for(int i=0; i<aux.size(); i++)
+             if(aux.get(i).getNickname().equals(nickname))
                  return aux.get(i);
         return null;
     }

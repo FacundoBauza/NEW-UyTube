@@ -3,16 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/E:/Resto/WebUyTube/web/infoconsultausuario.jsp</file>
-            <file>file:/E:/Resto/WebUyTube/web/resources/js/CheckMailUse.js</file>
-            <file>file:/E:/Resto/WebUyTube/web/index.jsp</file>
-            <file>file:/E:/Resto/WebUyTube/web/ConsultaLista.jsp</file>
-            <file>file:/E:/Resto/WebUyTube/web/homeLogIn.jsp</file>
-            <file>file:/E:/Resto/WebUyTube/web/MiPerfilUsuario.jsp</file>
-            <file>file:/E:/Resto/WebUyTube/web/altaperfil.jsp</file>
-            <file>file:/E:/Resto/WebUyTube/web/META-INF/context.xml</file>
-            <file>file:/E:/Resto/WebUyTube/web/login.jsp</file>
-            <file>file:/E:/Resto/WebUyTube/web/consultausuario.jsp</file>
+            <file>file:/E:/Resto/WebUyTube/src/java/Servlets/ListarCategoria.java</file>
+            <file>file:/E:/Resto/WebUyTube/web/ListarCategorias.jsp</file>
         </group>
     </open-files>
 </project-private>

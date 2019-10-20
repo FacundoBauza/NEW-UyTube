@@ -27,7 +27,7 @@
                 <form class="form-inline mx-auto">
                     <input class="form-control mr-sm-2" type="search" placeholder="video, lista, canal" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
-                </form>
+                </form> 
                 <a class="btn btn-primary" href="/WebUyTube/login.jsp" role="button"><i class="fas fa-sign-in-alt"></i> INGRESAR</a>     
             </nav>   
         </header>
@@ -38,7 +38,7 @@
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">USUARIOS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Consulta de usuario</a></li>
+                    <li class="list-group-item"><a href="consultausuario.jsp" role="button">Consulta de usuario</a></li>
                 </ul>
             </div>
             <div class="card" style="width: 18rem;">
@@ -57,7 +57,9 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">CATEGORÍAS:</li>
                     <li class="list-group-item"><a href="#" role="button">Consulta de categoría</a></li>
-                    <li class="list-group-item"><a href="#" role="button">listar categorias existentes</a></li>
+                    <li class="list-group-item">    
+                        <a href="/WebUyTube/ListarCategorias.jsp" role="button">listar categorias existentes </a>
+                    </li>
                     
                 </ul>
             </div>

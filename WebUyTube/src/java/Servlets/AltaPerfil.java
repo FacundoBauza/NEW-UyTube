@@ -1,25 +1,28 @@
-
-import java.io.IOException;
-import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import logica.DT.DTCanal;
-import logica.DT.DTUsuario;
-import logica.ISistema;
-import logica.Sistema;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package Servlets;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import logica.DT.DTCanal;
+import logica.DT.DTUsuario;
+import logica.Fabrica;
+import logica.ISistema;
+import logica.Sistema;
 
 /**
  *
  * @author Usuario
  */
+@WebServlet(name = "AltaPerfil", urlPatterns = {"/AltaPerfil"})
 public class AltaPerfil extends HttpServlet {
 
     /**
@@ -35,30 +38,34 @@ public class AltaPerfil extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            ISistema sistema = new Sistema();
+            
+            ISistema s = null;
+            s = Fabrica.getInstance();
             String nickname = request.getParameter("nickname");
             String nombre = request.getParameter("nombre");
             String apellido = request.getParameter("apellido");
             String contrasenia = request.getParameter("contrasenia");
             String email = request.getParameter("email");
-            String fNac = request.getParameter("fecha_nac");
-           // String imagen = request.getParameter("imagen");
-           String canal = request.getParameter("canal");
-           String descrcanal = request.getParameter("descripcion_canal");
-           String privado = request.getParameter("privado");
-           Boolean priv= true;
-           if(privado==null){
-               priv = false;
-           }
-           DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, null, "", canal);
-           DTCanal c = new DTCanal(canal, descrcanal, priv, null, null);
-           sistema.altaUsuario(u, c);
+            //String fNac = request.getParameter("fecha_nac");
+            //String imagen = request.getParameter("imagen");
+            String canal = request.getParameter("canal");
+            String descrcanal = request.getParameter("descripcion_canal");
+            String privado = request.getParameter("privado");
+            Boolean priv = true;
+            if (privado == null) {
+                priv = false;
+            }
+            DTCanal c = new DTCanal(canal, descrcanal, priv, null, null); 
+            DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, null, " ", c, false);
+                       
+            s.altaUsuario(u, c);
+
             out.println("<html><body onload=\"alert ('Usuario Creado')\"></body></html>");
-           
-           response.setHeader("Refresh", "0; URL=http://localhost:8084/UyTube/");
+            response.sendRedirect("http://localhost:8084/WebUyTube/login.jsp");
+            //response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/login.jsp");
         }
     }
-    
+
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
@@ -97,5 +104,5 @@ public class AltaPerfil extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
-}
 
+}
