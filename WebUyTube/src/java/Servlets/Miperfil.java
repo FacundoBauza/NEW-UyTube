@@ -6,6 +6,7 @@
 package Servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,8 +22,8 @@ import logica.Manejador;
  *
  * @author Usuario
  */
-@WebServlet(name = "Miperfil", urlPatterns = {"/Miperfil"})
-public class Miperfil extends HttpServlet {
+@WebServlet(name = "MiPerfil", urlPatterns = {"/MiPerfil"})
+public class MiPerfil extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -90,4 +91,3 @@ public class Miperfil extends HttpServlet {
     }// </editor-fold>
 
 }
-

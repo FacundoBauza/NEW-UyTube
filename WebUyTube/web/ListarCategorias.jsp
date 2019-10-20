@@ -1,6 +1,6 @@
 <%-- 
-    Document   : ConsultaLista
-    Created on : 18-oct-2019, 15:51:14
+    Document   : ListarCategoria
+    Created on : 18-oct-2019, 15:53:13
     Author     : visua
 --%>
 
@@ -8,7 +8,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <!--CSS ANIMATE-->
+        
+        <!--CSS ANIMATE-->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
         <!--FONT AWESOME-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
@@ -24,9 +25,14 @@
         <script src="resources/js/CheckMailUse.js" type="text/javascript"></script>
         <script src="http://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Consulta Lista</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Lista de Categorias</title>
     </head>
     <body>
-        
+        <div style="text-align: center;">
+            <form method="POST" action="ListCat">
+                <input type="submit" name="BotonListar" value="Listar">
+            </form>
+        </div>    
     </body>
 </html>

@@ -1,5 +1,6 @@
 package logica;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -37,7 +38,7 @@ public class Sistema implements ISistema{
         String nombre;
         nombre = c.getNombre();
         Canal canal = new Canal(nombre, c.getDesc(), c.isPrivado(), listas);
-        Usuario usuario = new Usuario(u.getNickname(), u.getContrasenia(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), canal);
+        Usuario usuario = new Usuario(u.getNickname(), u.getContrasenia(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), canal, u.getEliminado());
         m.addUsuario(usuario);
         
     }
@@ -334,11 +335,26 @@ public class Sistema implements ISistema{
             EntityManager em = Manejador.getEntityManager();
             EntityTransaction tx = em.getTransaction();
             tx.begin();
-            em.refresh(seguidor);
-            em.refresh(seguido);
-            //em.merge(seguidor);
-            //em.merge(seguido);
+            String Consulta = "Delete From Usuario_Usuario u "
+                    + "Where u.usuario_nickname = ? "
+                    + "and u.seguidos_nickname = ?";
+            Query q = em.createNativeQuery(Consulta);
+            q.setParameter(1, nickSeguidor);
+            q.setParameter(2, nickSeguido);
+            
+            int rowCount = q.executeUpdate();
+            
+            String Consulta2 = "Delete From Usuario_Usuario u "
+                    + "Where u.usuario_nickname = ? "
+                    + "and u.seguidores_nickname = ?";
+            Query q2 = em.createNativeQuery(Consulta2);
+            q2.setParameter(1, nickSeguido);
+            q2.setParameter(2, nickSeguidor);
+            
+            int rowCount2 = q2.executeUpdate();
             tx.commit();
+            
+            //https://wiki.eclipse.org/EclipseLink/UserGuide/JPA/Basic_JPA_Development/Querying/Native#Native_SQL_query_examples
         }
     }
     

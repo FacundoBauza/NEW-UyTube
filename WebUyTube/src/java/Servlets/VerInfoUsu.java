@@ -8,19 +8,19 @@ package Servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logica.DT.DTUsuario;
+import logica.Fabrica;
 import logica.ISistema;
-import logica.Sistema;
+import logica.Manejador;
 
 /**
  *
  * @author Usuario
  */
-@WebServlet(name = "SeguirUsuario", urlPatterns = {"/SeguirUsuario"})
-public class SeguirUsuario extends HttpServlet {
+public class VerInfoUsu extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,13 +33,20 @@ public class SeguirUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        String user = (String) request.getSession().getAttribute("UserNick");
-        String user_seguir = (String) request.getSession().getAttribute("userConsult");
-        if(!(user.equals(user_seguir))){
-            ISistema sistema = new Sistema();
-            sistema.seguirUsuario(user, user_seguir);
-            out.println("<html><body onload=\"alert('Ahora Sigues a: "+ user_seguir +"')\"></body></html>");
-            response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/");
+        String nick = request.getParameter("dataname");
+        Manejador m = Manejador.getinstance();
+        DTUsuario u = m.getUserData(nick);
+        if(u!=null){
+            request.getSession().setAttribute("userConsult", u.getNickname());
+            request.setAttribute("userInfo", u);
+            if(u instanceof DTUsuario){
+                getServletConfig().getServletContext().getRequestDispatcher("/WebUyTube/infoconsultausuario.jsp").forward(request,response);
+            }
+            
+        }
+        else{
+            out.println("<html><body onload=\"alert('Usuario no encontrado')\"></body></html>");
+            response.setHeader("Refresh", "0; URL=/WebUyTube/");
         }
     }
 

@@ -13,7 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 @Entity
-@Table(name="Lista")
+@Table(name="Comentario")
 public class Comentario {
     public static int proxid = 1;
     @Id 

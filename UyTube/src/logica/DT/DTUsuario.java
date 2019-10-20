@@ -15,10 +15,11 @@ public class DTUsuario {
     private String imagen;
     private List<String> seguidores;
     private List<String> seguidos;
-    private String canal;
+    private DTCanal canal;
     private List<DTValoracion> valoraciones;
+    private boolean Eliminado;
 
-    public DTUsuario(String nickname, String contrasenia, String nombre, String apellido, String email, Date fechaNac, String imagen, String canal) {
+    public DTUsuario(String nickname, String contrasenia, String nombre, String apellido, String email, Date fechaNac, String imagen, DTCanal canal, boolean Eliminado) {
         this.nickname = nickname;
         this.contrasenia = contrasenia;
         this.nombre = nombre;
@@ -27,6 +28,7 @@ public class DTUsuario {
         this.fechaNac = fechaNac;
         this.imagen = imagen; 
         this.canal = canal;
+        this.Eliminado = Eliminado;
     }
 
     public DTUsuario(Usuario u){
@@ -37,13 +39,18 @@ public class DTUsuario {
         this.email = u.getEmail();
         this.fechaNac = u.getFechaNac();
         this.imagen = u.getImagen();
-        this.canal = u.getCanal().getNombre();
+        this.canal = new DTCanal (u.getCanal());
         this.seguidores = u.listarSeguidores();
         this.seguidos = u.listarSeguidos();
+        this.Eliminado = u.getEliminado();
     }
 
-    public DTUsuario(String facu95, String facundoBauza25, String facundo, String bauza_) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean getEliminado() {
+        return Eliminado;
+    }
+
+    public void setEliminado(boolean Eliminado) {
+        this.Eliminado = Eliminado;
     }
 
     public String getNickname() {
@@ -82,7 +89,7 @@ public class DTUsuario {
         return seguidos;
     }
 
-    public String getCanal() {
+    public DTCanal getCanal() {
         return canal;
     }
 
