@@ -16,20 +16,16 @@
 <%@page import="logica.DT.DTUsuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-<<<<<<< HEAD
+
     /*DTUsuario usuario = (DTUsuario) request.getAttribute("userInfo");
-=======
-    DTUsuario usuario = (DTUsuario) request.getAttribute("userInfo");
->>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
+
+
     DTCanal canal = usuario.getCanal();
     List<DTVideo> videos = canal.getVideos();
     List<DTLista> listas = canal.getListas();
     List<String> seguidores = usuario.getSeguidores();
-<<<<<<< HEAD
     List<String> seguidos = usuario.getSeguidos();*/
-=======
-    List<String> seguidos = usuario.getSeguidos();
->>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
+
     
 %>
 <!DOCTYPE html>
@@ -62,11 +58,7 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
-<<<<<<< HEAD
-                        <a class="dropdown-item" href="#">Modificar datos de usuario</a>
-=======
                         <a href="ModificarUsuario.jsp" role="button">Modificar usuario</a>
->>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
                         <a class="dropdown-item" href="#">Darse de baja</a>
                         <a class="dropdown-item" href="Logout">Cerrar sesión</a>
                     </div>
@@ -90,11 +82,7 @@
                 <div class="card" style="width: 18rem;">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">VIDEOS:</li>
-<<<<<<< HEAD
-                        <li class="list-group-item"><a href="#" role="button">Subir video</a></li>
-=======
                         <li class="list-group-item"><a href="altaVideo.jsp" role="button">Subir video</a></li>
->>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
                         <li class="list-group-item"><a href="#" role="button">Ver videos</a></li>
                     </ul>
                 </div>
@@ -145,7 +133,7 @@
                         <div class="tab-content">
                             <div id="video" class="tab active">
                                 <ul>
-<<<<<<< HEAD
+
                                     <%/*if (videos != null && videos.size() > 0) {*/%>
                                     <%/*for (DTVideo v : videos) {*/%>  
                                     <h6><%// out.print(v.getUrl()); %></h6>
@@ -189,35 +177,11 @@
                                     <%// } else { %>
                                     <h1>No se encontraron seguidos</h1>
                                     <%// } %>
-                                </ul></div>
-=======
-                                    <%if (videos != null && videos.size() > 0) {%>
-                                    <%for (DTVideo v : videos) {%>  
-                                    <h6><% out.print(v.getUrl()); %></h6>
-                                    <% } %>
-                                    <% } else { %>
-                                    <h1>No se encontraron videos</h1>
-                                    <% } %>
                                 </ul>
-                                
-                                <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis.</p>
                             </div>
 
-                            <div id="tab2" class="tab">
-                                <p>Tab #2 content goes here!</p>
-                                <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
-                            </div>
-
-                            <div id="tab3" class="tab">
-                                <p>Tab #3 content goes here!</p>
-                                <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum ri.</p>
-                            </div>
-
-                            <div id="tab4" class="tab">
-                                <p>Tab #4 content goes here!</p>
-                                <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
-                            </div>
->>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
+                                    
+                            
                         </div>
                     </div>
                 </div>

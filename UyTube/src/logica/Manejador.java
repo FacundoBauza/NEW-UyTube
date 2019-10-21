@@ -53,7 +53,7 @@ public class Manejador {
         
         aux.forEach(x -> {
             DTCanal canal = new DTCanal(x.getCanal());
-            result.add(new DTUsuario(x.getNickname(),x.getContrasenia(), x.getNombre(), x.getApellido(), x.getEmail(), x.getFechaNac(), x.getImagen(), canal));
+            result.add(new DTUsuario(x.getNickname(),x.getContrasenia(), x.getNombre(), x.getApellido(), x.getEmail(), x.getFechaNac(), x.getImagen(), canal, x.getEliminado()));
         });
         
         return result;

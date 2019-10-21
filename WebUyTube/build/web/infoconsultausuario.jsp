@@ -4,6 +4,10 @@
     Author     : Usuario
 --%>
 
+<<<<<<< HEAD
+=======
+<%@page import="java.util.Date"%>
+>>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
 <%@page import="logica.DT.DTLista"%>
 <%@page import="java.util.List"%>
 <%@page import="logica.DT.DTVideo"%>
@@ -12,12 +16,16 @@
 <%@page import="logica.DT.DTUsuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+
     /*DTUsuario usuario = (DTUsuario) request.getAttribute("userInfo");
+
+
     DTCanal canal = usuario.getCanal();
     List<DTVideo> videos = canal.getVideos();
     List<DTLista> listas = canal.getListas();
     List<String> seguidores = usuario.getSeguidores();
     List<String> seguidos = usuario.getSeguidos();*/
+
     
 %>
 <!DOCTYPE html>
@@ -125,6 +133,7 @@
                         <div class="tab-content">
                             <div id="video" class="tab active">
                                 <ul>
+
                                     <%/*if (videos != null && videos.size() > 0) {*/%>
                                     <%/*for (DTVideo v : videos) {*/%>  
                                     <h6><%// out.print(v.getUrl()); %></h6>
@@ -168,7 +177,11 @@
                                     <%// } else { %>
                                     <h1>No se encontraron seguidos</h1>
                                     <%// } %>
-                                </ul></div>
+                                </ul>
+                            </div>
+
+                                    
+                            
                         </div>
                     </div>
                 </div>
