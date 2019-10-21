@@ -7,6 +7,7 @@ package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -38,6 +39,7 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        PrintWriter out = response.getWriter();
         String nickname = request.getParameter("username");
         String contrasenia = request.getParameter("password");
         ISistema s = null;
@@ -46,13 +48,11 @@ public class Login extends HttpServlet {
         if(user!=null){
             HttpSession session = request.getSession();
             session.setAttribute("UserNick", user.getNickname());
-            
             session.setAttribute("UserPass", user.getContrasenia());
-
-          
             response.sendRedirect("homeLogIn.jsp");
         }
         else{
+            out.println("<html><body onload=\"alert ('Usuario no encontrado')\"></body></html>");
             response.sendRedirect("index.jsp");
         }
     }
