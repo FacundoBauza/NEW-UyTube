@@ -125,7 +125,7 @@ public class Sistema implements ISistema{
         Categoria cat = m.buscarCategoria(lista.getCategoria());
         Lista list = m.buscarLista(lista.getNombre(), usuario);
         if(list == null){
-            l = new Lista(lista.getNombre(), false, true, cat, u.getNickname());
+            l = new Lista(lista.getNombre(), lista.isPorDefecto(), lista.isPrivado(), cat, u.getNickname());
             m.addLista(l, usuario);
         }
         
@@ -142,7 +142,7 @@ public class Sistema implements ISistema{
             
             for(int x=0; x<l1.size(); x++)
             {
-               l = new Lista(lista.getNombre(), true, false, cat, l1.get(x).getNickname());
+               l = new Lista(lista.getNombre(), lista.isPorDefecto(), lista.isPrivado(), cat, l1.get(x).getNickname());
                m.addLista(l, usuario);
             }
         }        

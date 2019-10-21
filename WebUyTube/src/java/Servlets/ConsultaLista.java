@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author visua
  */
-@WebServlet(name = "ConsultList", urlPatterns = {"/ConsulList"})
+@WebServlet(name = "ConsulList", urlPatterns = {"/ConsulList"})
 public class ConsultaLista extends HttpServlet {
 
     /**

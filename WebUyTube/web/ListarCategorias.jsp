@@ -4,6 +4,9 @@
     Author     : visua
 --%>
 
+<%@page import="java.util.List"%>
+<%@page import="logica.DT.DTCategoria"%>
+<%@page import="logica.Manejador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -27,12 +30,34 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Lista de Categorias</title>
+        <style>
+            body{
+              background-image: url("./imagenes/lluviaPro6.jpg");
+            }
+        </style>
     </head>
     <body>
-        <div style="text-align: center;">
-            <form method="POST" action="ListCat">
-                <input type="submit" name="BotonListar" value="Listar">
-            </form>
-        </div>    
+        <center>
+            <div id=contenedor>
+                <div id=Tabla1>   
+                <table border=2 style="font-size:20px" style="color: aqua">  
+                    <tr>   
+                        <td WIDTH="300" HEIGHT="25" style="color:white">Categorías Existentes</td>
+                    </tr>
+                    <%
+                        Manejador m = Manejador.getinstance();
+                        List<DTCategoria> DtCat = m.getCategorias();
+                        for(int i=0; i<DtCat.size(); i++)
+                        {
+                            %>
+                            <tr>   
+                                <td  WIDTH="300" HEIGHT="25" style="color:white"><%=DtCat.get(i).getNombre()%></td>
+                            </tr>
+                            <%
+                        }
+                    %>    
+                </table>
+            </div>
+        </center>    
     </body>
 </html>
