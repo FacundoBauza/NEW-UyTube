@@ -152,6 +152,18 @@ public class Manejador {
                 auxx.add(aux.get(i));
         return auxx;
     }
+    public List<Lista> getAllListas(){
+        EntityManager em = Manejador.getEntityManager();
+        Query query = Manejador.getEntityManager().createQuery("Select u From Lista u");
+
+        List<Lista> aux = (List<Lista>) query.getResultList();
+        List<Lista> auxx = new ArrayList<Lista>();
+        
+        for(int i=0; i<aux.size(); i++)
+            if(aux.get(i).getPrivado()==false && aux.get(i).getPorDefecto()==false)
+                auxx.add(aux.get(i));
+        return auxx;
+    }
     
     public Categoria buscarCategoria(String cat){
         /*for (logica.Categoria categoria : categorias) {
