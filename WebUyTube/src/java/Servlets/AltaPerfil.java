@@ -61,7 +61,7 @@ public class AltaPerfil extends HttpServlet {
             s.altaUsuario(u, c);
 
             out.println("<html><body onload=\"alert ('Usuario Creado')\"></body></html>");
-            response.sendRedirect("http://localhost:8084/WebUyTube/login.jsp");
+            response.sendRedirect("http://localhost:8080/WebUyTube/login.jsp");
             //response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/login.jsp");
         }
     }

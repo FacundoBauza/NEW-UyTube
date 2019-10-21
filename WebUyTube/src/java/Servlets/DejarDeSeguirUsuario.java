@@ -39,7 +39,7 @@ public class DejarDeSeguirUsuario extends HttpServlet {
             ISistema sistema = new Sistema();
             sistema.dejarDeSeguirUsuario(user, user_seguir);
             out.println("<html><body onload=\"alert('Dejaste de seguir a: "+ user_seguir +"')\"></body></html>");
-            response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/");
+            response.setHeader("Refresh", "0; URL=http://localhost:8080/WebUyTube/");
         }
     }
 
