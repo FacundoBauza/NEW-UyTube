@@ -6,6 +6,8 @@
 package Servlets;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,14 +15,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import logica.DT.DTSesion;
+
+import logica.Fabrica;
 import logica.ISistema;
+import logica.Manejador;
 import logica.Sistema;
 
 /**
  *
  * @author Usuario
  */
-@WebServlet (urlPatterns = {"/Login"})
+@WebServlet (name = "Login", urlPatterns = {"/Login"})
 public class Login extends HttpServlet {
 
     /**
@@ -34,24 +39,23 @@ public class Login extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        PrintWriter out = response.getWriter();
         String nickname = request.getParameter("username");
         String contrasenia = request.getParameter("password");
-        ISistema is = new Sistema();
-        DTSesion user = is.getUserSession(nickname, contrasenia);
+        ISistema s = null;
+        s = Fabrica.getInstance();
+        DTSesion user = s.getUserSession(nickname, contrasenia);
         if(user!=null){
             HttpSession session = request.getSession();
             session.setAttribute("UserNick", user.getNickname());
-            
             session.setAttribute("UserPass", user.getContrasenia());
-
-          
-            response.sendRedirect("homeLogIn");
-            }
+            response.sendRedirect("homeLogIn.jsp");
+        }
         else{
+            out.println("<html><body onload=\"alert ('Usuario no encontrado')\"></body></html>");
             response.sendRedirect("index.jsp");
         }
     }
-
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.

@@ -9,13 +9,14 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import logica.DT.DTCanal;
 import logica.DT.DTCategoria;
 import logica.DT.DTSesion;
 import logica.DT.DTUsuario;
 
 
 public class Manejador {
-    private static Manejador instancia;
+    private static Manejador instancia = null;
     private List<Usuario> usuarios;
     private List<Categoria> categorias;
     private List<String> listasPorDefecto;
@@ -37,18 +38,29 @@ public class Manejador {
     }
     
     public List<DTUsuario> getUsuarios() {
-        List<DTUsuario> DTUsuarios = new ArrayList();
+        /*List<DTUsuario> DTUsuarios = new ArrayList();
         for(Usuario u : usuarios){
             DTUsuario usu = new DTUsuario(u);
             DTUsuarios.add(usu);
         }
-        return DTUsuarios;
+        return DTUsuarios;*/
+        EntityManager em = Manejador.getEntityManager();
+        Query query = Manejador.getEntityManager().createQuery("select u from Usuario u");
+
+        List<Usuario> aux = (List<Usuario>) query.getResultList();
+        
+        ArrayList<DTUsuario> result = new ArrayList<DTUsuario>();
+        
+        aux.forEach(x -> {
+            DTCanal canal = new DTCanal(x.getCanal());
+            result.add(new DTUsuario(x.getNickname(),x.getContrasenia(), x.getNombre(), x.getApellido(), x.getEmail(), x.getFechaNac(), x.getImagen(), canal));
+        });
+        
+        return result;
     }
     
 
     public List<DTCategoria> getCategorias() {
-        
-        
         EntityManager em = Manejador.getEntityManager();
         Query query = Manejador.getEntityManager().createQuery("select c from Categoria c");
 
@@ -66,11 +78,23 @@ public class Manejador {
     
 
     public List<String> getListasPorDefecto() {
-        return listasPorDefecto;
+        EntityManager em = Manejador.getEntityManager();
+        boolean t = true;
+        Query query = Manejador.getEntityManager().createQuery("SELECT c FROM Lista c WHERE c.porDefecto = :pDef", Lista.class);
+        query.setParameter("pDef", t);
+        
+        List<Lista> aux = (List<Lista>) query.getResultList();
+        
+        ArrayList<String> result = new ArrayList<>();
+        
+        aux.forEach(x -> {
+            result.add(x.getNombre());
+        });
+        
+        return result;
+        
     }
-    
-    
-    
+        
     public void addUsuario(Usuario usu){
             
        /* EntityManager em = Manejador.getEntityManager();
@@ -84,37 +108,88 @@ public class Manejador {
     
     public void addCategoria (Categoria cat){
         
-        EntityManager em = Manejador.getEntityManager();
-        EntityTransaction tx = em.getTransaction();
+        EntityManager em7 = Manejador.getEntityManager();
+        EntityTransaction tx = em7.getTransaction();
         tx.begin();
-        em.persist(cat);
+        em7.persist(cat);
         tx.commit();
     }
     
-    public void addLista (String lista){
+    public void addLista (Lista lista, String Usuario){
         EntityManager em = Manejador.getEntityManager();
         EntityTransaction tx = em.getTransaction();
+        Usuario u = buscarUsuario(Usuario);
+        Canal c = u.getCanal();
+        c.addLista(lista);
+        
         tx.begin();
-        em.persist(lista);
+        em.merge(c);
         tx.commit();
-        //listasPorDefecto.add(lista);
+        
     }
     
     public Usuario buscarUsuario(String nickname){
-        for (logica.Usuario usuario : usuarios) {
-            if(usuario.getNickname().equals(nickname))
-                return usuario;
-        }
-        return null;       
+        EntityManager em = Manejador.getEntityManager();
+        Query query = Manejador.getEntityManager().createQuery("select u from Usuario u");
+
+        List<Usuario> aux = (List<Usuario>) query.getResultList();
+        
+        for(int i=0; i<aux.size(); i++)
+            if(aux.get(i).getNickname().equals(nickname))
+                return aux.get(i);
+        return null;
+    }
+    
+    public List<Lista> getListas(String nickname){
+        EntityManager em = Manejador.getEntityManager();
+        Query query = Manejador.getEntityManager().createQuery("Select u From Lista u");
+
+        List<Lista> aux = (List<Lista>) query.getResultList();
+        List<Lista> auxx = new ArrayList<Lista>();
+        
+        for(int i=0; i<aux.size(); i++)
+            if(aux.get(i).getUsuario_nickname().equals(nickname))
+                auxx.add(aux.get(i));
+        return auxx;
     }
     
     public Categoria buscarCategoria(String cat){
-        for (logica.Categoria categoria : categorias) {
+        /*for (logica.Categoria categoria : categorias) {
             if(categoria.getNombre().equals(cat))
                 return categoria;
-        }
+        }*/
+        EntityManager em = Manejador.getEntityManager();
+        Query query = Manejador.getEntityManager().createQuery("select c from Categoria c");
+
+        List<Categoria> aux = (List<Categoria>) query.getResultList();
+        
+         for(int i=0; i<aux.size(); i++)
+             if(aux.get(i).getNombre().equalsIgnoreCase(cat))
+                 return aux.get(i);
         return null;
     }
+    
+    public Lista buscarLista(String nombre, String nickname){
+        EntityManager em = Manejador.getEntityManager();
+        Query query = Manejador.getEntityManager().createQuery("Select l From Lista l", Lista.class);
+ 
+        List<Lista> aux = query.getResultList();
+        
+        for(int i=0; i<aux.size(); i++)
+        {   
+            System.out.print(aux.get(i).getUsuario_nickname());
+            System.out.print(nickname);
+            if(aux.get(i).getUsuario_nickname().equals(nickname))
+            {
+                System.out.print("Entra");
+                if(aux.get(i).getNombre().equals(nombre))
+                    return aux.get(i);
+                
+            }
+        }
+        return null;      
+    }
+    
     
     public ArrayList<String> listarCategorias(){
         EntityManager em = Manejador.getEntityManager();
@@ -145,10 +220,27 @@ public class Manejador {
         return listaCategorias;
 */
     }
+   
+     public ArrayList<String> listarVidesPorUsuario(String Usuario){
+        EntityManager em = Manejador.getEntityManager();
+        Usuario u = buscarUsuario(Usuario);
+        Query query = Manejador.getEntityManager().createQuery("select v from video v Inner Join Canal_Video cv"
+                + "on v.nombre =: cv.videos_nombre where cv.canal_nombre =: nom");
+        query.setHint("nom", u.getCanal().getNombre());
+              
+        List<Categoria> aux = (List<Categoria>) query.getResultList();
+        
+        ArrayList<String> result = new ArrayList<>();
+        
+        aux.forEach(x -> {
+            result.add(x.getNombre());
+        });
+        
+        return result;
+    }
     
     public ArrayList<String> listarUsuarios(){
-        
-        String nickname;
+        /*String nickname;
         Usuario u;
         ArrayList<String> listaUsuarios = new ArrayList();
         Iterator it = this.usuarios.iterator();
@@ -157,17 +249,49 @@ public class Manejador {
             nickname = u.getNickname();
             listaUsuarios.add(nickname);
         }
-        return listaUsuarios;
+        return listaUsuarios;*/
+        EntityManager em = Manejador.getEntityManager();
+        Query query = Manejador.getEntityManager().createQuery("select u from Usuario u");
+
+        List<Usuario> aux = (List<Usuario>) query.getResultList();
+        
+        ArrayList<String> result = new ArrayList<String>();
+        
+        aux.forEach(x -> {
+            result.add(x.getNickname());
+        });
+        
+        return result;
     }
     
     public Usuario obtenerUsuarioPorMail(String mail){
-        Iterator it = usuarios.iterator();
+        /*Iterator it = usuarios.iterator();
         Usuario user;
         while(it.hasNext()){
             user = (Usuario)it.next();
             if(user.getEmail().equals(mail))
                 return user;
-        }
+        }*/
+        EntityManager em1 = Manejador.getEntityManager();
+        Query query = Manejador.getEntityManager().createQuery("select u from Usuario u");
+
+        List<Usuario> aux = (List<Usuario>) query.getResultList();
+        
+         for(int i=0; i<aux.size(); i++)
+             if(aux.get(i).getEmail().equals(mail))
+                 return aux.get(i);
+        return null;
+    }
+    
+    public Usuario obtenerUsuarioPorNickname(String nickname){
+        EntityManager em = Manejador.getEntityManager();
+        Query query = Manejador.getEntityManager().createQuery("select u from Usuario u");
+
+        List<Usuario> aux = (List<Usuario>) query.getResultList();
+        
+         for(int i=0; i<aux.size(); i++)
+             if(aux.get(i).getNickname().equals(nickname))
+                 return aux.get(i);
         return null;
     }
     
@@ -186,22 +310,22 @@ public class Manejador {
     }
     
     public boolean nombreListaLibre(String nombreLista){
-        Iterator it = usuarios.iterator();
-        Usuario user;
-        while(it.hasNext()){
-            user = (Usuario)it.next();
-            Canal canal = user.getCanal();
-            List<Lista> listaUsuarios = canal.getListas();
-            for(Lista l : listaUsuarios){
-                if(l.getNombre()== nombreLista)
-                    return false;
-            }
+        EntityManager em = Manejador.getEntityManager();
+        Query query = Manejador.getEntityManager().createQuery("SELECT u FROM Lista u", Lista.class);
+        
+        List<Lista> aux = (List<Lista>)query.getResultList();
+        
+        for(int i=0; i<aux.size(); i++)
+        {
+            if(aux.get(i).getUsuario_nickname().equals(nombreLista))
+                return false;
         }
-        return true; 
+        return true;
+        
     }
     
     public boolean nombreCategoriaLibre(String nombreCategoria){
-        Iterator it = categorias.iterator();
+        /*Iterator it = categorias.iterator();
         Categoria cat;
         while(it.hasNext()){
             cat = (Categoria)it.next();
@@ -209,6 +333,17 @@ public class Manejador {
                 return false;
             }
         }
+        return true;*/
+        EntityManager em1 = Manejador.getEntityManager();
+        Query query = Manejador.getEntityManager().createQuery("select c from Categoria c");
+
+        List<Categoria> aux = (List<Categoria>) query.getResultList();
+        
+         for(int i=0; i<aux.size(); i++)
+         {
+             if(aux.get(i).getNombre().equals(nombreCategoria))
+                return false;
+         } 
         return true;
     }
     
@@ -224,7 +359,7 @@ public class Manejador {
         Iterator it=usuarios.iterator();
         while(it.hasNext()){
             u=(Usuario) it.next();
-            if((u.getNickname().equals(identificador) && (u.getContrasenia().equals(pass)))){
+            if(u.getNickname().equals(identificador) && (u.getContrasenia().equals(pass))){
                 ret=u.getSesion();
                 break;
             }
@@ -233,4 +368,18 @@ public class Manejador {
         return ret;
     }
     
+    public DTUsuario getUserData(String identificador) {
+        DTUsuario ret = null;
+        Usuario u;
+        Iterator it = usuarios.iterator();
+        while(it.hasNext()){
+            u =(Usuario) it.next();
+            if(u.getNickname().equals(identificador) || u.getEmail().equals(identificador)){
+                ret=new DTUsuario(u);
+                break;
+            }            
+        }        
+                
+        return ret;
+    }
 }

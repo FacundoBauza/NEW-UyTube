@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,7 +14,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
+import logica.DT.DTCanal;
 import logica.DT.DTSesion;
+import org.eclipse.persistence.annotations.CascadeOnDelete;
 
 @Entity
 @Table(name="Usuario")
@@ -135,13 +138,13 @@ public class Usuario {
         this.imagen = imagen;
     }
     
-
     public void addSeguidor(Usuario seguidor) {
         this.seguidores.add(seguidor);
     }
     
     public void removeSeguidor(Usuario seguidor) {
         this.seguidores.remove(seguidor);
+      
     }
     
     public void addSeguido(Usuario seguido) {

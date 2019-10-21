@@ -15,10 +15,10 @@ public class DTUsuario {
     private String imagen;
     private List<String> seguidores;
     private List<String> seguidos;
-    private String canal;
+    private DTCanal canal;
     private List<DTValoracion> valoraciones;
 
-    public DTUsuario(String nickname, String contrasenia, String nombre, String apellido, String email, Date fechaNac, String imagen, String canal) {
+    public DTUsuario(String nickname, String contrasenia, String nombre, String apellido, String email, Date fechaNac, String imagen, DTCanal canal) {
         this.nickname = nickname;
         this.contrasenia = contrasenia;
         this.nombre = nombre;
@@ -37,10 +37,12 @@ public class DTUsuario {
         this.email = u.getEmail();
         this.fechaNac = u.getFechaNac();
         this.imagen = u.getImagen();
-        this.canal = u.getCanal().getNombre();
+        this.canal = new DTCanal (u.getCanal());
         this.seguidores = u.listarSeguidores();
         this.seguidos = u.listarSeguidos();
     }
+
+    
 
     public String getNickname() {
         return nickname;
@@ -78,7 +80,7 @@ public class DTUsuario {
         return seguidos;
     }
 
-    public String getCanal() {
+    public DTCanal getCanal() {
         return canal;
     }
 

@@ -38,7 +38,7 @@
                             <h3>Ingresar</h3>
                         </div> 
                         <div class="card-body">
-                            <form action="/WebUyTube/Login" method="POST">
+                            <form action="Login" method="POST">
                                 <div class="form-group">
                                     <input type="text" class="form-control" name='username' placeholder="Nombre de usuario">
                                 </div>
