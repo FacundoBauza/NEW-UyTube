@@ -66,7 +66,7 @@ public class SistemaTest {
         List<DTVideo> videos = new ArrayList();
         List<DTLista> listas = new ArrayList();
         DTCanal c = new DTCanal ( canalNombre, desc, privado, videos, listas);
-        DTUsuario u = new DTUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c);
+        DTUsuario u = new DTUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c, false);
       
         
         
@@ -100,7 +100,7 @@ public class SistemaTest {
         List<DTVideo> videos = new ArrayList();
         List<DTLista> listas = new ArrayList();
         DTCanal c = new DTCanal ( canalNombre, desc, privado, videos, listas);
-        DTUsuario u = new DTUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c);
+        DTUsuario u = new DTUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c, false);
         
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();
@@ -132,7 +132,7 @@ public class SistemaTest {
         List<DTVideo> videos = new ArrayList();
         List<DTLista> listas = new ArrayList();
         DTCanal c = new DTCanal ( canalNombre, desc, privado, videos, listas);
-        DTUsuario u = new DTUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c);
+        DTUsuario u = new DTUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c, false);
         
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();

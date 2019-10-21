@@ -8,7 +8,10 @@ package Servlets;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+<<<<<<< HEAD
 import javax.servlet.annotation.WebServlet;
+=======
+>>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +24,10 @@ import logica.Manejador;
  *
  * @author Usuario
  */
+<<<<<<< HEAD
 @WebServlet (name = "VerInfoUsu", urlPatterns = {"/VerInfoUsu"})
+=======
+>>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
 public class VerInfoUsu extends HttpServlet {
 
     /**

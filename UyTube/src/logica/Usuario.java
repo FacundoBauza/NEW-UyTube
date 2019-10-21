@@ -33,6 +33,7 @@ public class Usuario {
     private String imagen;
     @OneToOne
     private Canal canal;
+    private boolean Eliminado;
     
     @OneToMany
     private List<Usuario> seguidos;
@@ -47,7 +48,7 @@ public class Usuario {
         
     }
     
-    public Usuario(String nickname, String contrasenia, String nombre, String apellido, String email, Date fechaNac, String imagen, Canal canal) {
+    public Usuario(String nickname, String contrasenia, String nombre, String apellido, String email, Date fechaNac, String imagen, Canal canal, boolean Eliminado) {
         this.nickname = nickname;
         this.contrasenia = contrasenia;
         this.nombre = nombre;
@@ -59,8 +60,17 @@ public class Usuario {
         this.seguidos = new ArrayList();
         this.canal = canal;
         this.valoraciones = new ArrayList();
+        this.Eliminado = Eliminado;
+    }
+    
+    public boolean getEliminado() {
+        return Eliminado;
     }
 
+    public void setEliminado(boolean Eliminado) {
+        this.Eliminado = Eliminado;
+    }
+    
     public String getNickname() {
         return nickname;
     }

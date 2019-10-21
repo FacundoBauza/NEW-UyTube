@@ -84,20 +84,20 @@ public class Sistema extends javax.swing.JFrame {
     }*/
     
     
-//    private void cargarUsuarios(){
-//        DTUsuario u = new DTUsuario("gime","1234", "Gimena", "Deleon", "gime@gmail", new Date(), "", "");
-//        DTCanal canal = new DTCanal("canal", "desc", false, null, null);
-//        s.altaUsuario(u, canal);
-//        u = new DTUsuario("fede","1234", "Federico", "Diaz", "fede@gmail", new Date(), "", "");
-//        canal = new DTCanal("nombreCanal", "desc", false, null, null);
-//        s.altaUsuario(u, canal);
-//        u = new DTUsuario("kuki","1234", "Eugenia", "Cabrera", "kuki@gmail", new Date(), "", "");
-//        canal = new DTCanal("canalKuki", "desc", false, null, null);
-//        s.altaUsuario(u, canal);
-//        u = new DTUsuario("Facu95","FacundoBauza25", "Facundo", "Bauza", "fbauza2014@gmail.com", new Date(), "", "");
-//        canal = new DTCanal("El Facu0", "lo que sea", false, null, null);
-//        s.altaUsuario(u, canal);
-//    }
+    /*private void cargarUsuarios(){
+        DTUsuario u = new DTUsuario("gime","1234", "Gimena", "Deleon", "gime@gmail", new Date(), "", "");
+        DTCanal canal = new DTCanal("canal", "desc", false, null, null);
+        s.altaUsuario(u, canal);
+        u = new DTUsuario("fede","1234", "Federico", "Diaz", "fede@gmail", new Date(), "", "");
+        canal = new DTCanal("nombreCanal", "desc", false, null, null);
+        s.altaUsuario(u, canal);
+        u = new DTUsuario("kuki","1234", "Eugenia", "Cabrera", "kuki@gmail", new Date(), "", "");
+        canal = new DTCanal("canalKuki", "desc", false, null, null);
+        s.altaUsuario(u, canal);
+        u = new DTUsuario("Facu95","FacundoBauza25", "Facundo", "Bauza", "fbauza2014@gmail.com", new Date(), "", "");
+        canal = new DTCanal("El Facu0", "lo que sea", false, null, null);
+        s.altaUsuario(u, canal);
+    }*/
     
     private void cargarCategorias(){
         DTCategoria cat = new DTCategoria("Comida");
@@ -2646,8 +2646,10 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_ModifVideosButtonActionPerformed
 
     private void ConfirmCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmCambiosActionPerformed
+        DTUsuario u = m.getUserData(videoSeleccionado);
+        DTCanal c = u.getCanal();
         s.modificarUsuario(nickname.getText(), contrasenia.getText(), ModifNombre.getText(), ModifApellido.getText(), 
-            FechaVerUsuario.getDate(), DirImagen.getText(), ModifCanal.getText());
+            FechaVerUsuario.getDate(), DirImagen.getText(), ModifCanal.getText(), c.getDesc(), c.isPrivado());
         JOptionPane.showMessageDialog(this, "Usuario modificado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
         VerUsuario.dispose();
     }//GEN-LAST:event_ConfirmCambiosActionPerformed
@@ -3381,7 +3383,7 @@ public class Sistema extends javax.swing.JFrame {
         canal = new DTCanal(EntradaNomCanal.getText(), EntradaDescripcionCanal.getText(), BotonPrivado.isSelected(), null, null);
 
         DTUsuario usuario = new DTUsuario(EntradaNick.getText(),EntradaContrasenia.getText() , EntradaNombre.getText(), EntradaApellido.getText(),
-            EntradaCorreoEl.getText(), Fecha.getDate(), CuadroImagen.getText(), canal);
+            EntradaCorreoEl.getText(), Fecha.getDate(), CuadroImagen.getText(), canal, false);
         if(!EntradaNick.getText().equals("") && !EntradaCorreoEl.getText().equals("")){
             if(m.nicknameLibre(EntradaNick.getText())){
                 if(m.mailLibre(EntradaCorreoEl.getText())){

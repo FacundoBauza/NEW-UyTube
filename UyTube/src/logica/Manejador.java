@@ -66,7 +66,7 @@ public class Manejador {
 
         List<Categoria> aux = (List<Categoria>) query.getResultList();
         
-        ArrayList<DTCategoria> result = new ArrayList<DTCategoria>();
+        ArrayList<DTCategoria> result = new ArrayList<>();
         
         aux.forEach(x -> {
             result.add(new DTCategoria(x.getNombre()));
@@ -97,13 +97,13 @@ public class Manejador {
         
     public void addUsuario(Usuario usu){
             
-       /* EntityManager em = Manejador.getEntityManager();
-        EntityTransaction tx = em.getTransaction();
+        EntityManager em6 = Manejador.getEntityManager();
+        EntityTransaction tx = em6.getTransaction();
         tx.begin();
-        //em.persist(usu.getCanal());
-        em.persist(usu);
-        tx.commit();*/
-        //usuarios.add(usu);
+        em6.persist(usu.getCanal());
+        em6.persist(usu);
+        tx.commit();
+
     }
     
     public void addCategoria (Categoria cat){

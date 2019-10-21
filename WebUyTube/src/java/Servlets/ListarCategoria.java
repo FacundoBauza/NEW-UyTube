@@ -7,23 +7,23 @@ package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import static java.lang.System.out;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DT.DTCanal;
-import logica.DT.DTUsuario;
-import logica.Fabrica;
-import logica.ISistema;
-import logica.Sistema;
+import logica.DT.DTCategoria;
+import logica.Manejador;
+import logica.Video;
 
 /**
  *
- * @author Usuario
+ * @author visua
  */
-@WebServlet(name = "AltaPerfil", urlPatterns = {"/AltaPerfil"})
-public class AltaPerfil extends HttpServlet {
+@WebServlet(name = "ListCat", urlPatterns = {"/ListCat"})
+public class ListarCategoria extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,39 +38,18 @@ public class AltaPerfil extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            
-            ISistema s = null;
-            s = Fabrica.getInstance();
-            String nickname = request.getParameter("nickname");
-            String nombre = request.getParameter("nombre");
-            String apellido = request.getParameter("apellido");
-            String contrasenia = request.getParameter("contrasenia");
-            String email = request.getParameter("email");
-            //String fNac = request.getParameter("fecha_nac");
-            //String imagen = request.getParameter("imagen");
-            String canal = request.getParameter("canal");
-            String descrcanal = request.getParameter("descripcion_canal");
-            String privado = request.getParameter("privado");
-            Boolean priv = true;
-            if (privado == null) {
-                priv = false;
-            }
-            DTCanal c = new DTCanal(canal, descrcanal, priv, null, null); 
-<<<<<<< HEAD
-            DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, null, " ", c);
-=======
-            DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, null, " ", c, false);
->>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
-                       
-            s.altaUsuario(u, c);
-
-            out.println("<html><body onload=\"alert ('Usuario Creado')\"></body></html>");
-            response.sendRedirect("http://localhost:8084/WebUyTube/login.jsp");
-<<<<<<< HEAD
-            
-=======
-            //response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/login.jsp");
->>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ListarCategoria</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet ListarCategoria at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }finally{
+            out.close();
         }
     }
 
@@ -100,7 +79,38 @@ public class AltaPerfil extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        try (PrintWriter out = response.getWriter()) {
+            try {
+                        /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ListarCategoria</title>");            
+            out.println("</head>");
+            out.println("<body>");
+                Manejador m = Manejador.getinstance();
+                List<DTCategoria> DtCat = m.getCategorias();
+               
+                for(int i=0; i<DtCat.size(); i++)
+                    out.println(DtCat.get(i).getNombre());
+           
+            out.println("</body>");
+            out.println("</html>");
+            }
+            catch (Exception ex) {
+                                       /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet ListarCategoria</title>");            
+            out.println("</head>");
+            out.println("<body>");
+             out.println("Error: " + ex.getMessage());
+            out.println("</body>");
+            out.println("</html>");
+            }
+        }
     }
 
     /**

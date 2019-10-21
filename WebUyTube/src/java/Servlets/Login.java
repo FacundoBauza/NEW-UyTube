@@ -7,7 +7,10 @@ package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+<<<<<<< HEAD
 import static java.lang.System.out;
+=======
+>>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,13 +45,23 @@ public class Login extends HttpServlet {
         PrintWriter out = response.getWriter();
         String nickname = request.getParameter("username");
         String contrasenia = request.getParameter("password");
+<<<<<<< HEAD
         ISistema s = null;
         s = Fabrica.getInstance();
         DTSesion user = s.getUserSession(nickname, contrasenia);
+=======
+        ISistema sistema = Fabrica.getInstance();
+        DTSesion user = sistema.getUserSession(nickname, contrasenia);
+>>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
         if(user!=null){
             HttpSession session = request.getSession();
             session.setAttribute("UserNick", user.getNickname());
             session.setAttribute("UserPass", user.getContrasenia());
+<<<<<<< HEAD
+=======
+
+          
+>>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
             response.sendRedirect("homeLogIn.jsp");
         }
         else{

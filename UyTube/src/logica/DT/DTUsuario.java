@@ -17,6 +17,7 @@ public class DTUsuario {
     private List<String> seguidos;
     private DTCanal canal;
     private List<DTValoracion> valoraciones;
+    private boolean Eliminado;
 
     public DTUsuario(String nickname, String contrasenia, String nombre, String apellido, String email, Date fechaNac, String imagen, DTCanal canal) {
         this.nickname = nickname;
@@ -27,6 +28,7 @@ public class DTUsuario {
         this.fechaNac = fechaNac;
         this.imagen = imagen; 
         this.canal = canal;
+        this.Eliminado = Eliminado;
     }
 
     public DTUsuario(Usuario u){
@@ -40,6 +42,15 @@ public class DTUsuario {
         this.canal = new DTCanal (u.getCanal());
         this.seguidores = u.listarSeguidores();
         this.seguidos = u.listarSeguidos();
+        this.Eliminado = u.getEliminado();
+    }
+
+    public boolean getEliminado() {
+        return Eliminado;
+    }
+
+    public void setEliminado(boolean Eliminado) {
+        this.Eliminado = Eliminado;
     }
 
     

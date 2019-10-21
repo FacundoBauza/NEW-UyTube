@@ -38,7 +38,7 @@ public class Sistema implements ISistema{
         String nombre;
         nombre = c.getNombre();
         Canal canal = new Canal(nombre, c.getDesc(), c.isPrivado(), listas);
-        Usuario usuario = new Usuario(u.getNickname(), u.getContrasenia(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), canal);
+        Usuario usuario = new Usuario(u.getNickname(), u.getContrasenia(), u.getNombre(), u.getApellido(), u.getEmail(), u.getFechaNac(), u.getImagen(), canal, u.getEliminado());
         m.addUsuario(usuario);
         
     }
@@ -54,16 +54,16 @@ public class Sistema implements ISistema{
     }
     
     @Override
-    public void modificarUsuario(String nickname, String contrasenia, String nombre, String apellido, Date fechaNac, String imagen, String canal){
+    public void modificarUsuario(String nickname, String contrasenia, String nombre, String apellido, Date fechaNac, String imagen, String nombreCanal, String DescCanal, boolean priv){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(nickname);
         if(u != null)
         {
-            Canal c1 = u.getCanal();
+            //Canal c = u.getCanal();
             Canal c = new Canal();
-            c.setDesc(c1.getDesc());
-            c.setNombre(canal);
-            c.setPrivado(c1.getPrivado());
+            c.setDesc(DescCanal);
+            c.setNombre(nombreCanal);
+            c.setPrivado(priv);
            
             u.setContrasenia(contrasenia);
             u.setApellido(apellido);
@@ -125,7 +125,7 @@ public class Sistema implements ISistema{
         Categoria cat = m.buscarCategoria(lista.getCategoria());
         Lista list = m.buscarLista(lista.getNombre(), usuario);
         if(list == null){
-            l = new Lista(lista.getNombre(), false, true, cat, u.getNickname());
+            l = new Lista(lista.getNombre(), lista.isPorDefecto(), lista.isPrivado(), cat, u.getNickname());
             m.addLista(l, usuario);
         }
         
@@ -142,7 +142,7 @@ public class Sistema implements ISistema{
             
             for(int x=0; x<l1.size(); x++)
             {
-               l = new Lista(lista.getNombre(), true, false, cat, l1.get(x).getNickname());
+               l = new Lista(lista.getNombre(), lista.isPorDefecto(), lista.isPrivado(), cat, l1.get(x).getNickname());
                m.addLista(l, usuario);
             }
         }        

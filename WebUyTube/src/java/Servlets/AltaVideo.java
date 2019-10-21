@@ -7,23 +7,22 @@ package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DT.DTCanal;
-import logica.DT.DTUsuario;
+import logica.DT.DTVideo;
 import logica.Fabrica;
 import logica.ISistema;
-import logica.Sistema;
 
 /**
  *
- * @author Usuario
+ * @author Gime
  */
-@WebServlet(name = "AltaPerfil", urlPatterns = {"/AltaPerfil"})
-public class AltaPerfil extends HttpServlet {
+@WebServlet(name = "AltaVideo", urlPatterns = {"/AltaVideo"})
+public class AltaVideo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,41 +36,28 @@ public class AltaPerfil extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            
+        PrintWriter out = response.getWriter();
             ISistema s = null;
             s = Fabrica.getInstance();
-            String nickname = request.getParameter("nickname");
             String nombre = request.getParameter("nombre");
-            String apellido = request.getParameter("apellido");
-            String contrasenia = request.getParameter("contrasenia");
-            String email = request.getParameter("email");
-            //String fNac = request.getParameter("fecha_nac");
-            //String imagen = request.getParameter("imagen");
-            String canal = request.getParameter("canal");
-            String descrcanal = request.getParameter("descripcion_canal");
+            String descripcion = request.getParameter("descripcion");
+            String duracion = request.getParameter("duracion");
+            //String f = request.getParameter("fecha");
+            Date fecha = new Date();
+            String url = request.getParameter("url");
+            String categoria = request.getParameter("categoria");
             String privado = request.getParameter("privado");
             Boolean priv = true;
             if (privado == null) {
                 priv = false;
             }
-            DTCanal c = new DTCanal(canal, descrcanal, priv, null, null); 
-<<<<<<< HEAD
-            DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, null, " ", c);
-=======
-            DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, null, " ", c, false);
->>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
+            DTVideo video = new DTVideo(nombre, descripcion, duracion, fecha, url, priv, categoria);
                        
-            s.altaUsuario(u, c);
+            s.altaVideo(video, "Gime");
 
-            out.println("<html><body onload=\"alert ('Usuario Creado')\"></body></html>");
-            response.sendRedirect("http://localhost:8084/WebUyTube/login.jsp");
-<<<<<<< HEAD
-            
-=======
-            //response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/login.jsp");
->>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
-        }
+            out.println("<html><body onload=\"alert ('Videoo Creado')\"></body></html>");
+            response.sendRedirect("http://localhost:8080/WebUyTube/login.jsp");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -19,15 +19,20 @@
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>UyTube</title>
+        <style>
+            body{
+              background-image: url("./imagenes/lluviaPro7.jpg");
+            }
+        </style>
     </head>
     <body>
         <header>
             <nav class="navbar navbar-light bg-light ">
-                <img class="logo" src="./imagenes/logo.png">
+                <img class="logo" src="./imagenes/logo2.png">
                 <form class="form-inline mx-auto">
                     <input class="form-control mr-sm-2" type="search" placeholder="video, lista, canal" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
-                </form>
+                </form> 
                 <a class="btn btn-primary" href="/WebUyTube/login.jsp" role="button"><i class="fas fa-sign-in-alt"></i> INGRESAR</a>     
             </nav>   
         </header>
@@ -38,26 +43,32 @@
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">USUARIOS:</li>
+<<<<<<< HEAD
                     <li class="list-group-item"><a href="consultausuario.jsp" role="button">Consulta de usuario</a></li>
+=======
+                    <li class="list-group-item"><a href="consultausuario.jsp" role="button">Consulta de Usuario</a></li>
+>>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
                 </ul>
             </div>
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">VIDEOS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Consulta de video</a></li>
+                    <li class="list-group-item"><a href="#" role="button">Consulta de Video</a></li>
                 </ul>
             </div>
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">LISTAS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Consulta de lista de reproducción</a></li>  
+                    <li class="list-group-item"><a href="/WebUyTube/ConsultaLista.jsp" role="button">Consulta de Lista de Reproducción</a></li>  
                 </ul>
             </div>
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">CATEGORÍAS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Consulta de categoría</a></li>
-                    <li class="list-group-item"><a href="#" role="button">listar categorias existentes</a></li>
+                    <li class="list-group-item"><a href="/WebUyTube/ConsultaCategoria.jsp" role="button">Consulta de Categoría</a></li>
+                    <li class="list-group-item">    
+                        <a href="/WebUyTube/ListarCategorias.jsp" role="button">Listar Categorías Existentes </a>
+                    </li>
                     
                 </ul>
             </div>
