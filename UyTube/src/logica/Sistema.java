@@ -54,16 +54,16 @@ public class Sistema implements ISistema{
     }
     
     @Override
-    public void modificarUsuario(String nickname, String contrasenia, String nombre, String apellido, Date fechaNac, String imagen, String canal){
+    public void modificarUsuario(String nickname, String contrasenia, String nombre, String apellido, Date fechaNac, String imagen, String nombreCanal, String DescCanal, boolean priv){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(nickname);
         if(u != null)
         {
-            Canal c1 = u.getCanal();
+            //Canal c = u.getCanal();
             Canal c = new Canal();
-            c.setDesc(c1.getDesc());
-            c.setNombre(canal);
-            c.setPrivado(c1.getPrivado());
+            c.setDesc(DescCanal);
+            c.setNombre(nombreCanal);
+            c.setPrivado(priv);
            
             u.setContrasenia(contrasenia);
             u.setApellido(apellido);

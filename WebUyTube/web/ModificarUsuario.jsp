@@ -1,20 +1,22 @@
-<%-- 
-    Document   : infoconsultausuario
-    Created on : 30/09/2019, 08:01:53 PM
-    Author     : Usuario
---%>
 
-<%@page import="java.util.Date"%>
 <%@page import="logica.DT.DTLista"%>
-<%@page import="java.util.List"%>
 <%@page import="logica.DT.DTVideo"%>
-<%@page import="logica.DT.DTCanal"%>
-<%@page import="logica.Canal"%>
-<%@page import="logica.DT.DTUsuario"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="logica.DT.DTCanal"%>
+<%@page import="logica.DT.DTUsuario"%>
+
 <%
-    DTUsuario usuario = (DTUsuario) request.getAttribute("userInfo");
-    DTCanal canal = usuario.getCanal();
+    //DTUsuario usuario = (DTUsuario) request.getAttribute("userInfo");
+    //DTCanal canal = usuario.getCanal();
+    logica.DT.DTCanal canal = new DTCanal("canal", "desc", true, null, null);
+    
+    DTUsuario usuario = new DTUsuario("Gime", "123", "gimena", "Deleon", "gime@gmail.com", new Date(), "", canal, false);
+
+%>
+
+<%
     List<DTVideo> videos = canal.getVideos();
     List<DTLista> listas = canal.getListas();
     List<String> seguidores = usuario.getSeguidores();
@@ -49,12 +51,6 @@
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         ${UserNick}
                     </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
-                        <a href="ModificarUsuario.jsp" role="button">Modificar usuario</a>
-                        <a class="dropdown-item" href="#">Darse de baja</a>
-                        <a class="dropdown-item" href="Logout">Cerrar sesión</a>
-                    </div>
                 </div>     
             </nav>   
         </header>
@@ -75,7 +71,7 @@
                 <div class="card" style="width: 18rem;">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">VIDEOS:</li>
-                        <li class="list-group-item"><a href="altaVideo.jsp" role="button">Subir video</a></li>
+                        <li class="list-group-item"><a href="#" role="button">Subir video</a></li>
                         <li class="list-group-item"><a href="#" role="button">Ver videos</a></li>
                     </ul>
                 </div>
@@ -106,15 +102,44 @@
                     <input type="file" class="text-center center-block file-upload">
                 </div></hr><br>
                 <div>
-                    <ul>
-                        <%
-                            /*out.println("<li>Nick: " + usuario.getNickname() + "</li>");
-                            out.println("<li>Nombre: " + usuario.getNombre() + "</li>");
-                            out.println("<li>Apellido: " + usuario.getApellido() + "</li>");
-                            out.println("<li>Canal " + usuario.getCanal() + "</li>");*/
-
-                        %>
-                    </ul>
+                   <form action="ModificarUsuario" method="POST">
+                                <div class="form-group">
+                                    <%out.println("<p> Nickname: " + usuario.getNickname()+ "</p>");%>
+                                </div>
+                                <div class="form-group">
+                                    <%out.println("<p>Email: " + usuario.getEmail()+ "</p>");%>
+                                </div>
+                                <div class="form-group">
+                                    <label>Contraseña: <input type="password" id="contra" name='pass' class='form-control' value = <%out.println(usuario.getContrasenia());%> required onkeyup="HabilitarBoton();"> </label>
+                                </div>
+                                <div class="form-group">
+                                    <label>Confirmar contraseña: <input type="password" id="contra2" name='confirmacion_contraseña' class='form-control' value = <%out.println(usuario.getContrasenia());%> required onkeyup="HabilitarBoton();"> </label> <div id="passMatch"> </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Nombre: <input type="text" id="Nombre" class="form-control" name='Nombre' value= <%out.println(usuario.getNombre()); %> ></label>
+                                </div>
+                                <div class="form-group">
+                                    <label>Apellido: <input type="text" id="Apellido" class="form-control" name='Apellido' value= <%out.println(usuario.getApellido()); %> ></label>
+                                </div>
+                                <div class="form-group">
+                                    <label>Fecha: <input type="date" id="Fecha" class="form-control" name='Fecha' date= <%usuario.getFechaNac(); %> ></label>
+                                </div>
+                                <div class="form-group">
+                                    <h4>Canal</h4>
+                                </div>
+                                 <div class="form-group">
+                                    <label>Nombre: <input type="text" id="NombreCanal" class="form-control" name='NombreCanal' value= <%out.println(usuario.getCanal().getNombre()); %>></label>
+                                </div>
+                                <div class="form-group">
+                                    <label>Descripcion: <input type="text" id="DescCanal" class="form-control" name='DescCanal' value= <%out.println(usuario.getCanal().getDesc()); %>></label>
+                                </div>
+                                <div class="form-group">
+                                    <label>Privado <input type="checkbox" id="privado" name="privado" class="form-control" <%if (usuario.getCanal().isPrivado()) out.println("checked"); %> ></label>
+                                </div> 
+                                <div class="form-group">
+                                    <button class= "button">Confirmar</button>
+                                </div> 
+                            </form>
                     <div class="tabs">
                         <ul class="tab-links">
                             <li class="active"><a href="#tab1">Videos</a></li>
@@ -156,11 +181,7 @@
                     </div>
                 </div>
 
-        
-        
-        
-    
-    <footer>
+        <footer>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>

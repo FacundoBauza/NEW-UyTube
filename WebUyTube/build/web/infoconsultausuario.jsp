@@ -4,6 +4,7 @@
     Author     : Usuario
 --%>
 
+<%@page import="java.util.Date"%>
 <%@page import="logica.DT.DTLista"%>
 <%@page import="java.util.List"%>
 <%@page import="logica.DT.DTVideo"%>
@@ -50,7 +51,7 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
-                        <a class="dropdown-item" href="#">Modificar datos de usuario</a>
+                        <a href="ModificarUsuario.jsp" role="button">Modificar usuario</a>
                         <a class="dropdown-item" href="#">Darse de baja</a>
                         <a class="dropdown-item" href="Logout">Cerrar sesión</a>
                     </div>
@@ -74,7 +75,7 @@
                 <div class="card" style="width: 18rem;">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">VIDEOS:</li>
-                        <li class="list-group-item"><a href="#" role="button">Subir video</a></li>
+                        <li class="list-group-item"><a href="altaVideo.jsp" role="button">Subir video</a></li>
                         <li class="list-group-item"><a href="#" role="button">Ver videos</a></li>
                     </ul>
                 </div>

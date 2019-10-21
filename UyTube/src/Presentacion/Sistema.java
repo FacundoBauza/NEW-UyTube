@@ -2646,8 +2646,10 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_ModifVideosButtonActionPerformed
 
     private void ConfirmCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmCambiosActionPerformed
+        DTUsuario u = m.getUserData(videoSeleccionado);
+        DTCanal c = u.getCanal();
         s.modificarUsuario(nickname.getText(), contrasenia.getText(), ModifNombre.getText(), ModifApellido.getText(), 
-            FechaVerUsuario.getDate(), DirImagen.getText(), ModifCanal.getText());
+            FechaVerUsuario.getDate(), DirImagen.getText(), ModifCanal.getText(), c.getDesc(), c.isPrivado());
         JOptionPane.showMessageDialog(this, "Usuario modificado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
         VerUsuario.dispose();
     }//GEN-LAST:event_ConfirmCambiosActionPerformed

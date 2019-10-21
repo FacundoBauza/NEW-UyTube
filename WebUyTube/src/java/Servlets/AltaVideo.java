@@ -7,22 +7,22 @@ package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DT.DTUsuario;
+import logica.DT.DTVideo;
 import logica.Fabrica;
 import logica.ISistema;
-import logica.Manejador;
 
 /**
  *
- * @author Usuario
+ * @author Gime
  */
-@WebServlet(name = "VerInfoUsuario", urlPatterns = {"/VerInfoUsuario"})
-public class verinfousuario extends HttpServlet {
+@WebServlet(name = "AltaVideo", urlPatterns = {"/AltaVideo"})
+public class AltaVideo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,24 +33,31 @@ public class verinfousuario extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String nick = request.getParameter("dataname");
-        ISistema s = Fabrica.getInstance();
-        Manejador m = Manejador.getinstance();
-        DTUsuario u = m.getUserData(nick);
-        if(u!=null){
-            request.getSession().setAttribute("userConsult", u.getNickname());
-            request.setAttribute("userInfo", u);
-            if(u instanceof DTUsuario){
-                getServletConfig().getServletContext().getRequestDispatcher("/WebUyTube/infoconsultausuario.jsp").forward(request,response);
+            ISistema s = null;
+            s = Fabrica.getInstance();
+            String nombre = request.getParameter("nombre");
+            String descripcion = request.getParameter("descripcion");
+            String duracion = request.getParameter("duracion");
+            //String f = request.getParameter("fecha");
+            Date fecha = new Date();
+            String url = request.getParameter("url");
+            String categoria = request.getParameter("categoria");
+            String privado = request.getParameter("privado");
+            Boolean priv = true;
+            if (privado == null) {
+                priv = false;
             }
-            
-        }
-        else{
-            out.println("<html><body onload=\"alert('Usuario no encontrado')\"></body></html>");
-            response.setHeader("Refresh", "0; URL=/WebUyTube/");
-        }
+            DTVideo video = new DTVideo(nombre, descripcion, duracion, fecha, url, priv, categoria);
+                       
+            s.altaVideo(video, "Gime");
+
+            out.println("<html><body onload=\"alert ('Videoo Creado')\"></body></html>");
+            response.sendRedirect("http://localhost:8080/WebUyTube/login.jsp");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
