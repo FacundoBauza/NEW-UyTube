@@ -17,6 +17,7 @@ import logica.DT.DTUsuario;
 import logica.Fabrica;
 import logica.ISistema;
 import logica.Manejador;
+import logica.Usuario;
 
 /**
  *
@@ -34,22 +35,22 @@ public class MiPerfil extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-            HttpSession session = request.getSession();
-            if(session.getAttribute("UserNick")!=null){
-                String nick  = (String) session.getAttribute("UserNick");
-                ISistema s = Fabrica.getInstance();
-                Manejador m = Manejador.getinstance();
-                DTUsuario usuario = m.getUserData(nick);
-                request.setAttribute("userInfo", usuario);
-                getServletConfig().getServletContext().getRequestDispatcher("/MiPerfilUsuario.jsp").forward(request,response); 
-                                                
-            }
-            else{
-                response.sendRedirect("index.jsp");
-            }
+			throws ServletException, IOException {
+		
+        Usuario usr = Login.getUsuarioLogueado(request);
+        if(usr!=null){
+            request.setAttribute("usuario", usr);
+            request.getRequestDispatcher("/MiPerfilUsuario.jsp").forward(request, response);
         }
+        else{
+            // no existe el usuario, se trata como deslogueado
+            response.sendRedirect("login.jsp");            
+	}
+    }
+
+    
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
