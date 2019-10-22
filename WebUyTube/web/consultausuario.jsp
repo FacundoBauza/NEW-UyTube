@@ -21,11 +21,8 @@
     </head>
     <body>
         <h1>Consultar Usuario</h1>
-<<<<<<< HEAD
+
         <form name="ConsultarUsuario" action="VerInfoUsu" method="GET">
-=======
-        <form name="ConsultarUsuario" action="VerInfoUsuario" method="GET">
->>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
             Nick o Mail del usuario:
             <input type="Text" size="20" name="dataname">
             <input type="submit" value="Buscar">

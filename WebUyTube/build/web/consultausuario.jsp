@@ -21,6 +21,7 @@
     </head>
     <body>
         <h1>Consultar Usuario</h1>
+
         <form name="ConsultarUsuario" action="VerInfoUsu" method="GET">
             Nick o Mail del usuario:
             <input type="Text" size="20" name="dataname">
