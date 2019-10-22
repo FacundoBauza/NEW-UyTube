@@ -43,11 +43,7 @@
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">USUARIOS:</li>
-<<<<<<< HEAD
-                    <li class="list-group-item"><a href="consultausuario.jsp" role="button">Consulta de usuario</a></li>
-=======
                     <li class="list-group-item"><a href="consultausuario.jsp" role="button">Consulta de Usuario</a></li>
->>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
                 </ul>
             </div>
             <div class="card" style="width: 18rem;">
