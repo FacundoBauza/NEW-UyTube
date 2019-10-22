@@ -62,7 +62,7 @@
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">USUARIOS:</li>
-                    <li class="list-group-item"><a href="/WebUyTube/consultausuario.jsp" role="button">Consulta de usuario</a></li>
+                    <li class="list-group-item"><a href="/WebUyTube/consultausuario.jsp" role="button">Consulta de Usuario</a></li>
                 </ul>
             </div>
             <div class="card" style="width: 18rem;">
