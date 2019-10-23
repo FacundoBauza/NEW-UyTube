@@ -15,19 +15,7 @@
 <%@page import="logica.Canal"%>
 <%@page import="logica.DT.DTUsuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
 
-    /*DTUsuario usuario = (DTUsuario) request.getAttribute("userInfo");
-
-
-    DTCanal canal = usuario.getCanal();
-    List<DTVideo> videos = canal.getVideos();
-    List<DTLista> listas = canal.getListas();
-    List<String> seguidores = usuario.getSeguidores();
-    List<String> seguidos = usuario.getSeguidos();*/
-
-    
-%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -44,6 +32,17 @@
         <title><% //out.println(usuario.getNickname()); %></title>
     </head>
     <body>
+    <%
+
+        DTUsuario usuario = (DTUsuario) request.getAttribute("usuario");
+        DTCanal canal = usuario.getCanal();
+        List<DTVideo> videos = canal.getVideos();
+        List<DTLista> listas = canal.getListas();
+        List<String> seguidores = usuario.getSeguidores();
+        List<String> seguidos = usuario.getSeguidos();
+
+
+    %>
         
         <header>
             <nav class="navbar navbar-light bg-light ">
@@ -54,7 +53,7 @@
                 </form>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        ${UserNick}
+                        <%= usuario.getNickname() %>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
@@ -76,7 +75,7 @@
                 <div class="card" style="width: 18rem;">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">USUARIOS:</li>
-                        <li class="list-group-item"><a href="/WebUyTube/consultausuario.jsp" role="button">Consulta de usuario</a></li>
+                        <li class="list-group-item"><a href="ListarUsuarios" role="button">Consulta de usuario</a></li>
                     </ul>
                 </div>
                 <div class="card" style="width: 18rem;">
@@ -115,10 +114,12 @@
                 <div>
                     <ul>
                         <%
-                            /*out.println("<li>Nick: " + usuario.getNickname() + "</li>");
+                            out.println("<li>Nick: " + usuario.getNickname() + "</li>");
                             out.println("<li>Nombre: " + usuario.getNombre() + "</li>");
                             out.println("<li>Apellido: " + usuario.getApellido() + "</li>");
-                            out.println("<li>Canal " + usuario.getCanal() + "</li>");*/
+                            out.println("<li>Canal: " + usuario.getCanal().getNombre() + "</li>");
+                            out.println("<li>Canal descripcion: " + usuario.getCanal().getDesc() + "</li>");
+                            
 
                         %>
                     </ul>
@@ -134,54 +135,51 @@
                             <div id="video" class="tab active">
                                 <ul>
 
-                                    <%/*if (videos != null && videos.size() > 0) {*/%>
-                                    <%/*for (DTVideo v : videos) {*/%>  
-                                    <h6><%// out.print(v.getUrl()); %></h6>
-                                    <%// } %>
-                                    <%// } else { %>
+                                    <%if (videos != null && videos.size() > 0) {%>
+                                    <%for (DTVideo v : videos) {%>  
+                                    <h6><% out.print(v.getUrl()); %></h6>
+                                    <% } %>
+                                    <% } else { %>
                                     <h1>No se encontraron videos</h1>
-                                    <%// } %>
+                                    <% } %>
                                 </ul>
                             </div>
 
                             <div id="listas" class="tab">
                                 <ul>
-                                    <%//if (listas != null && listas.size() > 0) {%>
-                                    <%//for (DTLista l : listas) {%>  
-                                    <h6><%// out.print(l.getNombre()); %></h6>
-                                    <%// } %>
-                                    <%// } else { %>
+                                    <%if (listas != null && listas.size() > 0) {%>
+                                    <%for (DTLista l : listas) {%>  
+                                    <h6><% out.print(l.getNombre()); %></h6>
+                                    <% } %>
+                                    <% } else { %>
                                     <h1>No se encontraron listas</h1>
-                                    <%// } %>
+                                    <% } %>
                                 </ul>
                             </div>
 
                             <div id="seguidores" class="tab">
                                 <ul>
-                                    <%//if (seguidores != null && seguidores.size() > 0) {%>
-                                    <%//for (String s : seguidores) {%>  
-                                    <h6><%// out.print(s); %></h6>
-                                    <%// } %>
-                                    <%// } else { %>
+                                    <%if (seguidores != null && seguidores.size() > 0) {%>
+                                    <%for (String s : seguidores) {%>  
+                                    <h6><% out.print(s); %></h6>
+                                    <% } %>
+                                    <% } else { %>
                                     <h1>No se encontraron seguidores</h1>
-                                    <%// } %>
+                                    <% } %>
                                 </ul>
                             </div>
 
                             <div id="seguidos" class="tab">
                                 <ul>
-                                    <%//if (seguidos != null && seguidos.size() > 0) {%>
-                                    <%//for (String seguido : seguidos) {%>  
-                                    <h6><%// out.print(seguido); %></h6>
-                                    <%// } %>
-                                    <%// } else { %>
+                                    <%if (seguidos != null && seguidos.size() > 0) {%>
+                                    <%for (String seguido : seguidos) {%>  
+                                    <h6><% out.print(seguido); %></h6>
+                                    <% } %>
+                                    <% } else { %>
                                     <h1>No se encontraron seguidos</h1>
-                                    <%// } %>
+                                    <% } %>
                                 </ul>
                             </div>
-
-                                    
-                            
                         </div>
                     </div>
                 </div>
