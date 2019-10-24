@@ -135,6 +135,7 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
+                        
                         <div class="tab-pane fade show active" id="videos-tab" role="tabpanel" aria-labelledby="videos-tab">
                             <ul>
                                 <%if (videos != null && videos.size() > 0) {%>
