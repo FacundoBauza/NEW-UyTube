@@ -4,17 +4,9 @@
     Author     : Usuario
 --%>
 
-<%@page import="logica.DT.DTUsuario"%>
+<%@page import="logica.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    DTUsuario usuario = null;
-    if (request.getSession().getAttribute("UserNick") == null) {
-        response.sendRedirect("index.jsp");
-    } else {
-        usuario = (DTUsuario) request.getAttribute("userInfo");
-    }
 
-%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -30,6 +22,7 @@
         <title>Mi perfil</title>
     </head>
     <body>
+        <% Usuario usr = (Usuario) request.getAttribute("usuario"); %>
         <header>
             <nav class="navbar navbar-light bg-light ">
                 <img class="logo" src="./imagenes/logo.png">
@@ -39,7 +32,7 @@
                 </form>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        ${UserNick}
+                        <%= usr.getNickname() %>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
@@ -51,13 +44,15 @@
             </nav>   
         </header>
         <%
-                if(usuario!=null){
-                    out.println("<img src=\""+usuario.getImagen().substring(14)+"\" height=\"200\" width=\"200\">");
-                    out.println("<p> Nick: "+ usuario.getNickname() + "<br>"
-                            + "Mail: " + usuario.getEmail()+ "<br>"
-                            + "Nombre: " + usuario.getNombre() + "<br>"
-                            + "Apellido: " + usuario.getApellido() + "<br>"
-                            + "Canal " + usuario.getCanal() + "<br>");
+                if(usr!=null){
+                    
+                    out.println("<p> Nick: "+ usr.getNickname() + "<br>"
+                            + "Mail: " + usr.getEmail()+ "<br>"
+                            + "Nombre: " + usr.getNombre() + "<br>"
+                            + "Apellido: " + usr.getApellido() + "<br>"
+                            + "Canal " + usr.getCanal().getNombre() + "<br>"
+                            + "Canal descripcion " + usr.getCanal().getDesc() + "<br>" );
+                            
                 }            
             %>
 

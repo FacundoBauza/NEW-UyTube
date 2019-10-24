@@ -56,13 +56,15 @@ public class AltaPerfil extends HttpServlet {
                 priv = false;
             }
             DTCanal c = new DTCanal(canal, descrcanal, priv, null, null); 
+
             DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, null, " ", c, false);
+
                        
             s.altaUsuario(u, c);
 
             out.println("<html><body onload=\"alert ('Usuario Creado')\"></body></html>");
-            response.sendRedirect("http://localhost:8080/WebUyTube/login.jsp");
-            //response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/login.jsp");
+            response.sendRedirect("http://localhost:8084/WebUyTube/login.jsp");
+
         }
     }
 

@@ -8,11 +8,11 @@
 <%@page import="logica.DT.DTUsuario"%>
 
 <%
-    //DTUsuario usuario = (DTUsuario) request.getAttribute("userInfo");
-    //DTCanal canal = usuario.getCanal();
-    logica.DT.DTCanal canal = new DTCanal("canal", "desc", true, null, null);
+    DTUsuario usuario = (DTUsuario) request.getAttribute("userInfo");
+    DTCanal canal = usuario.getCanal();
+    //logica.DT.DTCanal canal = new DTCanal("canal", "desc", true, null, null);
     
-    DTUsuario usuario = new DTUsuario("Gime", "123", "gimena", "Deleon", "gime@gmail.com", new Date(), "", canal, false);
+    //DTUsuario usuario = new DTUsuario("Gime", "123", "gimena", "Deleon", "gime@gmail.com", new Date(), "", canal, false);
 
 %>
 

@@ -15,7 +15,7 @@ import logica.DT.DTVideo;
 
 @Entity
 @Table(name="Lista")
-public class Lista {
+public class Lista {    
 
     /**
      * @return the usuario_nickname
@@ -30,7 +30,6 @@ public class Lista {
     public void setUsuario_nickname(String usuario_nickname) {
         this.usuario_nickname = usuario_nickname;
     }
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -53,11 +52,10 @@ public class Lista {
         this.porDefecto = porDefecto;
         this.videos = new ArrayList();
         if (porDefecto == true){
-            this.privado = true;
+            this.porDefecto = true;
             this.categoria = null;
         }
         else{
-            this.privado = privado;
             this.categoria = categoria;
         }
         this.usuario_nickname = usuario_nickname;
@@ -70,6 +68,8 @@ public class Lista {
     public void setId(Long id) {
         this.id = id;
     }
+    
+    
 
     public String getNombre() {
         return nombre;
@@ -91,7 +91,13 @@ public class Lista {
         return videos;
     }
     
-    
+    public boolean getPrivado() {
+        return privado;
+    }
+
+    public boolean getPorDefecto() {
+        return porDefecto;
+    }
     
     public void setNombre(String nombre) {
         this.nombre = nombre;

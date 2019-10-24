@@ -50,7 +50,7 @@
                                     <input type="text" name='apellido' placeholder="Apellido" class='form-control' required>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" id="contra" name='contraseña' placeholder="Contraseña" class='form-control' required onkeyup="HabilitarBoton();">
+                                    <input type="password" id="contra" name='contrasenia' placeholder="Contraseña" class='form-control' required onkeyup="HabilitarBoton();">
                                 </div>
                                 <div class="form-group">
                                     <input type="password" id="contra2" name='confirmacion_contraseña' placeholder="Confirmar contraseña" class='form-control' required onkeyup="HabilitarBoton();"><div id="passMatch"> </div>

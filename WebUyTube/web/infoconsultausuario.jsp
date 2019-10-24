@@ -4,7 +4,10 @@
     Author     : Usuario
 --%>
 
+<<<<<<< HEAD
+=======
 <%@page import="java.util.Date"%>
+>>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
 <%@page import="logica.DT.DTLista"%>
 <%@page import="java.util.List"%>
 <%@page import="logica.DT.DTVideo"%>
@@ -13,12 +16,16 @@
 <%@page import="logica.DT.DTUsuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    DTUsuario usuario = (DTUsuario) request.getAttribute("userInfo");
+
+    /*DTUsuario usuario = (DTUsuario) request.getAttribute("userInfo");
+
+
     DTCanal canal = usuario.getCanal();
     List<DTVideo> videos = canal.getVideos();
     List<DTLista> listas = canal.getListas();
     List<String> seguidores = usuario.getSeguidores();
-    List<String> seguidos = usuario.getSeguidos();
+    List<String> seguidos = usuario.getSeguidos();*/
+
     
 %>
 <!DOCTYPE html>
@@ -126,32 +133,55 @@
                         <div class="tab-content">
                             <div id="video" class="tab active">
                                 <ul>
-                                    <%if (videos != null && videos.size() > 0) {%>
-                                    <%for (DTVideo v : videos) {%>  
-                                    <h6><% out.print(v.getUrl()); %></h6>
-                                    <% } %>
-                                    <% } else { %>
+
+                                    <%/*if (videos != null && videos.size() > 0) {*/%>
+                                    <%/*for (DTVideo v : videos) {*/%>  
+                                    <h6><%// out.print(v.getUrl()); %></h6>
+                                    <%// } %>
+                                    <%// } else { %>
                                     <h1>No se encontraron videos</h1>
-                                    <% } %>
+                                    <%// } %>
                                 </ul>
-                                
-                                <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis.</p>
                             </div>
 
-                            <div id="tab2" class="tab">
-                                <p>Tab #2 content goes here!</p>
-                                <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
+                            <div id="listas" class="tab">
+                                <ul>
+                                    <%//if (listas != null && listas.size() > 0) {%>
+                                    <%//for (DTLista l : listas) {%>  
+                                    <h6><%// out.print(l.getNombre()); %></h6>
+                                    <%// } %>
+                                    <%// } else { %>
+                                    <h1>No se encontraron listas</h1>
+                                    <%// } %>
+                                </ul>
                             </div>
 
-                            <div id="tab3" class="tab">
-                                <p>Tab #3 content goes here!</p>
-                                <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum ri.</p>
+                            <div id="seguidores" class="tab">
+                                <ul>
+                                    <%//if (seguidores != null && seguidores.size() > 0) {%>
+                                    <%//for (String s : seguidores) {%>  
+                                    <h6><%// out.print(s); %></h6>
+                                    <%// } %>
+                                    <%// } else { %>
+                                    <h1>No se encontraron seguidores</h1>
+                                    <%// } %>
+                                </ul>
                             </div>
 
-                            <div id="tab4" class="tab">
-                                <p>Tab #4 content goes here!</p>
-                                <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
+                            <div id="seguidos" class="tab">
+                                <ul>
+                                    <%//if (seguidos != null && seguidos.size() > 0) {%>
+                                    <%//for (String seguido : seguidos) {%>  
+                                    <h6><%// out.print(seguido); %></h6>
+                                    <%// } %>
+                                    <%// } else { %>
+                                    <h1>No se encontraron seguidos</h1>
+                                    <%// } %>
+                                </ul>
                             </div>
+
+                                    
+                            
                         </div>
                     </div>
                 </div>

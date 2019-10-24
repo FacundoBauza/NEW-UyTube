@@ -16,7 +16,7 @@ import logica.DT.DTUsuario;
 
 
 public class Manejador {
-    private static Manejador instancia;
+    private static Manejador instancia = null;
     private List<Usuario> usuarios;
     private List<Categoria> categorias;
     private List<String> listasPorDefecto;
@@ -359,7 +359,7 @@ public class Manejador {
         Iterator it=usuarios.iterator();
         while(it.hasNext()){
             u=(Usuario) it.next();
-            if((u.getNickname().equals(identificador) && (u.getContrasenia().equals(pass)))){
+            if(u.getNickname().equals(identificador) && (u.getContrasenia().equals(pass))){
                 ret=u.getSesion();
                 break;
             }
