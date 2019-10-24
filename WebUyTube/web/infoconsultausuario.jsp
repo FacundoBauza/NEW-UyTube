@@ -4,16 +4,13 @@
     Author     : Usuario
 --%>
 
-<<<<<<< HEAD
-=======
+<%@page import="logica.Lista"%>
+<%@page import="logica.Video"%>
+<%@page import="logica.Usuario"%>
 <%@page import="java.util.Date"%>
->>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
-<%@page import="logica.DT.DTLista"%>
 <%@page import="java.util.List"%>
-<%@page import="logica.DT.DTVideo"%>
-<%@page import="logica.DT.DTCanal"%>
 <%@page import="logica.Canal"%>
-<%@page import="logica.DT.DTUsuario"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -29,17 +26,17 @@
         <link rel="stylesheet" href="./resources/css/css.css">
         <script src="resources/js/pestanas.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><% //out.println(usuario.getNickname()); %></title>
+        <title>Info usuario</title>
     </head>
     <body>
     <%
 
-        DTUsuario usuario = (DTUsuario) request.getAttribute("usuario");
-        DTCanal canal = usuario.getCanal();
-        List<DTVideo> videos = canal.getVideos();
-        List<DTLista> listas = canal.getListas();
-        List<String> seguidores = usuario.getSeguidores();
-        List<String> seguidos = usuario.getSeguidos();
+        Usuario usuario = (Usuario) request.getAttribute("usuario");
+        Canal canal = usuario.getCanal();
+        List<Video> videos = canal.getVideos(); 
+        List<Lista> listas = canal.getListas();
+        List<Usuario> seguidores = usuario.getSeguidores();
+        List<Usuario> seguidos = usuario.getSeguidos();
 
 
     %>
@@ -106,7 +103,7 @@
             <div class="contenedorInfo">
                 
                 <div class="text-center">
-                    <h2>Datos Usuario</h2>
+                    <h1>Datos Usuario</h1>
                     <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar rounded-circle img-thumbnail" alt="avatar">
                     <h6>Cambiar foto</h6>
                     <input type="file" class="text-center center-block file-upload">
@@ -119,69 +116,73 @@
                             out.println("<li>Apellido: " + usuario.getApellido() + "</li>");
                             out.println("<li>Canal: " + usuario.getCanal().getNombre() + "</li>");
                             out.println("<li>Canal descripcion: " + usuario.getCanal().getDesc() + "</li>");
-                            
-
                         %>
                     </ul>
-                    <div class="tabs">
-                        <ul class="tab-links">
-                            <li class="active"><a href="#tab1">Videos</a></li>
-                            <li><a href="#tab2">Listas</a></li>
-                            <li><a href="#tab3">Seguidores</a></li>
-                            <li><a href="#tab4">Seguidos</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                            <div id="video" class="tab active">
-                                <ul>
-
-                                    <%if (videos != null && videos.size() > 0) {%>
-                                    <%for (DTVideo v : videos) {%>  
-                                    <h6><% out.print(v.getUrl()); %></h6>
-                                    <% } %>
-                                    <% } else { %>
-                                    <h1>No se encontraron videos</h1>
-                                    <% } %>
-                                </ul>
-                            </div>
-
-                            <div id="listas" class="tab">
-                                <ul>
-                                    <%if (listas != null && listas.size() > 0) {%>
-                                    <%for (DTLista l : listas) {%>  
-                                    <h6><% out.print(l.getNombre()); %></h6>
-                                    <% } %>
-                                    <% } else { %>
-                                    <h1>No se encontraron listas</h1>
-                                    <% } %>
-                                </ul>
-                            </div>
-
-                            <div id="seguidores" class="tab">
-                                <ul>
-                                    <%if (seguidores != null && seguidores.size() > 0) {%>
-                                    <%for (String s : seguidores) {%>  
-                                    <h6><% out.print(s); %></h6>
-                                    <% } %>
-                                    <% } else { %>
-                                    <h1>No se encontraron seguidores</h1>
-                                    <% } %>
-                                </ul>
-                            </div>
-
-                            <div id="seguidos" class="tab">
-                                <ul>
-                                    <%if (seguidos != null && seguidos.size() > 0) {%>
-                                    <%for (String seguido : seguidos) {%>  
-                                    <h6><% out.print(seguido); %></h6>
-                                    <% } %>
-                                    <% } else { %>
-                                    <h1>No se encontraron seguidos</h1>
-                                    <% } %>
-                                </ul>
-                            </div>
+                    <!--        TABS        -->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="videos-tab" data-toggle="tab" href="#Videos" role="tab" aria-controls="videos" aria-selected="true">Videos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="listas-tab" data-toggle="tab" href="#Listas" role="tab" aria-controls="listas" aria-selected="false">Listas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="seguidores-tab" data-toggle="tab" href="#seguidores" role="tab" aria-controls="seguidores" aria-selected="false">Seguidores</a>
+                        </li>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="seguidos-tab" data-toggle="tab" href="#seguidos" role="tab" aria-controls="seguidos" aria-selected="false">Seguidos</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        
+                        <div class="tab-pane fade show active" id="videos-tab" role="tabpanel" aria-labelledby="videos-tab">
+                            <ul>
+                                <%if (videos != null && videos.size() > 0) {%>
+                                <%for (Video v : videos) {%>  
+                                <h6><% out.print(v.getUrl()); %></h6>
+                                <% } %>
+                                <% } else { %>
+                                <h3>No se encontraron videos</h3>
+                                <% }%>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade show" id="listas-tab" role="tabpanel" aria-labelledby="listas-tab">
+                            <ul>
+                                <%if (listas != null && listas.size() > 0) {%>
+                                <%for (Lista l : listas) {%>  
+                                <h6><% out.print(l.getNombre()); %></h6>
+                                <% } %>
+                                <% } else { %>
+                                <h3>No se encontraron listas</h3>
+                                <% } %>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade show" id="seguidores-tab" role="tabpanel" aria-labelledby="seguidores-tab">
+                            <ul>
+                                <%if (seguidores != null && seguidores.size() > 0) {%>
+                                <%for (Usuario s : seguidores) {%>  
+                                <h6><% out.print(s.getNickname()); %></h6>
+                                <% } %>
+                                <% } else { %>
+                                <h3>No se encontraron seguidores</h3>
+                                <% }%>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade show" id="seguidos-tab" role="tabpanel" aria-labelledby="seguidos-tab">
+                            <ul>
+                                <%if (seguidos != null && seguidos.size() > 0) {%>
+                                <%for (Usuario seguido : seguidos) {%>  
+                                <h6><% out.print(seguido.getNickname()); %></h6>
+                                <% } %>
+                                <% } else { %>
+                                <h3>No se encontraron seguidos</h3>
+                                <% }%>
+                            </ul>
                         </div>
                     </div>
+                    
+                    
                 </div>
 
         

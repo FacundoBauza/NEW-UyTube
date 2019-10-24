@@ -23,12 +23,13 @@
         <title>Consultar Usuario</title>
     </head>
     <body>
-        <h1>Consultar Usuario</h1>
+        <h1>Consultar Usuario</h1><br><br>
+        <!--   tabla    -->
         <div class="col-md-7">
             <table class="table table-bordered table-hover">
-                <thead>
+                <thead class="thead-dark">
                     <tr>
-                        <td>Usuarios:</td>
+                        <th>Usuarios:</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -46,6 +47,7 @@
                 </tbody>
             </table>    
         </div>
+        <!--      ----     -->
         
         
         
