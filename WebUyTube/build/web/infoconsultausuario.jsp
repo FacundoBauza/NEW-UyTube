@@ -103,7 +103,7 @@
             <div class="contenedorInfo">
                 
                 <div class="text-center">
-                    <h2>Datos Usuario</h2>
+                    <h1>Datos Usuario</h1>
                     <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar rounded-circle img-thumbnail" alt="avatar">
                     <h6>Cambiar foto</h6>
                     <input type="file" class="text-center center-block file-upload">
@@ -118,6 +118,68 @@
                             out.println("<li>Canal descripcion: " + usuario.getCanal().getDesc() + "</li>");
                         %>
                     </ul>
+                    <!--        TABS        -->
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="videos-tab" data-toggle="tab" href="#Videos" role="tab" aria-controls="videos" aria-selected="true">Videos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="listas-tab" data-toggle="tab" href="#Listas" role="tab" aria-controls="listas" aria-selected="false">Listas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="seguidores-tab" data-toggle="tab" href="#seguidores" role="tab" aria-controls="seguidores" aria-selected="false">Seguidores</a>
+                        </li>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="seguidos-tab" data-toggle="tab" href="#seguidos" role="tab" aria-controls="seguidos" aria-selected="false">Seguidos</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="videos-tab" role="tabpanel" aria-labelledby="videos-tab">
+                            <ul>
+                                <%if (videos != null && videos.size() > 0) {%>
+                                <%for (Video v : videos) {%>  
+                                <h6><% out.print(v.getUrl()); %></h6>
+                                <% } %>
+                                <% } else { %>
+                                <h3>No se encontraron videos</h3>
+                                <% }%>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade show" id="listas-tab" role="tabpanel" aria-labelledby="listas-tab">
+                            <ul>
+                                <%if (listas != null && listas.size() > 0) {%>
+                                <%for (Lista l : listas) {%>  
+                                <h6><% out.print(l.getNombre()); %></h6>
+                                <% } %>
+                                <% } else { %>
+                                <h3>No se encontraron listas</h3>
+                                <% } %>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade show" id="seguidores-tab" role="tabpanel" aria-labelledby="seguidores-tab">
+                            <ul>
+                                <%if (seguidores != null && seguidores.size() > 0) {%>
+                                <%for (Usuario s : seguidores) {%>  
+                                <h6><% out.print(s.getNickname()); %></h6>
+                                <% } %>
+                                <% } else { %>
+                                <h3>No se encontraron seguidores</h3>
+                                <% }%>
+                            </ul>
+                        </div>
+                        <div class="tab-pane fade show" id="seguidos-tab" role="tabpanel" aria-labelledby="seguidos-tab">
+                            <ul>
+                                <%if (seguidos != null && seguidos.size() > 0) {%>
+                                <%for (Usuario seguido : seguidos) {%>  
+                                <h6><% out.print(seguido.getNickname()); %></h6>
+                                <% } %>
+                                <% } else { %>
+                                <h3>No se encontraron seguidos</h3>
+                                <% }%>
+                            </ul>
+                        </div>
+                    </div>
                     
                     
                 </div>
