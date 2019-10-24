@@ -33,7 +33,7 @@ public class SeguirUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         PrintWriter out = response.getWriter();
-        String user = (String) request.getSession().getAttribute("UserNick");
+        String user = (String) request.getSession().getAttribute("usuario");
         String user_seguir = (String) request.getSession().getAttribute("userConsult");
         if(!(user.equals(user_seguir))){
             ISistema sistema = new Sistema();

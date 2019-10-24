@@ -52,6 +52,10 @@ body{
     
 }
 
+.botonesSeguir{
+    text-align: end;
+}
+
 /*   pestañas   */
 /*----- Tabs -----*/
 .tabs {
