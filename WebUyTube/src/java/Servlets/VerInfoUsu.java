@@ -39,7 +39,8 @@ public class VerInfoUsu extends HttpServlet {
         Usuario usuario = m.buscarUsuario(nick);
         if(usuario!=null){
             request.setAttribute("usuario", usuario);
-            response.sendRedirect("infoconsultausuario.jsp");
+            request.getRequestDispatcher("infoconsultausuario.jsp").forward(request, response);
+            //response.sendRedirect("infoconsultausuario.jsp");
         }
         else{
             out.println("<html><body onload=\"alert('Usuario no encontrado')\"></body></html>");

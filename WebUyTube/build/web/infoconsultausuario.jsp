@@ -4,16 +4,13 @@
     Author     : Usuario
 --%>
 
-<<<<<<< HEAD
-=======
+<%@page import="logica.Lista"%>
+<%@page import="logica.Video"%>
+<%@page import="logica.Usuario"%>
 <%@page import="java.util.Date"%>
->>>>>>> 5273429756de38465bc0fb15dcf39dc3f3f5bc1d
-<%@page import="logica.DT.DTLista"%>
 <%@page import="java.util.List"%>
-<%@page import="logica.DT.DTVideo"%>
-<%@page import="logica.DT.DTCanal"%>
 <%@page import="logica.Canal"%>
-<%@page import="logica.DT.DTUsuario"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -29,17 +26,17 @@
         <link rel="stylesheet" href="./resources/css/css.css">
         <script src="resources/js/pestanas.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><% //out.println(usuario.getNickname()); %></title>
+        <title>Info usuario</title>
     </head>
     <body>
     <%
 
-        DTUsuario usuario = (DTUsuario) request.getAttribute("usuario");
-        DTCanal canal = usuario.getCanal();
-        List<DTVideo> videos = canal.getVideos();
-        List<DTLista> listas = canal.getListas();
-        List<String> seguidores = usuario.getSeguidores();
-        List<String> seguidos = usuario.getSeguidos();
+        Usuario usuario = (Usuario) request.getAttribute("usuario");
+        Canal canal = usuario.getCanal();
+        List<Video> videos = canal.getVideos(); 
+        List<Lista> listas = canal.getListas();
+        List<Usuario> seguidores = usuario.getSeguidores();
+        List<Usuario> seguidos = usuario.getSeguidos();
 
 
     %>
@@ -119,69 +116,10 @@
                             out.println("<li>Apellido: " + usuario.getApellido() + "</li>");
                             out.println("<li>Canal: " + usuario.getCanal().getNombre() + "</li>");
                             out.println("<li>Canal descripcion: " + usuario.getCanal().getDesc() + "</li>");
-                            
-
                         %>
                     </ul>
-                    <div class="tabs">
-                        <ul class="tab-links">
-                            <li class="active"><a href="#tab1">Videos</a></li>
-                            <li><a href="#tab2">Listas</a></li>
-                            <li><a href="#tab3">Seguidores</a></li>
-                            <li><a href="#tab4">Seguidos</a></li>
-                        </ul>
-
-                        <div class="tab-content">
-                            <div id="video" class="tab active">
-                                <ul>
-
-                                    <%if (videos != null && videos.size() > 0) {%>
-                                    <%for (DTVideo v : videos) {%>  
-                                    <h6><% out.print(v.getUrl()); %></h6>
-                                    <% } %>
-                                    <% } else { %>
-                                    <h1>No se encontraron videos</h1>
-                                    <% } %>
-                                </ul>
-                            </div>
-
-                            <div id="listas" class="tab">
-                                <ul>
-                                    <%if (listas != null && listas.size() > 0) {%>
-                                    <%for (DTLista l : listas) {%>  
-                                    <h6><% out.print(l.getNombre()); %></h6>
-                                    <% } %>
-                                    <% } else { %>
-                                    <h1>No se encontraron listas</h1>
-                                    <% } %>
-                                </ul>
-                            </div>
-
-                            <div id="seguidores" class="tab">
-                                <ul>
-                                    <%if (seguidores != null && seguidores.size() > 0) {%>
-                                    <%for (String s : seguidores) {%>  
-                                    <h6><% out.print(s); %></h6>
-                                    <% } %>
-                                    <% } else { %>
-                                    <h1>No se encontraron seguidores</h1>
-                                    <% } %>
-                                </ul>
-                            </div>
-
-                            <div id="seguidos" class="tab">
-                                <ul>
-                                    <%if (seguidos != null && seguidos.size() > 0) {%>
-                                    <%for (String seguido : seguidos) {%>  
-                                    <h6><% out.print(seguido); %></h6>
-                                    <% } %>
-                                    <% } else { %>
-                                    <h1>No se encontraron seguidos</h1>
-                                    <% } %>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    
+                    
                 </div>
 
         
