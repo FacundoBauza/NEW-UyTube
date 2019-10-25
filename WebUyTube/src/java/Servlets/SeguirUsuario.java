@@ -12,8 +12,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logica.Fabrica;
 import logica.ISistema;
 import logica.Sistema;
+import logica.Usuario;
 
 /**
  *
@@ -31,15 +33,32 @@ public class SeguirUsuario extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        
         PrintWriter out = response.getWriter();
-        String user = (String) request.getSession().getAttribute("usuario");
-        String user_seguir = (String) request.getSession().getAttribute("userConsult");
-        if(!(user.equals(user_seguir))){
-            ISistema sistema = new Sistema();
-            sistema.seguirUsuario(user, user_seguir);
-            out.println("<html><body onload=\"alert('Ahora Sigues a: "+ user_seguir +"')\"></body></html>");
-            response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/");
+        String user = (String) request.getSession().getAttribute("usuarioLogueado");
+        Usuario user_seguir = (Usuario) request.getSession().getAttribute("usuarioConsult");
+        if (user != null) { //aca esta el problema
+            if (user_seguir != null) {
+                String usuNickSeguir = user_seguir.getNickname();
+                if (!(user.equals(usuNickSeguir))) {
+                    ISistema s = null;
+                    s = Fabrica.getInstance();
+                    s.seguirUsuario(user, usuNickSeguir);
+                    out.println("<html><body onload=\"alert('Ahora Sigues a: " + usuNickSeguir + "')\"></body></html>");
+                    request.getRequestDispatcher("infoconsultausuario.jsp").forward(request, response);
+                    //response.sendRedirect("infoconsultausuario.jsp");
+                }
+            }else{
+                out.println("<html><body onload=\"alert('Usuario a seguir no encontrado')\"></body></html>");
+                    
+            }
+
+        }
+        else{
+            out.println("<html><body onload=\"alert('Usuario logueado no encontrado')\"></body></html>");
         }
     }
 

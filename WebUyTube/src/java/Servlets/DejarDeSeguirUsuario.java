@@ -12,8 +12,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import logica.Fabrica;
 import logica.ISistema;
 import logica.Sistema;
+import logica.Usuario;
 
 /**
  *
@@ -32,15 +34,34 @@ public class DejarDeSeguirUsuario extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        
         PrintWriter out = response.getWriter();
-        String user = (String) request.getSession().getAttribute("UserNick");
-        String user_seguir = (String) request.getSession().getAttribute("userConsult");
-        if(!(user.equals(user_seguir))){
-            ISistema sistema = new Sistema();
-            sistema.dejarDeSeguirUsuario(user, user_seguir);
-            out.println("<html><body onload=\"alert('Dejaste de seguir a: "+ user_seguir +"')\"></body></html>");
-            response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/");
+        String user = (String) request.getSession().getAttribute("usuarioLogueado");
+        Usuario user_seguir = (Usuario) request.getSession().getAttribute("usuarioConsult");
+        if (user != null) { //aca esta el problema
+            if (user_seguir != null) {
+                String usuNickSeguir = user_seguir.getNickname();
+                if (!(user.equals(usuNickSeguir))) {
+                    ISistema s = null;
+                    s = Fabrica.getInstance();
+                    s.dejarDeSeguirUsuario(user, usuNickSeguir);
+                    out.println("<html><body onload=\"alert('Dejaste de seguir a: " + usuNickSeguir + "')\"></body></html>");
+                    request.getRequestDispatcher("infoconsultausuario.jsp").forward(request, response);
+                    //response.sendRedirect("infoconsultausuario.jsp");
+                }
+            }else{
+                out.println("<html><body onload=\"alert('Usuario a seguir no encontrado')\"></body></html>");
+                    
+            }
+
         }
+        else{
+            out.println("<html><body onload=\"alert('Usuario logueado no encontrado')\"></body></html>");
+        }
+        
+        
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

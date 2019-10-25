@@ -37,7 +37,8 @@ public class Login extends HttpServlet {
         //chequea contraseña
         if(usu.getContrasenia().equals(password)){
             HttpSession session=request.getSession();  
-            session.setAttribute("usuario",usu.getNickname()); 
+            session.setAttribute("usuarioLogueado",usu.getNickname()); 
+            session.setAttribute("infoLogueado", usu);
             response.sendRedirect("homeLogIn.jsp");
         }
         else{  
@@ -52,7 +53,7 @@ public class Login extends HttpServlet {
         
         Manejador m = Manejador.getinstance();        
         return m.buscarUsuario(
-                (String) request.getSession().getAttribute("usuario"));
+                (String) request.getSession().getAttribute("usuarioLogueado"));
 				
 			
     }

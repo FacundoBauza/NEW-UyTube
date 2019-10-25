@@ -14,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import logica.DT.DTUsuario;
 import logica.Fabrica;
 import logica.ISistema;
@@ -38,9 +39,9 @@ public class VerInfoUsu extends HttpServlet {
         Manejador m = Manejador.getinstance();
         Usuario usuario = m.buscarUsuario(nick);
         if(usuario!=null){
-            request.setAttribute("usuario", usuario);
+            HttpSession session = request.getSession();
+            session.setAttribute("usuarioConsult", usuario); 
             request.getRequestDispatcher("infoconsultausuario.jsp").forward(request, response);
-            //response.sendRedirect("infoconsultausuario.jsp");
         }
         else{
             out.println("<html><body onload=\"alert('Usuario no encontrado')\"></body></html>");
