@@ -55,7 +55,7 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
-                        <a href="ModificarUsuario.jsp" role="button">Modificar usuario</a>
+                        <a class="dropdown-item" href="ModificarUsuario.jsp">Modificar usuario</a>
                         <a class="dropdown-item" href="#">Darse de baja</a>
                         <a class="dropdown-item" href="Logout">Cerrar sesión</a>
                     </div>
