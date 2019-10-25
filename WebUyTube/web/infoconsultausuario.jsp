@@ -31,8 +31,10 @@
     </head>
     <body>
     <%
-
-        Usuario usuario = (Usuario) request.getAttribute("usuario");
+        String usuarioLogueado = (String) request.getSession().getAttribute("usuario");
+        Usuario infoLogueado = (Usuario) request.getSession().getAttribute("infoLogueado");
+        
+        Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioConsult");
         Canal canal = usuario.getCanal();
         List<Video> videos = canal.getVideos(); 
         List<Lista> listas = canal.getListas();
@@ -51,7 +53,7 @@
                 </form>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <%= usuario.getNickname() %>
+                        <%= infoLogueado.getNickname() %>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
@@ -104,10 +106,11 @@
             <div class="contenedorInfo">
                 
                 <div class="text-center">
-                    <% if(request.getSession().getAttribute(usuario.getNickname())!= null) {%>
+                    <% //si está logueado puede seguir/dejar de seguir
+                        if ((request.getSession().getAttribute("infoLogueado") != null)) { %>
                     <div class="botonesSeguir">
-                        <a href="#" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Seguir</a>
-                        <a href="#" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Dejar de seguir</a>
+                        <a href="SeguirUsuario" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Seguir</a>
+                        <a href="DejarDeSeguirUsuario" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Dejar de seguir</a>
                     </div>  
                     <% } %>
                         
@@ -176,15 +179,8 @@
                         </ul>
                     </div>
                 </div>
-                    
-                    
-                    
-
-        
-        
-        
     
-    <footer>
+        <footer>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
             <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
