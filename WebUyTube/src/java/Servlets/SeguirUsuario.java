@@ -40,7 +40,7 @@ public class SeguirUsuario extends HttpServlet {
         PrintWriter out = response.getWriter();
         String user = (String) request.getSession().getAttribute("usuarioLogueado");
         Usuario user_seguir = (Usuario) request.getSession().getAttribute("usuarioConsult");
-        if (user != null) { //aca esta el problema
+        if (user != null) { 
             if (user_seguir != null) {
                 String usuNickSeguir = user_seguir.getNickname();
                 if (!(user.equals(usuNickSeguir))) {

@@ -66,6 +66,8 @@ public class Sistema extends javax.swing.JFrame {
         QuitarVideoDeLista.setVisible(false);
         ConsultaLista.setVisible(false);
         
+       
+        
         //cargarUsuarios();
         //cargarCategorias();
         
