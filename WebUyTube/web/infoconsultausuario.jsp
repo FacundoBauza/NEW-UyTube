@@ -46,22 +46,27 @@
         
         <header>
             <nav class="navbar navbar-light bg-light ">
-                <img class="logo" src="./imagenes/logo.png">
+                <img class="logo" src="./imagenes/logo2.png">
                 <form class="form-inline mx-auto">
                     <input class="form-control mr-sm-2" type="search" placeholder="video, lista, canal" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
                 </form>
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <%= infoLogueado.getNickname() %>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
-                        <a class="dropdown-item" href="ModificarUsuario.jsp">Modificar usuario</a>
-                        <a class="dropdown-item" href="#">Darse de baja</a>
-                        <a class="dropdown-item" href="Logout">Cerrar sesión</a>
-                    </div>
-                </div>     
+                    <% //si está logueado muestra el dropdown
+                        if ((request.getSession().getAttribute("infoLogueado") != null)) { %>
+                    <div class="dropdown">
+
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <%= infoLogueado.getNickname() %>
+                        </button>
+                            
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
+                            <a class="dropdown-item" href="ModificarUsuario.jsp">Modificar usuario</a>
+                            <a class="dropdown-item" href="#">Darse de baja</a>
+                            <a class="dropdown-item" href="Logout">Cerrar sesión</a>
+                        </div>
+                    </div>   
+                    <% } %>
             </nav>   
         </header>
 
