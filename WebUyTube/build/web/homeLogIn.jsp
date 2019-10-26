@@ -37,7 +37,7 @@
         
         <header>
             <nav class="navbar navbar-light bg-light ">
-                <img class="logo" src="./imagenes/logo.png">
+                <img class="logo" src="./imagenes/logo2.png">
                 <form class="form-inline mx-auto">
                     <input class="form-control mr-sm-2" type="search" placeholder="video, lista, canal" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
