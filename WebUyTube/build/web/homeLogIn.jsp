@@ -68,7 +68,7 @@
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">VIDEOS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Subir video</a></li>
+                    <li class="list-group-item"><a href="/WebUyTube/altaVideo.jsp" role="button">Subir video</a></li>
                     <li class="list-group-item"><a href="#" role="button">Ver videos</a></li>
                 </ul>
             </div>

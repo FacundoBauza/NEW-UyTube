@@ -1,3 +1,5 @@
+<%@page import="logica.Usuario"%>
+<%@page import="Servlets.Login"%>
 <%@page import="logica.Manejador"%>
 <%@page import="java.util.List"%>
 <%@page import="logica.DT.DTCategoria"%>
@@ -6,6 +8,7 @@
 <%
     Manejador m = Manejador.getinstance();      
     List<DTCategoria> DtCat = m.getCategorias();
+    Usuario usr = Login.getUsuarioLogueado(request);
 %> 
 
 <!DOCTYPE html>
@@ -34,8 +37,14 @@
                 </form>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        ${UserNick}
+                        <%= usr.getNickname() %>
                     </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
+                        <a class="dropdown-item" href="/WebUyTube/ModificarUsuario.jsp">Modificar datos de usuario</a>
+                        <a class="dropdown-item" href="BajaUsuario">Darse de baja</a>
+                        <a class="dropdown-item" href="Logout">Cerrar sesión</a>
+                    </div>
                 </div>     
             </nav>   
         </header>

@@ -34,7 +34,7 @@
         <link rel="stylesheet" href="./resources/css/css.css">
         <script src="resources/js/pestanas.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><% //out.println(usuario.getNickname()); %></title>
+        <title>Modificar Usuario</title>
     </head>
     <body>
         
@@ -47,8 +47,14 @@
                 </form>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        ${UserNick}
+                        <%= usuario.getNickname() %>
                     </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
+                        <a class="dropdown-item" href="/WebUyTube/ModificarUsuario.jsp">Modificar datos de usuario</a>
+                        <a class="dropdown-item" href="BajaUsuario">Darse de baja</a>
+                        <a class="dropdown-item" href="Logout">Cerrar sesión</a>
+                    </div>
                 </div>     
             </nav>   
         </header>
@@ -69,7 +75,7 @@
                 <div class="card" style="width: 18rem;">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">VIDEOS:</li>
-                        <li class="list-group-item"><a href="#" role="button">Subir video</a></li>
+                        <li class="list-group-item"><a href="/WebUyTube/altaVideo.jsp" role="button">Subir video</a></li>
                         <li class="list-group-item"><a href="#" role="button">Ver videos</a></li>
                     </ul>
                 </div>
