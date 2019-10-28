@@ -1,4 +1,6 @@
 
+<%@page import="logica.Usuario"%>
+<%@page import="Servlets.Login"%>
 <%@page import="logica.DT.DTLista"%>
 <%@page import="logica.DT.DTVideo"%>
 <%@page import="java.util.List"%>
@@ -8,19 +10,15 @@
 <%@page import="logica.DT.DTUsuario"%>
 
 <%
-    DTUsuario usuario = (DTUsuario) request.getAttribute("userInfo");
-    DTCanal canal = usuario.getCanal();
-    //logica.DT.DTCanal canal = new DTCanal("canal", "desc", true, null, null);
-    
-    //DTUsuario usuario = new DTUsuario("Gime", "123", "gimena", "Deleon", "gime@gmail.com", new Date(), "", canal, false);
-
+    Usuario user = Login.getUsuarioLogueado(request);
+    DTCanal canal = new DTCanal(user.getCanal());
 %>
 
 <%
     List<DTVideo> videos = canal.getVideos();
     List<DTLista> listas = canal.getListas();
-    List<String> seguidores = usuario.getSeguidores();
-    List<String> seguidos = usuario.getSeguidos();
+    List<Usuario> seguidores = user.getSeguidores();
+    List<Usuario> seguidos = user.getSeguidos();
     
 %>
 <!DOCTYPE html>

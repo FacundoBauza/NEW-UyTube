@@ -38,11 +38,11 @@ public class ModificarUsuario extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             ISistema sistema = new Sistema();
-            String nickname = "Gime";//request.getParameter("nickname");
+            String nickname = Login.getUsuarioLogueado(request).getNickname();//request.getParameter("nickname");
             String nombre = request.getParameter("Nombre");
             String apellido = request.getParameter("Apellido");
             String contrasenia = request.getParameter("pass");
-            String fNac = request.getParameter("Fecha");
+            //String fNac = request.getParameter("Fecha");
            // String imagen = request.getParameter("imagen");
            String canal = request.getParameter("canal");
            String descrcanal = request.getParameter("descripcion_canal");
@@ -53,7 +53,7 @@ public class ModificarUsuario extends HttpServlet {
            }
            //DTCanal c = new DTCanal(canal, descrcanal, priv, ,);
            //DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, new Date(), null, c);
-           sistema.modificarUsuario(nickname, contrasenia, nombre, apellido, new Date(fNac), null, canal, descrcanal, priv);
+           sistema.modificarUsuario(nickname, contrasenia, nombre, apellido, null, null, canal, descrcanal, priv);
             out.println("<html><body onload=\"alert ('Usuario Modificado')\"></body></html>");
            
            response.setHeader("Refresh", "0; URL=http://localhost:8080/UyTube/");

@@ -17,10 +17,6 @@ import logica.DT.DTVideo;
 import logica.Fabrica;
 import logica.ISistema;
 
-/**
- *
- * @author Gime
- */
 @WebServlet(name = "AltaVideo", urlPatterns = {"/AltaVideo"})
 public class AltaVideo extends HttpServlet {
 
@@ -55,7 +51,7 @@ public class AltaVideo extends HttpServlet {
                        
             s.altaVideo(video, "Gime");
 
-            out.println("<html><body onload=\"alert ('Videoo Creado')\"></body></html>");
+            out.println("<html><body onload=\"alert ('Video Creado')\"></body></html>");
             response.sendRedirect("http://localhost:8080/WebUyTube/login.jsp");
         
     }
