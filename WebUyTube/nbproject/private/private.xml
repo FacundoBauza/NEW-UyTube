@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Usuario/Desktop/NEW-UyTube/WebUyTube/src/java/Servlets/VerInfoUsu.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/NEW-UyTube/WebUyTube/src/java/Servlets/Login.java</file>
-            <file>file:/C:/Users/Usuario/Desktop/NEW-UyTube/WebUyTube/web/homeLogIn.jsp</file>
+            <file>file:/C:/Users/Gime/Desktop/NEW-UyTube/WebUyTube/src/java/Servlets/ModificarUsuario.java</file>
+            <file>file:/C:/Users/Gime/Desktop/NEW-UyTube/WebUyTube/web/homeLogIn.jsp</file>
+            <file>file:/C:/Users/Gime/Desktop/NEW-UyTube/WebUyTube/web/ModificarUsuario.jsp</file>
+            <file>file:/C:/Users/Gime/Desktop/NEW-UyTube/WebUyTube/src/java/Servlets/AltaVideo.java</file>
         </group>
     </open-files>
 </project-private>
