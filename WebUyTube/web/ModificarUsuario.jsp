@@ -1,4 +1,6 @@
 
+<%@page import="logica.Usuario"%>
+<%@page import="Servlets.Login"%>
 <%@page import="logica.DT.DTLista"%>
 <%@page import="logica.DT.DTVideo"%>
 <%@page import="java.util.List"%>
@@ -8,19 +10,15 @@
 <%@page import="logica.DT.DTUsuario"%>
 
 <%
-    DTUsuario usuario = (DTUsuario) request.getAttribute("userInfo");
-    DTCanal canal = usuario.getCanal();
-    //logica.DT.DTCanal canal = new DTCanal("canal", "desc", true, null, null);
-    
-    //DTUsuario usuario = new DTUsuario("Gime", "123", "gimena", "Deleon", "gime@gmail.com", new Date(), "", canal, false);
-
+    Usuario usuario = Login.getUsuarioLogueado(request);
+    DTCanal canal = new DTCanal(usuario.getCanal());
 %>
 
 <%
     List<DTVideo> videos = canal.getVideos();
     List<DTLista> listas = canal.getListas();
-    List<String> seguidores = usuario.getSeguidores();
-    List<String> seguidos = usuario.getSeguidos();
+    List<Usuario> seguidores = usuario.getSeguidores();
+    List<Usuario> seguidos = usuario.getSeguidos();
     
 %>
 <!DOCTYPE html>
@@ -36,7 +34,7 @@
         <link rel="stylesheet" href="./resources/css/css.css">
         <script src="resources/js/pestanas.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title><% //out.println(usuario.getNickname()); %></title>
+        <title>Modificar Usuario</title>
     </head>
     <body>
         
@@ -49,8 +47,14 @@
                 </form>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        ${UserNick}
+                        <%= usuario.getNickname() %>
                     </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
+                        <a class="dropdown-item" href="/WebUyTube/ModificarUsuario.jsp">Modificar datos de usuario</a>
+                        <a class="dropdown-item" href="BajaUsuario">Darse de baja</a>
+                        <a class="dropdown-item" href="Logout">Cerrar sesión</a>
+                    </div>
                 </div>     
             </nav>   
         </header>
@@ -71,7 +75,7 @@
                 <div class="card" style="width: 18rem;">
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item">VIDEOS:</li>
-                        <li class="list-group-item"><a href="#" role="button">Subir video</a></li>
+                        <li class="list-group-item"><a href="/WebUyTube/altaVideo.jsp" role="button">Subir video</a></li>
                         <li class="list-group-item"><a href="#" role="button">Ver videos</a></li>
                     </ul>
                 </div>
@@ -140,47 +144,55 @@
                                     <button class= "button">Confirmar</button>
                                 </div> 
                             </form>
-                    <div class="tabs">
-                        <ul class="tab-links">
-                            <li class="active"><a href="#tab1">Videos</a></li>
-                            <li><a href="#tab2">Listas</a></li>
-                            <li><a href="#tab3">Seguidores</a></li>
-                            <li><a href="#tab4">Seguidos</a></li>
+                     <h3>Videos</h3>
+                    <div>
+                        <ul>
+                            <%if (videos != null && videos.size() > 0) {%>
+                            <%for (DTVideo v : videos) {%>  
+                            <li><a href = ModificarVideo?v=<% out.print(v.getNombre()); %> ><% out.print(v.getNombre()); %></li>
+                            <% } %>
+                            <% } else { %>
+                            <h5>No se encontraron videos</h5>
+                            <% }%>
                         </ul>
-
-                        <div class="tab-content">
-                            <div id="video" class="tab active">
-                                <ul>
-                                    <%if (videos != null && videos.size() > 0) {%>
-                                    <%for (DTVideo v : videos) {%>  
-                                    <h6><% out.print(v.getUrl()); %></h6>
-                                    <% } %>
-                                    <% } else { %>
-                                    <h1>No se encontraron videos</h1>
-                                    <% } %>
-                                </ul>
-                                
-                                <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis.</p>
-                            </div>
-
-                            <div id="tab2" class="tab">
-                                <p>Tab #2 content goes here!</p>
-                                <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
-                            </div>
-
-                            <div id="tab3" class="tab">
-                                <p>Tab #3 content goes here!</p>
-                                <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum ri.</p>
-                            </div>
-
-                            <div id="tab4" class="tab">
-                                <p>Tab #4 content goes here!</p>
-                                <p>Donec pulvinar neque sed semper lacinia. Curabitur lacinia ullamcorper nibh; quis imperdiet velit eleifend ac. Donec blandit mauris eget aliquet lacinia! Donec pulvinar massa interdum risus ornare mollis. In hac habitasse platea dictumst. Ut euismod tempus hendrerit. Morbi ut adipiscing nisi. Etiam rutrum sodales gravida! Aliquam tellus orci, iaculis vel.</p>
-                            </div>
-                        </div>
+                    </div>
+                    <h3>Listas</h3>
+                    <div>
+                        <ul>
+                            <%if (listas != null && listas.size() > 0) {%>
+                            <%for (DTLista l : listas) {%>  
+                            <h6><% out.print(l.getNombre()); %></h6>
+                            <% } %>
+                            <% } else { %>
+                            <h5>No se encontraron listas</h5>
+                            <% } %>
+                        </ul>
+                    </div>
+                    <h3>Seguidores</h3>
+                    <div>
+                        <ul>
+                            <%if (seguidores != null && seguidores.size() > 0) {%>
+                            <%for (Usuario s : seguidores) {%>  
+                            <h6><% out.print(s.getNickname()); %></h6>
+                            <% } %>
+                            <% } else { %>
+                            <h5>No se encontraron seguidores</h5>
+                            <% }%>
+                        </ul>
+                    </div>
+                    <h3>Seguidos</h3>
+                    <div>
+                        <ul>
+                            <%if (seguidos != null && seguidos.size() > 0) {%>
+                            <%for (Usuario seguido : seguidos) {%>  
+                            <h6><% out.print(seguido.getNickname()); %></h6>
+                            <% } %>
+                            <% } else { %>
+                            <h5>No se encontraron seguidos</h5>
+                            <% }%>
+                        </ul>
                     </div>
                 </div>
-
         <footer>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
