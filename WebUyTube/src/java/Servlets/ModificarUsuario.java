@@ -44,8 +44,8 @@ public class ModificarUsuario extends HttpServlet {
             String contrasenia = request.getParameter("pass");
             //String fNac = request.getParameter("Fecha");
            // String imagen = request.getParameter("imagen");
-           String canal = request.getParameter("canal");
-           String descrcanal = request.getParameter("descripcion_canal");
+           String canal = request.getParameter("NombreCanal");
+           String descrcanal = request.getParameter("DescCanal");
            String privado = request.getParameter("privado");
            Boolean priv= true;
            if(privado==null){
@@ -56,25 +56,9 @@ public class ModificarUsuario extends HttpServlet {
            sistema.modificarUsuario(nickname, contrasenia, nombre, apellido, null, null, canal, descrcanal, priv);
             out.println("<html><body onload=\"alert ('Usuario Modificado')\"></body></html>");
            
-           response.setHeader("Refresh", "0; URL=http://localhost:8080/UyTube/");
+           response.setHeader("Refresh", "0; URL=http://localhost:8080/WebUyTube/homeLogIn.jsp");
         }
-        
-//        PrintWriter out = response.getWriter();
-//        String nick = request.getParameter("dataname");
-//        Manejador m = Manejador.getinstance();
-//        DTUsuario u = m.getUserData(nick);
-//        if(u!=null){
-//            request.getSession().setAttribute("userConsult", u.getNickname());
-//            request.setAttribute("userInfo", u);
-//            if(u instanceof DTUsuario){
-                getServletConfig().getServletContext().getRequestDispatcher("ModificarUsuario.jsp").forward(request,response);
-//            }
-//            
-//        }
-//        else{
-//            out.println("<html><body onload=\"alert('Usuario no encontrado')\"></body></html>");
-//            response.setHeader("Refresh", "0; URL=http://localhost:8080/WebUyTube/");
-//        }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

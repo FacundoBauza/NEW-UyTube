@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import logica.DT.DTVideo;
 import logica.Fabrica;
 import logica.ISistema;
+import logica.Usuario;
 
 @WebServlet(name = "AltaVideo", urlPatterns = {"/AltaVideo"})
 public class AltaVideo extends HttpServlet {
@@ -39,20 +40,20 @@ public class AltaVideo extends HttpServlet {
             String descripcion = request.getParameter("descripcion");
             String duracion = request.getParameter("duracion");
             //String f = request.getParameter("fecha");
-            Date fecha = new Date();
+            //Date fecha = new Date();
             String url = request.getParameter("url");
-            String categoria = request.getParameter("categoria");
+            String categoria = request.getParameter("comboCat");
             String privado = request.getParameter("privado");
             Boolean priv = true;
             if (privado == null) {
                 priv = false;
             }
-            DTVideo video = new DTVideo(nombre, descripcion, duracion, fecha, url, priv, categoria);
-                       
-            s.altaVideo(video, "Gime");
+            DTVideo video = new DTVideo(nombre, descripcion, duracion, null, url, priv, categoria);
+            Usuario u = Login.getUsuarioLogueado(request);
+            s.altaVideo(video, u.getNickname());
 
             out.println("<html><body onload=\"alert ('Video Creado')\"></body></html>");
-            response.sendRedirect("http://localhost:8080/WebUyTube/login.jsp");
+            response.sendRedirect("http://localhost:8080/WebUyTube/homeLogIn.jsp");
         
     }
 
