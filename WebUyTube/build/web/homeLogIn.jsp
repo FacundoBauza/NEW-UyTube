@@ -76,6 +76,7 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">LISTAS:</li>
                     <li class="list-group-item"><a href="#" role="button">Crear lista</a></li>  
+                     <li class="list-group-item"><a href="/WebUyTube/ModificarLista.jsp" role="button">Modificar Lista</a></li>
                     <li class="list-group-item"><a href="#" role="button">Ver más tarde</a></li>
                     <li class="list-group-item"><a href="#" role="button">Me gusta</a></li>
                     <li class="list-group-item"><a href="#" role="button">Música para estudiar</a></li>

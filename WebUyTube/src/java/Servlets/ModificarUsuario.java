@@ -53,7 +53,7 @@ public class ModificarUsuario extends HttpServlet {
            }
            //DTCanal c = new DTCanal(canal, descrcanal, priv, ,);
            //DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, new Date(), null, c);
-           sistema.modificarUsuario(nickname, contrasenia, nombre, apellido, new Date(fNac), null, canal, descrcanal, priv);
+           //sistema.modificarUsuario(nickname, contrasenia, nombre, apellido, new Date(fNac), null, canal, descrcanal, priv);
             out.println("<html><body onload=\"alert ('Usuario Modificado')\"></body></html>");
            
            response.setHeader("Refresh", "0; URL=http://localhost:8080/UyTube/");

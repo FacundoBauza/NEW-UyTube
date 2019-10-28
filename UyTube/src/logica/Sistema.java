@@ -159,16 +159,10 @@ public class Sistema implements ISistema{
         }
         
         if(privado)
-        {
-            c1.setPorDefecto(false);
             c1.setPrivado(true);
-        }
         else
-        {
-            c1.setPorDefecto(true);
             c1.setPrivado(false);
-        }
-        
+            
         EntityManager em = Manejador.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();

@@ -55,7 +55,8 @@
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">LISTAS:</li>
-                    <li class="list-group-item"><a href="/WebUyTube/ConsultaLista.jsp" role="button">Consulta de Lista de Reproducción</a></li>  
+                    <li class="list-group-item"><a href="/WebUyTube/ConsultaLista.jsp" role="button">Consulta de Lista de Reproducción</a></li>
+                    <li class="list-group-item"><a href="/WebUyTube/ModificarLista.jsp" role="button">Modificar Lista de Reproducción</a></li>
                 </ul>
             </div>
             <div class="card" style="width: 18rem;">
