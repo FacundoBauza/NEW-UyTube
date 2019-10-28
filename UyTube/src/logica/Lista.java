@@ -16,20 +16,6 @@ import logica.DT.DTVideo;
 @Entity
 @Table(name="Lista")
 public class Lista {    
-
-    /**
-     * @return the usuario_nickname
-     */
-    public String getUsuario_nickname() {
-        return usuario_nickname;
-    }
-
-    /**
-     * @param usuario_nickname the usuario_nickname to set
-     */
-    public void setUsuario_nickname(String usuario_nickname) {
-        this.usuario_nickname = usuario_nickname;
-    }
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -58,6 +44,15 @@ public class Lista {
         else{
             this.categoria = categoria;
         }
+        this.privado = privado;
+        this.usuario_nickname = usuario_nickname;
+    }
+    
+    public String getUsuario_nickname() {
+        return usuario_nickname;
+    }
+
+    public void setUsuario_nickname(String usuario_nickname) {
         this.usuario_nickname = usuario_nickname;
     }
     
@@ -68,8 +63,6 @@ public class Lista {
     public void setId(Long id) {
         this.id = id;
     }
-    
-    
 
     public String getNombre() {
         return nombre;

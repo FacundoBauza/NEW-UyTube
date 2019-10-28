@@ -3,6 +3,7 @@ package logica;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Consumer;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
@@ -16,7 +17,7 @@ import logica.DT.DTUsuario;
 
 
 public class Manejador {
-    private static Manejador instancia = null;
+    private static Manejador instancia;
     private List<Usuario> usuarios;
     private List<Categoria> categorias;
     private List<String> listasPorDefecto;
@@ -37,13 +38,14 @@ public class Manejador {
         return instancia;
     }
     
+    public List<Video> getVideos() {
+        EntityManager em = Manejador.getEntityManager();
+        Query query = Manejador.getEntityManager().createQuery("select v from Video v");
+        List<Video> aux = (List<Video>) query.getResultList();
+        return aux;
+    }
+    
     public List<DTUsuario> getUsuarios() {
-        /*List<DTUsuario> DTUsuarios = new ArrayList();
-        for(Usuario u : usuarios){
-            DTUsuario usu = new DTUsuario(u);
-            DTUsuarios.add(usu);
-        }
-        return DTUsuarios;*/
         EntityManager em = Manejador.getEntityManager();
         Query query = Manejador.getEntityManager().createQuery("select u from Usuario u");
 
@@ -149,6 +151,18 @@ public class Manejador {
         
         for(int i=0; i<aux.size(); i++)
             if(aux.get(i).getUsuario_nickname().equals(nickname))
+                auxx.add(aux.get(i));
+        return auxx;
+    }
+    public List<Lista> getAllListas(){
+        EntityManager em = Manejador.getEntityManager();
+        Query query = Manejador.getEntityManager().createQuery("Select u From Lista u");
+
+        List<Lista> aux = (List<Lista>) query.getResultList();
+        List<Lista> auxx = new ArrayList<Lista>();
+        
+        for(int i=0; i<aux.size(); i++)
+            if(aux.get(i).getPrivado()==false && aux.get(i).getPorDefecto()==false)
                 auxx.add(aux.get(i));
         return auxx;
     }
@@ -359,7 +373,7 @@ public class Manejador {
         Iterator it=usuarios.iterator();
         while(it.hasNext()){
             u=(Usuario) it.next();
-            if(u.getNickname().equals(identificador) && (u.getContrasenia().equals(pass))){
+            if((u.getNickname().equals(identificador) && (u.getContrasenia().equals(pass)))){
                 ret=u.getSesion();
                 break;
             }

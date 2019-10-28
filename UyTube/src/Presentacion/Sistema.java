@@ -66,8 +66,6 @@ public class Sistema extends javax.swing.JFrame {
         QuitarVideoDeLista.setVisible(false);
         ConsultaLista.setVisible(false);
         
-       
-        
         //cargarUsuarios();
         //cargarCategorias();
         
@@ -219,6 +217,9 @@ public class Sistema extends javax.swing.JFrame {
         ModifCanal = new javax.swing.JTextField();
         Apellidolabs1 = new javax.swing.JLabel();
         DirImagen = new javax.swing.JTextField();
+        BotonPrivado1 = new javax.swing.JCheckBox();
+        ModifDescripcion = new javax.swing.JTextField();
+        Apellidolabs2 = new javax.swing.JLabel();
         OperacionesSobreUsuarios = new javax.swing.JInternalFrame();
         ConsultaModifDatos = new javax.swing.JButton();
         SeguirBoton = new javax.swing.JButton();
@@ -1005,6 +1006,21 @@ public class Sistema extends javax.swing.JFrame {
             }
         });
 
+        BotonPrivado1.setText("Privado");
+        BotonPrivado1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonPrivado1ActionPerformed(evt);
+            }
+        });
+
+        ModifDescripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ModifDescripcionActionPerformed(evt);
+            }
+        });
+
+        Apellidolabs2.setText("Descripción");
+
         javax.swing.GroupLayout VerUsuarioLayout = new javax.swing.GroupLayout(VerUsuario.getContentPane());
         VerUsuario.getContentPane().setLayout(VerUsuarioLayout);
         VerUsuarioLayout.setHorizontalGroup(
@@ -1024,7 +1040,7 @@ public class Sistema extends javax.swing.JFrame {
                                         .addComponent(ModifListaRepButton, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(ConfirmCambios, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 105, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, VerUsuarioLayout.createSequentialGroup()
                                 .addComponent(ScrollerListVid)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1046,40 +1062,49 @@ public class Sistema extends javax.swing.JFrame {
                         .addContainerGap())
                     .addGroup(VerUsuarioLayout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(VerUsuarioLayout.createSequentialGroup()
-                                .addComponent(Fechlabels)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(FechaVerUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(VerUsuarioLayout.createSequentialGroup()
-                                .addComponent(emaillabels)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(VerUsuarioLayout.createSequentialGroup()
-                                .addComponent(Nickname)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(nickname, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(VerUsuarioLayout.createSequentialGroup()
-                                .addComponent(nomlabelss)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ModifNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(VerUsuarioLayout.createSequentialGroup()
-                                .addComponent(Apellidolabs)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ModifApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(VerUsuarioLayout.createSequentialGroup()
-                                .addComponent(Contrasenia)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                                .addComponent(contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, VerUsuarioLayout.createSequentialGroup()
-                                .addComponent(Apellidolabs1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ModifCanal, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ModifImagen)
-                            .addComponent(DirImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(84, 84, 84))))
+                            .addGroup(VerUsuarioLayout.createSequentialGroup()
+                                .addComponent(BotonPrivado1)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(VerUsuarioLayout.createSequentialGroup()
+                                .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(VerUsuarioLayout.createSequentialGroup()
+                                        .addComponent(Fechlabels)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(FechaVerUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(VerUsuarioLayout.createSequentialGroup()
+                                        .addComponent(emaillabels)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(email, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(VerUsuarioLayout.createSequentialGroup()
+                                        .addComponent(Nickname)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(nickname, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(VerUsuarioLayout.createSequentialGroup()
+                                        .addComponent(nomlabelss)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(ModifNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(VerUsuarioLayout.createSequentialGroup()
+                                        .addComponent(Apellidolabs)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(ModifApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(VerUsuarioLayout.createSequentialGroup()
+                                        .addComponent(Contrasenia)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                                        .addComponent(contrasenia, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, VerUsuarioLayout.createSequentialGroup()
+                                        .addComponent(Apellidolabs1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(ModifCanal, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, VerUsuarioLayout.createSequentialGroup()
+                                        .addComponent(Apellidolabs2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(ModifDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 117, Short.MAX_VALUE)
+                                .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(ModifImagen)
+                                    .addComponent(DirImagen, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(84, 84, 84))))))
         );
         VerUsuarioLayout.setVerticalGroup(
             VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1125,7 +1150,13 @@ public class Sistema extends javax.swing.JFrame {
                         .addComponent(ModifImagen)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(DirImagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ModifDescripcion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Apellidolabs2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(BotonPrivado1)
+                .addGap(13, 13, 13)
                 .addGroup(VerUsuarioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(VidLAbel)
                     .addComponent(Lisreplabel)
@@ -1237,7 +1268,7 @@ public class Sistema extends javax.swing.JFrame {
                                         .addComponent(ConsultaModifDatos, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addComponent(SeguirBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 116, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         OperacionesSobreUsuariosLayout.setVerticalGroup(
@@ -2443,7 +2474,8 @@ public class Sistema extends javax.swing.JFrame {
         ModifApellido.setText(this.usuarioSeleccionado.getApellido());
         ModifCanal.setText(this.usuarioSeleccionado.getCanal().getNombre());
         contrasenia.setText(this.usuarioSeleccionado.getContrasenia());
-        
+        ModifDescripcion.setText(this.usuarioSeleccionado.getCanal().getDesc());
+        BotonPrivado1.setSelected(this.usuarioSeleccionado.getCanal().isPrivado());
         
         //Cargar lista videos
         DefaultListModel model = new DefaultListModel();
@@ -2648,10 +2680,9 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_ModifVideosButtonActionPerformed
 
     private void ConfirmCambiosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmCambiosActionPerformed
-        DTUsuario u = m.getUserData(videoSeleccionado);
-        DTCanal c = u.getCanal();
         s.modificarUsuario(nickname.getText(), contrasenia.getText(), ModifNombre.getText(), ModifApellido.getText(), 
-            FechaVerUsuario.getDate(), DirImagen.getText(), ModifCanal.getText(), c.getDesc(), c.isPrivado());
+            FechaVerUsuario.getDate(), DirImagen.getText(), ModifCanal.getText(), ModifDescripcion.getText(), BotonPrivado1.isSelected());
+        
         JOptionPane.showMessageDialog(this, "Usuario modificado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
         VerUsuario.dispose();
     }//GEN-LAST:event_ConfirmCambiosActionPerformed
@@ -2659,8 +2690,8 @@ public class Sistema extends javax.swing.JFrame {
     private void ComentarVideoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComentarVideoButtonActionPerformed
         // TODO add your handling code here:
         String usuarioComentario = usuarioValora.getSelectedItem().toString();
-        String comentarioTexto = ComentarioComent.getText().toString();
-        DTComentario comentario = new DTComentario(usuarioComentario, comentarioTexto);
+        String comentarioTexto = ComentarioComent.getText();
+        DTComentario comentario = new DTComentario(comentarioTexto, usuarioComentario);
         if(!(this.ComentarioComent.getText().equals(""))){
             DefaultMutableTreeNode select = (DefaultMutableTreeNode) Comentarios.getLastSelectedPathComponent();
             Integer SelectedId;
@@ -2668,7 +2699,7 @@ public class Sistema extends javax.swing.JFrame {
                 SelectedId = select.getIndex(select);
             else
                 SelectedId=0;
-            s.comentarVideo(this.usuarioSeleccionado.getNickname(), comentario, this.videoSeleccionado, SelectedId);
+            s.comentarVideo(usuarioValora1.getSelectedItem().toString(), comentario, ListaVideos.getSelectedValue(), SelectedId);
             
             //PopulateTree(Comentarios);
         }        
@@ -2703,8 +2734,8 @@ public class Sistema extends javax.swing.JFrame {
     
     private void confirmarCambiosVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarCambiosVideoActionPerformed
         DTVideo video = new DTVideo(CambioNombre.getText(), CambioDescrip.getText(), DuracionVideo.getText(), cambioFecha.getDate(), 
-                CambioUrrl.getText(), PrivadoCheck.isSelected(), Arrays.toString(CambioCategorias.getSelectedObjects()));
-        s.modificarVideo(video, this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
+                CambioUrrl.getText(), PrivadoCheck.isSelected(), CambioCategorias.getSelectedItem().toString());
+        s.modificarVideo(video, usuarioValora1.getSelectedItem().toString(), ListaVideos.getSelectedValue());
         JOptionPane.showMessageDialog(this, "Video modificado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_confirmarCambiosVideoActionPerformed
 
@@ -2801,17 +2832,15 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_M4IConsultarCategoriaActionPerformed
 
     private void ListaVideosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaVideosValueChanged
-        //List<DTUsuario> Us = m.getUsuarios();
-        /*for(int i=0; i<Us.size(); i++)
-            usuarioValora.addItem(Us.get(i).getNickname());
-        */
+        List<DTCategoria> C = m.getCategorias();
+        CambioCategorias.removeAllItems();
+        for(int i=0; i<C.size(); i++)
+            CambioCategorias.addItem(C.get(i).getNombre());
+        
         String v1 = ListaVideos.getSelectedValue();
         DTVideo video = s.consultarVideo(usuarioValora1.getSelectedItem().toString(), v1);
         
-        System.out.print(video.getNombre());
-        
         if(video != null){
-            video = s.consultarVideo(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
             if (video.getNombre() != null && !video.getNombre().isEmpty())
                 CambioNombre.setText(video.getNombre());
             if (video.getUrl() != null && !video.getUrl().isEmpty())
@@ -2829,22 +2858,33 @@ public class Sistema extends javax.swing.JFrame {
             if (video.isPrivado() == true)
                 PrivadoCheck.setSelected(true);
            
-             //Cargar Valoraciones
+            //Cargar Valoraciones
             DefaultListModel model1 = new DefaultListModel();
-            List<String> listaMG = s.listarMG(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
-            if(!(listaMG.isEmpty()) && listaMG != null){
-                for (String mg : listaMG)
+            List<String> listaMG = s.listarMG(usuarioValora1.getSelectedItem().toString(), ListaVideos.getSelectedValue());
+            if(listaMG != null){
+                listaMG.forEach((mg) -> {
                     model1.addElement(mg);
+                });
             }
+            else
+                model1.addElement("0 MG");
             ListaMeGusta.setModel(model1);
             
             DefaultListModel model2 = new DefaultListModel();
-            List<String> listaNMG = s.listarNMG(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
-            if(!(listaNMG.isEmpty()) && listaNMG != null){
-                for (String nmg : listaNMG)
+            List<String> listaNMG = s.listarNMG(usuarioValora1.getSelectedItem().toString(), ListaVideos.getSelectedValue());
+            if(listaNMG != null){
+                listaNMG.forEach((nmg) -> {
                     model2.addElement(nmg);
+                });
             }
+            else
+                model2.addElement("0 NMG");
             ListaNoMeGusta.setModel(model2);
+            
+            usuarioValora.removeAllItems();
+            List<DTUsuario> Us = m.getUsuarios();
+            for(int i=0; i<Us.size(); i++)
+                usuarioValora.addItem(Us.get(i).getNickname());
             
         }
         else
@@ -2901,23 +2941,23 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_SeguirButton1ActionPerformed
 
     private void MeGustaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MeGustaButtonActionPerformed
-        DTValoracion v = null;
-        String user = usuarioValora.getSelectedItem().toString();;
+        DTValoracion v;
+        String user = usuarioValora.getSelectedItem().toString();
        
-        if (this.videoSeleccionado != null && user != null){
-            v = new DTValoracion(true, user, this.videoSeleccionado);
-            s.valorarVideo(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado, v);
+        if (ListaVideos.getSelectedValue() != null && user != null){
+            v = new DTValoracion(true, usuarioValora.getSelectedItem().toString(), ListaVideos.getSelectedValue());
+            s.valorarVideo(usuarioValora1.getSelectedItem().toString(), ListaVideos.getSelectedValue(), v);
             JOptionPane.showMessageDialog(this, "Video valorado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_MeGustaButtonActionPerformed
 
     private void NoMeGustaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoMeGustaButtonActionPerformed
-        DTValoracion v = null;
+        DTValoracion v;
         String user = usuarioValora.getSelectedItem().toString();
         
-        if (this.videoSeleccionado != null && user != null){
-            v = new DTValoracion(false, user, this.videoSeleccionado);
-            s.valorarVideo(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado, v);
+        if (ListaVideos.getSelectedValue() != null && user != null){
+            v = new DTValoracion(false, usuarioValora.getSelectedItem().toString(), ListaVideos.getSelectedValue());
+            s.valorarVideo(usuarioValora1.getSelectedItem().toString(), ListaVideos.getSelectedValue(), v);
             JOptionPane.showMessageDialog(this, "Video valorado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_NoMeGustaButtonActionPerformed
@@ -3562,6 +3602,14 @@ public class Sistema extends javax.swing.JFrame {
 
     }//GEN-LAST:event_usuarioValora1ItemStateChanged
 
+    private void BotonPrivado1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonPrivado1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BotonPrivado1ActionPerformed
+
+    private void ModifDescripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifDescripcionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ModifDescripcionActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -3606,10 +3654,12 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JLabel Apellido;
     private javax.swing.JLabel Apellidolabs;
     private javax.swing.JLabel Apellidolabs1;
+    private javax.swing.JLabel Apellidolabs2;
     private javax.swing.JMenuBar BarraMenuSistema;
     private javax.swing.JButton Borrar;
     private javax.swing.JToggleButton BotonAgregarALista1;
     private javax.swing.JCheckBox BotonPrivado;
+    private javax.swing.JCheckBox BotonPrivado1;
     private javax.swing.JToggleButton BotonQuitarVideo;
     private javax.swing.JComboBox<String> CambioCategorias;
     private javax.swing.JTextField CambioDescrip;
@@ -3706,6 +3756,7 @@ public class Sistema extends javax.swing.JFrame {
     private javax.swing.JMenu Menu4Categorias;
     private javax.swing.JTextField ModifApellido;
     private javax.swing.JTextField ModifCanal;
+    private javax.swing.JTextField ModifDescripcion;
     private javax.swing.JButton ModifImagen;
     private javax.swing.JButton ModifListaRepButton;
     private javax.swing.JTextField ModifNombre;
