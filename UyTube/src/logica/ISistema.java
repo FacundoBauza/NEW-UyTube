@@ -30,7 +30,7 @@ public interface ISistema {
     public abstract List<DTVideoUsuario> consultaVideosPorCategoria(String categoria);
     public abstract List<String> listarMG(String usuario, String video);
     public abstract List<String> listarNMG(String usuario, String video);
-
+    public abstract void bajaUsuario(String nickname);
     public DTSesion getUserSession(String nickname, String contrasenia);
 
 }

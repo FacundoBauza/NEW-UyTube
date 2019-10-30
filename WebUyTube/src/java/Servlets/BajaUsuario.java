@@ -1,4 +1,4 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -7,21 +7,17 @@ package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Date;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DT.DTCanal;
-import logica.DT.DTUsuario;
 import logica.Fabrica;
 import logica.ISistema;
-import logica.Manejador;
-import logica.Sistema;
+import logica.Usuario;
 
-@WebServlet(name = "ModificarUsuario", urlPatterns = {"/ModificarUsuario"})
-public class ModificarUsuario extends HttpServlet {
+@WebServlet(name = "BajaUsuario", urlPatterns = {"/BajaUsuario"})
+public class BajaUsuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,31 +30,17 @@ public class ModificarUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            ISistema sistema = new Sistema();
-            String nickname = Login.getUsuarioLogueado(request).getNickname();//request.getParameter("nickname");
-            String nombre = request.getParameter("Nombre");
-            String apellido = request.getParameter("Apellido");
-            String contrasenia = request.getParameter("pass");
-            //String fNac = request.getParameter("Fecha");
-           // String imagen = request.getParameter("imagen");
-           String canal = request.getParameter("NombreCanal");
-           String descrcanal = request.getParameter("DescCanal");
-           String privado = request.getParameter("privado");
-           Boolean priv= true;
-           if(privado==null){
-               priv = false;
-           }
-           //DTCanal c = new DTCanal(canal, descrcanal, priv, ,);
-           //DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, new Date(), null, c);
-           sistema.modificarUsuario(nickname, contrasenia, nombre, apellido, null, null, canal, descrcanal, priv);
-            out.println("<html><body onload=\"alert ('Usuario Modificado')\"></body></html>");
-           
-           response.setHeader("Refresh", "0; URL=http://localhost:8080/WebUyTube/homeLogIn.jsp");
+            Usuario user = Login.getUsuarioLogueado(request);
+            ISistema s = null;
+            s = Fabrica.getInstance();
+            if(user != null)
+                s.bajaUsuario(user.getNickname());
+            out.println("<html><body onload=\"alert ('Dado de baja correctamente')\"></body></html>");
+            response.sendRedirect("http://localhost:8080/WebUyTube/index.jsp");
+            
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

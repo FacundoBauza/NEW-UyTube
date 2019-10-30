@@ -1,5 +1,15 @@
+<%@page import="logica.Usuario"%>
+<%@page import="Servlets.Login"%>
+<%@page import="logica.Manejador"%>
+<%@page import="java.util.List"%>
+<%@page import="logica.DT.DTCategoria"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%
+    Manejador m = Manejador.getinstance();      
+    List<DTCategoria> DtCat = m.getCategorias();
+    Usuario usr = Login.getUsuarioLogueado(request);
+%> 
 
 <!DOCTYPE html>
 <html>
@@ -27,8 +37,14 @@
                 </form>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        ${UserNick}
+                        <%= usr.getNickname() %>
                     </button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
+                        <a class="dropdown-item" href="/WebUyTube/ModificarUsuario.jsp">Modificar datos de usuario</a>
+                        <a class="dropdown-item" href="BajaUsuario">Darse de baja</a>
+                        <a class="dropdown-item" href="Logout">Cerrar sesión</a>
+                    </div>
                 </div>     
             </nav>   
         </header>
@@ -93,7 +109,16 @@
                             <input type="checkbox" name="privado" value="privado"> Privado <br>
                         </div> 
                         <div class="form-group">
-                            <input type="text" name='categoria' placeholder="Categoria" class='form-control'>
+                            <select name="ComboCat" id="ComboCatego" style='width:200px; height:50px'>
+                                <%
+                              if(DtCat != null){
+                                  for(DTCategoria dc: DtCat){
+                                      %> 
+                                       <option value="<%=dc.getNombre()%>"><%=dc.getNombre()%></option>
+                                      <%
+                                  }
+                              }%>
+                              </select>
                         </div>
                         <div class="form-group">
                             <input id="botonConfirmar" type="submit" value="Confirmar" class='button'>
