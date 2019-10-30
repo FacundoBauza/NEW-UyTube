@@ -19,7 +19,7 @@ public class DTUsuario {
     private List<DTValoracion> valoraciones;
     private boolean Eliminado;
 
-    public DTUsuario(String nickname, String contrasenia, String nombre, String apellido, String email, Date fechaNac, String imagen, DTCanal canal, Boolean Eliminado) {
+    public DTUsuario(String nickname, String contrasenia, String nombre, String apellido, String email, Date fechaNac, String imagen, DTCanal canal, boolean Eliminado) {
         this.nickname = nickname;
         this.contrasenia = contrasenia;
         this.nombre = nombre;
@@ -52,8 +52,6 @@ public class DTUsuario {
     public void setEliminado(boolean Eliminado) {
         this.Eliminado = Eliminado;
     }
-
-    
 
     public String getNickname() {
         return nickname;
