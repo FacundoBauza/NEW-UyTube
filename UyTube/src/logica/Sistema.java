@@ -59,8 +59,7 @@ public class Sistema implements ISistema{
         Usuario u = m.buscarUsuario(nickname);
         if(u != null)
         {
-            //Canal c = u.getCanal();
-            Canal c = new Canal();
+            Canal c = u.getCanal();
             c.setDesc(DescCanal);
             c.setNombre(nombreCanal);
             c.setPrivado(priv);

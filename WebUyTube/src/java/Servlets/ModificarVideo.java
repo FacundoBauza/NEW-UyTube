@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlets;
 
 import java.io.IOException;
@@ -22,8 +17,8 @@ import logica.Fabrica;
 import logica.ISistema;
 import logica.Usuario;
 
-@WebServlet(name = "AltaVideo", urlPatterns = {"/AltaVideo"})
-public class AltaVideo extends HttpServlet {
+@WebServlet(name = "ModificarVideo", urlPatterns = {"/ModificarVideo"})
+public class ModificarVideo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -40,6 +35,7 @@ public class AltaVideo extends HttpServlet {
         PrintWriter out = response.getWriter();
             ISistema s = null;
             s = Fabrica.getInstance();
+            String nomVideo = request.getParameter("nomVideo");
             String nombre = request.getParameter("nombre");
             String descripcion = request.getParameter("descripcion");
             String duracion = request.getParameter("duracion");
@@ -58,9 +54,9 @@ public class AltaVideo extends HttpServlet {
             
             DTVideo video = new DTVideo(nombre, descripcion, duracion, date, url, priv, categoria);
             Usuario u = Login.getUsuarioLogueado(request);
-            s.altaVideo(video, u.getNickname());
+            s.modificarVideo(video, u.getNickname(), nomVideo);
 
-            //out.println("<html><body onload=\"alert ('Video Creado')\"></body></html>");
+            //out.println("<html><body onload=\"alert ('Video Modificado')\"></body></html>");
             response.sendRedirect("http://localhost:8080/WebUyTube/homeLogIn.jsp");
         
     }
@@ -80,7 +76,7 @@ public class AltaVideo extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ParseException ex) {
-            Logger.getLogger(AltaVideo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModificarVideo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -98,7 +94,7 @@ public class AltaVideo extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ParseException ex) {
-            Logger.getLogger(AltaVideo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModificarVideo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
