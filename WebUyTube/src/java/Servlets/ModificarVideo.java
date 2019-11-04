@@ -57,7 +57,7 @@ public class ModificarVideo extends HttpServlet {
             s.modificarVideo(video, u.getNickname(), nomVideo);
 
             //out.println("<html><body onload=\"alert ('Video Modificado')\"></body></html>");
-            response.sendRedirect("http://localhost:8080/WebUyTube/homeLogIn.jsp");
+            response.sendRedirect("http://localhost:8084/WebUyTube/homeLogIn.jsp");
         
     }
 

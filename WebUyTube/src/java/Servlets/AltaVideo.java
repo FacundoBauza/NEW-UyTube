@@ -61,7 +61,7 @@ public class AltaVideo extends HttpServlet {
             s.altaVideo(video, u.getNickname());
 
             //out.println("<html><body onload=\"alert ('Video Creado')\"></body></html>");
-            response.sendRedirect("http://localhost:8080/WebUyTube/homeLogIn.jsp");
+            response.sendRedirect("http://localhost:8084/WebUyTube/homeLogIn.jsp");
         
     }
 

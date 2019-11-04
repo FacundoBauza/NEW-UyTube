@@ -47,7 +47,8 @@ public class Login extends HttpServlet {
             }
         }
         else {
-        out.print("El usuario está eliminado");
+            out.println("<html><body onload=\"alert ('El usuario está eliminado')\"></body></html>");
+            request.getRequestDispatcher("login.jsp").include(request, response);
         }
               
         out.close(); 
