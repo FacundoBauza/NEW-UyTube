@@ -38,7 +38,7 @@ public class BajaUsuario extends HttpServlet {
             if(user != null)
                 s.bajaUsuario(user.getNickname());
             out.println("<html><body onload=\"alert ('Dado de baja correctamente')\"></body></html>");
-            response.sendRedirect("http://localhost:8080/WebUyTube/index.jsp");
+            response.sendRedirect("http://localhost:8084/WebUyTube/index.jsp");
             
         }
     }

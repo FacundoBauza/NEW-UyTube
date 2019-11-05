@@ -1,8 +1,3 @@
- /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlets;
 
 import java.io.IOException;
@@ -17,15 +12,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DT.DTCanal;
-import logica.DT.DTUsuario;
+import logica.DT.DTVideo;
 import logica.Fabrica;
 import logica.ISistema;
-import logica.Manejador;
-import logica.Sistema;
+import logica.Usuario;
 
-@WebServlet(name = "ModificarUsuario", urlPatterns = {"/ModificarUsuario"})
-public class ModificarUsuario extends HttpServlet {
+@WebServlet(name = "ModificarVideo", urlPatterns = {"/ModificarVideo"})
+public class ModificarVideo extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,33 +31,34 @@ public class ModificarUsuario extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException {
-        
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            ISistema sistema = new Sistema();
-            String nickname = Login.getUsuarioLogueado(request).getNickname();//request.getParameter("nickname");
-            String nombre = request.getParameter("Nombre");
-            String apellido = request.getParameter("Apellido");
-            String contrasenia = request.getParameter("pass");
-            String fNac = request.getParameter("Fecha");
-            // String imagen = request.getParameter("imagen");
-            String canal = request.getParameter("NombreCanal");
-            String descrcanal = request.getParameter("DescCanal");
+        PrintWriter out = response.getWriter();
+            ISistema s = null;
+            s = Fabrica.getInstance();
+            String nomVideo = request.getParameter("nomVideo");
+            String nombre = request.getParameter("nombre");
+            String descripcion = request.getParameter("descripcion");
+            String duracion = request.getParameter("duracion");
+            String f = request.getParameter("fecha");
+            String url = request.getParameter("url");
+            String categoria = request.getParameter("ComboCat");
             String privado = request.getParameter("privado");
-            Boolean priv= true;
-            if(privado==null){
+            Boolean priv = true;
+            if (privado == null) {
                 priv = false;
             }
+            
             SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
             Date date = null;
-            date = simple.parse(fNac);
+            date = simple.parse(f);
+            
+            DTVideo video = new DTVideo(nombre, descripcion, duracion, date, url, priv, categoria);
+            Usuario u = Login.getUsuarioLogueado(request);
+            s.modificarVideo(video, u.getNickname(), nomVideo);
 
-            sistema.modificarUsuario(nickname, contrasenia, nombre, apellido, date, null, canal, descrcanal, priv);
-            //out.println("<html><body onload=\"alert ('Usuario Modificado')\"></body></html>");
-           
-           response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/homeLogIn.jsp");
-        }
-
+            //out.println("<html><body onload=\"alert ('Video Modificado')\"></body></html>");
+            response.sendRedirect("http://localhost:8084/WebUyTube/homeLogIn.jsp");
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -82,7 +76,7 @@ public class ModificarUsuario extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ParseException ex) {
-            Logger.getLogger(ModificarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModificarVideo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -100,7 +94,7 @@ public class ModificarUsuario extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ParseException ex) {
-            Logger.getLogger(ModificarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ModificarVideo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

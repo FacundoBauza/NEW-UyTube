@@ -59,8 +59,7 @@ public class Sistema implements ISistema{
         Usuario u = m.buscarUsuario(nickname);
         if(u != null)
         {
-            //Canal c = u.getCanal();
-            Canal c = new Canal();
+            Canal c = u.getCanal();
             c.setDesc(DescCanal);
             c.setNombre(nombreCanal);
             c.setPrivado(priv);
@@ -105,6 +104,9 @@ public class Sistema implements ISistema{
     
     public void modificarVideo (DTVideo video, String usuario, String nomVideo){
         Manejador m = Manejador.getinstance();
+        EntityManager em5 = Manejador.getEntityManager();
+        EntityTransaction tx = em5.getTransaction();
+        
         Usuario u = m.buscarUsuario(usuario);
         Canal c = u.getCanal();
         Video v = c.buscarVideo(nomVideo);
@@ -114,6 +116,12 @@ public class Sistema implements ISistema{
         v.setFecha(video.getFecha());
         v.setUrl(video.getUrl());
         v.setPrivado(video.isPrivado());
+        v.setCategoria(m.buscarCategoria(video.getCategoria()));
+        System.out.print(v.getCategoria().getNombre());
+        
+        tx.begin();
+        em5.merge(v);
+        tx.commit();
         
     }
 
@@ -275,7 +283,6 @@ public class Sistema implements ISistema{
         Manejador m = Manejador.getinstance();
         Usuario usuarioVideo = m.buscarUsuario(usuario);
         Canal canal = usuarioVideo.getCanal();
-        List<Video> videos = canal.getVideos();
         Video v = canal.buscarVideo(video);
         Usuario usuarioCom = m.buscarUsuario(comentario.getUsuario());
         Comentario c = new Comentario(comentario.getTexto(), usuarioCom);
@@ -285,9 +292,15 @@ public class Sistema implements ISistema{
         if (comPadre != null)
             comPadre.addHijo(c);
         else
-            v.addComentario(c);  
+            v.addComentario(c);
+        EntityManager em = Manejador.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.merge(v);
+        tx.commit();
     }
     
+    @Override
     public void valorarVideo(String usuario,String video, DTValoracion valoracion ){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(usuario);
@@ -295,10 +308,19 @@ public class Sistema implements ISistema{
         Video v = canal.buscarVideo(video);
         Usuario uValora = m.buscarUsuario(valoracion.getUsuario());
         Valoracion valora = new Valoracion(valoracion.isMeGusta(), uValora , v);
-        uValora.addValoracion(valora);
+      
+        uValora.addValoracion(valora);    
         v.addValoracion(valora);
+        
+        EntityManager em = Manejador.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
+        tx.begin();
+        em.merge(v);
+        em.merge(uValora);
+        tx.commit();
     }
     
+    @Override
     public void seguirUsuario(String nickSeguidor, String nickSeguido){
         Manejador m = Manejador.getinstance();
         Usuario seguidor = m.buscarUsuario(nickSeguidor);
@@ -361,6 +383,7 @@ public class Sistema implements ISistema{
         return c.listarVideos();    
     } 
     
+    @Override
     public List<String> listarListas(String nickUsuario){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(nickUsuario);
@@ -368,6 +391,7 @@ public class Sistema implements ISistema{
         return c.listarListas();    
     } 
     
+    @Override
     public List<String> listarMG(String usuario, String video){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(usuario);

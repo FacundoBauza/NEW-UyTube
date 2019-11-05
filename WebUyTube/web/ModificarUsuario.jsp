@@ -1,26 +1,33 @@
 
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="logica.Lista"%>
+<%@page import="logica.Video"%>
+<%@page import="logica.Canal"%>
 <%@page import="logica.Usuario"%>
 <%@page import="Servlets.Login"%>
-<%@page import="logica.DT.DTLista"%>
-<%@page import="logica.DT.DTVideo"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="logica.DT.DTCanal"%>
 <%@page import="logica.DT.DTUsuario"%>
 
 <%
     Usuario usuario = Login.getUsuarioLogueado(request);
-    DTCanal canal = new DTCanal(usuario.getCanal());
+    Canal canal = usuario.getCanal();
+    
+    Date fNac = usuario.getFechaNac();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String date = sdf.format(fNac);
+  
 %>
 
 <%
-    List<DTVideo> videos = canal.getVideos();
-    List<DTLista> listas = canal.getListas();
+    List<Video> videos = canal.getVideos();
+    List<Lista> listas = canal.getListas();
     List<Usuario> seguidores = usuario.getSeguidores();
     List<Usuario> seguidos = usuario.getSeguidos();
     
 %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,8 +38,9 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <!-- GOOGLE FONT-->
         <link href="https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="./resources/css/css.css">
-        <script src="resources/js/pestanas.js" type="text/javascript"></script>
+        <link href="./resources/css/css.css" rel="stylesheet" type="text/css">
+        <%--<script src="resources/js/pestanas.js" type="text/javascript"></script>--%>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Modificar Usuario</title>
     </head>
@@ -40,7 +48,7 @@
         
         <header>
             <nav class="navbar navbar-light bg-light ">
-                <img class="logo" src="./imagenes/logo.png">
+                <img class="logo" src="./imagenes/logo2.png">
                 <form class="form-inline mx-auto">
                     <input class="form-control mr-sm-2" type="search" placeholder="video, lista, canal" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
@@ -100,13 +108,25 @@
             <div class="contenedorInfo">
                 
                 <div class="text-center">
-                    <h2>Datos Usuario</h2>
+                    <h2><%= usuario.getNickname() %></h2>
                     <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar rounded-circle img-thumbnail" alt="avatar">
                     <h6>Cambiar foto</h6>
                     <input type="file" class="text-center center-block file-upload">
                 </div></hr><br>
-                <div>
-                   <form action="ModificarUsuario" method="POST">
+                
+                <div class="tabs">
+                    <ul class="tab-links">
+                        <li class="active"><a href="#tab1">Usuario</a></li>
+                        <li><a href="#tab2">Videos</a></li>
+                        <li><a href="#tab3">Listas</a></li>
+                        <li><a href="#tab4">Seguidores</a></li>
+                        <li><a href="#tab5">Seguidos</a></li>
+                    </ul>
+                
+                
+                    <div class="tab-content">
+                    <div id="tab1" class="tab active">
+                        <form action="ModificarUsuario" method="POST">
                                 <div class="form-group">
                                     <%out.println("<p> Nickname: " + usuario.getNickname()+ "</p>");%>
                                 </div>
@@ -126,7 +146,7 @@
                                     <label>Apellido: <input type="text" id="Apellido" class="form-control" name='Apellido' value= <%out.println(usuario.getApellido()); %> ></label>
                                 </div>
                                 <div class="form-group">
-                                    <label>Fecha: <input type="date" id="Fecha" class="form-control" name='Fecha' date= <%usuario.getFechaNac(); %> ></label>
+                                    <label>Fecha: <input type="date" id="e" class="form-control" name='Fecha' value=<%out.print(date);%>></label>
                                 </div>
                                 <div class="form-group">
                                     <h4>Canal</h4>
@@ -143,24 +163,26 @@
                                 <div class="form-group">
                                     <button class= "button">Confirmar</button>
                                 </div> 
-                            </form>
-                     <h3>Videos</h3>
-                    <div>
+                        </form>
+                    </div> 
+                                
+                    <div id="tab2" class="tab">
                         <ul>
                             <%if (videos != null && videos.size() > 0) {%>
-                            <%for (DTVideo v : videos) {%>  
-                            <li><a href = ModificarVideo?v=<% out.print(v.getNombre()); %> ><% out.print(v.getNombre()); %></li>
+                            <%for (Video v : videos) {%>  
+                            <h5><a href = "/WebUyTube/ModificarVideo.jsp?v=<% out.print(v.getNombre()); %>"><% out.print(v.getNombre()); %></h5>
+                            <h6><% out.print(v.getUrl()); %></h6>
                             <% } %>
                             <% } else { %>
                             <h5>No se encontraron videos</h5>
                             <% }%>
                         </ul>
                     </div>
-                    <h3>Listas</h3>
-                    <div>
+
+                    <div id="tab3" class="tab">
                         <ul>
                             <%if (listas != null && listas.size() > 0) {%>
-                            <%for (DTLista l : listas) {%>  
+                            <%for (Lista l : listas) {%>  
                             <h6><% out.print(l.getNombre()); %></h6>
                             <% } %>
                             <% } else { %>
@@ -168,8 +190,8 @@
                             <% } %>
                         </ul>
                     </div>
-                    <h3>Seguidores</h3>
-                    <div>
+
+                    <div id="tab4" class="tab">
                         <ul>
                             <%if (seguidores != null && seguidores.size() > 0) {%>
                             <%for (Usuario s : seguidores) {%>  
@@ -179,9 +201,9 @@
                             <h5>No se encontraron seguidores</h5>
                             <% }%>
                         </ul>
-                    </div>
-                    <h3>Seguidos</h3>
-                    <div>
+                    </div>           
+                           
+                    <div id="tab5" class="tab">
                         <ul>
                             <%if (seguidos != null && seguidos.size() > 0) {%>
                             <%for (Usuario seguido : seguidos) {%>  
@@ -191,8 +213,29 @@
                             <h5>No se encontraron seguidos</h5>
                             <% }%>
                         </ul>
-                    </div>
-                </div>
+                    </div> 
+                        
+                </div>                
+                </div> 
+                   
+                        
+                        
+            <script>       
+                jQuery(document).ready(function() {
+                    jQuery('.tabs .tab-links a').on('click', function(e) {
+                        var currentAttrValue = jQuery(this).attr('href');
+
+                        // Show/Hide Tabs
+                        jQuery('.tabs ' + currentAttrValue).show().siblings().hide();
+
+                        // Change/remove current tab to active
+                        jQuery(this).parent('li').addClass('active').siblings().removeClass('active');
+
+                        e.preventDefault();
+                    });
+                }); 
+            </script>
+            
         <footer>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

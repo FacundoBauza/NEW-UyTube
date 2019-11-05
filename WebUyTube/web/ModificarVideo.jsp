@@ -1,3 +1,7 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="logica.Canal"%>
+<%@page import="logica.Video"%>
 <%@page import="logica.Usuario"%>
 <%@page import="Servlets.Login"%>
 <%@page import="logica.Manejador"%>
@@ -9,6 +13,14 @@
     Manejador m = Manejador.getinstance();      
     List<DTCategoria> DtCat = m.getCategorias();
     Usuario usr = Login.getUsuarioLogueado(request);
+    Canal c = usr.getCanal();
+    String nomVideo = request.getParameter("v");
+    Video video = c.buscarVideo(nomVideo);
+    String cat = video.getCategoria().getNombre();
+    
+    Date f = video.getFecha();
+    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+    String date = sdf.format(f);
 %> 
 
 <!DOCTYPE html>
@@ -22,9 +34,8 @@
         <!-- GOOGLE FONT-->
         <link href="https://fonts.googleapis.com/css?family=Be+Vietnam&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="./resources/css/css.css">
-        <script src="resources/js/pestanas.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Nuevo Video</title>
+        <title>Modificar Video</title>
     </head>
     <body>
         
@@ -88,25 +99,26 @@
                 </div>
             </div>
             <div class="contenedorInfo">
-                <h3>Nuevo Video</h3>
-                    <form action="AltaVideo" method="POST">
+                <h3><% out.println(video.getNombre());%></h3>
+                    <form action="ModificarVideo" method="POST">
+                        <input name="nomVideo" type="hidden" value=<% out.println(video.getNombre());%>>
                         <div class="form-group">
-                            <input id="nombre" type="text" name='nombre' placeholder="Nombre" class='form-control' autofocus required>
+                            <input id="nombre" type="text" name='nombre' placeholder="Nombre" class='form-control' autofocus required value=<%out.println(video.getNombre()); %>>
                         </div>
                         <div class="form-group">
-                            <input id="descripcion" type="text" name='descripcion' placeholder="Descripcion" class='form-control' required> 
+                            <input id="descripcion" type="text" name='descripcion' placeholder="Descripcion" class='form-control' required value=<%out.println(video.getDescripcion()); %>> 
                         </div>
                         <div class="form-group">
-                            <input type="text" name='duracion' placeholder="Duracion" class='form-control' required>
+                            <input type="text" name='duracion' placeholder="Duracion" class='form-control' required value=<%out.println(video.getDuracion()); %>>
                         </div>
                         <div class="form-group">
-                            <input type="date" name='fecha' placeholder="Fecha" class='form-control' required>
+                            <input type="date" name='fecha' placeholder="Fecha" class='form-control' required value=<%out.print(date);%>>
                         </div>
                         <div class="form-group">
-                            <input type="url" name='url' placeholder="URL" class='form-control' required>
+                            <input type="url" name='url' placeholder="URL" class='form-control' required value=<%out.println(video.getUrl()); %>>
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" name="privado" value="privado"> Privado <br>
+                            <input type="checkbox" name="privado" value="privado" <%if(video.isPrivado()) out.print("checked");%>> Privado <br>
                         </div> 
                         <div class="form-group">
                             <select name="ComboCat" id="ComboCatego" style='width:200px; height:50px'>
@@ -114,7 +126,7 @@
                               if(DtCat != null){
                                   for(DTCategoria dc: DtCat){
                                       %> 
-                                       <option value="<%=dc.getNombre()%>"><%=dc.getNombre()%></option>
+                                      <option value="<%=dc.getNombre()%>" <%if(dc.getNombre().equals(cat)) out.print("selected");%> ><%=dc.getNombre()%></option>
                                       <%
                                   }
                               }%>

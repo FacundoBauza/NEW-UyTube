@@ -1,4 +1,4 @@
- /*
+/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -7,26 +7,23 @@ package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import static java.lang.System.out;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DT.DTCanal;
-import logica.DT.DTUsuario;
+import logica.DT.DTLista;
 import logica.Fabrica;
 import logica.ISistema;
-import logica.Manejador;
-import logica.Sistema;
+import logica.Usuario;
 
-@WebServlet(name = "ModificarUsuario", urlPatterns = {"/ModificarUsuario"})
-public class ModificarUsuario extends HttpServlet {
-
+/**
+ *
+ * @author Necro
+ */
+@WebServlet(name = "CrearListaPart", urlPatterns = {"/CrearListaPart"})
+public class CrearListaPart extends HttpServlet {
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -37,35 +34,34 @@ public class ModificarUsuario extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException {
-        
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            ISistema sistema = new Sistema();
-            String nickname = Login.getUsuarioLogueado(request).getNickname();//request.getParameter("nickname");
-            String nombre = request.getParameter("Nombre");
-            String apellido = request.getParameter("Apellido");
-            String contrasenia = request.getParameter("pass");
-            String fNac = request.getParameter("Fecha");
-            // String imagen = request.getParameter("imagen");
-            String canal = request.getParameter("NombreCanal");
-            String descrcanal = request.getParameter("DescCanal");
-            String privado = request.getParameter("privado");
-            Boolean priv= true;
-            if(privado==null){
-                priv = false;
+            /* TODO output your page here. You may use following sample code. */
+            ISistema s = null;
+            s = Fabrica.getInstance();
+            String NombreLista = request.getParameter("NomLista");
+            String Priv = request.getParameter("Privada");
+            String c = "1";
+            Boolean Priva = false;
+            if(Priv==null){
+            Priva = true;
             }
-            SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
-            Date date = null;
-            date = simple.parse(fNac);
-
-            sistema.modificarUsuario(nickname, contrasenia, nombre, apellido, date, null, canal, descrcanal, priv);
-            //out.println("<html><body onload=\"alert ('Usuario Modificado')\"></body></html>");
-           
-           response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/homeLogIn.jsp");
-        }
-
+            DTLista L = new DTLista(NombreLista,false,Priva,"Nada");
+            Usuario usr = Login.getUsuarioLogueado(request);
+            if(usr==null){
+            response.sendRedirect("http://localhost:8084/WebUyTube/login.jsp");
+            }else{
+                String Nick =usr.getNombre();
+                s.altaLista(L, Nick);
+                response.sendRedirect("http://localhost:8084/WebUyTube/CrearListaPart.jsp");
+                }
     }
+    }
+
+
+
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -79,11 +75,7 @@ public class ModificarUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(ModificarUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -97,11 +89,7 @@ public class ModificarUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(ModificarUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
