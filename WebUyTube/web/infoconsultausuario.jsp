@@ -42,7 +42,6 @@
         List<Usuario> seguidores = usuario.getSeguidores();
         List<Usuario> seguidos = usuario.getSeguidos();
         String absolute = usuario.getImagen();
-
         File fichero = new File(absolute);
         
     %>
