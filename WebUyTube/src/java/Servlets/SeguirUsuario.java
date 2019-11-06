@@ -58,7 +58,8 @@ public class SeguirUsuario extends HttpServlet {
 
         }
         else{
-            out.println("<html><body onload=\"alert('Usuario logueado no encontrado')\"></body></html>");
+            out.println("<html><body onload=\"alert('Usuario no logueado ')\"></body></html>");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 
