@@ -13,6 +13,13 @@
     Manejador m = Manejador.getinstance();      
     List<DTCategoria> DtCat = m.getCategorias();
     Usuario usr = Login.getUsuarioLogueado(request);
+    
+    if (usr == null){
+         out.println("<html><body onload=\"alert ('Debes iniciar sesion')\"></body></html>");
+        request.getRequestDispatcher("login.jsp").include(request, response);
+    }
+    else{
+        
     Canal c = usr.getCanal();
     String nomVideo = request.getParameter("v");
     Video video = c.buscarVideo(nomVideo);
@@ -145,3 +152,4 @@
         </footer>
     </body>
 </html>
+<%}%>

@@ -9,6 +9,10 @@
     Manejador m = Manejador.getinstance();      
     List<DTCategoria> DtCat = m.getCategorias();
     Usuario usr = Login.getUsuarioLogueado(request);
+    if (usr == null){
+        out.println("<html><body onload=\"alert ('Debes estar logueado')\"></body></html>");
+        response.sendRedirect("http://localhost:8080/WebUyTube/login.jsp");
+    }   
 %> 
 
 <!DOCTYPE html>
