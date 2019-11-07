@@ -7,6 +7,15 @@
 <%@page import="logica.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%
+    Usuario usr = (Usuario) request.getAttribute("usuario");
+    if (usr == null){
+        out.println("<html><body onload=\"alert ('Debes iniciar sesion')\"></body></html>");
+        request.getRequestDispatcher("login.jsp").include(request, response);
+    }
+    else{
+    %>
+    
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,7 +31,6 @@
         <title>Mi perfil</title>
     </head>
     <body>
-        <% Usuario usr = (Usuario) request.getAttribute("usuario"); %>
         <header>
             <nav class="navbar navbar-light bg-light ">
                 <img class="logo" src="./imagenes/logo.png">
@@ -64,3 +72,4 @@
     </body>
 
 </html>
+ <%}%>

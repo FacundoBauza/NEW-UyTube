@@ -12,8 +12,12 @@
 
 <%
     Usuario usuario = Login.getUsuarioLogueado(request);
+    if (usuario == null){
+        out.println("<html><body onload=\"alert ('Debes iniciar sesion')\"></body></html>");
+        request.getRequestDispatcher("login.jsp").include(request, response);
+    }
+    else{
     Canal canal = usuario.getCanal();
-    
     Date fNac = usuario.getFechaNac();
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     String date = sdf.format(fNac);
@@ -25,7 +29,6 @@
     List<Lista> listas = canal.getListas();
     List<Usuario> seguidores = usuario.getSeguidores();
     List<Usuario> seguidos = usuario.getSeguidos();
-    
 %>
 
 <!DOCTYPE html>
@@ -243,3 +246,4 @@
         </footer>
     </body>
 </html>
+<% } %>
