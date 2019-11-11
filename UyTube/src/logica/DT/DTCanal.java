@@ -1,8 +1,11 @@
 package logica.DT;
 
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import logica.Canal;
 
+@XmlAccessorType(XmlAccessType.FIELD) //Define el modo en que se serializan los tipos definidos en XML
 public class DTCanal {
     private String nombre;
     private String desc;

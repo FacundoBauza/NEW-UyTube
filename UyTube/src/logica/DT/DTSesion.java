@@ -5,10 +5,15 @@
  */
 package logica.DT;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+
 /**
  *
  * @author Usuario
  */
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DTSesion {
 
     private String nick;

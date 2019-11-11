@@ -1,7 +1,10 @@
 package logica.DT;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import logica.Valoracion;
 
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DTValoracion {
     private boolean meGusta;
     private String usuario;

@@ -2,8 +2,12 @@ package logica.DT;
 
 import java.util.Date;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import logica.Comentario;
 
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DTComentario {
     private int id;
     private String texto;

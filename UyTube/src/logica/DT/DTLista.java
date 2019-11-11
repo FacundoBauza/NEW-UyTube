@@ -2,8 +2,12 @@ package logica.DT;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import logica.Lista;
 
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DTLista {
     private String nombre;
     private boolean porDefecto;
