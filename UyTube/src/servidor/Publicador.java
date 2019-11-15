@@ -5,6 +5,7 @@
  */
 package servidor;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.jws.WebMethod;
@@ -13,6 +14,7 @@ import javax.jws.soap.SOAPBinding;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.xml.ws.Endpoint;
+import logica.Categoria;
 import logica.DT.DTCanal;
 import logica.DT.DTCategoria;
 import logica.DT.DTComentario;
@@ -25,7 +27,9 @@ import logica.DT.DTVideo;
 import logica.DT.DTVideoUsuario;
 import logica.Fabrica;
 import logica.ISistema;
+import logica.Lista;
 import logica.Manejador;
+import logica.Usuario;
 import logica.Video;
 
 /**
@@ -241,4 +245,141 @@ public class Publicador {
     }
     
     // -------------- fin funciones sistema ------------------------
+
+    
+    // funciones manejador 
+    @WebMethod
+    public List<Video> getVideos() {
+        Manejador m = Manejador.getinstance();
+        return (List)m.getVideos();
+    }
+    
+    @WebMethod
+    public List<DTUsuario> getUsuarios() {
+        Manejador m = Manejador.getinstance();
+        return (List)m.getUsuarios();
+    }
+    
+    @WebMethod
+    public List<DTCategoria> getCategorias() {
+        Manejador m = Manejador.getinstance();
+        return (List)m.getCategorias();
+    }
+    
+    @WebMethod
+    public List<String> getListasPorDefecto() {
+        Manejador m = Manejador.getinstance();
+        return (List)m.getListasPorDefecto();
+    }
+    
+    @WebMethod
+    public void addUsuario(Usuario usu) {
+        Manejador m = Manejador.getinstance();
+        m.addUsuario(usu);
+    }
+    
+    @WebMethod
+    public void addCategoria (Categoria cat) {
+        Manejador m = Manejador.getinstance();
+        m.addCategoria(cat);
+    }
+    
+    @WebMethod
+    public void addLista (Lista lista, String Usuario) {
+        Manejador m = Manejador.getinstance();
+        m.addLista(lista, Usuario);
+    }
+    
+    @WebMethod
+    public Usuario buscarUsuario(String nickname) {
+        Manejador m = Manejador.getinstance();
+        return m.buscarUsuario(nickname);
+    }
+    
+    @WebMethod
+    public List<Lista> getListas(String nickname) {
+        Manejador m = Manejador.getinstance();
+        return (List)m.getListas(nickname);
+    }
+    
+    @WebMethod
+    public List<Lista> getAllListas() {
+        Manejador m = Manejador.getinstance();
+        return (List)m.getAllListas();
+    }
+    
+    @WebMethod
+    public Categoria buscarCategoria(String cat) {
+        Manejador m = Manejador.getinstance();
+        return m.buscarCategoria(cat);
+    }
+    
+    @WebMethod
+    public Lista buscarLista(String nombre, String nickname) {
+        Manejador m = Manejador.getinstance();
+        return m.buscarLista(nombre, nickname);
+    }
+    
+    @WebMethod
+    public ArrayList<String> listarCategorias() {
+        Manejador m = Manejador.getinstance();
+        return (ArrayList)m.listarCategorias();
+    }
+    
+    @WebMethod
+    public ArrayList<String> listarVidesPorUsuario(String Usuario) {
+        Manejador m = Manejador.getinstance();
+        return (ArrayList)m.listarVidesPorUsuario(Usuario);
+    }
+    
+    @WebMethod
+    public ArrayList<String> listarUsuarios() {
+        Manejador m = Manejador.getinstance();
+        return (ArrayList)m.listarUsuarios();
+    }
+    
+    @WebMethod
+    public Usuario obtenerUsuarioPorMail(String mail) {
+        Manejador m = Manejador.getinstance();
+        return m.obtenerUsuarioPorMail(mail);
+    }
+    
+    @WebMethod
+    public Usuario obtenerUsuarioPorNickname(String nickname) {
+        Manejador m = Manejador.getinstance();
+        return m.obtenerUsuarioPorNickname(nickname);
+    }
+    
+    @WebMethod
+    public boolean nicknameLibre(String nickname) {
+        Manejador m = Manejador.getinstance();
+        return m.nicknameLibre(nickname);
+    }
+    
+    @WebMethod
+    public boolean mailLibre(String mail) {
+        Manejador m = Manejador.getinstance();
+        return m.mailLibre(mail);
+    }
+    
+    @WebMethod
+    public boolean nombreListaLibre(String nombreLista) {
+        Manejador m = Manejador.getinstance();
+        return m.nombreListaLibre(nombreLista);
+    }
+    
+    @WebMethod
+    public boolean nombreCategoriaLibre(String nombreCategoria) {
+        Manejador m = Manejador.getinstance();
+        return m.nombreCategoriaLibre(nombreCategoria);
+    }
+    
+    @WebMethod
+    public DTUsuario getUserData(String identificador) {
+        Manejador m = Manejador.getinstance();
+        return m.getUserData(identificador);
+    }
+    
+    // -------- fin funciones manejador
+    
 }
