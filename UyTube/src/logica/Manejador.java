@@ -38,14 +38,14 @@ public class Manejador {
         return instancia;
     }
     
-    public List<Video> getVideos() {
+    public ArrayList<Video> getVideos() {
         EntityManager em = Manejador.getEntityManager();
         Query query = Manejador.getEntityManager().createQuery("select v from Video v");
-        List<Video> aux = (List<Video>) query.getResultList();
+        ArrayList<Video> aux = (ArrayList<Video>) query.getResultList();
         return aux;
     }
     
-    public List<DTUsuario> getUsuarios() {
+    public ArrayList<DTUsuario> getUsuarios() {
         EntityManager em = Manejador.getEntityManager();
         Query query = Manejador.getEntityManager().createQuery("select u from Usuario u");
 
@@ -62,7 +62,7 @@ public class Manejador {
     }
     
 
-    public List<DTCategoria> getCategorias() {
+    public ArrayList<DTCategoria> getCategorias() {
         EntityManager em = Manejador.getEntityManager();
         Query query = Manejador.getEntityManager().createQuery("select c from Categoria c");
 
@@ -79,7 +79,7 @@ public class Manejador {
     }
     
 
-    public List<String> getListasPorDefecto() {
+    public ArrayList<String> getListasPorDefecto() {
         EntityManager em = Manejador.getEntityManager();
         boolean t = true;
         Query query = Manejador.getEntityManager().createQuery("SELECT c FROM Lista c WHERE c.porDefecto = :pDef", Lista.class);
@@ -142,24 +142,24 @@ public class Manejador {
         return null;
     }
     
-    public List<Lista> getListas(String nickname){
+    public ArrayList<Lista> getListas(String nickname){
         EntityManager em = Manejador.getEntityManager();
         Query query = Manejador.getEntityManager().createQuery("Select u From Lista u");
 
         List<Lista> aux = (List<Lista>) query.getResultList();
-        List<Lista> auxx = new ArrayList<Lista>();
+        ArrayList<Lista> auxx = new ArrayList<Lista>();
         
         for(int i=0; i<aux.size(); i++)
             if(aux.get(i).getUsuario_nickname().equals(nickname))
                 auxx.add(aux.get(i));
         return auxx;
     }
-    public List<Lista> getAllListas(){
+    public ArrayList<Lista> getAllListas(){
         EntityManager em = Manejador.getEntityManager();
         Query query = Manejador.getEntityManager().createQuery("Select u From Lista u");
 
         List<Lista> aux = (List<Lista>) query.getResultList();
-        List<Lista> auxx = new ArrayList<Lista>();
+        ArrayList<Lista> auxx = new ArrayList<Lista>();
         
         for(int i=0; i<aux.size(); i++)
             if(aux.get(i).getPrivado()==false && aux.get(i).getPorDefecto()==false)

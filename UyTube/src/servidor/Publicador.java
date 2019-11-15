@@ -7,7 +7,7 @@ package servidor;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
@@ -140,17 +140,17 @@ public class Publicador {
     }
     
     @WebMethod
-    public List<DTVideoUsuario> consultaVideosPorCategoria(String categoria) {
+    public ArrayList<DTVideoUsuario> consultaVideosPorCategoria(String categoria) {
         ISistema s = null;
         s = Fabrica.getInstance();
-        return (List)s.consultaVideosPorCategoria(categoria);
+        return (ArrayList)s.consultaVideosPorCategoria(categoria);
     }
     
     @WebMethod
-    public List<DTListaUsuario> consultaListasPorCategoria(String categoria) {
+    public ArrayList<DTListaUsuario> consultaListasPorCategoria(String categoria) {
         ISistema s = null;
         s = Fabrica.getInstance();
-        return (List)s.consultaListasPorCategoria(categoria);
+        return (ArrayList)s.consultaListasPorCategoria(categoria);
     }
     
     @WebMethod
@@ -189,45 +189,45 @@ public class Publicador {
     }
     
     @WebMethod
-    public List<String> listarVideos(String nickUsuario) {
+    public ArrayList<String> listarVideos(String nickUsuario) {
         ISistema s = null;
         s = Fabrica.getInstance();
-        return (List)s.listarVideos(nickUsuario);
+        return (ArrayList)s.listarVideos(nickUsuario);
     }
     
     @WebMethod
-    public List<String> listarListas(String nickUsuario) {
+    public ArrayList<String> listarListas(String nickUsuario) {
         ISistema s = null;
         s = Fabrica.getInstance();
-        return (List)s.listarListas(nickUsuario);
+        return (ArrayList)s.listarListas(nickUsuario);
     }
     
     @WebMethod
-    public List<String> listarMG(String usuario, String video) {
+    public ArrayList<String> listarMG(String usuario, String video) {
         ISistema s = null;
         s = Fabrica.getInstance();
-        return (List)s.listarMG(usuario, video);
+        return (ArrayList)s.listarMG(usuario, video);
     }
     
     @WebMethod
-    public List<String> listarNMG(String usuario, String video) {
+    public ArrayList<String> listarNMG(String usuario, String video) {
         ISistema s = null;
         s = Fabrica.getInstance();
-        return (List)s.listarNMG(usuario, video);
+        return (ArrayList)s.listarNMG(usuario, video);
     }
     
     @WebMethod
-    public List<DTLista> listasParticulares(String usuario) {
+    public ArrayList<DTLista> listasParticulares(String usuario) {
         ISistema s = null;
         s = Fabrica.getInstance();
-        return (List)s.listasParticulares(usuario);
+        return (ArrayList)s.listasParticulares(usuario);
     }
     
     @WebMethod
-    public List<String> listarVideosLista(String usuario, String lista) {
+    public ArrayList<String> listarVideosLista(String usuario, String lista) {
         ISistema s = null;
         s = Fabrica.getInstance();
-        return (List)s.listarVideosLista(usuario, lista);
+        return (ArrayList)s.listarVideosLista(usuario, lista);
     }
     
     @WebMethod
@@ -249,27 +249,27 @@ public class Publicador {
     
     // funciones manejador 
     @WebMethod
-    public List<Video> getVideos() {
+    public ArrayList<Video> getVideos() {
         Manejador m = Manejador.getinstance();
-        return (List)m.getVideos();
+        return (ArrayList)m.getVideos();
     }
     
     @WebMethod
-    public List<DTUsuario> getUsuarios() {
+    public ArrayList<DTUsuario> getUsuarios() {
         Manejador m = Manejador.getinstance();
-        return (List)m.getUsuarios();
+        return (ArrayList)m.getUsuarios();
     }
     
     @WebMethod
-    public List<DTCategoria> getCategorias() {
+    public ArrayList<DTCategoria> getCategorias() {
         Manejador m = Manejador.getinstance();
-        return (List)m.getCategorias();
+        return (ArrayList)m.getCategorias();
     }
     
     @WebMethod
-    public List<String> getListasPorDefecto() {
+    public ArrayList<String> getListasPorDefecto() {
         Manejador m = Manejador.getinstance();
-        return (List)m.getListasPorDefecto();
+        return (ArrayList)m.getListasPorDefecto();
     }
     
     @WebMethod
@@ -297,15 +297,15 @@ public class Publicador {
     }
     
     @WebMethod
-    public List<Lista> getListas(String nickname) {
+    public ArrayList<Lista> getListas(String nickname) {
         Manejador m = Manejador.getinstance();
-        return (List)m.getListas(nickname);
+        return (ArrayList)m.getListas(nickname);
     }
     
     @WebMethod
-    public List<Lista> getAllListas() {
+    public ArrayList<Lista> getAllListas() {
         Manejador m = Manejador.getinstance();
-        return (List)m.getAllListas();
+        return (ArrayList)m.getAllListas();
     }
     
     @WebMethod

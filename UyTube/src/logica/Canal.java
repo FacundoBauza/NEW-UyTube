@@ -108,10 +108,10 @@ public class Canal {
     
     
     
-    public List<DTLista> listasParticulares(){
+    public ArrayList<DTLista> listasParticulares(){
         DTLista lista;
         Lista l;
-        List<DTLista> listaPart = new ArrayList();
+        ArrayList<DTLista> listaPart = new ArrayList();
         Iterator it = this.listas.iterator();
         while(it.hasNext()){
             l = (Lista) it.next();

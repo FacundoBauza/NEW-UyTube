@@ -230,9 +230,9 @@ public class Sistema implements ISistema{
         m.addCategoria(cat);
     }
     
-    public List<DTVideoUsuario> consultaVideosPorCategoria(String categoria){
+    public ArrayList<DTVideoUsuario> consultaVideosPorCategoria(String categoria){
         Manejador m = Manejador.getinstance();
-        List <DTVideoUsuario> listaVideos = new ArrayList();
+        ArrayList <DTVideoUsuario> listaVideos = new ArrayList();
         for (DTUsuario usu : m.getUsuarios()){
             Usuario u = m.buscarUsuario(usu.getNickname());
             for(Video v : u.getCanal().getVideos()){
@@ -249,9 +249,9 @@ public class Sistema implements ISistema{
             return listaVideos;
     }
     
-    public List<DTListaUsuario> consultaListasPorCategoria(String categoria){
+    public ArrayList<DTListaUsuario> consultaListasPorCategoria(String categoria){
         Manejador m = Manejador.getinstance();
-        List <DTListaUsuario> listaListas = new ArrayList();
+        ArrayList <DTListaUsuario> listaListas = new ArrayList();
         for (DTUsuario usu : m.getUsuarios()){
             Usuario u = m.buscarUsuario(usu.getNickname());
             for(Lista l : u.getCanal().getListas()){
@@ -375,7 +375,7 @@ public class Sistema implements ISistema{
     }
     
    
-    public List<String> listarVideos(String nickUsuario){
+    public ArrayList<String> listarVideos(String nickUsuario){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(nickUsuario);
         Canal c = u.getCanal();
@@ -384,7 +384,7 @@ public class Sistema implements ISistema{
     } 
     
     @Override
-    public List<String> listarListas(String nickUsuario){
+    public ArrayList<String> listarListas(String nickUsuario){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(nickUsuario);
         Canal c = u.getCanal();
@@ -392,7 +392,7 @@ public class Sistema implements ISistema{
     } 
     
     @Override
-    public List<String> listarMG(String usuario, String video){
+    public ArrayList<String> listarMG(String usuario, String video){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(usuario);
         Canal c = u.getCanal();
@@ -400,7 +400,7 @@ public class Sistema implements ISistema{
         return v.listaMG();
     }
     
-    public List<String> listarNMG(String usuario, String video){
+    public ArrayList<String> listarNMG(String usuario, String video){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(usuario);
         Canal c = u.getCanal();
@@ -408,14 +408,14 @@ public class Sistema implements ISistema{
         return v.listaNMG();
     }
     
-    public List<DTLista> listasParticulares(String usuario){
+    public ArrayList<DTLista> listasParticulares(String usuario){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(usuario);
         Canal c = u.getCanal();
         return c.listasParticulares();
     }
     
-    public List<String> listarVideosLista(String usuario, String lista){
+    public ArrayList<String> listarVideosLista(String usuario, String lista){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(usuario);
         Canal c = u.getCanal();
