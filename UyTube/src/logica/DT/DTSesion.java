@@ -19,7 +19,10 @@ public class DTSesion {
     private String nick;
     private String contrasenia;
     
-
+    // Debe tener un constructor vacío
+    public DTSesion() {
+    }
+    
     public DTSesion(String nick, String contrasenia ) {
         this.nick = nick;
         this.contrasenia = contrasenia;
@@ -32,6 +35,15 @@ public class DTSesion {
     public String getContrasenia() {
         return contrasenia;
     }
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+    
     
 }
 

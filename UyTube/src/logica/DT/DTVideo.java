@@ -21,6 +21,10 @@ public class DTVideo {
     private List<DTComentario> comentarios;
     private List<DTValoracion> valoraciones;
 
+    // Debe tener un constructor vacío
+    public DTVideo() {
+    }
+    
     public DTVideo(String nombre, String descripcion, String duracion, Date fecha, String url, boolean privado, String categoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -82,6 +86,42 @@ public class DTVideo {
 
     public List<DTComentario> getComentarios() {
         return comentarios;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public void setDuracion(String duracion) {
+        this.duracion = duracion;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setPrivado(boolean privado) {
+        this.privado = privado;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public void setComentarios(List<DTComentario> comentarios) {
+        this.comentarios = comentarios;
+    }
+
+    public void setValoraciones(List<DTValoracion> valoraciones) {
+        this.valoraciones = valoraciones;
     }
     
     

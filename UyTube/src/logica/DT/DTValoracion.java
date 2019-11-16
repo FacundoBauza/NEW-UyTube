@@ -10,6 +10,10 @@ public class DTValoracion {
     private String usuario;
     private String video;
 
+    // Debe tener un constructor vacío
+    public DTValoracion() {
+    }
+    
     public DTValoracion(boolean meGusta, String usuario, String video) {
         this.meGusta = meGusta;
         this.usuario = usuario;
@@ -33,6 +37,19 @@ public class DTValoracion {
     public String getVideo() {
         return video;
     }
+
+    public void setMeGusta(boolean meGusta) {
+        this.meGusta = meGusta;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public void setVideo(String video) {
+        this.video = video;
+    }
+    
     
     
 }

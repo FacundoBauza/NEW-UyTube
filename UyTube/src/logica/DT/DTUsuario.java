@@ -22,6 +22,10 @@ public class DTUsuario {
     private List<DTValoracion> valoraciones;
     private boolean Eliminado;
 
+    // Debe tener un constructor vacío
+    public DTUsuario() {
+    }
+    
     public DTUsuario(String nickname, String contrasenia, String nombre, String apellido, String email, Date fechaNac, String imagen, DTCanal canal, boolean Eliminado) {
         this.nickname = nickname;
         this.contrasenia = contrasenia;
@@ -100,6 +104,51 @@ public class DTUsuario {
         return valoraciones;
     }
 
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setFechaNac(Date fechaNac) {
+        this.fechaNac = fechaNac;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public void setSeguidores(List<String> seguidores) {
+        this.seguidores = seguidores;
+    }
+
+    public void setSeguidos(List<String> seguidos) {
+        this.seguidos = seguidos;
+    }
+
+    public void setCanal(DTCanal canal) {
+        this.canal = canal;
+    }
+
+    public void setValoraciones(List<DTValoracion> valoraciones) {
+        this.valoraciones = valoraciones;
+    }
+
+    
     
     
     

@@ -23,6 +23,8 @@ import logica.DT.DTUsuario;
 import logica.Fabrica;
 import logica.ISistema;
 import logica.Sistema;
+import servidor.Publicador;
+import servidor.PublicadorService;
 
 /**
  *
@@ -71,9 +73,10 @@ public class AltaPerfil extends HttpServlet {
             date = simple.parse(fNac);
             
             DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, date, absolute, c, false);
-
-                       
-            s.altaUsuario(u, c);
+            servidor.PublicadorService service = new servidor.PublicadorService();
+            servidor.Publicador port = service.getPublicadorPort();
+            //port.altaUsuario(arg0, arg1);
+            
 
             out.println("<html><body onload=\"alert ('Usuario Creado')\"></body></html>");
             response.sendRedirect("http://localhost:8084/WebUyTube/login.jsp");

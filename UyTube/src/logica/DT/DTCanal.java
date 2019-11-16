@@ -14,6 +14,10 @@ public class DTCanal {
     private List<DTVideo> videos;
     private List<DTLista> listas;
 
+    // Debe tener un constructor vacío
+    public DTCanal() {
+    }
+    
     public DTCanal(String nombre, String desc, boolean privado, List<DTVideo> videos, List<DTLista> listas) {
         this.nombre = nombre;
         this.desc = desc;
@@ -50,4 +54,25 @@ public class DTCanal {
         return listas;
     }
 
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public void setPrivado(boolean privado) {
+        this.privado = privado;
+    }
+
+    public void setVideos(List<DTVideo> videos) {
+        this.videos = videos;
+    }
+
+    public void setListas(List<DTLista> listas) {
+        this.listas = listas;
+    }
+    
+    
 }
