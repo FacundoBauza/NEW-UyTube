@@ -75,7 +75,7 @@ public class AltaPerfil extends HttpServlet {
             DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, date, absolute, c, false);
             servidor.PublicadorService service = new servidor.PublicadorService();
             servidor.Publicador port = service.getPublicadorPort();
-            //port.altaUsuario(arg0, arg1);
+            
             
 
             out.println("<html><body onload=\"alert ('Usuario Creado')\"></body></html>");

@@ -382,4 +382,54 @@ public class Publicador {
     
     // -------- fin funciones manejador
     
+    //////////////////////Funciones que no retornan nada, solo para incluir los .java
+    @WebMethod
+    public DTCanal dtCanal(){
+        return null;
+    }
+    
+    @WebMethod
+    public DTCategoria dtCategoria(){
+        return null;
+    }
+    
+    @WebMethod
+    public DTComentario dtComentario(){
+        return null;
+    }
+    
+    @WebMethod
+    public DTLista dtLista(){
+        return null;
+    }
+    
+    @WebMethod
+    public DTListaUsuario dtListaUsuario(){
+        return null;
+    }
+    
+    @WebMethod
+    public DTSesion dtSesion(){
+        return null;
+    }
+    
+    @WebMethod
+    public DTUsuario dtUsuario(){
+        return null;
+    }
+    
+    @WebMethod
+    public DTValoracion dtValoracion(){
+        return null;
+    }
+    
+    @WebMethod
+    public DTVideo dtVideo(){
+        return null;
+    }
+    
+    @WebMethod
+    public DTVideoUsuario dtVideoUsuario(){
+        return null;
+    }
 }
