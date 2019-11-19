@@ -25,10 +25,10 @@
         <form action="ConsulCat" method="POST">
             <center>
             <div id="Contenedor1">
-                <%
-                    Manejador m = Manejador.getinstance();      
-                    List<DTCategoria> DtCat = m.getCategorias();
-                %> 
+            <%
+                Manejador m = Manejador.getinstance();      
+                List<DTCategoria> DtCat = m.getCategorias();
+            %> 
             <select name="ComboCat" id="ComboCatego" style='width:200px; height:50px'>
               <%
             if(DtCat != null)

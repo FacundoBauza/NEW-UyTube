@@ -34,23 +34,17 @@ public class Login extends HttpServlet {
         String password = request.getParameter("password");
         Manejador m = Manejador.getinstance();
         Usuario usu = m.buscarUsuario(name);
-        if(usu.getEliminado()!=true){
-            //chequea contraseña
-            if (usu.getContrasenia().equals(password)) {
-                HttpSession session = request.getSession();
-                session.setAttribute("usuarioLogueado", usu.getNickname());
-                session.setAttribute("infoLogueado", usu);
-                response.sendRedirect("homeLogIn.jsp");
-            } else {
-                out.print("Sorry, username or password error!");
-                request.getRequestDispatcher("login.jsp").include(request, response);
-            }
+        //chequea contraseña
+        if(usu.getContrasenia().equals(password)){
+            HttpSession session=request.getSession();  
+            session.setAttribute("usuarioLogueado",usu.getNickname()); 
+            session.setAttribute("infoLogueado", usu);
+            response.sendRedirect("homeLogIn.jsp");
         }
-        else {
-            out.println("<html><body onload=\"alert ('El usuario está eliminado')\"></body></html>");
-            request.getRequestDispatcher("login.jsp").include(request, response);
-        }
-              
+        else{  
+            out.print("Sorry, username or password error!");  
+            request.getRequestDispatcher("login.jsp").include(request, response);  
+        }  
         out.close(); 
     }
     

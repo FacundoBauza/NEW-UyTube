@@ -4,19 +4,26 @@
     Author     : Usuario
 --%>
 
+<%@page import="logica.Video"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
+<%@page import="logica.Manejador"%>
+<%@page import="logica.Fabrica"%>
+<%@page import="logica.ISistema"%>
+<%@page import="logica.ISistema"%>
 <%@page import="Servlets.Login"%>
 <%@page import="logica.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-		Usuario usr;
-		try {
-			usr = Login.getUsuarioLogueado(request);
-		} catch(Exception ex){
-			usr = null;
-		}
-		
-		if(usr != null) {
-	%>
+        Usuario usr;
+        try {
+                usr = Login.getUsuarioLogueado(request);
+        } catch(Exception ex){
+                usr = null;
+        }
+
+        if(usr != null) {
+%>
 
 <!DOCTYPE html>
 <html>
@@ -32,24 +39,35 @@
         
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>UyTube</title>
+        <style>
+            body{
+                background-color: #686869;
+            }
+        </style>
     </head>
     <body>
         
         <header>
             <nav class="navbar navbar-light bg-light ">
                 <img class="logo" src="./imagenes/logo2.png">
-                <form class="form-inline mx-auto">
-                    <input class="form-control mr-sm-2" type="search" placeholder="video, lista, canal" aria-label="Search">
+                <form class="form-inline mx-auto" method="POST" action="BusVideos">
+                    <input name="TextoFiltro" class="form-control mr-sm-2" type="search" placeholder="video, lista, canal" aria-label="Search">
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">buscar</button>
-                </form>
+                    <select class="btn btn-outline-success my-2 my-sm-0" name="ComboOpciones" id="ComboCatego" style='margin: 4px; width:150px; height:40px'>
+                        <option value="SinFiltro">Sin Filtro</option>
+                        <option value="Categoria">Categoría</option>
+                        <option value="ListReproduccion">Lista de Reproducción</option>
+                        <option value="Canal">Canal</option>
+                    </select>
+                </form> 
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <%= usr.getNickname() %>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
-                        <a class="dropdown-item" href="/WebUyTube/ModificarUsuario.jsp">Modificar datos de usuario</a>
-                        <a class="dropdown-item" href="BajaUsuario">Darse de baja</a>
+                        <a class="dropdown-item" href="#">Modificar datos de usuario</a>
+                        <a class="dropdown-item" href="#">Darse de baja</a>
                         <a class="dropdown-item" href="Logout">Cerrar sesión</a>
                     </div>
                 </div>     
@@ -68,7 +86,7 @@
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">VIDEOS:</li>
-                    <li class="list-group-item"><a href="/WebUyTube/altaVideo.jsp" role="button">Subir video</a></li>
+                    <li class="list-group-item"><a href="#" role="button">Subir video</a></li>
                     <li class="list-group-item"><a href="#" role="button">Ver videos</a></li>
                 </ul>
             </div>
@@ -76,12 +94,11 @@
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">LISTAS:</li>
                     <li class="list-group-item"><a href="#" role="button">Crear lista</a></li>  
-                    <li class="list-group-item"><a href="/WebUyTube/ModificarLista.jsp" role="button">Modificar Lista</a></li
-                    <li class="list-group-item"><a href="/WebUyTube/SeleccionarLista.jsp" role="button">Agregar Video a Lista</a></li>
-                    <li class="list-group-item"><a href="/WebUyTube/SeleccionarLista.jsp" role="button">Quitar Video de Lista</a></li>
+                     <li class="list-group-item"><a href="/WebUyTube/ModificarLista.jsp" role="button">Modificar Lista</a></li>
                     <li class="list-group-item"><a href="#" role="button">Ver más tarde</a></li>
                     <li class="list-group-item"><a href="#" role="button">Me gusta</a></li>
                     <li class="list-group-item"><a href="#" role="button">Música para estudiar</a></li>
+                    <li class="list-group-item"><a href="/WebUyTube/ConsultaLista.jsp" role="button">Consulta de Lista de Reproducción</a></li>
                 </ul>
             </div>
             <div class="card" style="width: 18rem;">
@@ -95,6 +112,63 @@
             
         </div>
         
+        <%%>
+        
+        <%
+            ISistema s = null;
+            s = Fabrica.getInstance();
+            Manejador m = Manejador.getinstance();
+            
+            List<Video> aux = null;
+            List<Video> l = m.getVideos();
+            List<String> l2 = m.listarCategorias();
+            
+            %>        
+                <div id="capsulaVid" align="center" style="width: 80rem; margin: 10px">
+                    <ul class="list-group list-group-flush">
+                    <%
+                        for(int i=0; i<l2.size(); i++)
+                        {
+                            int cont = 0;
+                            for(int i3=0; i3<l.size(); i3++)
+                            {
+                                if(l.get(i3).getCategoria().getNombre().equals(l2.get(i)))
+                                    cont++;
+                            }
+                            if(cont > 0)
+                            {
+                                %>        
+                                <li><%=l2.get(i)%></li>
+                                <li style=" border: solid black; background-color: white;">
+                                <%
+                                for(int i2=0; i2<l.size(); i2++)
+                                {
+                                    if(l.get(i2).getCategoria().getNombre().equals(l2.get(i)))
+                                    {
+                                        %>
+                                        <div style="margin: 25px; width: 200px; height: 150px; float: left;">
+                                            <form action="MostVideo" method="POST">
+                                            <input type="hidden" name="NomVid" value="<%=l.get(i2).getNombre()%>"/>
+                                            <video src="<%=l.get(i2).getUrl()%>" style='margin: 2px; border: solid black; width: 170px; height: 98px; float: top'></video>
+                                            <br>
+                                            <input class="btn btn-link"  type="submit" value="<%=l.get(i2).getNombre()%>" style='width: 200px; height: auto; float: left'/>
+                                            </form>
+                                        </div>
+                                        <%
+                                    }
+                                }
+                                %>
+                                </li>
+                                <br>
+                                <%
+                            }
+                            aux = null;
+                        }
+                    %>
+                    </ul>
+                </div>    
+                <%
+        %>
         <!--    -----------     -->
         <footer>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

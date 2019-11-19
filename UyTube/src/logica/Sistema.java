@@ -59,7 +59,8 @@ public class Sistema implements ISistema{
         Usuario u = m.buscarUsuario(nickname);
         if(u != null)
         {
-            Canal c = u.getCanal();
+            //Canal c = u.getCanal();
+            Canal c = new Canal();
             c.setDesc(DescCanal);
             c.setNombre(nombreCanal);
             c.setPrivado(priv);
@@ -117,7 +118,6 @@ public class Sistema implements ISistema{
         v.setUrl(video.getUrl());
         v.setPrivado(video.isPrivado());
         v.setCategoria(m.buscarCategoria(video.getCategoria()));
-        System.out.print(v.getCategoria().getNombre());
         
         tx.begin();
         em5.merge(v);
@@ -167,10 +167,16 @@ public class Sistema implements ISistema{
         }
         
         if(privado)
+        {
+            c1.setPorDefecto(false);
             c1.setPrivado(true);
+        }
         else
+        {
+            c1.setPorDefecto(true);
             c1.setPrivado(false);
-            
+        }
+        
         EntityManager em = Manejador.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         tx.begin();
@@ -230,9 +236,9 @@ public class Sistema implements ISistema{
         m.addCategoria(cat);
     }
     
-    public ArrayList<DTVideoUsuario> consultaVideosPorCategoria(String categoria){
+    public List<DTVideoUsuario> consultaVideosPorCategoria(String categoria){
         Manejador m = Manejador.getinstance();
-        ArrayList <DTVideoUsuario> listaVideos = new ArrayList();
+        List <DTVideoUsuario> listaVideos = new ArrayList();
         for (DTUsuario usu : m.getUsuarios()){
             Usuario u = m.buscarUsuario(usu.getNickname());
             for(Video v : u.getCanal().getVideos()){
@@ -249,9 +255,9 @@ public class Sistema implements ISistema{
             return listaVideos;
     }
     
-    public ArrayList<DTListaUsuario> consultaListasPorCategoria(String categoria){
+    public List<DTListaUsuario> consultaListasPorCategoria(String categoria){
         Manejador m = Manejador.getinstance();
-        ArrayList <DTListaUsuario> listaListas = new ArrayList();
+        List <DTListaUsuario> listaListas = new ArrayList();
         for (DTUsuario usu : m.getUsuarios()){
             Usuario u = m.buscarUsuario(usu.getNickname());
             for(Lista l : u.getCanal().getListas()){
@@ -279,8 +285,12 @@ public class Sistema implements ISistema{
     }    
         
 
+    @Override
     public void comentarVideo(String usuario,DTComentario comentario,String video, int padre){
+        EntityManager em = Manejador.getEntityManager();
+        EntityTransaction tx = em.getTransaction();
         Manejador m = Manejador.getinstance();
+        System.out.print("Llega");
         Usuario usuarioVideo = m.buscarUsuario(usuario);
         Canal canal = usuarioVideo.getCanal();
         Video v = canal.buscarVideo(video);
@@ -288,16 +298,33 @@ public class Sistema implements ISistema{
         Comentario c = new Comentario(comentario.getTexto(), usuarioCom);
         Comentario comPadre = null;
         if (padre != 0)
-            comPadre = v.buscarComentario(padre);
-        if (comPadre != null)
-            comPadre.addHijo(c);
+        {
+            if(usuarioVideo != null && canal != null && usuarioCom != null && c != null)
+            {
+                System.out.print("Entra");
+                comPadre = v.buscarComentario(padre);
+                if (comPadre != null)
+                {
+                    comPadre.addHijo(c);
+                    tx.begin();
+                    em.persist(c);
+                    em.merge(comPadre);
+                    tx.commit();
+                }
+            }
+            else
+                System.out.print("No esta persistiendo");
+            
+        }
         else
+        {
             v.addComentario(c);
-        EntityManager em = Manejador.getEntityManager();
-        EntityTransaction tx = em.getTransaction();
-        tx.begin();
-        em.merge(v);
-        tx.commit();
+            tx.begin();
+            em.persist(c);
+            em.merge(v);
+            tx.commit();
+        }
+       
     }
     
     @Override
@@ -375,7 +402,7 @@ public class Sistema implements ISistema{
     }
     
    
-    public ArrayList<String> listarVideos(String nickUsuario){
+    public List<String> listarVideos(String nickUsuario){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(nickUsuario);
         Canal c = u.getCanal();
@@ -384,7 +411,7 @@ public class Sistema implements ISistema{
     } 
     
     @Override
-    public ArrayList<String> listarListas(String nickUsuario){
+    public List<String> listarListas(String nickUsuario){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(nickUsuario);
         Canal c = u.getCanal();
@@ -392,7 +419,7 @@ public class Sistema implements ISistema{
     } 
     
     @Override
-    public ArrayList<String> listarMG(String usuario, String video){
+    public List<String> listarMG(String usuario, String video){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(usuario);
         Canal c = u.getCanal();
@@ -400,7 +427,7 @@ public class Sistema implements ISistema{
         return v.listaMG();
     }
     
-    public ArrayList<String> listarNMG(String usuario, String video){
+    public List<String> listarNMG(String usuario, String video){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(usuario);
         Canal c = u.getCanal();
@@ -408,14 +435,14 @@ public class Sistema implements ISistema{
         return v.listaNMG();
     }
     
-    public ArrayList<DTLista> listasParticulares(String usuario){
+    public List<DTLista> listasParticulares(String usuario){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(usuario);
         Canal c = u.getCanal();
         return c.listasParticulares();
     }
     
-    public ArrayList<String> listarVideosLista(String usuario, String lista){
+    public List<String> listarVideosLista(String usuario, String lista){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(usuario);
         Canal c = u.getCanal();
@@ -427,18 +454,5 @@ public class Sistema implements ISistema{
         Manejador M=Manejador.getinstance();
         return M.getUserSession(identificador, pass);
     }  
-    
-    public void bajaUsuario(String nickname){
-        Manejador m = Manejador.getinstance();
-        Usuario u = m.buscarUsuario(nickname);
-        if(u != null){
-            u.setEliminado(true);
-            EntityManager em = Manejador.getEntityManager();
-            EntityTransaction tx = em.getTransaction();
-            tx.begin();
-            em.merge(u);
-            tx.commit();
-        }
-    }
 }
 

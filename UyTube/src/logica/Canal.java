@@ -1,5 +1,6 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -16,7 +17,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Canal")
-public class Canal {
+public class Canal implements Serializable {
     @Id   
     private String nombre;
     
@@ -108,10 +109,10 @@ public class Canal {
     
     
     
-    public ArrayList<DTLista> listasParticulares(){
+    public List<DTLista> listasParticulares(){
         DTLista lista;
         Lista l;
-        ArrayList<DTLista> listaPart = new ArrayList();
+        List<DTLista> listaPart = new ArrayList();
         Iterator it = this.listas.iterator();
         while(it.hasNext()){
             l = (Lista) it.next();
@@ -124,15 +125,15 @@ public class Canal {
     }
     
     public ArrayList<String> listarVideos(){
-        String nombre;
+        String Nombre;
         Video v;
         ArrayList<String> videos = new ArrayList();
         //System.out.print("La cantidad de videos es: " + videos.size());
         Iterator it = this.videos.iterator();
         while(it.hasNext()){
             v = (Video) it.next();
-            nombre = v.getNombre();
-            videos.add(nombre);
+            Nombre = v.getNombre();
+            videos.add(Nombre);
         }
         return videos;
     }

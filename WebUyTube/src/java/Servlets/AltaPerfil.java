@@ -5,14 +5,8 @@
  */
 package Servlets;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,8 +17,6 @@ import logica.DT.DTUsuario;
 import logica.Fabrica;
 import logica.ISistema;
 import logica.Sistema;
-import servidor.Publicador;
-import servidor.PublicadorService;
 
 /**
  *
@@ -43,7 +35,7 @@ public class AltaPerfil extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
@@ -54,8 +46,8 @@ public class AltaPerfil extends HttpServlet {
             String apellido = request.getParameter("apellido");
             String contrasenia = request.getParameter("contrasenia");
             String email = request.getParameter("email");
-            String fNac = request.getParameter("fecha_nac");
-            String imagen = request.getParameter("imagen");
+            //String fNac = request.getParameter("fecha_nac");
+            //String imagen = request.getParameter("imagen");
             String canal = request.getParameter("canal");
             String descrcanal = request.getParameter("descripcion_canal");
             String privado = request.getParameter("privado");
@@ -99,11 +91,7 @@ public class AltaPerfil extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(AltaPerfil.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -117,11 +105,7 @@ public class AltaPerfil extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(AltaPerfil.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

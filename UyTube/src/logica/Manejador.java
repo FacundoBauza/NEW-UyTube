@@ -38,14 +38,14 @@ public class Manejador {
         return instancia;
     }
     
-    public ArrayList<Video> getVideos() {
+    public List<Video> getVideos() {
         EntityManager em = Manejador.getEntityManager();
         Query query = Manejador.getEntityManager().createQuery("select v from Video v");
-        ArrayList<Video> aux = (ArrayList<Video>) query.getResultList();
+        List<Video> aux = (List<Video>) query.getResultList();
         return aux;
     }
     
-    public ArrayList<DTUsuario> getUsuarios() {
+    public List<DTUsuario> getUsuarios() {
         EntityManager em = Manejador.getEntityManager();
         Query query = Manejador.getEntityManager().createQuery("select u from Usuario u");
 
@@ -62,7 +62,7 @@ public class Manejador {
     }
     
 
-    public ArrayList<DTCategoria> getCategorias() {
+    public List<DTCategoria> getCategorias() {
         EntityManager em = Manejador.getEntityManager();
         Query query = Manejador.getEntityManager().createQuery("select c from Categoria c");
 
@@ -79,7 +79,7 @@ public class Manejador {
     }
     
 
-    public ArrayList<String> getListasPorDefecto() {
+    public List<String> getListasPorDefecto() {
         EntityManager em = Manejador.getEntityManager();
         boolean t = true;
         Query query = Manejador.getEntityManager().createQuery("SELECT c FROM Lista c WHERE c.porDefecto = :pDef", Lista.class);
@@ -142,24 +142,45 @@ public class Manejador {
         return null;
     }
     
-    public ArrayList<Lista> getListas(String nickname){
+    public Usuario buscarUsuarioPorVideo(String nombreVi){
+        EntityManager em = Manejador.getEntityManager();
+        Query query = Manejador.getEntityManager().createQuery("select u from Usuario u");
+
+        List<Usuario> aux = (List<Usuario>) query.getResultList();
+        for(int i=0; i<aux.size(); i++)
+        {
+            Canal l = aux.get(i).getCanal();
+            if(l.getVideos().size()>0)
+            {
+                for(int i2=0; i2<l.getVideos().size(); i2++)
+                {
+                    if(l.getVideos().get(i2).getNombre().equals(nombreVi))
+                        return aux.get(i);
+
+                }
+            }    
+        }
+        return null;
+    }
+    
+    public List<Lista> getListas(String nickname){
         EntityManager em = Manejador.getEntityManager();
         Query query = Manejador.getEntityManager().createQuery("Select u From Lista u");
 
         List<Lista> aux = (List<Lista>) query.getResultList();
-        ArrayList<Lista> auxx = new ArrayList<Lista>();
+        List<Lista> auxx = new ArrayList<Lista>();
         
         for(int i=0; i<aux.size(); i++)
             if(aux.get(i).getUsuario_nickname().equals(nickname))
                 auxx.add(aux.get(i));
         return auxx;
     }
-    public ArrayList<Lista> getAllListas(){
+    public List<Lista> getAllListas(){
         EntityManager em = Manejador.getEntityManager();
         Query query = Manejador.getEntityManager().createQuery("Select u From Lista u");
 
         List<Lista> aux = (List<Lista>) query.getResultList();
-        ArrayList<Lista> auxx = new ArrayList<Lista>();
+        List<Lista> auxx = new ArrayList<Lista>();
         
         for(int i=0; i<aux.size(); i++)
             if(aux.get(i).getPrivado()==false && aux.get(i).getPorDefecto()==false)

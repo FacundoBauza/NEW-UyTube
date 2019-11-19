@@ -2,12 +2,8 @@ package logica.DT;
 
 import java.util.Date;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import logica.Comentario;
 
-
-@XmlAccessorType(XmlAccessType.FIELD)
 public class DTComentario {
     private int id;
     private String texto;
@@ -15,11 +11,6 @@ public class DTComentario {
     private String usuario;
     private List<DTComentario> hijos;
 
-    
-    // Debe tener un constructor vacío
-    public DTComentario() {
-    }
-    
     public DTComentario(String texto, String usuario){
         this.texto = texto;
         this.usuario = usuario;
@@ -52,27 +43,6 @@ public class DTComentario {
     public String getUsuario() {
         return usuario;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setTexto(String texto) {
-        this.texto = texto;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public void setHijos(List<DTComentario> hijos) {
-        this.hijos = hijos;
-    }
-    
     
     
     
