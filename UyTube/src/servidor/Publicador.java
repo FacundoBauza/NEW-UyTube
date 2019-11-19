@@ -219,7 +219,7 @@ public class Publicador {
     @WebMethod
     public void bajaUsuario(String nickname) {
         ISistema s = new Sistema();
-        
+        s.bajaUsuario(nickname);
     }
     
     // -------------- fin funciones sistema ------------------------
