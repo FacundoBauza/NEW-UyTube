@@ -17,7 +17,7 @@ import logica.DT.DTUsuario;
 
 
 public class Manejador {
-    private static Manejador instancia;
+    public static Manejador instancia;
     private List<Usuario> usuarios;
     private List<Categoria> categorias;
     private List<String> listasPorDefecto;
@@ -26,7 +26,7 @@ public class Manejador {
     EntityManager em;
     
     
-    private Manejador(){
+    public Manejador(){
         usuarios = new ArrayList();
         categorias = new ArrayList();
         listasPorDefecto = new ArrayList();
