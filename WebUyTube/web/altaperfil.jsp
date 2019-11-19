@@ -56,7 +56,7 @@
                                     <input type="password" id="contra2" name='confirmacion_contraseña' placeholder="Confirmar contraseña" class='form-control' required onkeyup="HabilitarBoton();"><div id="passMatch"> </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="date" name='fecha_nac' placeholder="Fecha nacimiento" class='form-control' required>
+                                    <input type="text" name='fecha_nac' placeholder="Fecha nacimiento" class='form-control' required>
                                 </div>
                                 <div class="form-group">
                                     Seleccione imagen: <input type="file" name="imagen" class='form-control'>

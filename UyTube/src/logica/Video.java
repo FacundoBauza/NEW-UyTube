@@ -16,6 +16,8 @@ import javax.persistence.Temporal;
 @Table(name="Video")
 public class Video {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String nombre;
     private String descripcion;
     private String duracion;

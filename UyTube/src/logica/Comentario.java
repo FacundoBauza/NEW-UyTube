@@ -1,20 +1,21 @@
 package logica;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
 @Entity
 @Table(name="Comentario")
-public class Comentario {
+public class Comentario implements Serializable {
     public static int proxid = 1;
     @Id 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,20 +23,21 @@ public class Comentario {
     private String texto;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date fecha;
+    @OneToOne
     private Usuario usuario; 
-    
+    //Metio Cambio
     @OneToMany
     private List<Comentario> hijos;
 
     public Comentario() {
     }
-
+    
     public Comentario(String texto, Usuario usuario) {
         this.id = proxid;
         this.texto = texto;
         this.usuario = usuario;
         this.fecha = new Date();
-        this.hijos = new ArrayList<Comentario>();
+        this.hijos = new ArrayList<>();
         proxid++;
     }
 

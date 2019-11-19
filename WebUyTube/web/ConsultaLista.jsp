@@ -3,7 +3,9 @@
     Created on : 18-oct-2019, 15:51:14
     Author     : visua
 --%>
-
+<%@page import="logica.Video"%>
+<%@page import="logica.Canal"%>
+<%@page import="logica.Usuario"%>
 <%@page import="logica.Lista"%>
 <%@page import="logica.DT.DTLista"%>
 <%@page import="logica.DT.DTUsuario"%>
@@ -38,7 +40,9 @@
         </style>
     </head>
     <body>
-        
+        <%
+        Usuario usuario = (Usuario) request.getSession().getAttribute("infoLogueado");     
+        %>
         <form action="ConsulLis" method="POST">
             <center>
             <div id="Contenedor1">
@@ -46,20 +50,48 @@
                     Manejador m = Manejador.getinstance();      
                     List<Lista> Lis = m.getAllListas();
                 %> 
-            <select name="ComboUser" id="ComboUser" style='width:200px; height:50px'>
-              <%
+            <select class="btn btn-outline-success my-2 my-sm-0" name="ComboUser" id="ComboUser" style='width:200px; height:50px'>
+            <%
             if(Lis != null)
             {
                 for(Lista dc: Lis)
                 {
-                    %> 
-                     <option value="<%=dc.getNombre()%>"><%=dc.getNombre()%></option>
-                    <%
+                    if(dc.getPorDefecto()==false && dc.getPrivado()==false)
+                    {
+                       %> 
+                       <option value="<%=dc.getNombre()%>"><%=dc.getNombre()%></option>
+                       <%
+                    }
                 }
             }
             %>
-            <input type="submit" name="BotonConsultar" value="Consultar" id="BotonCatego" style='width:200px; height:50px'>
-            </div>    
+            <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="BotonConsultar" value="Consultar" id="BotonCatego" style='margin: 10px; width:200px; height:50px'>
+            </div>
+            <%
+            if(usuario != null)
+            {
+                Canal canal = usuario.getCanal();
+                List<Lista> Lis2 = canal.getListas();   
+                %>
+                <select class="btn btn-outline-success my-2 my-sm-0" name="ComboUser" id="ComboUser" style='width:200px; height:50px'>
+                <%
+                if(Lis2 != null)
+                {
+                    for(Lista dc1: Lis2)
+                    {
+                        if(dc1.getPrivado() == true)
+                        {
+                            %> 
+                            <option value="<%=dc1.getNombre()%>"><%=dc1.getNombre()%></option>
+                            <%
+                        }
+                    }
+                }
+                %>
+                <input class="btn btn-outline-success my-2 my-sm-0" type="submit" name="BotonConsultar" value="Consultar" id="BotonCatego" style='margin: 10px; width:200px; height:50px'>
+                <%
+            }
+            %>
             </center>
         </form>
     </body>

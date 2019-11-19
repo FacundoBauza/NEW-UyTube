@@ -7,11 +7,7 @@ package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,34 +33,48 @@ public class ModificarUsuario extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException {
+            throws ServletException, IOException {
         
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             ISistema sistema = new Sistema();
-            String nickname = Login.getUsuarioLogueado(request).getNickname();//request.getParameter("nickname");
+            String nickname = "Gime";//request.getParameter("nickname");
             String nombre = request.getParameter("Nombre");
             String apellido = request.getParameter("Apellido");
             String contrasenia = request.getParameter("pass");
             String fNac = request.getParameter("Fecha");
-            // String imagen = request.getParameter("imagen");
-            String canal = request.getParameter("NombreCanal");
-            String descrcanal = request.getParameter("DescCanal");
-            String privado = request.getParameter("privado");
-            Boolean priv= true;
-            if(privado==null){
-                priv = false;
-            }
-            SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
-            Date date = null;
-            date = simple.parse(fNac);
-
-            sistema.modificarUsuario(nickname, contrasenia, nombre, apellido, date, null, canal, descrcanal, priv);
-            //out.println("<html><body onload=\"alert ('Usuario Modificado')\"></body></html>");
+           // String imagen = request.getParameter("imagen");
+           String canal = request.getParameter("canal");
+           String descrcanal = request.getParameter("descripcion_canal");
+           String privado = request.getParameter("privado");
+           Boolean priv= true;
+           if(privado==null){
+               priv = false;
+           }
+           //DTCanal c = new DTCanal(canal, descrcanal, priv, ,);
+           //DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, new Date(), null, c);
+           sistema.modificarUsuario(nickname, contrasenia, nombre, apellido, new Date(fNac), null, canal, descrcanal, priv);
+            out.println("<html><body onload=\"alert ('Usuario Modificado')\"></body></html>");
            
-           response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/homeLogIn.jsp");
+           response.setHeader("Refresh", "0; URL=http://localhost:8080/UyTube/");
         }
-
+        
+//        PrintWriter out = response.getWriter();
+//        String nick = request.getParameter("dataname");
+//        Manejador m = Manejador.getinstance();
+//        DTUsuario u = m.getUserData(nick);
+//        if(u!=null){
+//            request.getSession().setAttribute("userConsult", u.getNickname());
+//            request.setAttribute("userInfo", u);
+//            if(u instanceof DTUsuario){
+                getServletConfig().getServletContext().getRequestDispatcher("ModificarUsuario.jsp").forward(request,response);
+//            }
+//            
+//        }
+//        else{
+//            out.println("<html><body onload=\"alert('Usuario no encontrado')\"></body></html>");
+//            response.setHeader("Refresh", "0; URL=http://localhost:8080/WebUyTube/");
+//        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -79,11 +89,7 @@ public class ModificarUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(ModificarUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -97,11 +103,7 @@ public class ModificarUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ParseException ex) {
-            Logger.getLogger(ModificarUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

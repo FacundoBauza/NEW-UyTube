@@ -45,11 +45,6 @@
                                 <div class="form-group">
                                     <input type="password" class="form-control" name='password' rows="10" placeholder="Contraseña"></input>
                                 </div>
-                                <div class="checkbox mb-3">
-                                    <label>
-                                        <input type="checkbox" value="remember-me"> Recuérdame
-                                    </label>
-                                </div>
                                 <div class="form-group">
                                     <button class= "btn btn-dark btn-block">Iniciar sesión</button>
                                 </div> 

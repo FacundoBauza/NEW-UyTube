@@ -1,19 +1,12 @@
 package logica.DT;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
 import logica.Valoracion;
 
-@XmlAccessorType(XmlAccessType.FIELD)
 public class DTValoracion {
     private boolean meGusta;
     private String usuario;
     private String video;
 
-    // Debe tener un constructor vacío
-    public DTValoracion() {
-    }
-    
     public DTValoracion(boolean meGusta, String usuario, String video) {
         this.meGusta = meGusta;
         this.usuario = usuario;
@@ -37,19 +30,6 @@ public class DTValoracion {
     public String getVideo() {
         return video;
     }
-
-    public void setMeGusta(boolean meGusta) {
-        this.meGusta = meGusta;
-    }
-
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
-    }
-
-    public void setVideo(String video) {
-        this.video = video;
-    }
-    
     
     
 }

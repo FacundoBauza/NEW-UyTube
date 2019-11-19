@@ -104,7 +104,7 @@ public class Usuario {
     }
     
     public List<Usuario> getSeguidos() {
-        return seguidos;
+        return seguidores;
     }
 
     public Canal getCanal() {
