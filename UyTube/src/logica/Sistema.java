@@ -453,6 +453,19 @@ public class Sistema implements ISistema{
     public DTSesion getUserSession(String identificador, String pass){
         Manejador M=Manejador.getinstance();
         return M.getUserSession(identificador, pass);
-    }  
+    } 
+    
+    public void bajaUsuario(String nickname){
+        Manejador m = Manejador.getinstance();
+        Usuario u = m.buscarUsuario(nickname);
+        if(u != null){
+            u.setEliminado(true);
+            EntityManager em = Manejador.getEntityManager();
+            EntityTransaction tx = em.getTransaction();
+            tx.begin();
+            em.merge(u);
+            tx.commit();
+        }
+    }
 }
 

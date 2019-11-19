@@ -213,12 +213,13 @@ public class Publicador {
     public DTSesion getUserSession(String identificador, String pass) {
         ISistema s = new Sistema();
         return s.getUserSession(identificador, pass);
+        
     }
     
     @WebMethod
     public void bajaUsuario(String nickname) {
         ISistema s = new Sistema();
-        s.bajaUsuario(nickname);
+        
     }
     
     // -------------- fin funciones sistema ------------------------
