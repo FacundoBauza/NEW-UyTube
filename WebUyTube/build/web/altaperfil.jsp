@@ -41,7 +41,6 @@
                             <form action="AltaPerfil" method="POST">
                                 <div class="form-group">
                                     <input id="UserName" type="text" name='nickname' placeholder="Nickname"  class='form-control' onblur="checkExist()" autofocus required><span id="isE"></span><br><br>
-                                    
                                 </div>
                                 <div class="form-group">
                                     <input id="userMail" type="email" name='email' placeholder="Email" class='form-control' required><z id="UsedMail"></z> 
