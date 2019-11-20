@@ -36,9 +36,8 @@ public class verinfousuario extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         String nick = request.getParameter("dataname");
-        ISistema s = Fabrica.getInstance();
-        Manejador m = Manejador.getinstance();
-        DTUsuario u = m.getUserData(nick);
+        servidor.Publicador service = new servidor.Publicador();
+        DTUsuario u = service.getUserData(nick);
         if(u!=null){
             request.getSession().setAttribute("userConsult", u.getNickname());
             request.setAttribute("userInfo", u);

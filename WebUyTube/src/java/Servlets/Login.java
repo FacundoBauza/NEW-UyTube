@@ -32,8 +32,8 @@ public class Login extends HttpServlet {
         //guardo los parametros ingresados
         String name = request.getParameter("username");  
         String password = request.getParameter("password");
-        Manejador m = Manejador.getinstance();
-        Usuario usu = m.buscarUsuario(name);
+        servidor.Publicador service = new servidor.Publicador();
+        Usuario usu = service.buscarUsuario(name);
         //chequea contraseña
         if(usu.getContrasenia().equals(password)){
             HttpSession session=request.getSession();  
@@ -51,8 +51,8 @@ public class Login extends HttpServlet {
     static public Usuario getUsuarioLogueado(HttpServletRequest request)
 			throws ServletException, IOException {
         
-        Manejador m = Manejador.getinstance();        
-        return m.buscarUsuario(
+        servidor.Publicador service = new servidor.Publicador();        
+        return service.buscarUsuario(
                 (String) request.getSession().getAttribute("usuarioLogueado"));
 				
 			

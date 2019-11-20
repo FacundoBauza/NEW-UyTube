@@ -89,8 +89,8 @@ public class ListarCategoria extends HttpServlet {
             out.println("<title>Servlet ListarCategoria</title>");            
             out.println("</head>");
             out.println("<body>");
-                Manejador m = Manejador.getinstance();
-                List<DTCategoria> DtCat = m.getCategorias();
+                servidor.Publicador service = new servidor.Publicador();
+                List<DTCategoria> DtCat = service.getCategorias();
                
                 for(int i=0; i<DtCat.size(); i++)
                     out.println(DtCat.get(i).getNombre());

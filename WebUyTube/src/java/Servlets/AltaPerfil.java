@@ -59,9 +59,9 @@ public class AltaPerfil extends HttpServlet {
             if (privado == null) {
                 priv = false;
             }
+            servidor.Publicador service = new servidor.Publicador();
             
-//        servidor.PublicadorService service = new servidor.PublicadorService();   asi esta en el teorico
-//            servidor.Publicador port = service.getPublicadorPort();
+            
         
             DTCanal c = new DTCanal(canal, descrcanal, priv, null, null); 
             //cargar imagen
@@ -73,8 +73,8 @@ public class AltaPerfil extends HttpServlet {
             date = simple.parse(fNac);
             
             DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, date, absolute, c, false);
+            service.altaUsuario(u, c);
             
-            //port.altaUsuario(arg0, arg1); me cambia los DT 
             
 
             out.println("<html><body onload=\"alert ('Usuario Creado')\"></body></html>");

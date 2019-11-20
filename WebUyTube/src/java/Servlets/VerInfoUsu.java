@@ -36,8 +36,8 @@ public class VerInfoUsu extends HttpServlet {
         response.setContentType("text/html");  
         PrintWriter out=response.getWriter();
         String nick = request.getParameter("dataname");
-        Manejador m = Manejador.getinstance();
-        Usuario usuario = m.buscarUsuario(nick);
+        servidor.Publicador service = new servidor.Publicador();
+        Usuario usuario = service.buscarUsuario(nick);
         if(usuario!=null){
             HttpSession session = request.getSession();
             session.setAttribute("usuarioConsult", usuario); 

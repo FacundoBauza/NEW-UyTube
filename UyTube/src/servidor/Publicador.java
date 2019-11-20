@@ -61,6 +61,7 @@ public class Publicador {
     @WebMethod
     public void altaVideo(DTVideo video, String usuario){
         ISistema s = new Sistema();
+        
         s.altaVideo(video, usuario);
     }
     
@@ -208,7 +209,7 @@ public class Publicador {
     // -------------- fin funciones sistema ------------------------
 
     
-    // funciones manejador 
+    // ------------- funciones manejador  ------------------------
     @WebMethod
     public ArrayList<Video> getVideos() {
         
@@ -342,6 +343,11 @@ public class Publicador {
         return m.getUserData(identificador);
     }
     
+    @WebMethod
+    public Usuario buscarUsuarioPorVideo(String nombreVi) {
+        Manejador m = new Manejador();
+        return m.buscarUsuarioPorVideo(nombreVi);
+    }
     // -------- fin funciones manejador
     
     //////////////////////Funciones que no retornan nada, solo para incluir los .java

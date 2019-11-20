@@ -43,9 +43,8 @@ public class DejarDeSeguirUsuario extends HttpServlet {
             if (user_seguir != null) {
                 String usuNickSeguir = user_seguir.getNickname();
                 if (!(user.equals(usuNickSeguir))) {
-                    ISistema s = null;
-                    s = Fabrica.getInstance();
-                    s.dejarDeSeguirUsuario(user, usuNickSeguir);
+                    servidor.Publicador service = new servidor.Publicador();
+                    service.dejarDeSeguirUsuario(user, usuNickSeguir);
                     out.println("<html><body onload=\"alert('Dejaste de seguir a: " + usuNickSeguir + "')\"></body></html>");
                     request.getRequestDispatcher("infoconsultausuario.jsp").forward(request, response);
                     //response.sendRedirect("infoconsultausuario.jsp");

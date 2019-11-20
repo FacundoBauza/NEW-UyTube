@@ -98,12 +98,12 @@ public class ConsultaCategoria extends HttpServlet {
                 out.println("</style>");
                 out.println("</head>");
                 out.println("<body>");   
-                    ISistema s = null;
-                    s = Fabrica.getInstance();
+                    servidor.Publicador service = new servidor.Publicador();
                      
                     String CatEl = request.getParameter("ComboCat");
-                    List<DTListaUsuario> Lus = s.consultaListasPorCategoria(CatEl);
-                    List<DTVideoUsuario> Vus = s.consultaVideosPorCategoria(CatEl);
+                    
+                    List<DTListaUsuario> Lus = service.consultaListasPorCategoria(CatEl);
+                    List<DTVideoUsuario> Vus = service.consultaVideosPorCategoria(CatEl);
                     
                     out.println("<H4>");   
                         out.println(CatEl);

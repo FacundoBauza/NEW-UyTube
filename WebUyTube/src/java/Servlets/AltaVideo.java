@@ -52,8 +52,9 @@ public class AltaVideo extends HttpServlet {
                 priv = false;
             }
             DTVideo video = new DTVideo(nombre, descripcion, duracion, fecha, url, priv, categoria);
-                       
-            s.altaVideo(video, "Gime");
+            servidor.Publicador service = new servidor.Publicador();
+            service.altaVideo(video, "Gime");
+            //s.altaVideo(video, "Gime");
 
             out.println("<html><body onload=\"alert ('Videoo Creado')\"></body></html>");
             response.sendRedirect("http://localhost:8080/WebUyTube/login.jsp");

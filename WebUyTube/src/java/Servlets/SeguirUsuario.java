@@ -44,9 +44,8 @@ public class SeguirUsuario extends HttpServlet {
             if (user_seguir != null) {
                 String usuNickSeguir = user_seguir.getNickname();
                 if (!(user.equals(usuNickSeguir))) {
-                    ISistema s = null;
-                    s = Fabrica.getInstance();
-                    s.seguirUsuario(user, usuNickSeguir);
+                    servidor.Publicador service = new servidor.Publicador();
+                    service.seguirUsuario(user, usuNickSeguir);
                     out.println("<html><body onload=\"alert('Ahora Sigues a: " + usuNickSeguir + "')\"></body></html>");
                     request.getRequestDispatcher("infoconsultausuario.jsp").forward(request, response);
                     //response.sendRedirect("infoconsultausuario.jsp");

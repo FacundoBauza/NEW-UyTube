@@ -7,6 +7,7 @@ package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -35,8 +36,8 @@ public class ListarUsuarios extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        Manejador m = Manejador.getinstance();
-        List<DTUsuario> usuarios = m.getUsuarios();
+        servidor.Publicador service = new servidor.Publicador();
+        ArrayList<DTUsuario> usuarios = service.getUsuarios();
         request.setAttribute("usuarios", usuarios);
         response.sendRedirect("consultausuario.jsp");
         

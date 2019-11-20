@@ -87,20 +87,18 @@ public class ModificarLista extends HttpServlet {
             out.println("<title>Servlet ModificarLista</title>");            
             out.println("</head>");
             out.println("<body>");
-            Manejador m = Manejador.getinstance();
-            ISistema s = null;
-            s = Fabrica.getInstance();
+            servidor.Publicador service = new servidor.Publicador();
             String usuarioLogueado = (String) request.getSession().getAttribute("usuario");
             Usuario infoLogueado = (Usuario) request.getSession().getAttribute("infoLogueado");
             Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioConsult");
             String NomLis = request.getParameter("ComboLista");
             String Private = request.getParameter("ComboPrivacidad");
-            Lista L = m.buscarLista(NomLis, infoLogueado.getNickname());
+            Lista L = service.buscarLista(NomLis, infoLogueado.getNickname());
             out.println(NomLis+Private);
             if(Private.equals("Privado"))
-                s.modificarListaPart(infoLogueado.getNickname(), NomLis, L.getCategoria().getNombre(), true);        
+                service.modificarListaPart(infoLogueado.getNickname(), NomLis, L.getCategoria().getNombre(), true);        
             else     
-                s.modificarListaPart(infoLogueado.getNickname(), NomLis, L.getCategoria().getNombre(), false);
+                service.modificarListaPart(infoLogueado.getNickname(), NomLis, L.getCategoria().getNombre(), false);
 
 
             out.println("</body>");

@@ -88,8 +88,7 @@ public class MostrarVideoControles extends HttpServlet {
             out.println("<title>Servlet MostrarVideoControles</title>");            
             out.println("</head>");
             out.println("<body>");
-                Manejador m = Manejador.getinstance();
-                ISistema s = Fabrica.getInstance();
+                servidor.Publicador service = new servidor.Publicador();
 
                 Usuario infoLogueado = (Usuario) request.getSession().getAttribute("infoLogueado");
 
@@ -108,14 +107,14 @@ public class MostrarVideoControles extends HttpServlet {
                 if(BotonComentar1 != null)
                 {
                     out.print("Entra");
-                    Usuario Propie = m.buscarUsuarioPorVideo(BotonComent);
+                    Usuario Propie = service.buscarUsuarioPorVideo(BotonComent);
                     out.print(Propie.getNickname());
                       out.print(Comentario1);
                        out.print(infoLogueado.getNickname());
                    
                         out.print(BotonComentar1);
                     DTComentario dc = new DTComentario(Comentario1, infoLogueado.getNickname());
-                    s.comentarVideo(Propie.getNickname(), dc, BotonComent, 0);
+                    service.comentarVideo(Propie.getNickname(), dc, BotonComent, 0);
 
                 }
                 else
@@ -125,7 +124,7 @@ public class MostrarVideoControles extends HttpServlet {
                 {
                     out.print("Entra al sub");
                     out.println("<br>");
-                    Usuario Propie = m.buscarUsuarioPorVideo(BotonComent);
+                    Usuario Propie = service.buscarUsuarioPorVideo(BotonComent);
                      out.print(Propie.getNickname());
                      out.println("<br>");
                       out.print(Comentario);
@@ -136,7 +135,7 @@ public class MostrarVideoControles extends HttpServlet {
                         out.println("<br>");
                         out.print(BotonComent);
                     DTComentario dc = new DTComentario(Comentario, infoLogueado.getNickname());
-                    s.comentarVideo(Propie.getNickname(), dc, BotonComent, Integer.parseInt(BotonSub));
+                    service.comentarVideo(Propie.getNickname(), dc, BotonComent, Integer.parseInt(BotonSub));
 
                 }
                 else
@@ -144,25 +143,25 @@ public class MostrarVideoControles extends HttpServlet {
 
                 if(BotonAgregar != null)
                 {
-                    Usuario Propie = m.buscarUsuarioPorVideo(BotonComent);
-                    s.agregarVideoAlista(infoLogueado.getNickname(), BotonComent, Propie.getNickname(), ComboListas);
+                    Usuario Propie = service.buscarUsuarioPorVideo(BotonComent);
+                    service.agregarVideoAlista(infoLogueado.getNickname(), BotonComent, Propie.getNickname(), ComboListas);
 
                 }
 
                 if(BotonMG != null)
                 {
-                    Usuario Propie = m.buscarUsuarioPorVideo(BotonComent);
+                    Usuario Propie = service.buscarUsuarioPorVideo(BotonComent);
                     DTValoracion v;
                     v = new DTValoracion(true, infoLogueado.getNickname(), BotonComent);
-                    s.valorarVideo(Propie.getNickname(), BotonComent, v);     
+                    service.valorarVideo(Propie.getNickname(), BotonComent, v);     
                 }
 
                 if(BotonNMG != null)
                 {
-                    Usuario Propie = m.buscarUsuarioPorVideo(BotonComent);
+                    Usuario Propie = service.buscarUsuarioPorVideo(BotonComent);
                     DTValoracion v;
                     v = new DTValoracion(false, infoLogueado.getNickname(), BotonComent);
-                    s.valorarVideo(Propie.getNickname(), BotonComent, v);
+                    service.valorarVideo(Propie.getNickname(), BotonComent, v);
                 }
             out.println("</body>");
             out.println("</html>");
