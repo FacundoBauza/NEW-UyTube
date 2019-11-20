@@ -14,25 +14,8 @@ import javax.jws.soap.SOAPBinding;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.xml.ws.Endpoint;
-import logica.Categoria;
-import logica.DT.DTCanal;
-import logica.DT.DTCategoria;
-import logica.DT.DTComentario;
-import logica.DT.DTLista;
-import logica.DT.DTListaUsuario;
-import logica.DT.DTSesion;
-import logica.DT.DTUsuario;
-import logica.DT.DTValoracion;
-import logica.DT.DTVideo;
-import logica.DT.DTVideoUsuario;
-import logica.Fabrica;
-import logica.ISistema;
-import logica.Lista;
-import logica.Manejador;
-import logica.Sistema;
-import logica.Usuario;
-import logica.Video;
-
+import logica.*;
+import logica.DT.*;
 /**
  *
  * @author Usuario
