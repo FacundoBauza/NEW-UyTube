@@ -66,8 +66,8 @@ public class Sistema extends javax.swing.JFrame {
         QuitarVideoDeLista.setVisible(false);
         ConsultaLista.setVisible(false);
         
-        DTComentario dc = new DTComentario("SevenSeeven", "Maxi95");
-        s.comentarVideo("Facu95", dc, "Fernando Llorente Goles_Jugadas", 27);
+        //DTComentario dc = new DTComentario("SevenSeeven", "Maxi95");
+        //s.comentarVideo("Facu95", dc, "Fernando Llorente Goles_Jugadas", 27);
                     
         //cargarUsuarios();
         //cargarCategorias();

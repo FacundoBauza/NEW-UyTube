@@ -30,7 +30,7 @@ public class Publicador {
 //Operaciones las cuales quiero publicar
     @WebMethod(exclude = true)
     public void publicar(){
-         endpoint = Endpoint.publish("http://192.168.1.52:1234/publicador", this);   
+         endpoint = Endpoint.publish("http://localhost:1234/publicador", this);   
     }
     
     @WebMethod(exclude = true)
