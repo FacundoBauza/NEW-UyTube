@@ -62,7 +62,7 @@ public class AltaPerfil extends HttpServlet {
             servidor.Publicador service = new servidor.Publicador();
             
             
-        
+            
             DTCanal c = new DTCanal(canal, descrcanal, priv, null, null); 
             //cargar imagen
             File fichero = new File(imagen);
