@@ -16,11 +16,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DT.DTCanal;
-import logica.DT.DTUsuario;
-import logica.Fabrica;
-import logica.ISistema;
-import logica.Sistema;
+import servidor.Publicador;
+import servidor.PublicadorService;
+
 
 /**
  *
@@ -43,8 +41,8 @@ public class AltaPerfil extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             
-            ISistema s = null;
-            s = Fabrica.getInstance();
+//            ISistema s = null;
+//            s = Fabrica.getInstance();
             String nickname = request.getParameter("nickname");
             String nombre = request.getParameter("nombre");
             String apellido = request.getParameter("apellido");
@@ -52,15 +50,17 @@ public class AltaPerfil extends HttpServlet {
             String email = request.getParameter("email");
             String fNac = request.getParameter("fecha_nac");
             String imagen = request.getParameter("imagen");
-            String canal = request.getParameter("canal");
+            String canal = request.getParameter("canal"); 
             String descrcanal = request.getParameter("descripcion_canal");
             String privado = request.getParameter("privado");
             Boolean priv = true;
             if (privado == null) {
                 priv = false;
             }
-            servidor.Publicador service = new servidor.Publicador();
             
+            PublicadorService service = new servidor.PublicadorService();
+            Publicador port = service.getPublicadorPort();
+           
             
             
             DTCanal c = new DTCanal(canal, descrcanal, priv, null, null); 
@@ -73,7 +73,7 @@ public class AltaPerfil extends HttpServlet {
             date = simple.parse(fNac);
             
             DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, date, absolute, c, false);
-            service.altaUsuario(u, c);
+            //port.altaUsuario(arg0, arg1);
             
             
 
