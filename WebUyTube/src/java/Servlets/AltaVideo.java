@@ -1,13 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,11 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import logica.DT.DTVideo;
 import logica.Fabrica;
 import logica.ISistema;
+import logica.Usuario;
 
-/**
- *
- * @author Gime
- */
 @WebServlet(name = "AltaVideo", urlPatterns = {"/AltaVideo"})
 public class AltaVideo extends HttpServlet {
 
@@ -34,7 +30,7 @@ public class AltaVideo extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+            throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
             ISistema s = null;
@@ -42,22 +38,28 @@ public class AltaVideo extends HttpServlet {
             String nombre = request.getParameter("nombre");
             String descripcion = request.getParameter("descripcion");
             String duracion = request.getParameter("duracion");
-            //String f = request.getParameter("fecha");
-            Date fecha = new Date();
+            String f = request.getParameter("fecha");
             String url = request.getParameter("url");
-            String categoria = request.getParameter("categoria");
+            String categoria = request.getParameter("ComboCat");
             String privado = request.getParameter("privado");
             Boolean priv = true;
             if (privado == null) {
                 priv = false;
             }
-            DTVideo video = new DTVideo(nombre, descripcion, duracion, fecha, url, priv, categoria);
+            
+            SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
+            Date date = null;
+            date = simple.parse(f);
+            
+            DTVideo video = new DTVideo(nombre, descripcion, duracion, date, url, priv, categoria);
+            Usuario u = Login.getUsuarioLogueado(request);
+            
             servidor.Publicador service = new servidor.Publicador();
-            service.altaVideo(video, "Gime");
-            //s.altaVideo(video, "Gime");
+            service.altaVideo(video, u.getNickname());
+            //s.altaVideo(video, u.getNickname());
 
-            out.println("<html><body onload=\"alert ('Videoo Creado')\"></body></html>");
-            response.sendRedirect("http://localhost:8080/WebUyTube/login.jsp");
+            //out.println("<html><body onload=\"alert ('Video Creado')\"></body></html>");
+            response.sendRedirect("http://localhost:8084/WebUyTube/homeLogIn.jsp");
         
     }
 
@@ -73,7 +75,11 @@ public class AltaVideo extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(AltaVideo.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -87,7 +93,11 @@ public class AltaVideo extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        try {
+            processRequest(request, response);
+        } catch (ParseException ex) {
+            Logger.getLogger(AltaVideo.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**

@@ -66,8 +66,8 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
-                        <a class="dropdown-item" href="#">Modificar datos de usuario</a>
-                        <a class="dropdown-item" href="#">Darse de baja</a>
+                        <a class="dropdown-item" href="/WebUyTube/ModificarUsuario.jsp">Modificar datos de usuario</a>
+                        <a class="dropdown-item" href="BajaUsuario">Darse de baja</a>
                         <a class="dropdown-item" href="Logout">Cerrar sesión</a>
                     </div>
                 </div>     
@@ -86,7 +86,7 @@
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">VIDEOS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Subir video</a></li>
+                    <li class="list-group-item"><a href="/WebUyTube/altaVideo.jsp" role="button">Subir video</a></li>
                     <li class="list-group-item"><a href="#" role="button">Ver videos</a></li>
                 </ul>
             </div>
