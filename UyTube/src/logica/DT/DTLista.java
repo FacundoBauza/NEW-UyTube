@@ -2,14 +2,19 @@ package logica.DT;
 
 import java.util.ArrayList;
 import java.util.List;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import logica.Lista;
 
+
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DTLista {
     private String nombre;
     private boolean porDefecto;
     private boolean privado;
     private String categoria;
-
+    
+    public DTLista (){}
     public DTLista(String nombre, boolean porDefecto, boolean privado, String categoria) {
         this.nombre = nombre;
         this.porDefecto = porDefecto;
@@ -38,6 +43,22 @@ public class DTLista {
 
     public String getCategoria() {
         return categoria;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setPorDefecto(boolean porDefecto) {
+        this.porDefecto = porDefecto;
+    }
+
+    public void setPrivado(boolean privado) {
+        this.privado = privado;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
     }
     
     

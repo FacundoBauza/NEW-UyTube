@@ -17,6 +17,8 @@ import javax.servlet.http.HttpServletResponse;
 import logica.DT.DTCategoria;
 import logica.Manejador;
 import logica.Video;
+import servidor.Publicador;
+import servidor.PublicadorService;
 
 /**
  *
@@ -89,11 +91,12 @@ public class ListarCategoria extends HttpServlet {
             out.println("<title>Servlet ListarCategoria</title>");            
             out.println("</head>");
             out.println("<body>");
-                servidor.Publicador service = new servidor.Publicador();
-                List<DTCategoria> DtCat = service.getCategorias();
+                PublicadorService service = new servidor.PublicadorService();
+                Publicador port = service.getPublicadorPort();
+                //ArrayList<DTCategoria> DtCat = port.getCategorias();
                
-                for(int i=0; i<DtCat.size(); i++)
-                    out.println(DtCat.get(i).getNombre());
+                //for(int i=0; i<DtCat.size(); i++)
+                //    out.println(DtCat.get(i).getNombre());
            
             out.println("</body>");
             out.println("</html>");
