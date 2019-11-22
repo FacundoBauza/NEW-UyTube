@@ -467,5 +467,17 @@ public class Sistema implements ISistema{
             tx.commit();
         }
     }
+    
+    
+    public boolean nicknameLibre(String nickname){
+        Manejador M=Manejador.getinstance();
+        return M.nicknameLibre(nickname);
+    }
+    
+    
+    public boolean mailLibre(String mail){
+        Manejador M=Manejador.getinstance();
+        return M.mailLibre(mail);
+    }
 }
 

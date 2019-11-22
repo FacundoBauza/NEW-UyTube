@@ -24,6 +24,7 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="http://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script src="resources/js/CheckMailUse.js" type="text/javascript"></script>
         <title>Registrarse</title>
         
         
@@ -40,10 +41,10 @@
                         <div class="card-body">
                             <form action="AltaPerfil" method="POST">
                                 <div class="form-group">
-                                    <input id="UserName" type="text" name='nickname' placeholder="Nickname"  class='form-control' onblur="checkExist()" autofocus required><span id="isE"></span><br><br>
+                                    <input id="nickname" type="text" name='nickname' placeholder="Nickname"  class='form-control' autofocus required><z id="UsedNick"></z><br>
                                 </div>
                                 <div class="form-group">
-                                    <input id="userMail" type="email" name='email' placeholder="Email" class='form-control' required><z id="UsedMail"></z> 
+                                    <input id="email" type="email" name='email' placeholder="Email" class='form-control' required><z id="UsedMail"></z><br> 
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name='nombre' placeholder="Nombre" class='form-control' required>
