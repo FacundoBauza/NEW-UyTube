@@ -180,10 +180,10 @@ public class Video {
         }
          return listaComentarios;
     }        
-    
-    
-    
-    
+
+    public Long getId() {
+        return id;
+    }
     
     
 }   
