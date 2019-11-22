@@ -13,9 +13,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DT.DTVideo;
-import logica.Fabrica;
-import logica.ISistema;
+import servidor.Publicador;
+import servidor.PublicadorService;
 
 /**
  *
@@ -37,8 +36,7 @@ public class AltaVideo extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-            ISistema s = null;
-            s = Fabrica.getInstance();
+            
             String nombre = request.getParameter("nombre");
             String descripcion = request.getParameter("descripcion");
             String duracion = request.getParameter("duracion");
@@ -52,9 +50,10 @@ public class AltaVideo extends HttpServlet {
                 priv = false;
             }
             DTVideo video = new DTVideo(nombre, descripcion, duracion, fecha, url, priv, categoria);
-            servidor.Publicador service = new servidor.Publicador();
-            service.altaVideo(video, "Gime");
-            //s.altaVideo(video, "Gime");
+            PublicadorService service = new servidor.PublicadorService();
+            Publicador port = service.getPublicadorPort();
+            //port.altaVideo(video, "Gime");
+            
 
             out.println("<html><body onload=\"alert ('Videoo Creado')\"></body></html>");
             response.sendRedirect("http://localhost:8080/WebUyTube/login.jsp");

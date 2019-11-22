@@ -16,6 +16,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import logica.DT.DTUsuario;
 import logica.Manejador;
+import servidor.Publicador;
+import servidor.PublicadorService;
 
 /**
  *
@@ -36,8 +38,9 @@ public class ListarUsuarios extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        servidor.Publicador service = new servidor.Publicador();
-        ArrayList<DTUsuario> usuarios = service.getUsuarios();
+        PublicadorService service = new servidor.PublicadorService();
+        Publicador port = service.getPublicadorPort();
+        servidor.ArrayList usuarios = port.getUsuarios();
         request.setAttribute("usuarios", usuarios);
         response.sendRedirect("consultausuario.jsp");
         
