@@ -12,10 +12,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DT.DTVideo;
-import logica.Fabrica;
-import logica.ISistema;
-import logica.Usuario;
+import servidor.Publicador;
+import servidor.PublicadorService;
 
 @WebServlet(name = "AltaVideo", urlPatterns = {"/AltaVideo"})
 public class AltaVideo extends HttpServlet {
@@ -33,8 +31,7 @@ public class AltaVideo extends HttpServlet {
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-            ISistema s = null;
-            s = Fabrica.getInstance();
+            
             String nombre = request.getParameter("nombre");
             String descripcion = request.getParameter("descripcion");
             String duracion = request.getParameter("duracion");
@@ -46,17 +43,11 @@ public class AltaVideo extends HttpServlet {
             if (privado == null) {
                 priv = false;
             }
+            DTVideo video = new DTVideo(nombre, descripcion, duracion, fecha, url, priv, categoria);
+            PublicadorService service = new servidor.PublicadorService();
+            Publicador port = service.getPublicadorPort();
+            //port.altaVideo(video, "Gime");
             
-            SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
-            Date date = null;
-            date = simple.parse(f);
-            
-            DTVideo video = new DTVideo(nombre, descripcion, duracion, date, url, priv, categoria);
-            Usuario u = Login.getUsuarioLogueado(request);
-            
-            servidor.Publicador service = new servidor.Publicador();
-            service.altaVideo(video, u.getNickname());
-            //s.altaVideo(video, u.getNickname());
 
             //out.println("<html><body onload=\"alert ('Video Creado')\"></body></html>");
             response.sendRedirect("http://localhost:8084/WebUyTube/homeLogIn.jsp");

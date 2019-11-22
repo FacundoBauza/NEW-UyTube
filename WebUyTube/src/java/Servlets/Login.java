@@ -13,10 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import logica.Fabrica;
-import logica.ISistema;
-import logica.Manejador;
-import logica.Usuario;
+
+import servidor.Publicador;
+import servidor.PublicadorService;
 
 /**
  *
@@ -32,8 +31,9 @@ public class Login extends HttpServlet {
         //guardo los parametros ingresados
         String name = request.getParameter("username");  
         String password = request.getParameter("password");
-        servidor.Publicador service = new servidor.Publicador();
-        Usuario usu = service.buscarUsuario(name);
+        PublicadorService service = new servidor.PublicadorService();
+        Publicador port = service.getPublicadorPort();
+        servidor.Usuario usu = port.buscarUsuario(name);
         //chequea contraseña
         if(usu.getContrasenia().equals(password)){
             HttpSession session=request.getSession();  
@@ -48,11 +48,12 @@ public class Login extends HttpServlet {
         out.close(); 
     }
     
-    static public Usuario getUsuarioLogueado(HttpServletRequest request)
+    static public servidor.Usuario getUsuarioLogueado(HttpServletRequest request)
 			throws ServletException, IOException {
         
-        servidor.Publicador service = new servidor.Publicador();        
-        return service.buscarUsuario(
+        PublicadorService service = new servidor.PublicadorService();
+        Publicador port = service.getPublicadorPort();        
+        return port.buscarUsuario(
                 (String) request.getSession().getAttribute("usuarioLogueado"));
 				
 			
