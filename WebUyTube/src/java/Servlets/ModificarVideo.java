@@ -12,10 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DT.DTVideo;
-import logica.Fabrica;
-import logica.ISistema;
-import logica.Usuario;
+
 
 @WebServlet(name = "ModificarVideo", urlPatterns = {"/ModificarVideo"})
 public class ModificarVideo extends HttpServlet {
@@ -33,8 +30,8 @@ public class ModificarVideo extends HttpServlet {
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-            ISistema s = null;
-            s = Fabrica.getInstance();
+            pkgWS.PublicadorService service = new pkgWS.PublicadorService();
+            pkgWS.Publicador port = service.getPublicadorPort();
             String nomVideo = request.getParameter("nomVideo");
             String nombre = request.getParameter("nombre");
             String descripcion = request.getParameter("descripcion");
@@ -54,7 +51,7 @@ public class ModificarVideo extends HttpServlet {
             
             DTVideo video = new DTVideo(nombre, descripcion, duracion, date, url, priv, categoria);
             Usuario u = Login.getUsuarioLogueado(request);
-            s.modificarVideo(video, u.getNickname(), nomVideo);
+            port.modificarVideo(video, u.getNickname(), nomVideo);
 
             //out.println("<html><body onload=\"alert ('Video Modificado')\"></body></html>");
             response.sendRedirect("http://localhost:8084/WebUyTube/homeLogIn.jsp");

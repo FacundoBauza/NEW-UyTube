@@ -13,12 +13,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DT.DTCategoria;
-import logica.DT.DTListaUsuario;
-import logica.DT.DTVideoUsuario;
-import logica.Fabrica;
-import logica.ISistema;
-import logica.Manejador;
 import servidor.ArrayList;
 import servidor.Publicador;
 import servidor.PublicadorService;
@@ -101,8 +95,8 @@ public class ConsultaCategoria extends HttpServlet {
                 out.println("</style>");
                 out.println("</head>");
                 out.println("<body>");   
-                    PublicadorService service = new servidor.PublicadorService();
-                    Publicador port = service.getPublicadorPort();
+                    pkgWS.PublicadorService service = new pkgWS.PublicadorService();
+                    pkgWS.Publicador port = service.getPublicadorPort();
                      
                     String CatEl = request.getParameter("ComboCat");
                     
@@ -120,53 +114,53 @@ public class ConsultaCategoria extends HttpServlet {
                                 out.println("<td WIDTH= 150 HEIGHT= 25>Lista</td>");
                                 out.println("<td  WIDTH= 150 HEIGHT= 25>Usuario Propietario</td>");
                             out.println("</tr>");
-//                            if(Lus != null)
-//                            {
-//                                for(int i=0; i<Lus.size(); i++)
-//                                {
-//                                    out.println("<tr>");   
-//                                        out.println("<td  WIDTH= 150 HEIGHT= 25>");
-//                                            out.println(Lus.get(i).getLista());
-//                                        out.println("</td>");
-//                                        out.println("<td  WIDTH= 150 HEIGHT= 25>");
-//                                            out.println(Lus.get(i).getUsuario());
-//                                        out.println("</td>");
-//                                    out.println("</tr>");
-//                                }
-//                            }
-//                            else
-//                            {
-//                                out.println("<tr>");   
-//                                    out.println("<td  WIDTH= 150 HEIGHT= 25>");
-//                                        out.println("No hay Datos");
-//                                    out.println("</td>");
-//                                    out.println("<td  WIDTH= 150 HEIGHT= 25>");
-//                                        out.println("No hay Datos");
-//                                    out.println("</td>");
-//                                out.println("</tr>");
-//                            }        
-//                        out.println("</table>");
-//                        out.println("</div>");
-//                        
-//                        out.println("<div id=Tabla2>");
-//                        out.println("<table border=1>");   
-//                            out.println("<tr>");   
-//                                out.println("<td WIDTH= 150 HEIGHT= 25>Video</td>");
-//                                out.println("<td WIDTH= 150 HEIGHT= 25>Usuario Propietario</td>");
-//                            out.println("</tr>");
-//                            if(Vus != null)
-//                            {
-//                                for(int i=0; i<Vus.size(); i++)
-//                                {
-//                                    out.println("<tr>");   
-//                                        out.println("<td WIDTH= 150 HEIGHT= 25>");
-//                                            out.println(Vus.get(i).getVideo());
-//                                        out.println("</td>");
-//                                        out.println("<td WIDTH= 150 HEIGHT= 25>");
-//                                            out.println(Vus.get(i).getUsuario());
-//                                        out.println("</td>");
-//                                    out.println("</tr>");
-//                                }
+                            if(Lus != null)
+                            {
+                                for(int i=0; i<Lus.size(); i++)
+                                {
+                                    out.println("<tr>");   
+                                        out.println("<td  WIDTH= 150 HEIGHT= 25>");
+                                            out.println(Lus.get(i).getLista());
+                                        out.println("</td>");
+                                        out.println("<td  WIDTH= 150 HEIGHT= 25>");
+                                            out.println(Lus.get(i).getUsuario());
+                                        out.println("</td>");
+                                    out.println("</tr>");
+                                }
+                            }
+                            else
+                            {
+                                out.println("<tr>");   
+                                    out.println("<td  WIDTH= 150 HEIGHT= 25>");
+                                        out.println("No hay Datos");
+                                    out.println("</td>");
+                                    out.println("<td  WIDTH= 150 HEIGHT= 25>");
+                                        out.println("No hay Datos");
+                                    out.println("</td>");
+                                out.println("</tr>");
+                            }        
+                        out.println("</table>");
+                        out.println("</div>");
+                        
+                        out.println("<div id=Tabla2>");
+                        out.println("<table border=1>");   
+                            out.println("<tr>");   
+                                out.println("<td WIDTH= 150 HEIGHT= 25>Video</td>");
+                                out.println("<td WIDTH= 150 HEIGHT= 25>Usuario Propietario</td>");
+                            out.println("</tr>");
+                            if(Vus != null)
+                            {
+                                for(int i=0; i<Vus.size(); i++)
+                                {
+                                    out.println("<tr>");   
+                                        out.println("<td WIDTH= 150 HEIGHT= 25>");
+                                            out.println(Vus.get(i).getVideo());
+                                        out.println("</td>");
+                                        out.println("<td WIDTH= 150 HEIGHT= 25>");
+                                            out.println(Vus.get(i).getUsuario());
+                                        out.println("</td>");
+                                    out.println("</tr>");
+                                }
                             }
                             else
                             {

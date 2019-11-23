@@ -14,12 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DT.DTComentario;
-import logica.DT.DTValoracion;
-import logica.Fabrica;
-import logica.ISistema;
-import logica.Manejador;
-import logica.Usuario;
+
 
 /**
  *
@@ -88,7 +83,8 @@ public class MostrarVideoControles extends HttpServlet {
             out.println("<title>Servlet MostrarVideoControles</title>");            
             out.println("</head>");
             out.println("<body>");
-                servidor.Publicador service = new servidor.Publicador();
+                pkgWS.PublicadorService service = new pkgWS.PublicadorService();
+                pkgWS.Publicador port = service.getPublicadorPort();
 
                 Usuario infoLogueado = (Usuario) request.getSession().getAttribute("infoLogueado");
 
@@ -107,14 +103,14 @@ public class MostrarVideoControles extends HttpServlet {
                 if(BotonComentar1 != null)
                 {
                     out.print("Entra");
-                    Usuario Propie = service.buscarUsuarioPorVideo(BotonComent);
+                    Usuario Propie = port.buscarUsuarioPorVideo(BotonComent);
                     out.print(Propie.getNickname());
                       out.print(Comentario1);
                        out.print(infoLogueado.getNickname());
                    
                         out.print(BotonComentar1);
                     DTComentario dc = new DTComentario(Comentario1, infoLogueado.getNickname());
-                    service.comentarVideo(Propie.getNickname(), dc, BotonComent, 0);
+                    port.comentarVideo(Propie.getNickname(), dc, BotonComent, 0);
 
                 }
                 else
@@ -124,7 +120,7 @@ public class MostrarVideoControles extends HttpServlet {
                 {
                     out.print("Entra al sub");
                     out.println("<br>");
-                    Usuario Propie = service.buscarUsuarioPorVideo(BotonComent);
+                    Usuario Propie = port.buscarUsuarioPorVideo(BotonComent);
                      out.print(Propie.getNickname());
                      out.println("<br>");
                       out.print(Comentario);
@@ -135,7 +131,7 @@ public class MostrarVideoControles extends HttpServlet {
                         out.println("<br>");
                         out.print(BotonComent);
                     DTComentario dc = new DTComentario(Comentario, infoLogueado.getNickname());
-                    service.comentarVideo(Propie.getNickname(), dc, BotonComent, Integer.parseInt(BotonSub));
+                    port.comentarVideo(Propie.getNickname(), dc, BotonComent, Integer.parseInt(BotonSub));
 
                 }
                 else
@@ -143,25 +139,25 @@ public class MostrarVideoControles extends HttpServlet {
 
                 if(BotonAgregar != null)
                 {
-                    Usuario Propie = service.buscarUsuarioPorVideo(BotonComent);
-                    service.agregarVideoAlista(infoLogueado.getNickname(), BotonComent, Propie.getNickname(), ComboListas);
+                    Usuario Propie = port.buscarUsuarioPorVideo(BotonComent);
+                    port.agregarVideoAlista(infoLogueado.getNickname(), BotonComent, Propie.getNickname(), ComboListas);
 
                 }
 
                 if(BotonMG != null)
                 {
-                    Usuario Propie = service.buscarUsuarioPorVideo(BotonComent);
+                    Usuario Propie = port.buscarUsuarioPorVideo(BotonComent);
                     DTValoracion v;
                     v = new DTValoracion(true, infoLogueado.getNickname(), BotonComent);
-                    service.valorarVideo(Propie.getNickname(), BotonComent, v);     
+                    port.valorarVideo(Propie.getNickname(), BotonComent, v);     
                 }
 
                 if(BotonNMG != null)
                 {
-                    Usuario Propie = service.buscarUsuarioPorVideo(BotonComent);
+                    Usuario Propie = port.buscarUsuarioPorVideo(BotonComent);
                     DTValoracion v;
                     v = new DTValoracion(false, infoLogueado.getNickname(), BotonComent);
-                    service.valorarVideo(Propie.getNickname(), BotonComent, v);
+                    port.valorarVideo(Propie.getNickname(), BotonComent, v);
                 }
             out.println("</body>");
             out.println("</html>");

@@ -12,10 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DT.DTUsuario;
-import logica.Fabrica;
-import logica.ISistema;
-import logica.Manejador;
+
 
 /**
  *
@@ -36,8 +33,9 @@ public class verinfousuario extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         String nick = request.getParameter("dataname");
-        servidor.Publicador service = new servidor.Publicador();
-        DTUsuario u = service.getUserData(nick);
+        pkgWS.PublicadorService service = new pkgWS.PublicadorService();
+        pkgWS.Publicador port = service.getPublicadorPort();
+        DTUsuario u = port.getUserData(nick);
         if(u!=null){
             request.getSession().setAttribute("userConsult", u.getNickname());
             request.setAttribute("userInfo", u);

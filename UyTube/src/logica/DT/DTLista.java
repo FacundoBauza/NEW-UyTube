@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import logica.Lista;
 
 
-@XmlAccessorType(XmlAccessType.FIELD)
+
 public class DTLista {
     private String nombre;
     private boolean porDefecto;

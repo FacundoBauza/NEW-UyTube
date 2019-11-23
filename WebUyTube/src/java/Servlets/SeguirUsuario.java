@@ -12,10 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.Fabrica;
-import logica.ISistema;
-import logica.Sistema;
-import logica.Usuario;
+
 
 /**
  *
@@ -39,13 +36,13 @@ public class SeguirUsuario extends HttpServlet {
         
         PrintWriter out = response.getWriter();
         String user = (String) request.getSession().getAttribute("usuarioLogueado");
-        Usuario user_seguir = (Usuario) request.getSession().getAttribute("usuarioConsult");
+        pkgWS.Usuario user_seguir = (pkgWS.Usuario) request.getSession().getAttribute("usuarioConsult");
         if (user != null) { 
             if (user_seguir != null) {
                 String usuNickSeguir = user_seguir.getNickname();
                 if (!(user.equals(usuNickSeguir))) {
-                    servidor.Publicador service = new servidor.Publicador();
-                    service.seguirUsuario(user, usuNickSeguir);
+                    pkgWS.PublicadorService service = new pkgWS.PublicadorService();
+                    pkgWS.Publicador port = service.getPublicadorPort();
                     out.println("<html><body onload=\"alert('Ahora Sigues a: " + usuNickSeguir + "')\"></body></html>");
                     request.getRequestDispatcher("infoconsultausuario.jsp").forward(request, response);
                     //response.sendRedirect("infoconsultausuario.jsp");

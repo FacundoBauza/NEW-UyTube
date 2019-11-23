@@ -4,13 +4,10 @@
     Author     : Usuario
 --%>
 
-<%@page import="logica.Lista"%>
-<%@page import="logica.Manejador"%>
-<%@page import="logica.ISistema"%>
-<%@page import="logica.Video"%>
+
 <%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
-<%@page import="logica.Fabrica"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 

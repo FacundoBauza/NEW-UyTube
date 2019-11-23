@@ -13,11 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.Fabrica;
-import logica.ISistema;
-import logica.Lista;
-import logica.Manejador;
-import logica.Usuario;
+
 
 /**
  *
@@ -87,18 +83,19 @@ public class ModificarLista extends HttpServlet {
             out.println("<title>Servlet ModificarLista</title>");            
             out.println("</head>");
             out.println("<body>");
-            servidor.Publicador service = new servidor.Publicador();
+            pkgWS.PublicadorService service = new pkgWS.PublicadorService();
+            pkgWS.Publicador port = service.getPublicadorPort();
             String usuarioLogueado = (String) request.getSession().getAttribute("usuario");
             Usuario infoLogueado = (Usuario) request.getSession().getAttribute("infoLogueado");
             Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioConsult");
             String NomLis = request.getParameter("ComboLista");
             String Private = request.getParameter("ComboPrivacidad");
-            Lista L = service.buscarLista(NomLis, infoLogueado.getNickname());
+            Lista L = port.buscarLista(NomLis, infoLogueado.getNickname());
             out.println(NomLis+Private);
             if(Private.equals("Privado"))
-                service.modificarListaPart(infoLogueado.getNickname(), NomLis, L.getCategoria().getNombre(), true);        
+                port.modificarListaPart(infoLogueado.getNickname(), NomLis, L.getCategoria().getNombre(), true);        
             else     
-                service.modificarListaPart(infoLogueado.getNickname(), NomLis, L.getCategoria().getNombre(), false);
+                port.modificarListaPart(infoLogueado.getNickname(), NomLis, L.getCategoria().getNombre(), false);
 
 
             out.println("</body>");

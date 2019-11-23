@@ -8,8 +8,9 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import logica.Valoracion;
 import logica.Video;
 
-@XmlAccessorType(XmlAccessType.FIELD)
+
 public class DTVideo {
+   
     private String nombre;
     private String descripcion;
     private String duracion;
@@ -33,6 +34,7 @@ public class DTVideo {
     }
     
     public DTVideo(Video v){
+        
         this.nombre = v.getNombre();
         this.descripcion = v.getDescripcion();
         this.duracion = v.getDuracion();
@@ -120,6 +122,7 @@ public class DTVideo {
     public void setValoraciones(List<DTValoracion> valoraciones) {
         this.valoraciones = valoraciones;
     }
+    
     
     
 }

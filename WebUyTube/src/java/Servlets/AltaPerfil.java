@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import servidor.Publicador;
 import servidor.PublicadorService;
-import logica.DT.*;
+
 
 /**
  *
@@ -56,7 +56,6 @@ public class AltaPerfil extends HttpServlet {
             pkgWS.Publicador port = service.getPublicadorPort();
             
             
-            
             DTCanal c = new DTCanal(canal, descrcanal, priv, null, null); 
             //cargar imagen
             File fichero = new File(imagen);
@@ -67,7 +66,7 @@ public class AltaPerfil extends HttpServlet {
             date = simple.parse(fNac);
             
             DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, date, absolute, c, false);
-            //port.altaUsuario(arg0, arg1);
+            port.altaUsuario(u, c);
             
             
 

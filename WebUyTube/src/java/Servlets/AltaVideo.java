@@ -43,7 +43,10 @@ public class AltaVideo extends HttpServlet {
             if (privado == null) {
                 priv = false;
             }
-            DTVideo video = new DTVideo(nombre, descripcion, duracion, fecha, url, priv, categoria);
+            SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
+            Date date = null;
+            date = simple.parse(f);
+            DTVideo video = new DTVideo(nombre, descripcion, duracion, date, url, priv, categoria);
             PublicadorService service = new servidor.PublicadorService();
             Publicador port = service.getPublicadorPort();
             //port.altaVideo(video, "Gime");

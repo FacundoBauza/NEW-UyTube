@@ -12,12 +12,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import logica.DT.DTCanal;
-import logica.DT.DTUsuario;
-import logica.Fabrica;
-import logica.ISistema;
-import logica.Manejador;
-import logica.Sistema;
 
 @WebServlet(name = "ModificarUsuario", urlPatterns = {"/ModificarUsuario"})
 public class ModificarUsuario extends HttpServlet {
@@ -36,7 +30,8 @@ public class ModificarUsuario extends HttpServlet {
         
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            servidor.Publicador service = new servidor.Publicador();
+            pkgWS.PublicadorService service = new pkgWS.PublicadorService();
+            pkgWS.Publicador port = service.getPublicadorPort();
             String nickname = Login.getUsuarioLogueado(request).getNickname();//request.getParameter("nickname");
             String nombre = request.getParameter("Nombre");
             String apellido = request.getParameter("Apellido");
@@ -54,7 +49,7 @@ public class ModificarUsuario extends HttpServlet {
             Date date = null;
             date = simple.parse(fNac);
 
-            service.modificarUsuario(nickname, contrasenia, nombre, apellido, date, null, canal, descrcanal, priv);
+            port.modificarUsuario(nickname, contrasenia, nombre, apellido, date, null, canal, descrcanal, priv);
             //out.println("<html><body onload=\"alert ('Usuario Modificado')\"></body></html>");
            
            response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/homeLogIn.jsp");

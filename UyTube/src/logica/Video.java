@@ -119,6 +119,15 @@ public class Video {
     public void setValoraciones(List<Valoracion> valoraciones) {
         this.valoraciones = valoraciones;
     }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+    
     
     
     public void addComentario(Comentario comentario) {
@@ -136,7 +145,8 @@ public class Video {
             else 
                 return c.buscarComentario(id);
         return null;
-    }       
+    } 
+    
     
     public ArrayList<String> listaMG(){
         String nickname;
