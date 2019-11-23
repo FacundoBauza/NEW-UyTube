@@ -55,7 +55,7 @@ public class AltaPerfil extends HttpServlet {
             pkgWS.PublicadorService service = new pkgWS.PublicadorService();
             pkgWS.Publicador port = service.getPublicadorPort();
             
-            
+        
             DTCanal c = new DTCanal(canal, descrcanal, priv, null, null); 
             //cargar imagen
             File fichero = new File(imagen);

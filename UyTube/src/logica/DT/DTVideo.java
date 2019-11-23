@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import logica.Categoria;
 import logica.Valoracion;
 import logica.Video;
 
@@ -17,13 +18,13 @@ public class DTVideo {
     private Date fecha;
     private String url;
     private boolean privado;
-    private String categoria;
+    private Categoria categoria;
     private List<DTComentario> comentarios;
     private List<DTValoracion> valoraciones;
     
     public DTVideo(){}
 
-    public DTVideo(String nombre, String descripcion, String duracion, Date fecha, String url, boolean privado, String categoria) {
+    public DTVideo(String nombre, String descripcion, String duracion, Date fecha, String url, boolean privado, Categoria categoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.duracion = duracion;
@@ -41,7 +42,7 @@ public class DTVideo {
         this.fecha = v.getFecha();
         this.url = v.getUrl();
         this.privado = v.isPrivado();
-        this.categoria = v.getCategoria().getNombre();
+        this.categoria = v.getCategoria();
         List<DTValoracion> valoraciones = new ArrayList();
         if (v.getValoraciones() != null)
         for (Valoracion val : v.getValoraciones()){
@@ -55,7 +56,7 @@ public class DTVideo {
         return valoraciones;
     }
 
-    public String getCategoria() {
+    public Categoria getCategoria() {
         return categoria;
     }
 
@@ -111,7 +112,7 @@ public class DTVideo {
         this.privado = privado;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
     }
 

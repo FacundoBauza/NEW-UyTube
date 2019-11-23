@@ -12,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import pkgWS.Categoria;
 import servidor.Publicador;
 import servidor.PublicadorService;
 
@@ -37,7 +38,7 @@ public class AltaVideo extends HttpServlet {
             String duracion = request.getParameter("duracion");
             String f = request.getParameter("fecha");
             String url = request.getParameter("url");
-            String categoria = request.getParameter("ComboCat");
+            Categoria categoria = request.getParameter("ComboCat");
             String privado = request.getParameter("privado");
             Boolean priv = true;
             if (privado == null) {
@@ -46,6 +47,7 @@ public class AltaVideo extends HttpServlet {
             SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
             Date date = null;
             date = simple.parse(f);
+            //                   String nombre,  descripcion,  duracion, date, url, privado, categoria
             DTVideo video = new DTVideo(nombre, descripcion, duracion, date, url, priv, categoria);
             PublicadorService service = new servidor.PublicadorService();
             Publicador port = service.getPublicadorPort();

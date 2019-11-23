@@ -84,10 +84,9 @@ public class Sistema implements ISistema{
     public void altaVideo(DTVideo video, String usuario){
         Manejador m = Manejador.getinstance();
         Categoria cat = null;
-        if (video.getCategoria() != null)
-            cat = m.buscarCategoria(video.getCategoria());
+       
         Video v = new Video(video.getNombre(), video.getDescripcion(), video.getDuracion(),
-                video.getFecha(), video.getUrl(), video.isPrivado(), cat);
+                video.getFecha(), video.getUrl(), video.isPrivado(), video.getCategoria());
         Usuario u = m.buscarUsuario(usuario);
         Canal c = u.getCanal();
         c.addVideo(v);
@@ -117,7 +116,7 @@ public class Sistema implements ISistema{
         v.setFecha(video.getFecha());
         v.setUrl(video.getUrl());
         v.setPrivado(video.isPrivado());
-        v.setCategoria(m.buscarCategoria(video.getCategoria()));
+        v.setCategoria(m.buscarCategoria(video.getCategoria().getNombre()));
         
         tx.begin();
         em5.merge(v);
@@ -281,7 +280,7 @@ public class Sistema implements ISistema{
         Video v = canal.buscarVideo(video);
         
         return new DTVideo (v.getNombre(), v.getDescripcion(), v.getDuracion(), v.getFecha(), v.getUrl(), 
-                v.isPrivado(), v.getCategoria().getNombre());  
+                v.isPrivado(), v.getCategoria());  
     }    
         
 

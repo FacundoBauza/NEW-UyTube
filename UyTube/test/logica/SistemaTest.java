@@ -290,8 +290,9 @@ public class SistemaTest {
         Date fecha = new Date();
         String url="urlVideo";
         boolean privado= true;
-        String categoria = "nombreCategoria";
-        DTVideo video = new DTVideo ( nombre, descripcion, duracion, fecha, url, privado, categoria);
+        Categoria categoria1 = null;
+        
+        DTVideo video = new DTVideo ( nombre, descripcion, duracion, fecha, url, privado, categoria1);
         
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();
@@ -320,8 +321,8 @@ public class SistemaTest {
         Date fecha = new Date();
         String url="urlVideo2";
         boolean privado= true;
-        String categoria = "nombreCategoria2";
-        DTVideo video = new DTVideo ( nombre, descripcion, duracion, fecha, url, privado, categoria);
+        Categoria categoria2 = null;
+        DTVideo video = new DTVideo ( nombre, descripcion, duracion, fecha, url, privado, categoria2);
         
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();

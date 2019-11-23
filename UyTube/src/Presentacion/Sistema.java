@@ -28,6 +28,7 @@ import logica.Manejador;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+import logica.Categoria;
 import logica.Comentario;
 import logica.DT.DTComentario;
 import logica.Lista;
@@ -2436,7 +2437,7 @@ public class Sistema extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Campos vacios", "Error", JOptionPane.ERROR_MESSAGE);
             else{
             DTVideo video = new DTVideo (EntradaNomVid.getText(), DescVideo.getText(), duracion, jDateChooserAltaVideo.getDate() , 
-                    EntradaURLVid.getText(), priv, CategoriaComboBox.getSelectedItem().toString());
+                    EntradaURLVid.getText(), priv, (Categoria) CategoriaComboBox.getSelectedItem());
             s.altaVideo(video, UsuarioComboBox1.getSelectedItem().toString());
             JOptionPane.showMessageDialog(this, "Video creado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
             EntradaNomVid.setText("");
@@ -2646,7 +2647,7 @@ public class Sistema extends javax.swing.JFrame {
                 CambioDuracion.setText(video.getDuracion());
             if(video.getFecha() != null)
                 cambioFecha.setDate(video.getFecha());
-            if (video.getCategoria().isEmpty() || video.getCategoria() == null)
+            if (video.getCategoria() == null)
                 CambioCategorias.setSelectedIndex(0);
             else
                 CambioCategorias.setSelectedItem(video.getCategoria());
@@ -2738,7 +2739,7 @@ public class Sistema extends javax.swing.JFrame {
     
     private void confirmarCambiosVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarCambiosVideoActionPerformed
         DTVideo video = new DTVideo(CambioNombre.getText(), CambioDescrip.getText(), DuracionVideo.getText(), cambioFecha.getDate(), 
-                CambioUrrl.getText(), PrivadoCheck.isSelected(), CambioCategorias.getSelectedItem().toString());
+                CambioUrrl.getText(), PrivadoCheck.isSelected(), (Categoria) CambioCategorias.getSelectedItem());
         s.modificarVideo(video, usuarioValora1.getSelectedItem().toString(), ListaVideos.getSelectedValue());
         JOptionPane.showMessageDialog(this, "Video modificado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_confirmarCambiosVideoActionPerformed
@@ -2855,7 +2856,7 @@ public class Sistema extends javax.swing.JFrame {
                 CambioDuracion.setText(video.getDuracion());
             if(video.getFecha() != null)
                 cambioFecha.setDate(video.getFecha());
-            if (video.getCategoria().isEmpty() || video.getCategoria() == null)
+            if (video.getCategoria() == null)
                 CambioCategorias.setSelectedIndex(0);
             else
                 CambioCategorias.setSelectedItem(video.getCategoria());
@@ -3356,7 +3357,7 @@ public class Sistema extends javax.swing.JFrame {
                 CambioDuracion.setText(video.getDuracion());
             if(video.getFecha() != null)
                 cambioFecha.setDate(video.getFecha());
-            if (video.getCategoria().isEmpty() || video.getCategoria() == null)
+            if (video.getCategoria() == null)
                 CambioCategorias.setSelectedIndex(0);
             else
                 CambioCategorias.setSelectedItem(video.getCategoria());
