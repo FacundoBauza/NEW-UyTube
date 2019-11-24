@@ -13,13 +13,12 @@ import java.util.List;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletResponse;
-import logica.Fabrica;
-import logica.ISistema;
 import logica.Manejador;
 import logica.Video;
 
@@ -110,26 +109,30 @@ public class CompartirVideo implements Filter {
         }
         
         String cod = request.getParameter("cod");
-        System.out.print(cod);
-        int codigo = Integer.parseInt(cod);
-        System.out.print(codigo);
-        Manejador m = Manejador.getinstance();
-        List <Video> videos = m.getVideos();
-        String nomVideo = null;
-        for (Video v : videos){
-            if (v.getId().equals(codigo))
-                nomVideo = v.getNombre();
-        }        
-        
-        System.out.print(nomVideo);
-        
         HttpServletResponse httpResponse = (HttpServletResponse) response;
-            
-        //if (nomVideo != null)
-            httpResponse.sendRedirect("/WebUyTube/MostVideo?NomVid="+nomVideo+"?"+cod+"?"+codigo);
-        //else
-        //    httpResponse.sendRedirect("index.jsp");
         
+        if (cod != null){
+            int codigo = Integer.parseInt(cod);
+            Manejador m = Manejador.getinstance();
+            List <Video> videos = m.getVideos();
+            //String nomVideo = null;
+            Video v = null; // = (Video) videos.get(codigo-1);
+            //String nomVideo = v.getNombre();
+            for(int i=0; i<videos.size(); i++){
+                if(videos.get(i).getId() == codigo)
+                    v = videos.get(i);
+            }
+            if (v != null){
+                String nomVideo = v.getNombre();
+                httpResponse.sendRedirect("/WebUyTube/MostVideo?NomVid="+nomVideo);
+            }
+            else
+                httpResponse.sendRedirect("index.jsp");
+        }
+        else{
+            httpResponse.sendRedirect("index.jsp");
+            return;
+        }
         
         Throwable problem = null;
         try {

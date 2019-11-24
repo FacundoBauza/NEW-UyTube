@@ -15,6 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 import servidor.Publicador;
 import servidor.PublicadorService;
 
+//Para probar con el jar
+import logica.DT.DTVideo;
+
 @WebServlet(name = "AltaVideo", urlPatterns = {"/AltaVideo"})
 public class AltaVideo extends HttpServlet {
 
@@ -43,7 +46,7 @@ public class AltaVideo extends HttpServlet {
             if (privado == null) {
                 priv = false;
             }
-            DTVideo video = new DTVideo(nombre, descripcion, duracion, fecha, url, priv, categoria);
+            DTVideo video = new DTVideo(nombre, descripcion, duracion, f, url, priv, categoria);
             PublicadorService service = new servidor.PublicadorService();
             Publicador port = service.getPublicadorPort();
             //port.altaVideo(video, "Gime");

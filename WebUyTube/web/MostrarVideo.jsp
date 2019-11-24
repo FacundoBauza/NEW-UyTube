@@ -76,7 +76,7 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="MiPerfil">Mi perfil</a>
-                            <a class="dropdown-item" href="#">Modificar datos de usuario</a>
+                            <a class="dropdown-item" href="ModificarUsuario">Modificar datos de usuario</a>
                             <a class="dropdown-item" href="#">Darse de baja</a>
                             <a class="dropdown-item" href="Logout">Cerrar sesión</a>
                         </div>
@@ -100,6 +100,8 @@
             {
                 if(Vid.get(i).getNombre().equals(request.getAttribute("Nombre")))
                 {
+                    Long codigo = Vid.get(i).getId();
+                    String link = "http://localhost:8080/WebUyTube/uytube?cod=" + codigo;
                     %>
                     <centre>                        
                     <video contextmenu contenteditable controls src="<%=Vid.get(i).getUrl()%>" style="width: 650px; height: 370px;border: 5px solid black; margin: 15px"></video>
@@ -107,6 +109,8 @@
                     <form action="MostVideoControl" method="POST">   
                         <input class="btn btn-primary" type="submit" name="BotonMG" value="Me Gusta" id="BotonCatego" style='width:150px; height:30px'>
                         <input class="btn btn-primary" type="submit" name="BotonNMG" value="No me Gusta" id="BotonCatego" style='width:150px; height:30px'>
+                        <input class="btn btn-primary" name="BotonCompartir" value="Compartir" id="BotonCompartir" style='width:150px; height:30px' onclick= "myFunction()" >
+                        <input type="text" id="linkCompartir" class="form-control" name='linkCompartir' style="display:none" value=<%out.println(link);%> >
                         <%   
                         if(infoLogueado != null)
                         {
@@ -237,6 +241,12 @@
                     </form>
                     </div>     
                     </centre>
+                        
+                        <script>
+                            function myFunction() {
+                                document.getElementById("linkCompartir").style.display = "block";
+                            }
+                        </script>
                     <%
                 }
             }

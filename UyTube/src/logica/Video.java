@@ -44,6 +44,19 @@ public class Video {
         this.valoraciones = new ArrayList();
     }
     
+    public Video(Long id, String nombre, String descripcion, String duracion, Date fecha, String url, boolean privado, Categoria categoria) {
+        this.id = id;
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.duracion = duracion;
+        this.fecha = fecha;
+        this.url = url;
+        this.privado = privado;
+        this.categoria = categoria;
+        this.comentarios = new ArrayList();
+        this.valoraciones = new ArrayList();
+    }
+    
     public Video() {
         
     }
@@ -183,6 +196,10 @@ public class Video {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
     
     

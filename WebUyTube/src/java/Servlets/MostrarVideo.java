@@ -38,6 +38,7 @@ public class MostrarVideo extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
@@ -47,6 +48,13 @@ public class MostrarVideo extends HttpServlet {
             out.println("<h1>Servlet MostrarVideo at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
+            
+            
+            String NomVid = request.getParameter("NomVid");  
+        request.setAttribute("Nombre", NomVid);
+       
+        RequestDispatcher rd = request.getRequestDispatcher("MostrarVideo.jsp");
+        rd.forward(request, response);
         }
     }
 
