@@ -16,8 +16,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import servidor.Publicador;
-import servidor.PublicadorService;
+
 
 
 /**
@@ -51,11 +50,10 @@ public class AltaPerfil extends HttpServlet {
                 priv = false;
             }
         
+            servidor.PublicadorService service = new servidor.PublicadorService();
+            servidor.Publicador port = service.getPublicadorPort();
             
-            pkgWS.PublicadorService service = new pkgWS.PublicadorService();
-            pkgWS.Publicador port = service.getPublicadorPort();
             
-        
             DTCanal c = new DTCanal(canal, descrcanal, priv, null, null); 
             //cargar imagen
             File fichero = new File(imagen);

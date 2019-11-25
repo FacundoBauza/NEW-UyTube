@@ -34,7 +34,7 @@ public class CheckMail extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         String mail = request.getParameter("mail");
         
-        PublicadorService service = new pkgWS.PublicadorService();
+        PublicadorService service = new PublicadorService();
         Publicador port = service.getPublicadorPort();
         if(mail.equals("")){
             response.setContentType("text/plain");

@@ -9,7 +9,7 @@ import logica.Categoria;
 import logica.Valoracion;
 import logica.Video;
 
-
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DTVideo {
    
     private String nombre;

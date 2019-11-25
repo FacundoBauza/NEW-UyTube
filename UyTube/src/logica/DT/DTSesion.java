@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
  * @author Usuario
  */
 
-
+@XmlAccessorType(XmlAccessType.FIELD)
 public class DTSesion {
 
     private String nick;
