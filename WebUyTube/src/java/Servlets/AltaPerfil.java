@@ -5,6 +5,8 @@
  */
 package Servlets;
 
+import WSDL_generado.Publicador;
+import WSDL_generado.PublicadorService;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -53,8 +55,8 @@ public class AltaPerfil extends HttpServlet {
             File fichero = new File(imagen);
             String absolute = fichero.getAbsolutePath();
         
-            WSDL_generado.PublicadorService service = new WSDL_generado.PublicadorService();
-            WSDL_generado.Publicador port = service.getPublicadorPort();
+            PublicadorService service = new WSDL_generado.PublicadorService();
+            Publicador port = service.getPublicadorPort();
             //DtCanal c = new DtCanal(canal, descrcanal, priv, null, null); 
             
         WSDL_generado.DtUsuario dtusu = port.seteando(nickname, contrasenia, nombre, apellido, email, absolute, null, false);
@@ -72,7 +74,7 @@ public class AltaPerfil extends HttpServlet {
             
 
             out.println("<html><body onload=\"alert ('Usuario Creado')\"></body></html>");
-            response.sendRedirect("http://localhost:8084/WebUyTube/login.jsp");
+            response.sendRedirect("http://localhost:8080/WebUyTube/login.jsp");
 
         }
     }

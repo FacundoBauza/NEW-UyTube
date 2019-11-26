@@ -5,6 +5,8 @@
  */
 package Servlets;
 
+import WSDL_generado.Publicador;
+import WSDL_generado.PublicadorService;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -31,7 +33,8 @@ public class CheckNick extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         String nick = request.getParameter("nick");
-        
+        PublicadorService service = new WSDL_generado.PublicadorService();
+        Publicador port = service.getPublicadorPort();
         
         if(nick.equals("")){
             response.setContentType("text/plain");

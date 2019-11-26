@@ -51,7 +51,7 @@ public class ModificarUsuario extends HttpServlet {
             port.modificarUsuario(nickname, contrasenia, nombre, apellido, date, null, canal, descrcanal, priv);
             //out.println("<html><body onload=\"alert ('Usuario Modificado')\"></body></html>");
            
-           response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/homeLogIn.jsp");
+           response.setHeader("Refresh", "0; URL=http://localhost:8080/WebUyTube/homeLogIn.jsp");
         }
 
     }

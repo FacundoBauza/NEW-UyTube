@@ -5,6 +5,8 @@
  */
 package Servlets;
 
+import WSDL_generado.Publicador;
+import WSDL_generado.PublicadorService;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author
+ * @author Usuario
  */
 @WebServlet(name = "AltaP", urlPatterns = {"/AltaP"})
 public class AltaP extends HttpServlet {
@@ -51,9 +53,12 @@ public class AltaP extends HttpServlet {
             //cargar imagen
             File fichero = new File(imagen);
             String absolute = fichero.getAbsolutePath();
-        
-            WSDL_generado.PublicadorService service = new WSDL_generado.PublicadorService();
-            WSDL_generado.Publicador port = service.getPublicadorPort();
+            
+            //PublicadorService service = new pkgWS.PublicadorService();
+            //Publicador ICU = service.getPublicadorPort();
+            
+            PublicadorService service = new WSDL_generado.PublicadorService();
+            Publicador port = service.getPublicadorPort();
             WSDL_generado.DtCanal c = new WSDL_generado.DtCanal(); 
             c.setDesc(descrcanal);
             c.setNombre(canal);
@@ -75,7 +80,7 @@ public class AltaP extends HttpServlet {
             
 
             out.println("<html><body onload=\"alert ('Usuario Creado')\"></body></html>");
-            response.sendRedirect("http://localhost:8084/WebUyTube/login.jsp");
+            response.sendRedirect("http://localhost:8080/WebUyTube/login.jsp");
 
         
         }
