@@ -14,11 +14,11 @@ import javax.swing.JFileChooser;
 import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTree;
-import logica.DT.DTCanal;
+import logica.DT.DtCanal;
 import logica.DT.DTCategoria;
 import logica.DT.DTLista;
 import logica.DT.DTListaUsuario;
-import logica.DT.DTUsuario;
+import logica.DT.DtUsuario;
 import logica.DT.DTValoracion;
 import logica.DT.DTVideo;
 import logica.DT.DTVideoUsuario;
@@ -39,7 +39,7 @@ public class Sistema extends javax.swing.JFrame {
 
     public ISistema s = null;
     public Manejador m = null;
-    public DTUsuario usuarioSeleccionado;
+    public DtUsuario usuarioSeleccionado;
     public Usuario UsuarioActual;
     public String videoSeleccionado;
     
@@ -90,17 +90,17 @@ public class Sistema extends javax.swing.JFrame {
     
     
     /*private void cargarUsuarios(){
-        DTUsuario u = new DTUsuario("gime","1234", "Gimena", "Deleon", "gime@gmail", new Date(), "", "");
-        DTCanal canal = new DTCanal("canal", "desc", false, null, null);
+        DtUsuario u = new DtUsuario("gime","1234", "Gimena", "Deleon", "gime@gmail", new Date(), "", "");
+        DtCanal canal = new DtCanal("canal", "desc", false, null, null);
         s.altaUsuario(u, canal);
-        u = new DTUsuario("fede","1234", "Federico", "Diaz", "fede@gmail", new Date(), "", "");
-        canal = new DTCanal("nombreCanal", "desc", false, null, null);
+        u = new DtUsuario("fede","1234", "Federico", "Diaz", "fede@gmail", new Date(), "", "");
+        canal = new DtCanal("nombreCanal", "desc", false, null, null);
         s.altaUsuario(u, canal);
-        u = new DTUsuario("kuki","1234", "Eugenia", "Cabrera", "kuki@gmail", new Date(), "", "");
-        canal = new DTCanal("canalKuki", "desc", false, null, null);
+        u = new DtUsuario("kuki","1234", "Eugenia", "Cabrera", "kuki@gmail", new Date(), "", "");
+        canal = new DtCanal("canalKuki", "desc", false, null, null);
         s.altaUsuario(u, canal);
-        u = new DTUsuario("Facu95","FacundoBauza25", "Facundo", "Bauza", "fbauza2014@gmail.com", new Date(), "", "");
-        canal = new DTCanal("El Facu0", "lo que sea", false, null, null);
+        u = new DtUsuario("Facu95","FacundoBauza25", "Facundo", "Bauza", "fbauza2014@gmail.com", new Date(), "", "");
+        canal = new DtCanal("El Facu0", "lo que sea", false, null, null);
         s.altaUsuario(u, canal);
     }*/
     
@@ -2168,7 +2168,7 @@ public class Sistema extends javax.swing.JFrame {
         ConsultaLista.setVisible(false);
 
         DefaultListModel model = new DefaultListModel();
-        for(DTUsuario u : m.getUsuarios()){
+        for(DtUsuario u : m.getUsuarios()){
             model.addElement(u.getNickname());
         }
         ListaUsuarios.setModel(model);
@@ -2197,7 +2197,7 @@ public class Sistema extends javax.swing.JFrame {
         ConsultaLista.setVisible(false);
         
         DefaultListModel model = new DefaultListModel();
-        for(DTUsuario u : m.getUsuarios()){
+        for(DtUsuario u : m.getUsuarios()){
             model.addElement(u.getNickname());
         }
         ListaUsuarios.setModel(model);
@@ -2286,7 +2286,7 @@ public class Sistema extends javax.swing.JFrame {
 
         UsuarioComboBox1.removeAllItems();
         CategoriaComboBox.removeAllItems();
-        for (DTUsuario u : m.getUsuarios()){
+        for (DtUsuario u : m.getUsuarios()){
             UsuarioComboBox1.addItem(u.getNickname());
         }
         for (DTCategoria c : m.getCategorias())
@@ -2312,12 +2312,12 @@ public class Sistema extends javax.swing.JFrame {
         ConsultaLista.setVisible(false);
 
         //item menu consultar/modificar Video
-        List<DTUsuario> Us = m.getUsuarios();
+        List<DtUsuario> Us = m.getUsuarios();
         for(int i=0; i<Us.size(); i++)
             usuarioValora1.addItem(Us.get(i).getNickname());
         
        /* DefaultListModel model = new DefaultListModel();
-        for (DTUsuario u : m.getUsuarios()){
+        for (DtUsuario u : m.getUsuarios()){
             model.addElement(u.getNickname());
         }
         ListaUsuarios.setModel(model);*/
@@ -2349,7 +2349,7 @@ public class Sistema extends javax.swing.JFrame {
 
         UsuarioComboBox.removeAllItems();
         ComboBoxCategoria.removeAllItems();
-        for (DTUsuario u : m.getUsuarios()){
+        for (DtUsuario u : m.getUsuarios()){
             UsuarioComboBox.addItem(u.getNickname());
         }
         for (DTCategoria c : m.getCategorias()){
@@ -2762,7 +2762,7 @@ public class Sistema extends javax.swing.JFrame {
         
         ASeguir.removeAllItems();
         List<String> seguidos = this.usuarioSeleccionado.getSeguidos();
-        for (DTUsuario u : m.getUsuarios()){
+        for (DtUsuario u : m.getUsuarios()){
             if (seguidos.contains(u.getNickname()) == false && !u.equals(this.usuarioSeleccionado.getNickname()))
             ASeguir.addItem(u.getNickname());
         }
@@ -2887,7 +2887,7 @@ public class Sistema extends javax.swing.JFrame {
             ListaNoMeGusta.setModel(model2);
             
             usuarioValora.removeAllItems();
-            List<DTUsuario> Us = m.getUsuarios();
+            List<DtUsuario> Us = m.getUsuarios();
             for(int i=0; i<Us.size(); i++)
                 usuarioValora.addItem(Us.get(i).getNickname());
             
@@ -3259,7 +3259,7 @@ public class Sistema extends javax.swing.JFrame {
         ConsultaLista.setVisible(true);
 
         DefaultListModel model = new DefaultListModel();
-        for (DTUsuario u : m.getUsuarios()){
+        for (DtUsuario u : m.getUsuarios()){
             model.addElement(u.getNickname());
         }
         ListaUsuarios.setModel(model);
@@ -3418,18 +3418,18 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_EntradaContraseniaActionPerformed
 
     private void RegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroActionPerformed
-        DTCanal canal;
+        DtCanal canal;
         boolean Priva;
        
         if(EntradaNomCanal.getText().length() == 0)
         {
             Priva = true;
-            canal = new DTCanal(EntradaNombre.getText(), EntradaDescripcionCanal.getText(), Priva, null, null);
+            canal = new DtCanal(EntradaNombre.getText(), EntradaDescripcionCanal.getText(), Priva, null, null);
         }
         else
-        canal = new DTCanal(EntradaNomCanal.getText(), EntradaDescripcionCanal.getText(), BotonPrivado.isSelected(), null, null);
+        canal = new DtCanal(EntradaNomCanal.getText(), EntradaDescripcionCanal.getText(), BotonPrivado.isSelected(), null, null);
 
-        DTUsuario usuario = new DTUsuario(EntradaNick.getText(),EntradaContrasenia.getText() , EntradaNombre.getText(), EntradaApellido.getText(),
+        DtUsuario usuario = new DtUsuario(EntradaNick.getText(),EntradaContrasenia.getText() , EntradaNombre.getText(), EntradaApellido.getText(),
             EntradaCorreoEl.getText(), Fecha.getDate(), CuadroImagen.getText(), canal, false);
         if(!EntradaNick.getText().equals("") && !EntradaCorreoEl.getText().equals("")){
             if(m.nicknameLibre(EntradaNick.getText())){

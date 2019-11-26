@@ -49,22 +49,25 @@ public class AltaPerfil extends HttpServlet {
             if (privado == null) {
                 priv = false;
             }
-        
-            servidor.PublicadorService service = new servidor.PublicadorService();
-            servidor.Publicador port = service.getPublicadorPort();
-            
-            
-            DTCanal c = new DTCanal(canal, descrcanal, priv, null, null); 
             //cargar imagen
             File fichero = new File(imagen);
             String absolute = fichero.getAbsolutePath();
+        
+            WSDL_generado.PublicadorService service = new WSDL_generado.PublicadorService();
+            WSDL_generado.Publicador port = service.getPublicadorPort();
+            //DtCanal c = new DtCanal(canal, descrcanal, priv, null, null); 
             
-            SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
-            Date date = null;
-            date = simple.parse(fNac);
+        WSDL_generado.DtUsuario dtusu = port.seteando(nickname, contrasenia, nombre, apellido, email, absolute, null, false);
+        
+            port.altaUsuario(dtusu, null);
             
-            DTUsuario u = new DTUsuario(nickname, contrasenia, nombre, apellido, email, date, absolute, c, false);
-            port.altaUsuario(u, c);
+            
+//            SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
+//            Date date = null;
+//            date = simple.parse(fNac);
+            
+            //DtUsuario u = new DtUsuario(nickname, contrasenia, nombre, apellido, email, null, absolute, c, false);
+            //port.altaUsuario(u, c);
             
             
 

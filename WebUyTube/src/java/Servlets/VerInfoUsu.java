@@ -32,8 +32,7 @@ public class VerInfoUsu extends HttpServlet {
         response.setContentType("text/html");  
         PrintWriter out=response.getWriter();
         String nick = request.getParameter("dataname");
-        pkgWS.PublicadorService service = new pkgWS.PublicadorService();
-        pkgWS.Publicador port = service.getPublicadorPort();
+        
         Usuario usuario = port.buscarUsuario(nick);
         if(usuario!=null){
             HttpSession session = request.getSession();

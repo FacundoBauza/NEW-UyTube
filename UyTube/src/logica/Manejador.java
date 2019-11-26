@@ -10,10 +10,10 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-import logica.DT.DTCanal;
+import logica.DT.DtCanal;
 import logica.DT.DTCategoria;
 import logica.DT.DTSesion;
-import logica.DT.DTUsuario;
+import logica.DT.DtUsuario;
 
 
 public class Manejador {
@@ -45,17 +45,17 @@ public class Manejador {
         return aux;
     }
     
-    public List<DTUsuario> getUsuarios() {
+    public List<DtUsuario> getUsuarios() {
         EntityManager em = Manejador.getEntityManager();
         Query query = Manejador.getEntityManager().createQuery("select u from Usuario u");
 
         List<Usuario> aux = (List<Usuario>) query.getResultList();
         
-        ArrayList<DTUsuario> result = new ArrayList<DTUsuario>();
+        ArrayList<DtUsuario> result = new ArrayList<DtUsuario>();
         
         aux.forEach(x -> {
-            DTCanal canal = new DTCanal(x.getCanal());
-            result.add(new DTUsuario(x.getNickname(),x.getContrasenia(), x.getNombre(), x.getApellido(), x.getEmail(), x.getFechaNac(), x.getImagen(), canal, x.getEliminado()));
+            DtCanal canal = new DtCanal(x.getCanal());
+            result.add(new DtUsuario(x.getNickname(),x.getContrasenia(), x.getNombre(), x.getApellido(), x.getEmail(), x.getFechaNac(), x.getImagen(), canal, x.getEliminado()));
         });
         
         return result;
@@ -403,14 +403,14 @@ public class Manejador {
         return ret;
     }
     
-    public DTUsuario getUserData(String identificador) {
-        DTUsuario ret = null;
+    public DtUsuario getUserData(String identificador) {
+        DtUsuario ret = null;
         Usuario u;
         Iterator it = usuarios.iterator();
         while(it.hasNext()){
             u =(Usuario) it.next();
             if(u.getNickname().equals(identificador) || u.getEmail().equals(identificador)){
-                ret=new DTUsuario(u);
+                ret=new DtUsuario(u);
                 break;
             }            
         }        

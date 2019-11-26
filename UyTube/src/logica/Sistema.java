@@ -8,13 +8,13 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
-import logica.DT.DTCanal;
+import logica.DT.DtCanal;
 import logica.DT.DTCategoria;
 import logica.DT.DTComentario;
 import logica.DT.DTLista;
 import logica.DT.DTListaUsuario;
 import logica.DT.DTSesion;
-import logica.DT.DTUsuario;
+import logica.DT.DtUsuario;
 import logica.DT.DTValoracion;
 import logica.DT.DTVideo;
 import logica.DT.DTVideoUsuario;
@@ -23,8 +23,10 @@ public class Sistema implements ISistema{
 
     public Sistema() {
     }
+    
+    
     @Override
-    public void altaUsuario(DTUsuario u, DTCanal c){
+    public void altaUsuario(DtUsuario u, DtCanal c){
         List<Lista> listas = new ArrayList();
         Manejador m = Manejador.getinstance();
         List<String> listasNombres = m.getListasPorDefecto();
@@ -43,11 +45,11 @@ public class Sistema implements ISistema{
         
     }
     
-    public DTUsuario consultaUsuario(String nickname){
+    public DtUsuario consultaUsuario(String nickname){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(nickname);
         if (u!= null)
-            return new DTUsuario(u);
+            return new DtUsuario(u);
                      
         else
             return null;
@@ -145,7 +147,7 @@ public class Sistema implements ISistema{
         Categoria cat = m.buscarCategoria(lista.getCategoria());
         Lista list = m.buscarLista(lista.getNombre(), usuario);
         if(list == null){
-            List<DTUsuario> l1 = m.getUsuarios();
+            List<DtUsuario> l1 = m.getUsuarios();
             
             for(int x=0; x<l1.size(); x++)
             {
@@ -238,7 +240,7 @@ public class Sistema implements ISistema{
     public List<DTVideoUsuario> consultaVideosPorCategoria(String categoria){
         Manejador m = Manejador.getinstance();
         List <DTVideoUsuario> listaVideos = new ArrayList();
-        for (DTUsuario usu : m.getUsuarios()){
+        for (DtUsuario usu : m.getUsuarios()){
             Usuario u = m.buscarUsuario(usu.getNickname());
             for(Video v : u.getCanal().getVideos()){
                 if (v.getCategoria().getNombre().equals(categoria)){
@@ -257,7 +259,7 @@ public class Sistema implements ISistema{
     public List<DTListaUsuario> consultaListasPorCategoria(String categoria){
         Manejador m = Manejador.getinstance();
         List <DTListaUsuario> listaListas = new ArrayList();
-        for (DTUsuario usu : m.getUsuarios()){
+        for (DtUsuario usu : m.getUsuarios()){
             Usuario u = m.buscarUsuario(usu.getNickname());
             for(Lista l : u.getCanal().getListas()){
                 if (l.getCategoria().getNombre().equals(categoria)){

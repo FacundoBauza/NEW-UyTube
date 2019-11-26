@@ -30,8 +30,7 @@ public class ModificarVideo extends HttpServlet {
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-            pkgWS.PublicadorService service = new pkgWS.PublicadorService();
-            pkgWS.Publicador port = service.getPublicadorPort();
+            
             String nomVideo = request.getParameter("nomVideo");
             String nombre = request.getParameter("nombre");
             String descripcion = request.getParameter("descripcion");

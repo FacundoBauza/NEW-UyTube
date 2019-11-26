@@ -83,8 +83,7 @@ public class ModificarLista extends HttpServlet {
             out.println("<title>Servlet ModificarLista</title>");            
             out.println("</head>");
             out.println("<body>");
-            pkgWS.PublicadorService service = new pkgWS.PublicadorService();
-            pkgWS.Publicador port = service.getPublicadorPort();
+            
             String usuarioLogueado = (String) request.getSession().getAttribute("usuario");
             Usuario infoLogueado = (Usuario) request.getSession().getAttribute("infoLogueado");
             Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioConsult");

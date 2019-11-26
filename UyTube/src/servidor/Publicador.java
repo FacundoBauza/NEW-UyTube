@@ -30,7 +30,7 @@ public class Publicador {
 //Operaciones las cuales quiero publicar
     @WebMethod(exclude = true)
     public void publicar(){
-         endpoint = Endpoint.publish("http://localhost:1234/publicador", this);   //ipkuki 192.168.1.52
+         endpoint = Endpoint.publish("http://192.168.0.150:1234/publicador", this);   //ipkuki 192.168.1.52
     }
     
     @WebMethod(exclude = true)
@@ -40,15 +40,22 @@ public class Publicador {
     
     
     //funciones del sistema
+    
     @WebMethod
-    public void altaUsuario(DTUsuario u, DTCanal c){
+    public DtUsuario seteando(String nickname, String contrasenia, String nombre, String apellido, String email, String imagen, DtCanal canal, boolean Eliminado){
+    DtUsuario usu = new DtUsuario();
+    usu.seteando(nickname, contrasenia, nombre, apellido, email, imagen, canal, Eliminado);
+    return usu;
+    }
+    @WebMethod
+    public void altaUsuario(DtUsuario u, DtCanal c){
         
         ISistema s = new Sistema();
         s.altaUsuario(u, c);
     }
    
     @WebMethod
-    public DTUsuario consultaUsuario(String nickname){
+    public DtUsuario consultaUsuario(String nickname){
         ISistema s = new Sistema();
         return s.consultaUsuario(nickname);
     }
@@ -219,7 +226,7 @@ public class Publicador {
     }
     
     @WebMethod
-    public ArrayList<DTUsuario> getUsuarios() {
+    public ArrayList<DtUsuario> getUsuarios() {
         Manejador m = new Manejador();
         return (ArrayList)m.getUsuarios();
     }
@@ -339,7 +346,7 @@ public class Publicador {
     }
     
     @WebMethod
-    public DTUsuario getUserData(String identificador) {
+    public DtUsuario getUserData(String identificador) {
         Manejador m = new Manejador();
         return m.getUserData(identificador);
     }
@@ -353,52 +360,52 @@ public class Publicador {
     
     //////////////////////Funciones que no retornan nada, solo para incluir los .java
     @WebMethod
-    public DTCanal dtCanal(){
+    public DtCanal DtCanal(){
         return null;
     }
     
     @WebMethod
-    public DTCategoria dtCategoria(){
+    public DTCategoria DtCategoria(){
         return null;
     }
     
     @WebMethod
-    public DTComentario dtComentario(){
+    public DTComentario DtComentario(){
         return null;
     }
     
     @WebMethod
-    public DTLista dtLista(){
+    public DTLista DtLista(){
         return null;
     }
     
     @WebMethod
-    public DTListaUsuario dtListaUsuario(){
+    public DTListaUsuario DtListaUsuario(){
         return null;
     }
     
     @WebMethod
-    public DTSesion dtSesion(){
+    public DTSesion DtSesion(){
         return null;
     }
     
     @WebMethod
-    public DTUsuario dtUsuario(){
+    public DtUsuario DtUsuario(){
         return null;
     }
     
     @WebMethod
-    public DTValoracion dtValoracion(){
+    public DTValoracion DtValoracion(){
         return null;
     }
     
     @WebMethod
-    public DTVideo dtVideo(){
+    public DTVideo DtVideo(){
         return null;
     }
     
     @WebMethod
-    public DTVideoUsuario dtVideoUsuario(){
+    public DTVideoUsuario DtVideoUsuario(){
         return null;
     }
 }

@@ -5,23 +5,21 @@
  */
 package Servlets;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
-import static java.lang.System.out;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
 /**
  *
- * @author visua
+ * @author Usuario
  */
-@WebServlet(name = "ListCat", urlPatterns = {"/ListCat"})
-public class ListarCategoria extends HttpServlet {
+@WebServlet(name = "AltaP", urlPatterns = {"/AltaP"})
+public class AltaP extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,18 +34,50 @@ public class ListarCategoria extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ListarCategoria</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ListarCategoria at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }finally{
-            out.close();
+            String nickname = request.getParameter("nickname");
+            String nombre = request.getParameter("nombre");
+            String apellido = request.getParameter("apellido");
+            String contrasenia = request.getParameter("contrasenia");
+            String email = request.getParameter("email");
+            String fNac = request.getParameter("fecha_nac");
+            String imagen = request.getParameter("imagen");
+            String canal = request.getParameter("canal"); 
+            String descrcanal = request.getParameter("descripcion_canal");
+            String privado = request.getParameter("privado");
+            Boolean priv = true;
+            if (privado == null) {
+                priv = false;
+            }
+            //cargar imagen
+            File fichero = new File(imagen);
+            String absolute = fichero.getAbsolutePath();
+        
+            WSDL_generado.PublicadorService service = new WSDL_generado.PublicadorService();
+            WSDL_generado.Publicador port = service.getPublicadorPort();
+            WSDL_generado.DtCanal c = new WSDL_generado.DtCanal(); 
+            c.setDesc(descrcanal);
+            c.setNombre(canal);
+            c.setPrivado(priv);
+            
+            
+        WSDL_generado.DtUsuario dtusu = port.seteando(nickname, contrasenia, nombre, apellido, email, absolute, c , false);
+        
+            port.altaUsuario(dtusu, c);
+            
+            
+//            SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
+//            Date date = null;
+//            date = simple.parse(fNac);
+            
+            //DtUsuario u = new DtUsuario(nickname, contrasenia, nombre, apellido, email, null, absolute, c, false);
+            //port.altaUsuario(u, c);
+            
+            
+
+            out.println("<html><body onload=\"alert ('Usuario Creado')\"></body></html>");
+            response.sendRedirect("http://localhost:8084/WebUyTube/login.jsp");
+
+        
         }
     }
 
@@ -77,38 +107,7 @@ public class ListarCategoria extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            try {
-                        /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ListarCategoria</title>");            
-            out.println("</head>");
-            out.println("<body>");
-               
-                ArrayList<DTCategoria> DtCat = port.getCategorias();
-               
-                for(int i=0; i<DtCat.size(); i++)
-                    out.println(DtCat.get(i).getNombre());
-           
-            out.println("</body>");
-            out.println("</html>");
-            }
-            catch (Exception ex) {
-                                       /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ListarCategoria</title>");            
-            out.println("</head>");
-            out.println("<body>");
-             out.println("Error: " + ex.getMessage());
-            out.println("</body>");
-            out.println("</html>");
-            }
-        }
+        processRequest(request, response);
     }
 
     /**

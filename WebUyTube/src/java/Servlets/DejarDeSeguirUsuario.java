@@ -13,9 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import servidor.Publicador;
-import servidor.PublicadorService;
-import servidor.Usuario;
+
 
 /**
  *
@@ -43,8 +41,7 @@ public class DejarDeSeguirUsuario extends HttpServlet {
             if (user_seguir != null) {
                 String usuNickSeguir = user_seguir.getNickname();
                 if (!(user.equals(usuNickSeguir))) {
-                    pkgWS.PublicadorService service = new pkgWS.PublicadorService();
-                    pkgWS.Publicador port = service.getPublicadorPort();
+                    ;
                     port.dejarDeSeguirUsuario(user, usuNickSeguir);
                     
                     out.println("<html><body onload=\"alert('Dejaste de seguir a: " + usuNickSeguir + "')\"></body></html>");

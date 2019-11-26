@@ -33,8 +33,7 @@ public class verinfousuario extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         PrintWriter out = response.getWriter();
         String nick = request.getParameter("dataname");
-        pkgWS.PublicadorService service = new pkgWS.PublicadorService();
-        pkgWS.Publicador port = service.getPublicadorPort();
+        
         DTUsuario u = port.getUserData(nick);
         if(u!=null){
             request.getSession().setAttribute("userConsult", u.getNickname());

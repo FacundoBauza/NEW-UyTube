@@ -5,7 +5,7 @@ import java.util.List;
 import logica.DT.*;
 
 public interface ISistema {
-    public abstract void altaUsuario(DTUsuario u, DTCanal c);
+    public abstract void altaUsuario(DtUsuario u, DtCanal c);
     public abstract void altaVideo(DTVideo video, String usuario);
     public abstract void altaCategoria(DTCategoria categoria);
     public abstract void altaLista(DTLista lista, String usuario);
@@ -19,7 +19,7 @@ public interface ISistema {
     public abstract void quitarVideoDeLista(String usuario, String video, String nombreLista);
     public abstract DTVideo consultarVideo(String usuario, String video);
     public abstract DTLista consultaLista(String usuario, String nombreLista);
-    public abstract DTUsuario consultaUsuario(String nickname);
+    public abstract DtUsuario consultaUsuario(String nickname);
     public abstract List<String> listarVideos(String nickUsuario);
     public abstract List<String> listarListas(String nickUsuario);
     public abstract List<DTLista> listasParticulares(String usuario);

@@ -8,11 +8,11 @@ package logica;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import logica.DT.DTCanal;
+import logica.DT.DtCanal;
 import logica.DT.DTCategoria;
 import logica.DT.DTComentario;
 import logica.DT.DTLista;
-import logica.DT.DTUsuario;
+import logica.DT.DtUsuario;
 import logica.DT.DTValoracion;
 import logica.DT.DTVideo;
 import org.junit.After;
@@ -65,8 +65,8 @@ public class SistemaTest {
         Boolean privado = true;
         List<DTVideo> videos = new ArrayList();
         List<DTLista> listas = new ArrayList();
-        DTCanal c = new DTCanal ( canalNombre, desc, privado, videos, listas);
-        DTUsuario u = new DTUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c, false);
+        DtCanal c = new DtCanal ( canalNombre, desc, privado, videos, listas);
+        DtUsuario u = new DtUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c, false);
       
         
         
@@ -99,8 +99,8 @@ public class SistemaTest {
         Boolean privado = false;
         List<DTVideo> videos = new ArrayList();
         List<DTLista> listas = new ArrayList();
-        DTCanal c = new DTCanal ( canalNombre, desc, privado, videos, listas);
-        DTUsuario u = new DTUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c, false);
+        DtCanal c = new DtCanal ( canalNombre, desc, privado, videos, listas);
+        DtUsuario u = new DtUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c, false);
         
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();
@@ -131,8 +131,8 @@ public class SistemaTest {
         Boolean privado = true;
         List<DTVideo> videos = new ArrayList();
         List<DTLista> listas = new ArrayList();
-        DTCanal c = new DTCanal ( canalNombre, desc, privado, videos, listas);
-        DTUsuario u = new DTUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c, false);
+        DtCanal c = new DtCanal ( canalNombre, desc, privado, videos, listas);
+        DtUsuario u = new DtUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c, false);
         
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();

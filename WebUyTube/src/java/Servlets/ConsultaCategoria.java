@@ -13,9 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import servidor.ArrayList;
-import servidor.Publicador;
-import servidor.PublicadorService;
+
 
 /**
  *
@@ -95,8 +93,7 @@ public class ConsultaCategoria extends HttpServlet {
                 out.println("</style>");
                 out.println("</head>");
                 out.println("<body>");   
-                    pkgWS.PublicadorService service = new pkgWS.PublicadorService();
-                    pkgWS.Publicador port = service.getPublicadorPort();
+                    
                      
                     String CatEl = request.getParameter("ComboCat");
                     

@@ -83,8 +83,7 @@ public class MostrarVideoControles extends HttpServlet {
             out.println("<title>Servlet MostrarVideoControles</title>");            
             out.println("</head>");
             out.println("<body>");
-                pkgWS.PublicadorService service = new pkgWS.PublicadorService();
-                pkgWS.Publicador port = service.getPublicadorPort();
+                
 
                 Usuario infoLogueado = (Usuario) request.getSession().getAttribute("infoLogueado");
 

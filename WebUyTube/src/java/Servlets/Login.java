@@ -14,8 +14,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import servidor.Publicador;
-import servidor.PublicadorService;
 
 /**
  *
@@ -31,9 +29,8 @@ public class Login extends HttpServlet {
         //guardo los parametros ingresados
         String name = request.getParameter("username");  
         String password = request.getParameter("password");
-        pkgWS.PublicadorService service = new pkgWS.PublicadorService();
-        pkgWS.Publicador port = service.getPublicadorPort();
-        pkgWS.Usuario usu = port.buscarUsuario(name);
+
+        Usuario usu = port.buscarUsuario(name);
         //chequea contraseña
         if(usu.getContrasenia().equals(password)){
             HttpSession session=request.getSession();  
@@ -48,11 +45,10 @@ public class Login extends HttpServlet {
         out.close(); 
     }
     
-    static public pkgWS.Usuario getUsuarioLogueado(HttpServletRequest request)
+    static public Usuario getUsuarioLogueado(HttpServletRequest request)
 			throws ServletException, IOException {
         
-        pkgWS.PublicadorService service = new pkgWS.PublicadorService();
-        pkgWS.Publicador port = service.getPublicadorPort();        
+               
         return port.buscarUsuario(
                 (String) request.getSession().getAttribute("usuarioLogueado"));
 				

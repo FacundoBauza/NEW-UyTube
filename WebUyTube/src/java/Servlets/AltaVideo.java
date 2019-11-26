@@ -12,8 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import servidor.Publicador;
-import servidor.PublicadorService;
+
 
 @WebServlet(name = "AltaVideo", urlPatterns = {"/AltaVideo"})
 public class AltaVideo extends HttpServlet {
@@ -37,7 +36,7 @@ public class AltaVideo extends HttpServlet {
             String duracion = request.getParameter("duracion");
             String f = request.getParameter("fecha");
             String url = request.getParameter("url");
-            Categoria categoria = request.getParameter("ComboCat");
+            String categoria = request.getParameter("ComboCat");
             String privado = request.getParameter("privado");
             Boolean priv = true;
             if (privado == null) {
@@ -48,8 +47,7 @@ public class AltaVideo extends HttpServlet {
             date = simple.parse(f);
             //                   String nombre,  descripcion,  duracion, date, url, privado, categoria
             DTVideo video = new DTVideo(nombre, descripcion, duracion, date, url, priv, categoria);
-            PublicadorService service = new servidor.PublicadorService();
-            Publicador port = service.getPublicadorPort();
+            
             //port.altaVideo(video, "Gime");
             
 
