@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Usuario
+ * @author
  */
 @WebServlet(name = "AltaP", urlPatterns = {"/AltaP"})
 public class AltaP extends HttpServlet {
