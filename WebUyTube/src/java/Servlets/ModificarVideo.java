@@ -30,8 +30,7 @@ public class ModificarVideo extends HttpServlet {
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-            pkgWS.PublicadorService service = new pkgWS.PublicadorService();
-            pkgWS.Publicador port = service.getPublicadorPort();
+            
             String nomVideo = request.getParameter("nomVideo");
             String nombre = request.getParameter("nombre");
             String descripcion = request.getParameter("descripcion");
@@ -54,7 +53,7 @@ public class ModificarVideo extends HttpServlet {
             port.modificarVideo(video, u.getNickname(), nomVideo);
 
             //out.println("<html><body onload=\"alert ('Video Modificado')\"></body></html>");
-            response.sendRedirect("http://localhost:8084/WebUyTube/homeLogIn.jsp");
+            response.sendRedirect("http://localhost:8080/WebUyTube/homeLogIn.jsp");
         
     }
 

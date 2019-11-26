@@ -8,7 +8,7 @@ import logica.Canal;
 import logica.Usuario;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DTUsuario {
+public class DtUsuario {
     private String nickname;
     private String contrasenia;
     private String nombre;
@@ -18,12 +18,26 @@ public class DTUsuario {
     private String imagen;
     private List<String> seguidores;
     private List<String> seguidos;
-    private DTCanal canal;
+    private DtCanal canal;
     private List<DTValoracion> valoraciones;
     private boolean Eliminado;
 
-    public DTUsuario(){}
-    public DTUsuario(String nickname, String contrasenia, String nombre, String apellido, String email, Date fechaNac, String imagen, DTCanal canal, boolean Eliminado) {
+    public DtUsuario(){}
+    
+    
+    public void seteando(String nickname, String contrasenia, String nombre, String apellido, String email, String imagen, DtCanal canal, boolean Eliminado) {
+        this.nickname = nickname;
+        this.contrasenia = contrasenia;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+
+        this.imagen = imagen; 
+        this.canal = canal;
+        this.Eliminado = Eliminado;
+    }
+    
+    public DtUsuario(String nickname, String contrasenia, String nombre, String apellido, String email, Date fechaNac, String imagen, DtCanal canal, boolean Eliminado) {
         this.nickname = nickname;
         this.contrasenia = contrasenia;
         this.nombre = nombre;
@@ -35,7 +49,7 @@ public class DTUsuario {
         this.Eliminado = Eliminado;
     }
 
-    public DTUsuario(Usuario u){
+    public DtUsuario(Usuario u){
         this.nickname = u.getNickname();
         this.contrasenia = u.getContrasenia();
         this.nombre = u.getNombre();
@@ -43,7 +57,7 @@ public class DTUsuario {
         this.email = u.getEmail();
         this.fechaNac = u.getFechaNac();
         this.imagen = u.getImagen();
-        this.canal = new DTCanal (u.getCanal());
+        this.canal = new DtCanal (u.getCanal());
         this.seguidores = u.listarSeguidores();
         this.seguidos = u.listarSeguidos();
         this.Eliminado = u.getEliminado();
@@ -93,7 +107,7 @@ public class DTUsuario {
         return seguidos;
     }
 
-    public DTCanal getCanal() {
+    public DtCanal getCanal() {
         return canal;
     }
 
@@ -141,7 +155,7 @@ public class DTUsuario {
         this.seguidos = seguidos;
     }
 
-    public void setCanal(DTCanal canal) {
+    public void setCanal(DtCanal canal) {
         this.canal = canal;
     }
 

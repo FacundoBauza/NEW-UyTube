@@ -12,8 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import pkgWS.Publicador;
-import pkgWS.PublicadorService;
+
 
 /**
  *
@@ -34,8 +33,7 @@ public class CheckMail extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         String mail = request.getParameter("mail");
         
-        PublicadorService service = new PublicadorService();
-        Publicador port = service.getPublicadorPort();
+        
         if(mail.equals("")){
             response.setContentType("text/plain");
             response.getWriter().write("");

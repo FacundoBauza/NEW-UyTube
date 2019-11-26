@@ -6,17 +6,17 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import logica.Canal;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DTCanal {
+public class DtCanal {
     private String nombre;
     private String desc;
     private boolean privado;
     private List<DTVideo> videos;
     private List<DTLista> listas;
     
-    public DTCanal(){
+    public DtCanal(){
     }
 
-    public DTCanal(String nombre, String desc, boolean privado, List<DTVideo> videos, List<DTLista> listas) {
+    public DtCanal(String nombre, String desc, boolean privado, List<DTVideo> videos, List<DTLista> listas) {
         this.nombre = nombre;
         this.desc = desc;
         this.privado = privado;
@@ -24,7 +24,7 @@ public class DTCanal {
         this.listas = listas;
     }
     
-    public DTCanal(Canal c) {
+    public DtCanal(Canal c) {
         this.nombre = c.getNombre();
         this.desc = c.getDesc();
         this.privado = c.isPrivado();

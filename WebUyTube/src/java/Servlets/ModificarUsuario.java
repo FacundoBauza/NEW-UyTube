@@ -30,8 +30,7 @@ public class ModificarUsuario extends HttpServlet {
         
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            pkgWS.PublicadorService service = new pkgWS.PublicadorService();
-            pkgWS.Publicador port = service.getPublicadorPort();
+            
             String nickname = Login.getUsuarioLogueado(request).getNickname();//request.getParameter("nickname");
             String nombre = request.getParameter("Nombre");
             String apellido = request.getParameter("Apellido");
@@ -52,7 +51,7 @@ public class ModificarUsuario extends HttpServlet {
             port.modificarUsuario(nickname, contrasenia, nombre, apellido, date, null, canal, descrcanal, priv);
             //out.println("<html><body onload=\"alert ('Usuario Modificado')\"></body></html>");
            
-           response.setHeader("Refresh", "0; URL=http://localhost:8084/WebUyTube/homeLogIn.jsp");
+           response.setHeader("Refresh", "0; URL=http://localhost:8080/WebUyTube/homeLogIn.jsp");
         }
 
     }

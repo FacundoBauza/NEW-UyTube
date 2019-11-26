@@ -11,8 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import pkgWS.Publicador;
-import pkgWS.PublicadorService;
+
 
 /**
  *
@@ -33,8 +32,7 @@ public class CheckNick extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         String nick = request.getParameter("nick");
         
-        PublicadorService service = new pkgWS.PublicadorService();
-        Publicador port = service.getPublicadorPort();
+        
         if(nick.equals("")){
             response.setContentType("text/plain");
             response.getWriter().write("");
