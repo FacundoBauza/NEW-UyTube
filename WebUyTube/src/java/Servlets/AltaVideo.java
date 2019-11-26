@@ -1,5 +1,7 @@
 package Servlets;
 
+import WSDL_generado.Publicador;
+import WSDL_generado.PublicadorService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
@@ -30,7 +32,8 @@ public class AltaVideo extends HttpServlet {
             throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-            
+            PublicadorService service = new WSDL_generado.PublicadorService();
+            Publicador port = service.getPublicadorPort();
             String nombre = request.getParameter("nombre");
             String descripcion = request.getParameter("descripcion");
             String duracion = request.getParameter("duracion");
