@@ -99,7 +99,7 @@
     
             
             List<Video> aux = null;
-            VideoArray videos = port.getVideos();
+            VideoArray videos = (VideoArray) port.getVideos();
             List<Video> l = videos.getItem();
             StringArray categorias = port.listarCategorias();
             List<String> l2 = categorias.getItem();

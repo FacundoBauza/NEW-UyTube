@@ -313,7 +313,7 @@ public class Publicador {
     public Video[] getVideos() {
         Manejador m = new Manejador();
         ArrayList<Video> v = (ArrayList)m.getVideos();
-        Video[] videos = {};
+        Video[] videos = null;
         return v.toArray(videos);
     }
     
