@@ -1,9 +1,9 @@
 $(document).ready(function(){
     $("#email").keyup(function(){
         $.ajax({
-            url : 'CheckMail', data:{
-            mail : $('#email').val()
-            },
+            url : 'CheckMail',
+            type: 'POST',
+            data : {mail : $('#email').val()},
             success : function(responseText){
                 $("#UsedMail").text(responseText);
             }
