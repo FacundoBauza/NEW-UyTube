@@ -8,21 +8,29 @@ import logica.Lista;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DTLista {
+public class DtLista {
     private String nombre;
     private boolean porDefecto;
     private boolean privado;
     private String categoria;
     
-    public DTLista (){}
-    public DTLista(String nombre, boolean porDefecto, boolean privado, String categoria) {
+    public DtLista (){}
+    
+    public void setear(String nombre, boolean porDefecto, boolean privado, String categoria) {
+        this.nombre = nombre;
+        this.porDefecto = porDefecto;
+        this.privado = privado;
+        this.categoria = categoria;
+    }
+    
+    public DtLista(String nombre, boolean porDefecto, boolean privado, String categoria) {
         this.nombre = nombre;
         this.porDefecto = porDefecto;
         this.privado = privado;
         this.categoria = categoria;
     }
 
-    public DTLista(Lista l) {
+    public DtLista(Lista l) {
         this.nombre = l.getNombre();
         this.porDefecto = l.isPorDefecto();
         this.privado = l.isPrivado();

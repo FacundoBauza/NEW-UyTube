@@ -11,7 +11,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import logica.DT.DTVideo;
+import logica.DT.DtVideo;
 
 @Entity
 @Table(name="Lista")

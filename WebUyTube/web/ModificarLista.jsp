@@ -4,14 +4,12 @@
     Author     : MarianoC
 --%>
 
-<%@page import="logica.Lista"%>
-<%@page import="logica.Video"%>
+<%@page import="WSDL_generado.Lista"%>
+<%@page import="WSDL_generado.ListaArray"%>
+<%@page import="WSDL_generado.Publicador"%>
+<%@page import="WSDL_generado.PublicadorService"%>
+<%@page import="WSDL_generado.Usuario"%>
 <%@page import="java.util.List"%>
-<%@page import="logica.Canal"%>
-<%@page import="logica.Usuario"%>
-<%@page import="logica.ISistema"%>
-<%@page import="logica.Fabrica"%>
-<%@page import="logica.Manejador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -35,10 +33,12 @@
                 <center>
                 <div id="Contenedor1">
                     <%
-                        Manejador m = Manejador.getinstance();      
+                        PublicadorService service = new PublicadorService();
+                        Publicador port = service.getPublicadorPort();
+                        
                         List<Lista> Lis = infoLogueado.getCanal().getListas();
                     %> 
-                <p style="color: white">Modificar privacidad de la/s lista/s de reproducci&oacute;n.</p>
+                <p style="color: white">Modificar privacidad de la/s lista/s de reproduccion.</p>
                 <p style="color: white">Elija la lista a modificar:</p>
                 <br>
                 <select name="ComboLista" id="ComboUser" style='width:200px; height:50px'>

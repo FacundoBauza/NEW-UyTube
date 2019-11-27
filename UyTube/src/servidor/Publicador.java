@@ -5,6 +5,8 @@
  */
 package servidor;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -42,11 +44,80 @@ public class Publicador {
     //funciones del sistema
     
     @WebMethod
-    public DtUsuario seteando(String nickname, String contrasenia, String nombre, String apellido, String email, String imagen, DtCanal canal, boolean Eliminado){
-    DtUsuario usu = new DtUsuario();
-    usu.seteando(nickname, contrasenia, nombre, apellido, email, imagen, canal, Eliminado);
-    return usu;
+    public DtUsuario SetUsuario(String nickname, String contrasenia, String nombre, String apellido, String email, String fecha, String imagen, DtCanal canal, boolean Eliminado) throws ParseException{
+        DtUsuario usu = new DtUsuario();
+        SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
+        Date date = null;
+        date = simple.parse(fecha);
+        usu.setear(nickname, contrasenia, nombre, apellido, email, date, imagen, canal, Eliminado);
+        return usu;
     }
+    
+    @WebMethod
+    public DtCanal SetCanal (String nombre, String desc, boolean privado){
+        DtCanal c = new DtCanal();
+        c.setear(nombre, desc, privado);
+        return c;
+    }
+    
+    @WebMethod
+    public DtCategoria SetCategoria (String nombre){
+        DtCategoria c = new DtCategoria();
+        c.setNombre(nombre);
+        return c;
+    }
+    
+    @WebMethod
+    public DtComentario SetComentario (String texto, String usuario){
+        DtComentario c = new DtComentario();
+        c.setear(texto, usuario);
+        return c;
+    }
+    
+    @WebMethod
+    public DtLista SetLista (String nombre, boolean porDefecto, boolean privado, String categoria) {
+        DtLista lis = new DtLista();
+        lis.setear(nombre, porDefecto, privado, categoria);
+        return lis;
+    }
+     
+    @WebMethod
+    public DtListaUsuario SetListaUsuario (String usuario, String lista) {
+        DtListaUsuario lu = new DtListaUsuario();
+        lu.setear(usuario, lista);
+        return lu;
+    }
+    
+    @WebMethod
+    public DtSesion SetSesion (String nick, String contrasenia) {
+        DtSesion s = new DtSesion();
+        s.setear(nick, contrasenia);
+        return s;
+    }
+    
+    @WebMethod
+    public DtValoracion SetValoracion (boolean meGusta, String usuario, String video){
+        DtValoracion v = new DtValoracion();
+        v.setear(meGusta, usuario, video);
+        return v;
+    }
+    
+    @WebMethod
+    public DtVideo SetVideo (String nombre, String descripcion, String duracion, String fecha, String url, boolean privado, Categoria categoria) throws ParseException{
+        DtVideo v = new DtVideo();
+        SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
+        Date date = null;
+        date = simple.parse(fecha);
+        v.setear(nombre, descripcion, duracion, date, url, privado, categoria);
+        return v;
+    }
+    
+    public DtVideoUsuario SetVideoUsuario (String usuario, String video){
+        DtVideoUsuario v = new DtVideoUsuario();
+        v.setear(usuario, video);
+        return v;
+    }
+    
     @WebMethod
     public void altaUsuario(DtUsuario u, DtCanal c){
         
@@ -61,32 +132,35 @@ public class Publicador {
     }
     
     @WebMethod
-    public void modificarUsuario(String nickname, String contrasenia, String nombre, String apellido, Date fechaNac, String imagen, String nombreCanal, String DescCanal, boolean priv){
+    public void modificarUsuario(String nickname, String contrasenia, String nombre, String apellido, String fechaNac, String imagen, String nombreCanal, String DescCanal, boolean priv) throws ParseException{
         ISistema s = new Sistema();
-        s.modificarUsuario(nickname, contrasenia, nombre, apellido, fechaNac, imagen, nombreCanal, DescCanal, priv);
+        SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
+        Date date = null;
+        date = simple.parse(fechaNac);
+        s.modificarUsuario(nickname, contrasenia, nombre, apellido, date, imagen, nombreCanal, DescCanal, priv);
     }
     
     @WebMethod
-    public void altaVideo(DTVideo video, String usuario){
+    public void altaVideo(DtVideo video, String usuario){
         ISistema s = new Sistema();
         
         s.altaVideo(video, usuario);
     }
     
     @WebMethod
-    public void modificarVideo (DTVideo video, String usuario, String nomVideo) {
+    public void modificarVideo (DtVideo video, String usuario, String nomVideo) {
         ISistema s = new Sistema();
         s.modificarVideo(video, usuario, nomVideo);
     }
     
     @WebMethod
-    public void altaLista(DTLista lista, String usuario) {
+    public void altaLista(DtLista lista, String usuario) {
         ISistema s = new Sistema();
         s.altaLista(lista, usuario);
     }
     
     @WebMethod
-    public void altaListaPorDefecto(DTLista lista, String usuario) {
+    public void altaListaPorDefecto(DtLista lista, String usuario) {
         ISistema s = new Sistema();
         s.altaListaPorDefecto(lista, usuario);
     }
@@ -110,44 +184,48 @@ public class Publicador {
     }
     
     @WebMethod
-    public DTLista consultaLista(String usuario, String nombreLista) {
+    public DtLista consultaLista(String usuario, String nombreLista) {
         ISistema s = new Sistema();
         return s.consultaLista(usuario, nombreLista);
     }
     
     @WebMethod
-    public void altaCategoria(DTCategoria categoria) {
+    public void altaCategoria(DtCategoria categoria) {
         ISistema s = new Sistema();
         s.altaCategoria(categoria);
     }
     
     @WebMethod
-    public ArrayList<DTVideoUsuario> consultaVideosPorCategoria(String categoria) {
+    public DtVideoUsuario[] consultaVideosPorCategoria(String categoria) {
         ISistema s = new Sistema();
-        return (ArrayList)s.consultaVideosPorCategoria(categoria);
+        ArrayList<DtVideoUsuario> v = (ArrayList)s.consultaVideosPorCategoria(categoria);
+        DtVideoUsuario[] videos = null;
+        return v.toArray(videos);
     }
     
     @WebMethod
-    public ArrayList<DTListaUsuario> consultaListasPorCategoria(String categoria) {
+    public DtListaUsuario[] consultaListasPorCategoria(String categoria) {
         ISistema s = null;
         s = Fabrica.getInstance();
-        return (ArrayList)s.consultaListasPorCategoria(categoria);
+        ArrayList<DtListaUsuario> l = (ArrayList)s.consultaListasPorCategoria(categoria);
+        DtListaUsuario[] lis = {};
+        return l.toArray(lis);
     }
     
     @WebMethod
-    public DTVideo consultarVideo(String usuario, String video) {
+    public DtVideo consultarVideo(String usuario, String video) {
         ISistema s = new Sistema();
         return s.consultarVideo(usuario, video);
     }
     
     @WebMethod
-    public void comentarVideo(String usuario,DTComentario comentario,String video, int padre) {
+    public void comentarVideo(String usuario,DtComentario comentario,String video, int padre) {
         ISistema s = new Sistema();
         s.comentarVideo(usuario, comentario, video, padre);
     }
     
     @WebMethod
-    public void valorarVideo(String usuario,String video, DTValoracion valoracion ) {
+    public void valorarVideo(String usuario,String video, DtValoracion valoracion ) {
         ISistema s = new Sistema();
         s.valorarVideo(usuario, video, valoracion);
     }
@@ -165,44 +243,57 @@ public class Publicador {
     }
     
     @WebMethod
-    public ArrayList<String> listarVideos(String nickUsuario) {
+    public String[] listarVideos(String nickUsuario) {
         ISistema s = new Sistema();
-        return (ArrayList)s.listarVideos(nickUsuario);
+        ArrayList<String> v = (ArrayList)s.listarVideos(nickUsuario);
+        String[] videos = {};
+        return v.toArray(videos);
     }
     
     @WebMethod
-    public ArrayList<String> listarListas(String nickUsuario) {
+    public String[] listarListas(String nickUsuario) {
         ISistema s = new Sistema();
-        return (ArrayList)s.listarListas(nickUsuario);
+        ArrayList<String> l = (ArrayList)s.listarListas(nickUsuario);
+        String[] lis = {};
+        return l.toArray(lis);
     }
     
     @WebMethod
-    public ArrayList<String> listarMG(String usuario, String video) {
+    public String[] listarMG(String usuario, String video) {
         ISistema s = new Sistema();
-        return (ArrayList)s.listarMG(usuario, video);
+        ArrayList<String> mg = (ArrayList)s.listarMG(usuario, video);
+        String[] listamg = {};
+        return mg.toArray(listamg);
     }
     
     @WebMethod
-    public ArrayList<String> listarNMG(String usuario, String video) {
+    public String[] listarNMG(String usuario, String video) {
         ISistema s = new Sistema();
-        return (ArrayList)s.listarNMG(usuario, video);
+        ArrayList<String> nmg = (ArrayList)s.listarNMG(usuario, video);
+        String[] listaNmg = {};
+        return nmg.toArray(listaNmg);
     }
     
     @WebMethod
-    public ArrayList<DTLista> listasParticulares(String usuario) {
+    public DtLista[] listasParticulares(String usuario) {
         ISistema s = null;
         s = Fabrica.getInstance();
-        return (ArrayList)s.listasParticulares(usuario);
+        ArrayList<DtLista> l = (ArrayList)s.listasParticulares(usuario);
+        DtLista[] lis = {};
+        return l.toArray(lis);
     }
+        
     
     @WebMethod
-    public ArrayList<String> listarVideosLista(String usuario, String lista) {
+    public String[] listarVideosLista(String usuario, String lista) {
         ISistema s = new Sistema();
-        return (ArrayList)s.listarVideosLista(usuario, lista);
+        ArrayList<String> v = (ArrayList)s.listarVideosLista(usuario, lista);
+        String[] videos = {};
+        return v.toArray(videos);
     }
     
     @WebMethod
-    public DTSesion getUserSession(String identificador, String pass) {
+    public DtSesion getUserSession(String identificador, String pass) {
         ISistema s = new Sistema();
         return s.getUserSession(identificador, pass);
         
@@ -219,28 +310,35 @@ public class Publicador {
     
     // ------------- funciones manejador  ------------------------
     @WebMethod
-    public ArrayList<Video> getVideos() {
-        
+    public Video[] getVideos() {
         Manejador m = new Manejador();
-        return (ArrayList)m.getVideos();
+        ArrayList<Video> v = (ArrayList)m.getVideos();
+        Video[] videos = {};
+        return v.toArray(videos);
     }
     
     @WebMethod
-    public ArrayList<DtUsuario> getUsuarios() {
+    public DtUsuario[] getUsuarios() {
         Manejador m = new Manejador();
-        return (ArrayList)m.getUsuarios();
+        ArrayList<DtUsuario> u = (ArrayList)m.getUsuarios();
+        DtUsuario[] usu = {};
+        return u.toArray(usu);
     }
     
     @WebMethod
-    public ArrayList<DTCategoria> getCategorias() {
+    public DtCategoria[] getCategorias() {
         Manejador m = new Manejador();
-        return (ArrayList)m.getCategorias();
+        ArrayList<DtCategoria> c = (ArrayList)m.getCategorias();
+        DtCategoria[] cat = {};
+        return c.toArray(cat);
     }
     
     @WebMethod
-    public ArrayList<String> getListasPorDefecto() {
+    public String[] getListasPorDefecto() {
         Manejador m = new Manejador();
-        return (ArrayList)m.getListasPorDefecto();
+        ArrayList<String> l = (ArrayList)m.getListasPorDefecto();
+        String[] lis = {};
+        return l.toArray(lis);
     }
     
     @WebMethod
@@ -268,15 +366,19 @@ public class Publicador {
     }
     
     @WebMethod
-    public ArrayList<Lista> getListas(String nickname) {
+    public Lista[] getListas(String nickname) {
         Manejador m = new Manejador();
-        return (ArrayList)m.getListas(nickname);
+        ArrayList<Lista> l = (ArrayList)m.getListas(nickname);
+        Lista[] listas = {};
+        return l.toArray(listas);
     }
     
     @WebMethod
-    public ArrayList<Lista> getAllListas() {
+    public Lista[] getAllListas() {
         Manejador m = new Manejador();
-        return (ArrayList)m.getAllListas();
+        ArrayList<Lista> l = (ArrayList)m.getAllListas();
+        Lista[] listas = {};
+        return l.toArray(listas);
     }
     
     @WebMethod
@@ -292,21 +394,27 @@ public class Publicador {
     }
     
     @WebMethod
-    public ArrayList<String> listarCategorias() {
+    public String[] listarCategorias() {
         Manejador m = new Manejador();
-        return (ArrayList)m.listarCategorias();
+        ArrayList<String> c = (ArrayList)m.listarCategorias();
+        String[] cat = {};
+        return c.toArray(cat);
     }
     
     @WebMethod
-    public ArrayList<String> listarVidesPorUsuario(String Usuario) {
+    public String[] listarVidesPorUsuario(String Usuario) {
         Manejador m = new Manejador();
-        return (ArrayList)m.listarVidesPorUsuario(Usuario);
+        ArrayList<String> v = (ArrayList)m.listarVidesPorUsuario(Usuario);
+        String[] videos = {};
+        return v.toArray(videos);
     }
     
     @WebMethod
-    public ArrayList<String> listarUsuarios() {
+    public String[] listarUsuarios() {
         Manejador m = new Manejador();
-        return (ArrayList)m.listarUsuarios();
+        ArrayList<String> u = (ArrayList)m.listarUsuarios();
+        String[] usu = {};
+        return u.toArray(usu);
     }
     
     @WebMethod
@@ -365,27 +473,27 @@ public class Publicador {
     }
     
     @WebMethod
-    public DTCategoria DtCategoria(){
+    public DtCategoria DtCategoria(){
         return null;
     }
     
     @WebMethod
-    public DTComentario DtComentario(){
+    public DtComentario DtComentario(){
         return null;
     }
     
     @WebMethod
-    public DTLista DtLista(){
+    public DtLista DtLista(){
         return null;
     }
     
     @WebMethod
-    public DTListaUsuario DtListaUsuario(){
+    public DtListaUsuario DtListaUsuario(){
         return null;
     }
     
     @WebMethod
-    public DTSesion DtSesion(){
+    public DtSesion DtSesion(){
         return null;
     }
     
@@ -395,17 +503,17 @@ public class Publicador {
     }
     
     @WebMethod
-    public DTValoracion DtValoracion(){
+    public DtValoracion DtValoracion(){
         return null;
     }
     
     @WebMethod
-    public DTVideo DtVideo(){
+    public DtVideo DtVideo(){
         return null;
     }
     
     @WebMethod
-    public DTVideoUsuario DtVideoUsuario(){
+    public DtVideoUsuario DtVideoUsuario(){
         return null;
     }
 }

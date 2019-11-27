@@ -5,6 +5,10 @@
  */
 package Servlets;
 
+import WSDL_generado.Lista;
+import WSDL_generado.Publicador;
+import WSDL_generado.PublicadorService;
+import WSDL_generado.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
@@ -83,6 +87,9 @@ public class ModificarLista extends HttpServlet {
             out.println("<title>Servlet ModificarLista</title>");            
             out.println("</head>");
             out.println("<body>");
+            
+            PublicadorService service = new PublicadorService();
+            Publicador port = service.getPublicadorPort();
             
             String usuarioLogueado = (String) request.getSession().getAttribute("usuario");
             Usuario infoLogueado = (Usuario) request.getSession().getAttribute("infoLogueado");

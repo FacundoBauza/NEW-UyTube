@@ -5,6 +5,12 @@
  */
 package Servlets;
 
+import WSDL_generado.DtListaUsuario;
+import WSDL_generado.DtListaUsuarioArray;
+import WSDL_generado.DtVideoUsuario;
+import WSDL_generado.DtVideoUsuarioArray;
+import WSDL_generado.Publicador;
+import WSDL_generado.PublicadorService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -97,8 +103,13 @@ public class ConsultaCategoria extends HttpServlet {
                      
                     String CatEl = request.getParameter("ComboCat");
                     
-                    //ArrayList<DTListaUsuario> Lus = port.consultaListasPorCategoria(CatEl);
-                    //ArrayList<DTVideoUsuario> Vus = port.consultaVideosPorCategoria(CatEl);
+                    PublicadorService service = new WSDL_generado.PublicadorService();
+                    Publicador port = service.getPublicadorPort();
+            
+                    DtListaUsuarioArray listas = port.consultaListasPorCategoria(CatEl);
+                    DtVideoUsuarioArray videos = port.consultaVideosPorCategoria(CatEl);
+                    List<DtListaUsuario> Lus = listas.getItem();
+                    List<DtVideoUsuario> Vus = videos.getItem();
                     
                     out.println("<H4>");   
                         out.println(CatEl);

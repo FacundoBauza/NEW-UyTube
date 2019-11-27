@@ -15,7 +15,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import logica.DT.DtCanal;
-import logica.DT.DTSesion;
+import logica.DT.DtSesion;
 import org.eclipse.persistence.annotations.CascadeOnDelete;
 
 @Entity
@@ -115,8 +115,8 @@ public class Usuario {
         return valoraciones;
     }
     
-    public DTSesion getSesion(){
-        DTSesion sesion = new DTSesion(this.getNickname(), this.getContrasenia());
+    public DtSesion getSesion(){
+        DtSesion sesion = new DtSesion(this.getNickname(), this.getContrasenia());
         return sesion;
     }
 

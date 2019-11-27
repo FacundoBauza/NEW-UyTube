@@ -4,9 +4,11 @@
     Author     : visua
 --%>
 
+<%@page import="WSDL_generado.DtCategoria"%>
+<%@page import="WSDL_generado.DtCategoriaArray"%>
+<%@page import="WSDL_generado.PublicadorService"%>
+<%@page import="WSDL_generado.Publicador"%>
 <%@page import="java.util.List"%>
-<%@page import="logica.DT.DTCategoria"%>
-<%@page import="logica.Manejador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -45,8 +47,11 @@
                         <td WIDTH="300" HEIGHT="25" style="color:white">Categorías Existentes</td>
                     </tr>
                     <%
-                        Manejador m = Manejador.getinstance();
-                        List<DTCategoria> DtCat = m.getCategorias();
+                        PublicadorService service = new PublicadorService();
+                        Publicador port = service.getPublicadorPort();
+                        
+                        DtCategoriaArray cat = port.getCategorias();
+                        List<DtCategoria> DtCat = cat.getItem();
                         for(int i=0; i<DtCat.size(); i++)
                         {
                             %>

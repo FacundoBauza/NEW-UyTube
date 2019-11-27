@@ -5,6 +5,9 @@
  */
 package Servlets;
 
+import WSDL_generado.Publicador;
+import WSDL_generado.PublicadorService;
+import WSDL_generado.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -35,6 +38,10 @@ public class DejarDeSeguirUsuario extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         
         PrintWriter out = response.getWriter();
+        
+        PublicadorService service = new WSDL_generado.PublicadorService();
+        Publicador port = service.getPublicadorPort();
+            
         String user = (String) request.getSession().getAttribute("usuarioLogueado");
         Usuario user_seguir = (Usuario) request.getSession().getAttribute("usuarioConsult");
         if (user != null) { 

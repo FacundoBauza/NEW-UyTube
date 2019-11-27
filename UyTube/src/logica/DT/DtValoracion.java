@@ -5,20 +5,26 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import logica.Valoracion;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DTValoracion {
+public class DtValoracion {
     private boolean meGusta;
     private String usuario;
     private String video;
     
-    public DTValoracion(){}
-
-    public DTValoracion(boolean meGusta, String usuario, String video) {
+    public DtValoracion(){}
+    
+    public void setear (boolean meGusta, String usuario, String video) {
         this.meGusta = meGusta;
         this.usuario = usuario;
         this.video = video;
     }
 
-    public DTValoracion(Valoracion v) {
+    public DtValoracion(boolean meGusta, String usuario, String video) {
+        this.meGusta = meGusta;
+        this.usuario = usuario;
+        this.video = video;
+    }
+
+    public DtValoracion(Valoracion v) {
         this.meGusta = v.isMeGusta();
         this.usuario = v.getUsuario().getNickname();
         this.video = v.getVideo().getNombre();

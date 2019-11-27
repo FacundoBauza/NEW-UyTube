@@ -11,8 +11,8 @@ import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import logica.DT.DtCanal;
-import logica.DT.DTCategoria;
-import logica.DT.DTSesion;
+import logica.DT.DtCategoria;
+import logica.DT.DtSesion;
 import logica.DT.DtUsuario;
 
 
@@ -62,16 +62,16 @@ public class Manejador {
     }
     
 
-    public List<DTCategoria> getCategorias() {
+    public List<DtCategoria> getCategorias() {
         EntityManager em = Manejador.getEntityManager();
         Query query = Manejador.getEntityManager().createQuery("select c from Categoria c");
 
         List<Categoria> aux = (List<Categoria>) query.getResultList();
         
-        ArrayList<DTCategoria> result = new ArrayList<>();
+        ArrayList<DtCategoria> result = new ArrayList<>();
         
         aux.forEach(x -> {
-            result.add(new DTCategoria(x.getNombre()));
+            result.add(new DtCategoria(x.getNombre()));
         });
         
         return result;
@@ -388,8 +388,8 @@ public class Manejador {
         return manager;
     } 
     
-    public DTSesion getUserSession(String identificador, String pass) {
-        DTSesion ret = null;
+    public DtSesion getUserSession(String identificador, String pass) {
+        DtSesion ret = null;
         Usuario u;
         Iterator it=usuarios.iterator();
         while(it.hasNext()){

@@ -8,8 +8,8 @@ package logica;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import logica.DT.DTLista;
-import logica.DT.DTVideo;
+import logica.DT.DtLista;
+import logica.DT.DtVideo;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -39,7 +39,7 @@ public class ListaTest {
         String categoria = "nombreCategoria";
         boolean porDefecto = false;
         boolean privado= true;
-        DTLista lista = new DTLista ( nombre, porDefecto, privado, categoria);
+        DtLista lista = new DtLista ( nombre, porDefecto, privado, categoria);
         String usuario = "kuki";
         Manejador m = Manejador.getinstance();
         Sistema s = new Sistema();
@@ -63,7 +63,7 @@ public class ListaTest {
         String categoria = "nombreCategoria2";
         boolean porDefecto = false;
         boolean privado= true;
-        DTLista lista = new DTLista ( nombre, porDefecto, privado, categoria);
+        DtLista lista = new DtLista ( nombre, porDefecto, privado, categoria);
         String usuario = "gime";
         Manejador m = Manejador.getinstance();
         Sistema s = new Sistema();

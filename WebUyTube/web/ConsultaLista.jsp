@@ -3,15 +3,13 @@
     Created on : 18-oct-2019, 15:51:14
     Author     : visua
 --%>
-<%@page import="logica.Video"%>
-<%@page import="logica.Canal"%>
-<%@page import="logica.Usuario"%>
-<%@page import="logica.Lista"%>
-<%@page import="logica.DT.DTLista"%>
-<%@page import="logica.DT.DTUsuario"%>
+<%@page import="WSDL_generado.Canal"%>
+<%@page import="WSDL_generado.Lista"%>
+<%@page import="WSDL_generado.ListaArray"%>
+<%@page import="WSDL_generado.Usuario"%>
+<%@page import="WSDL_generado.Publicador"%>
+<%@page import="WSDL_generado.PublicadorService"%>
 <%@page import="java.util.List"%>
-<%@page import="logica.DT.DTCategoria"%>
-<%@page import="logica.Manejador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -47,8 +45,10 @@
             <center>
             <div id="Contenedor1">
                 <%
-                    Manejador m = Manejador.getinstance();      
-                    List<Lista> Lis = m.getAllListas();
+                    PublicadorService service = new PublicadorService();
+                    Publicador port = service.getPublicadorPort();
+                    ListaArray listas = port.getAllListas();
+                    List<Lista> Lis = listas.getItem();
                 %> 
             <select class="btn btn-outline-success my-2 my-sm-0" name="ComboUser" id="ComboUser" style='width:200px; height:50px'>
             <%
@@ -56,7 +56,7 @@
             {
                 for(Lista dc: Lis)
                 {
-                    if(dc.getPorDefecto()==false && dc.getPrivado()==false)
+                    if(dc.isPorDefecto()==false && dc.isPrivado()==false)
                     {
                        %> 
                        <option value="<%=dc.getNombre()%>"><%=dc.getNombre()%></option>
@@ -79,7 +79,7 @@
                 {
                     for(Lista dc1: Lis2)
                     {
-                        if(dc1.getPrivado() == true)
+                        if(dc1.isPrivado() == true)
                         {
                             %> 
                             <option value="<%=dc1.getNombre()%>"><%=dc1.getNombre()%></option>

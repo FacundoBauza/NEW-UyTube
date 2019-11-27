@@ -4,11 +4,13 @@
     Author     : visua
 --%>
 
-<%@page import="logica.Video"%>
+<%@page import="WSDL_generado.StringArray"%>
+<%@page import="WSDL_generado.VideoArray"%>
+<%@page import="WSDL_generado.Video"%>
+<%@page import="WSDL_generado.Video"%>
+<%@page import="WSDL_generado.Publicador"%>
+<%@page import="WSDL_generado.PublicadorService"%>
 <%@page import="java.util.List"%>
-<%@page import="logica.Fabrica"%>
-<%@page import="logica.Manejador"%>
-<%@page import="logica.ISistema"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,13 +20,15 @@
     </head>
     <body>
         <%
-            ISistema s = null;
-            s = Fabrica.getInstance();
-            Manejador m = Manejador.getinstance();
+            PublicadorService service = new PublicadorService();
+            Publicador port = service.getPublicadorPort();
+    
             
             List<Video> aux = null;
-            List<Video> l = m.getVideos();
-            List<String> l2 = m.listarCategorias();
+            VideoArray videos = port.getVideos();
+            List<Video> l = videos.getItem();
+            StringArray cat = port.listarCategorias();
+            List<String> l2 = cat.getItem();
             %>        
             <div id="capsulaVid" align="center" style="width: 80rem; margin: 10px">
                 <ul class="list-group list-group-flush">

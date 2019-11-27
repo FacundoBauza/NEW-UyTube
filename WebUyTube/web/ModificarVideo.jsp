@@ -1,17 +1,23 @@
+<%@page import="WSDL_generado.VideoArray"%>
+<%@page import="WSDL_generado.Video"%>
+<%@page import="WSDL_generado.Canal"%>
+<%@page import="WSDL_generado.Usuario"%>
+<%@page import="WSDL_generado.DtCategoria"%>
+<%@page import="WSDL_generado.DtCategoriaArray"%>
+<%@page import="WSDL_generado.Publicador"%>
+<%@page import="WSDL_generado.PublicadorService"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="logica.Canal"%>
-<%@page import="logica.Video"%>
-<%@page import="logica.Usuario"%>
 <%@page import="Servlets.Login"%>
-<%@page import="logica.Manejador"%>
 <%@page import="java.util.List"%>
-<%@page import="logica.DT.DTCategoria"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    Manejador m = Manejador.getinstance();      
-    List<DTCategoria> DtCat = m.getCategorias();
+    PublicadorService service = new PublicadorService();
+    Publicador port = service.getPublicadorPort();
+    
+    DtCategoriaArray cat1 = port.getCategorias();
+    List<DtCategoria> DtCat = cat1.getItem();
     Usuario usr = Login.getUsuarioLogueado(request);
     
     if (usr == null){
@@ -22,10 +28,21 @@
         
     Canal c = usr.getCanal();
     String nomVideo = request.getParameter("v");
-    Video video = c.buscarVideo(nomVideo);
+    VideoArray videosA = port.getVideos();
+    List<Video> videos = videosA.getItem();
+    Video video = null;
+    for (Video v : videos){
+        if (v.getNombre().equals(nomVideo))
+            video = v;
+    }
+    
     String cat = video.getCategoria().getNombre();
     
-    Date f = video.getFecha();
+    Date f = new Date();
+    f.setDate(video.getFecha().getDay());
+    f.setMonth(video.getFecha().getMonth());
+    f.setYear(video.getFecha().getYear());
+  
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     String date = sdf.format(f);
 %> 
@@ -143,7 +160,7 @@
                             <select name="ComboCat" id="ComboCatego" style='width:200px; height:50px'>
                                 <%
                               if(DtCat != null){
-                                  for(DTCategoria dc: DtCat){
+                                  for(DtCategoria dc: DtCat){
                                       %> 
                                       <option value="<%=dc.getNombre()%>" <%if(dc.getNombre().equals(cat)) out.print("selected");%> ><%=dc.getNombre()%></option>
                                       <%

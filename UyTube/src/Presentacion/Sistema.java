@@ -15,13 +15,13 @@ import javax.swing.JInternalFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JTree;
 import logica.DT.DtCanal;
-import logica.DT.DTCategoria;
-import logica.DT.DTLista;
-import logica.DT.DTListaUsuario;
+import logica.DT.DtCategoria;
+import logica.DT.DtLista;
+import logica.DT.DtListaUsuario;
 import logica.DT.DtUsuario;
-import logica.DT.DTValoracion;
-import logica.DT.DTVideo;
-import logica.DT.DTVideoUsuario;
+import logica.DT.DtValoracion;
+import logica.DT.DtVideo;
+import logica.DT.DtVideoUsuario;
 import logica.Fabrica;
 import logica.ISistema;
 import logica.Manejador;
@@ -30,7 +30,7 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 import logica.Categoria;
 import logica.Comentario;
-import logica.DT.DTComentario;
+import logica.DT.DtComentario;
 import logica.Lista;
 import logica.Usuario;
 import logica.Video;
@@ -67,7 +67,7 @@ public class Sistema extends javax.swing.JFrame {
         QuitarVideoDeLista.setVisible(false);
         ConsultaLista.setVisible(false);
         
-        //DTComentario dc = new DTComentario("SevenSeeven", "Maxi95");
+        //DTComentario dc = new DtComentario("SevenSeeven", "Maxi95");
         //s.comentarVideo("Facu95", dc, "Fernando Llorente Goles_Jugadas", 27);
                     
         //cargarUsuarios();
@@ -105,11 +105,11 @@ public class Sistema extends javax.swing.JFrame {
     }*/
     
     private void cargarCategorias(){
-        DTCategoria cat = new DTCategoria("Comida");
+        DtCategoria cat = new DtCategoria("Comida");
         s.altaCategoria(cat);
-        cat = new DTCategoria("Deportes");
+        cat = new DtCategoria("Deportes");
         s.altaCategoria(cat);
-        cat = new DTCategoria("Juegos");
+        cat = new DtCategoria("Juegos");
         s.altaCategoria(cat);
                 
     }
@@ -2120,7 +2120,7 @@ public class Sistema extends javax.swing.JFrame {
         ConsultaLista.setVisible(false);
         
         DefaultListModel model = new DefaultListModel();
-        for(DTCategoria c : m.getCategorias()) {
+        for(DtCategoria c : m.getCategorias()) {
             model.addElement(c.getNombre());
         }
         ListaCategoriasPrincipal.setModel(model);
@@ -2235,7 +2235,7 @@ public class Sistema extends javax.swing.JFrame {
         ConsultaLista.setVisible(false);
 
         DefaultListModel model = new DefaultListModel();
-        for(DTCategoria c : m.getCategorias()) {
+        for(DtCategoria c : m.getCategorias()) {
             model.addElement(c.getNombre());
         }
         ListaCategoriasPrincipal.setModel(model);
@@ -2243,14 +2243,14 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_M4IAltaCatActionPerformed
 
     private void AgragarCategoriaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AgragarCategoriaButtonActionPerformed
-        DTCategoria cat = new DTCategoria(AgregarCategoria.getText());
+        DtCategoria cat = new DtCategoria(AgregarCategoria.getText());
         if(!AgregarCategoria.getText().equals("")){    
             if(m.nombreCategoriaLibre(AgregarCategoria.getText())){
                 s.altaCategoria(cat);
                 AgregarCategoria.setText("");
                 JOptionPane.showMessageDialog(this, "Categoría guardada correctamente", "Exito", JOptionPane.ERROR_MESSAGE);
                 DefaultListModel model = new DefaultListModel();
-                for(DTCategoria c : m.getCategorias()) {
+                for(DtCategoria c : m.getCategorias()) {
                     model.addElement(c.getNombre());
                 }
                 ListaCategoriasPrincipal.setModel(model);
@@ -2289,7 +2289,7 @@ public class Sistema extends javax.swing.JFrame {
         for (DtUsuario u : m.getUsuarios()){
             UsuarioComboBox1.addItem(u.getNickname());
         }
-        for (DTCategoria c : m.getCategorias())
+        for (DtCategoria c : m.getCategorias())
             CategoriaComboBox.addItem(c.getNombre());
         jDateChooserAltaVideo.setDate(new Date());
 //        centrar(AltaVideo);
@@ -2352,7 +2352,7 @@ public class Sistema extends javax.swing.JFrame {
         for (DtUsuario u : m.getUsuarios()){
             UsuarioComboBox.addItem(u.getNickname());
         }
-        for (DTCategoria c : m.getCategorias()){
+        for (DtCategoria c : m.getCategorias()){
             ComboBoxCategoria.addItem(c.getNombre());
         }
 //        centrar(CrearLista);
@@ -2390,7 +2390,7 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_M3IOperacionesListaRepActionPerformed
 
     private void ConfirmarListPrivActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConfirmarListPrivActionPerformed
-        DTLista lista = new DTLista(NomListaRep.getText(), porDefecto.isSelected(), PrivacidadCheck.isSelected(), ComboBoxCategoria.getSelectedItem().toString());
+        DtLista lista = new DtLista(NomListaRep.getText(), porDefecto.isSelected(), PrivacidadCheck.isSelected(), ComboBoxCategoria.getSelectedItem().toString());
         if(!NomListaRep.getText().equals("")){
             if(m.nombreListaLibre(NomListaRep.getText())){ 
                 if (porDefecto.isSelected() == true && PrivacidadCheck.isSelected() == true)
@@ -2436,7 +2436,7 @@ public class Sistema extends javax.swing.JFrame {
                 CategoriaComboBox.getSelectedItem().toString().isEmpty() || CategoriaComboBox.getSelectedItem().toString() == null)
             JOptionPane.showMessageDialog(this, "Campos vacios", "Error", JOptionPane.ERROR_MESSAGE);
             else{
-            DTVideo video = new DTVideo (EntradaNomVid.getText(), DescVideo.getText(), duracion, jDateChooserAltaVideo.getDate() , 
+            DtVideo video = new DtVideo (EntradaNomVid.getText(), DescVideo.getText(), duracion, jDateChooserAltaVideo.getDate() , 
                     EntradaURLVid.getText(), priv, (Categoria) CategoriaComboBox.getSelectedItem());
             s.altaVideo(video, UsuarioComboBox1.getSelectedItem().toString());
             JOptionPane.showMessageDialog(this, "Video creado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
@@ -2542,7 +2542,7 @@ public class Sistema extends javax.swing.JFrame {
         ListaVideos.setModel(model);
         
         CambioCategorias.removeAllItems();
-        for (DTCategoria c : m.getCategorias()){
+        for (DtCategoria c : m.getCategorias()){
             CambioCategorias.addItem(c.getNombre());
         }
             
@@ -2566,7 +2566,7 @@ public class Sistema extends javax.swing.JFrame {
        nomCategoria.enable(false);
        DefaultListModel model = new DefaultListModel();
        if (s.consultaVideosPorCategoria(categoria) != null) {
-        for(DTVideoUsuario v : s.consultaVideosPorCategoria(categoria)) {
+        for(DtVideoUsuario v : s.consultaVideosPorCategoria(categoria)) {
              String video = v.getVideo() + "(" + v.getUsuario() + ")";
              model.addElement(video);
          }
@@ -2575,7 +2575,7 @@ public class Sistema extends javax.swing.JFrame {
        
        if (s.consultaListasPorCategoria(categoria) != null){
         DefaultListModel model1 = new DefaultListModel();
-        for(DTListaUsuario l : s.consultaListasPorCategoria(categoria)) {
+        for(DtListaUsuario l : s.consultaListasPorCategoria(categoria)) {
             String lista = l.getLista() + "(" + l.getUsuario() + ")";
             model1.addElement(lista);
         }
@@ -2592,15 +2592,15 @@ public class Sistema extends javax.swing.JFrame {
     private void ModifListaRepButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ModifListaRepButtonActionPerformed
     String listaNombre = ListasReprod.getSelectedValue();
     String usuario = this.usuarioSeleccionado.getNickname();
-    DTLista lista = s.consultaLista(usuario, listaNombre);
+    DtLista lista = s.consultaLista(usuario, listaNombre);
     CategoriaListaRep.removeAllItems();
-    for (DTCategoria c : m.getCategorias()){
+    for (DtCategoria c : m.getCategorias()){
         CategoriaListaRep.addItem(c.getNombre());
     }
        
     if(this.usuarioSeleccionado != null){
         DefaultListModel model = new DefaultListModel();
-        for(DTLista l : s.listasParticulares(this.usuarioSeleccionado.getNickname()))
+        for(DtLista l : s.listasParticulares(this.usuarioSeleccionado.getNickname()))
             model.addElement(l.getNombre());
         listasConsultarLista.setModel(model);
     }
@@ -2631,10 +2631,10 @@ public class Sistema extends javax.swing.JFrame {
         ListaVideos.setModel(model);
         
         CambioCategorias.removeAllItems();
-        for (DTCategoria c : m.getCategorias()){
+        for (DtCategoria c : m.getCategorias()){
             CambioCategorias.addItem(c.getNombre());
         }
-        DTVideo video;
+        DtVideo video;
         if (this.videoSeleccionado != null){
             video = s.consultarVideo(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
             if (video.getNombre() != null && !video.getNombre().isEmpty())
@@ -2696,7 +2696,7 @@ public class Sistema extends javax.swing.JFrame {
         // TODO add your handling code here:
         String usuarioComentario = usuarioValora.getSelectedItem().toString();
         String comentarioTexto = ComentarioComent.getText();
-        DTComentario comentario = new DTComentario(comentarioTexto, usuarioComentario);
+        DtComentario comentario = new DtComentario(comentarioTexto, usuarioComentario);
         if(!(this.ComentarioComent.getText().equals(""))){
             DefaultMutableTreeNode select = (DefaultMutableTreeNode) Comentarios.getLastSelectedPathComponent();
             Integer SelectedId;
@@ -2738,7 +2738,7 @@ public class Sistema extends javax.swing.JFrame {
 //    }
     
     private void confirmarCambiosVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarCambiosVideoActionPerformed
-        DTVideo video = new DTVideo(CambioNombre.getText(), CambioDescrip.getText(), DuracionVideo.getText(), cambioFecha.getDate(), 
+        DtVideo video = new DtVideo(CambioNombre.getText(), CambioDescrip.getText(), DuracionVideo.getText(), cambioFecha.getDate(), 
                 CambioUrrl.getText(), PrivadoCheck.isSelected(), (Categoria) CambioCategorias.getSelectedItem());
         s.modificarVideo(video, usuarioValora1.getSelectedItem().toString(), ListaVideos.getSelectedValue());
         JOptionPane.showMessageDialog(this, "Video modificado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
@@ -2828,7 +2828,7 @@ public class Sistema extends javax.swing.JFrame {
         ConsultaLista.setVisible(false);
 
         DefaultListModel model = new DefaultListModel();
-        for(DTCategoria c : m.getCategorias()) {
+        for(DtCategoria c : m.getCategorias()) {
             model.addElement(c.getNombre());
         }
         ListaCategoriasPrincipal.setModel(model);
@@ -2837,13 +2837,13 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_M4IConsultarCategoriaActionPerformed
 
     private void ListaVideosValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaVideosValueChanged
-        List<DTCategoria> C = m.getCategorias();
+        List<DtCategoria> C = m.getCategorias();
         CambioCategorias.removeAllItems();
         for(int i=0; i<C.size(); i++)
             CambioCategorias.addItem(C.get(i).getNombre());
         
         String v1 = ListaVideos.getSelectedValue();
-        DTVideo video = s.consultarVideo(usuarioValora1.getSelectedItem().toString(), v1);
+        DtVideo video = s.consultarVideo(usuarioValora1.getSelectedItem().toString(), v1);
         
         if(video != null){
             if (video.getNombre() != null && !video.getNombre().isEmpty())
@@ -2946,22 +2946,22 @@ public class Sistema extends javax.swing.JFrame {
     }//GEN-LAST:event_SeguirButton1ActionPerformed
 
     private void MeGustaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MeGustaButtonActionPerformed
-        DTValoracion v;
+        DtValoracion v;
         String user = usuarioValora.getSelectedItem().toString();
        
         if (ListaVideos.getSelectedValue() != null && user != null){
-            v = new DTValoracion(true, usuarioValora.getSelectedItem().toString(), ListaVideos.getSelectedValue());
+            v = new DtValoracion(true, usuarioValora.getSelectedItem().toString(), ListaVideos.getSelectedValue());
             s.valorarVideo(usuarioValora1.getSelectedItem().toString(), ListaVideos.getSelectedValue(), v);
             JOptionPane.showMessageDialog(this, "Video valorado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
         }
     }//GEN-LAST:event_MeGustaButtonActionPerformed
 
     private void NoMeGustaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NoMeGustaButtonActionPerformed
-        DTValoracion v;
+        DtValoracion v;
         String user = usuarioValora.getSelectedItem().toString();
         
         if (ListaVideos.getSelectedValue() != null && user != null){
-            v = new DTValoracion(false, usuarioValora.getSelectedItem().toString(), ListaVideos.getSelectedValue());
+            v = new DtValoracion(false, usuarioValora.getSelectedItem().toString(), ListaVideos.getSelectedValue());
             s.valorarVideo(usuarioValora1.getSelectedItem().toString(), ListaVideos.getSelectedValue(), v);
             JOptionPane.showMessageDialog(this, "Video valorado.", "Exito", JOptionPane.INFORMATION_MESSAGE);
         }
@@ -3075,7 +3075,7 @@ public class Sistema extends javax.swing.JFrame {
         String listaNombre = listasConsultarLista.getSelectedValue();
         Lista lista = m.buscarLista(listaNombre, lu.getSelectedValue());
         CategoriaListaRep.removeAllItems();
-        List<DTCategoria> cate = m.getCategorias();
+        List<DtCategoria> cate = m.getCategorias();
         for(int i=0; i<cate.size(); i++)
             CategoriaListaRep.addItem(cate.get(i).getNombre());
         
@@ -3119,14 +3119,14 @@ public class Sistema extends javax.swing.JFrame {
     
     //cargar categoria de la lista
     CategoriaListaRep.removeAllItems();
-    for (DTCategoria c : m.getCategorias()){
+    for (DtCategoria c : m.getCategorias()){
         CategoriaListaRep.addItem(c.getNombre());
     }
     
     //cargar listas de usuario
     if(this.usuarioSeleccionado != null){
         DefaultListModel model = new DefaultListModel();
-        for(DTLista l : s.listasParticulares(this.usuarioSeleccionado.getNickname()))
+        for(DtLista l : s.listasParticulares(this.usuarioSeleccionado.getNickname()))
             model.addElement(l.getNombre());
         listasConsultarLista.setModel(model);
     }
@@ -3305,7 +3305,7 @@ public class Sistema extends javax.swing.JFrame {
 
     private void ListaDeListasRep1ValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaDeListasRep1ValueChanged
         String listaNombre = ListaDeListasRep1.getSelectedValue();   //para la lista seleccionada
-        DTLista lista = s.consultaLista(this.usuarioSeleccionado.getNickname(), listaNombre); 
+        DtLista lista = s.consultaLista(this.usuarioSeleccionado.getNickname(), listaNombre); 
         
         //Cargar lista de videos que tiene esa lista
         DefaultListModel model2 = new DefaultListModel();
@@ -3341,10 +3341,10 @@ public class Sistema extends javax.swing.JFrame {
         ListaVideos.setModel(model);
         
         CambioCategorias.removeAllItems();
-        for (DTCategoria c : m.getCategorias()){
+        for (DtCategoria c : m.getCategorias()){
             CambioCategorias.addItem(c.getNombre());
         }
-        DTVideo video;
+        DtVideo video;
         if (this.videoSeleccionado != null){
             video = s.consultarVideo(this.usuarioSeleccionado.getNickname(), this.videoSeleccionado);
             if (video.getNombre() != null && !video.getNombre().isEmpty())

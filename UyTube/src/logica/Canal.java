@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import logica.DT.DTLista;
+import javax.jws.WebMethod;
+import logica.DT.DtLista;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -99,6 +100,7 @@ public class Canal implements Serializable {
         this.listas.add(lista);
     }
     
+
     public Video buscarVideo(String nombre){
         for (logica.Video video : videos) {
             if(video.getNombre().equals(nombre))
@@ -109,15 +111,15 @@ public class Canal implements Serializable {
     
     
     
-    public List<DTLista> listasParticulares(){
-        DTLista lista;
+    public List<DtLista> listasParticulares(){
+        DtLista lista;
         Lista l;
-        List<DTLista> listaPart = new ArrayList();
+        List<DtLista> listaPart = new ArrayList();
         Iterator it = this.listas.iterator();
         while(it.hasNext()){
             l = (Lista) it.next();
             if(l.isPorDefecto()== false){
-                lista = new DTLista(l);
+                lista = new DtLista(l);
                 listaPart.add(lista);
             }
         }

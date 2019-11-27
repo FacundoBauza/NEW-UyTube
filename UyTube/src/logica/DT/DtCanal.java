@@ -10,13 +10,21 @@ public class DtCanal {
     private String nombre;
     private String desc;
     private boolean privado;
-    private List<DTVideo> videos;
-    private List<DTLista> listas;
+    private List<DtVideo> videos;
+    private List<DtLista> listas;
     
     public DtCanal(){
     }
+    
+    public void setear (String nombre, String desc, boolean privado) {
+        this.nombre = nombre;
+        this.desc = desc;
+        this.privado = privado;
+        this.videos = null;
+        this.listas = null;
+    }
 
-    public DtCanal(String nombre, String desc, boolean privado, List<DTVideo> videos, List<DTLista> listas) {
+    public DtCanal(String nombre, String desc, boolean privado, List<DtVideo> videos, List<DtLista> listas) {
         this.nombre = nombre;
         this.desc = desc;
         this.privado = privado;
@@ -44,11 +52,11 @@ public class DtCanal {
         return privado;
     }
 
-    public List<DTVideo> getVideos() {
+    public List<DtVideo> getVideos() {
         return videos;
     }
 
-    public List<DTLista> getListas() {
+    public List<DtLista> getListas() {
         return listas;
     }
 
@@ -64,11 +72,11 @@ public class DtCanal {
         this.privado = privado;
     }
 
-    public void setVideos(List<DTVideo> videos) {
+    public void setVideos(List<DtVideo> videos) {
         this.videos = videos;
     }
 
-    public void setListas(List<DTLista> listas) {
+    public void setListas(List<DtLista> listas) {
         this.listas = listas;
     }
     

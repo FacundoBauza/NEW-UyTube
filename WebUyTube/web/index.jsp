@@ -5,6 +5,11 @@
 --%>
 
 
+<%@page import="WSDL_generado.StringArray"%>
+<%@page import="WSDL_generado.VideoArray"%>
+<%@page import="WSDL_generado.Video"%>
+<%@page import="WSDL_generado.Publicador"%>
+<%@page import="WSDL_generado.PublicadorService"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
 
@@ -89,13 +94,15 @@
         <%%>
         
         <%
-            ISistema s = null;
-            s = Fabrica.getInstance();
-            Manejador m = Manejador.getinstance();
+            PublicadorService service = new PublicadorService();
+            Publicador port = service.getPublicadorPort();
+    
             
             List<Video> aux = null;
-            List<Video> l = m.getVideos();
-            List<String> l2 = m.listarCategorias();
+            VideoArray videos = port.getVideos();
+            List<Video> l = videos.getItem();
+            StringArray categorias = port.listarCategorias();
+            List<String> l2 = categorias.getItem();
             
             %>        
                 <div id="capsulaVid" align="center" style="width: 80rem; margin: 10px">

@@ -14,14 +14,19 @@ import javax.xml.bind.annotation.XmlAccessorType;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DTSesion {
+public class DtSesion {
 
     private String nick;
     private String contrasenia;
     
-    public DTSesion(){}
+    public DtSesion(){}
 
-    public DTSesion(String nick, String contrasenia ) {
+    public void setear (String nick, String contrasenia ) {
+        this.nick = nick;
+        this.contrasenia = contrasenia;
+    }
+    
+    public DtSesion(String nick, String contrasenia ) {
         this.nick = nick;
         this.contrasenia = contrasenia;
     }

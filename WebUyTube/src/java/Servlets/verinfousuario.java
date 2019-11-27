@@ -5,6 +5,9 @@
  */
 package Servlets;
 
+import WSDL_generado.DtUsuario;
+import WSDL_generado.Publicador;
+import WSDL_generado.PublicadorService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -34,11 +37,14 @@ public class verinfousuario extends HttpServlet {
         PrintWriter out = response.getWriter();
         String nick = request.getParameter("dataname");
         
-        DTUsuario u = port.getUserData(nick);
+        PublicadorService service = new PublicadorService();
+        Publicador port = service.getPublicadorPort();
+            
+        DtUsuario u = port.getUserData(nick);
         if(u!=null){
             request.getSession().setAttribute("userConsult", u.getNickname());
             request.setAttribute("userInfo", u);
-            if(u instanceof DTUsuario){
+            if(u instanceof DtUsuario){
                 getServletConfig().getServletContext().getRequestDispatcher("/WebUyTube/infoconsultausuario.jsp").forward(request,response);
             }
             
