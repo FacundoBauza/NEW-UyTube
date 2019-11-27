@@ -1,25 +1,15 @@
-$(document).ready(function(){
-    $("#email").keyup(function(){
-        $.ajax({
-            url : 'CheckMail',
-            type: 'POST',
-            data : {mail : $('#email').val()},
-            success : function(responseText){
-                $("#UsedMail").text(responseText);
-            }
-        });
-    });
-});
-
-$(document).ready(function(){
-    $("#nickname").keyup(function(){
-        $.ajax({
-            url : 'CheckNick', data:{
-            nick : $('#nickname').val()
-            },
-            success : function(responseText){
-                $("#UsedNick").text(responseText);
-            }
-        });
-    });
-});
+$(document).ready(function() {
+		$('#nickname').blur(function(event) {
+			var nickname = $('#nickname').val();
+			
+			$.post('CheckNick', { nickname : nickname },  function(response){
+                                                                        if(response == 0){
+                                                                            alert('available')
+                                                                        }
+                                                                        else {
+                                                                            alert('not available')
+                                                                        }
+                                                                    }
+                        );
+		});
+	});

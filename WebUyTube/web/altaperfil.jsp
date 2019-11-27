@@ -24,9 +24,10 @@
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="http://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <script src="resources/js/CheckMailUse.js" type="text/javascript"></script>
+        <script src="jquery-1.8.0.min.js"></script>
+        <script src="resources/js/CheckMailUse.js"></script>
         <title>Registrarse</title>
-        
+
         
         
     </head>
@@ -41,10 +42,10 @@
                         <div class="card-body">
                             <form action="AltaPerfil" method="POST">
                                 <div class="form-group">
-                                    <input id="nickname" type="text" name='nickname' placeholder="Nickname"  class='form-control' autofocus required><z id="UsedNick"></z><br>
+                                    <input id="nickname" type="text" name='nickname' placeholder="Nickname"  class='form-control' autofocus required>
                                 </div>
                                 <div class="form-group">
-                                    <input id="email" type="email" name='email' placeholder="Email" class='form-control' required><z id="UsedMail"></z><br> 
+                                    <input id="email" type="email" name='email' placeholder="Email" class='form-control' required> 
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name='nombre' placeholder="Nombre" class='form-control' required>
@@ -84,6 +85,8 @@
         </div>
     
         
+    
+    
     <script>function checkPasswordMatch() {
         var password = document.getElementById("contra").value;
         var confirmPassword  = document.getElementById("contra2").value;

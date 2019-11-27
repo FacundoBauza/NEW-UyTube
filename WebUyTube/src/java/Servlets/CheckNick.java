@@ -32,7 +32,8 @@ public class CheckNick extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-        String nick = request.getParameter("nick");
+        // Obtengo los datos de la peticion
+        String nick = request.getParameter("nickname");
         PublicadorService service = new WSDL_generado.PublicadorService();
         Publicador port = service.getPublicadorPort();
         
