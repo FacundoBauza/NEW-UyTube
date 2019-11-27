@@ -42,10 +42,10 @@
                         <div class="card-body">
                             <form action="AltaPerfil" method="POST">
                                 <div class="form-group">
-                                    <input id="nickname" type="text" name='nickname' placeholder="Nickname"  class='form-control' autofocus required>
+                                    <input id="nickname" type="text" name='nickname' placeholder="Nickname"  class='form-control' autofocus required><div id="nick"></div>
                                 </div>
                                 <div class="form-group">
-                                    <input id="email" type="email" name='email' placeholder="Email" class='form-control' required> 
+                                    <input id="email" type="email" name='email' placeholder="Email" class='form-control' required><div id="mail"></div>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name='nombre' placeholder="Nombre" class='form-control' required>
@@ -60,7 +60,7 @@
                                     <input type="password" id="contra2" name='confirmacion_contraseña' placeholder="Confirmar contraseña" class='form-control' required onkeyup="HabilitarBoton();"><div id="passMatch"> </div>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name='fecha_nac' placeholder="Fecha nacimiento" class='form-control' required>
+                                    <input type="date" name='fecha_nac' placeholder="Fecha nacimiento" class='form-control' required>
                                 </div>
                                 <div class="form-group">
                                     Seleccione imagen: <input type="file" name="imagen" class='form-control'>

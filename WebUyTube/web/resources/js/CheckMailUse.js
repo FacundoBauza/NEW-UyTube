@@ -1,15 +1,25 @@
-$(document).ready(function() {
-		$('#nickname').blur(function(event) {
-			var nickname = $('#nickname').val();
-			
-			$.post('CheckNick', { nickname : nickname },  function(response){
-                                                                        if(response == 0){
-                                                                            alert('available')
-                                                                        }
-                                                                        else {
-                                                                            alert('not available')
-                                                                        }
-                                                                    }
-                        );
-		});
-	});
+$(document).ready(function(){
+    $("#email").keyup(function(){
+        $.ajax({
+            url : 'CheckMail', data:{
+            email : $('#email').val()
+            },
+            success : function(responseText){
+                $("#mail").text(responseText);
+            }
+        });
+    });
+});
+
+$(document).ready(function(){
+    $("#nickname").keyup(function(){
+        $.ajax({
+            url : 'CheckNick', data:{
+            usernick : $('#nickname').val()
+            },
+            success : function(responseText){
+                $("#nick").text(responseText);
+            }
+        });
+    });
+});

@@ -9,6 +9,7 @@ package Servlets;
 import WSDL_generado.Publicador;
 import WSDL_generado.PublicadorService;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,9 +35,9 @@ public class CheckMail extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         String mail = request.getParameter("mail");
+        //IControlador controlador = new Controlador();
         PublicadorService service = new WSDL_generado.PublicadorService();
-        Publicador port = service.getPublicadorPort();
-        
+        Publicador ICU = service.getPublicadorPort();
         if(mail.equals("")){
             response.setContentType("text/plain");
             response.getWriter().write("");
@@ -47,7 +48,7 @@ public class CheckMail extends HttpServlet {
             response.getWriter().write(" Mail no valido");
             return;
         }
-        if(!port.mailLibre(mail)){
+        if(!ICU.mailLibre(mail)){
             response.setContentType("text/plain");
             response.getWriter().write(" Mail en uso");
         }

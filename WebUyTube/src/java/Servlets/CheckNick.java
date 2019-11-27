@@ -8,6 +8,7 @@ package Servlets;
 import WSDL_generado.Publicador;
 import WSDL_generado.PublicadorService;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,17 +33,16 @@ public class CheckNick extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-        // Obtengo los datos de la peticion
-        String nick = request.getParameter("nickname");
+        String nick = request.getParameter("usernick");
+        //IControlador controlador = new Controlador();
         PublicadorService service = new WSDL_generado.PublicadorService();
-        Publicador port = service.getPublicadorPort();
-        
+        Publicador ICU = service.getPublicadorPort();
         if(nick.equals("")){
             response.setContentType("text/plain");
             response.getWriter().write("");
             return;
         }
-        if(!port.nicknameLibre(nick)){
+        if(!ICU.nicknameLibre(nick)){
             response.setContentType("text/plain");
             response.getWriter().write(" Nick en uso");
         }
@@ -79,17 +79,11 @@ public class CheckNick extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+         processRequest(request, response);
+        
+    }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
-}
+
+
