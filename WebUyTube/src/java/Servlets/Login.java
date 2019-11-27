@@ -5,6 +5,9 @@
  */
 package Servlets;
 
+import WSDL_generado.Publicador;
+import WSDL_generado.PublicadorService;
+import WSDL_generado.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -30,6 +33,9 @@ public class Login extends HttpServlet {
         String name = request.getParameter("username");  
         String password = request.getParameter("password");
 
+        PublicadorService service = new PublicadorService();
+        Publicador port = service.getPublicadorPort();
+        
         Usuario usu = port.buscarUsuario(name);
         //chequea contraseña
         if(usu.getContrasenia().equals(password)){
@@ -48,6 +54,8 @@ public class Login extends HttpServlet {
     static public Usuario getUsuarioLogueado(HttpServletRequest request)
 			throws ServletException, IOException {
         
+        PublicadorService service = new PublicadorService();
+        Publicador port = service.getPublicadorPort();
                
         return port.buscarUsuario(
                 (String) request.getSession().getAttribute("usuarioLogueado"));

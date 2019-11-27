@@ -5,16 +5,16 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import logica.Categoria;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DTCategoria {
+public class DtCategoria {
     private String nombre;
 
-    public DTCategoria(){
+    public DtCategoria(){
     }
-    public DTCategoria(String nombre) {
+    public DtCategoria(String nombre) {
         this.nombre = nombre;
     }
     
-    public DTCategoria(Categoria cat) {
+    public DtCategoria(Categoria cat) {
         this.nombre = cat.getNombre();
     }
 

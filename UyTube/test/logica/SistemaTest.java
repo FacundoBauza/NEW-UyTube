@@ -9,12 +9,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import logica.DT.DtCanal;
-import logica.DT.DTCategoria;
-import logica.DT.DTComentario;
-import logica.DT.DTLista;
+import logica.DT.DtCategoria;
+import logica.DT.DtComentario;
+import logica.DT.DtLista;
 import logica.DT.DtUsuario;
-import logica.DT.DTValoracion;
-import logica.DT.DTVideo;
+import logica.DT.DtValoracion;
+import logica.DT.DtVideo;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
@@ -63,8 +63,8 @@ public class SistemaTest {
         String canalNombre = "canalKuki";
         String desc = "descripcion canal";
         Boolean privado = true;
-        List<DTVideo> videos = new ArrayList();
-        List<DTLista> listas = new ArrayList();
+        List<DtVideo> videos = new ArrayList();
+        List<DtLista> listas = new ArrayList();
         DtCanal c = new DtCanal ( canalNombre, desc, privado, videos, listas);
         DtUsuario u = new DtUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c, false);
       
@@ -97,8 +97,8 @@ public class SistemaTest {
         String canalNombre = "canal";
         String desc = "descripcion canal";
         Boolean privado = false;
-        List<DTVideo> videos = new ArrayList();
-        List<DTLista> listas = new ArrayList();
+        List<DtVideo> videos = new ArrayList();
+        List<DtLista> listas = new ArrayList();
         DtCanal c = new DtCanal ( canalNombre, desc, privado, videos, listas);
         DtUsuario u = new DtUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c, false);
         
@@ -129,8 +129,8 @@ public class SistemaTest {
         String canalNombre = "nombreCanal";
         String desc = "descripcion canal";
         Boolean privado = true;
-        List<DTVideo> videos = new ArrayList();
-        List<DTLista> listas = new ArrayList();
+        List<DtVideo> videos = new ArrayList();
+        List<DtLista> listas = new ArrayList();
         DtCanal c = new DtCanal ( canalNombre, desc, privado, videos, listas);
         DtUsuario u = new DtUsuario( nickname, contrasenia, nombre, apellido, email, fechaNac, imagen, c, false);
         
@@ -155,7 +155,7 @@ public class SistemaTest {
     public void testAltaCategoria() {
         System.out.println("altaCategoria");
         String nombreCategoria = "nombreCategoria";
-        DTCategoria categoria = new DTCategoria(nombreCategoria);
+        DtCategoria categoria = new DtCategoria(nombreCategoria);
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();
         List L = new ArrayList();
@@ -177,7 +177,7 @@ public class SistemaTest {
     public void testAltaCategoria2() {
         System.out.println("altaCategoria");
         String nombreCategoria = "nombreCategoria2";
-        DTCategoria categoria = new DTCategoria(nombreCategoria);
+        DtCategoria categoria = new DtCategoria(nombreCategoria);
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();
         List L = new ArrayList();
@@ -199,7 +199,7 @@ public class SistemaTest {
     public void testAltaCategoria3() {
         System.out.println("altaCategoria");
         String nombreCategoria = "nombreCategoria3";
-        DTCategoria categoria = new DTCategoria(nombreCategoria);
+        DtCategoria categoria = new DtCategoria(nombreCategoria);
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();
         List L = new ArrayList();
@@ -221,7 +221,7 @@ public class SistemaTest {
     public void testAltaCategoria4() {
         System.out.println("altaCategoria");
         String nombreCategoria = "nombreCategoria4";
-        DTCategoria categoria = new DTCategoria(nombreCategoria);
+        DtCategoria categoria = new DtCategoria(nombreCategoria);
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();
         List L = new ArrayList();
@@ -243,7 +243,7 @@ public class SistemaTest {
     public void testAltaCategoria5() {
         System.out.println("altaCategoria");
         String nombreCategoria = "nombreCategoria5";
-        DTCategoria categoria = new DTCategoria(nombreCategoria);
+        DtCategoria categoria = new DtCategoria(nombreCategoria);
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();
         List L = new ArrayList();
@@ -265,7 +265,7 @@ public class SistemaTest {
     public void testAltaCategoria6() {
         System.out.println("altaCategoria");
         String nombreCategoria = "nombreCategoria6";
-        DTCategoria categoria = new DTCategoria(nombreCategoria);
+        DtCategoria categoria = new DtCategoria(nombreCategoria);
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();
         List L = new ArrayList();
@@ -292,7 +292,7 @@ public class SistemaTest {
         boolean privado= true;
         Categoria categoria1 = null;
         
-        DTVideo video = new DTVideo ( nombre, descripcion, duracion, fecha, url, privado, categoria1);
+        DtVideo video = new DtVideo ( nombre, descripcion, duracion, fecha, url, privado, categoria1);
         
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();
@@ -322,7 +322,7 @@ public class SistemaTest {
         String url="urlVideo2";
         boolean privado= true;
         Categoria categoria2 = null;
-        DTVideo video = new DTVideo ( nombre, descripcion, duracion, fecha, url, privado, categoria2);
+        DtVideo video = new DtVideo ( nombre, descripcion, duracion, fecha, url, privado, categoria2);
         
         Manejador m = Manejador.getinstance();
         ISistema s = Fabrica.getInstance();

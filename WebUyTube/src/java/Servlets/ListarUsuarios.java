@@ -5,6 +5,11 @@
  */
 package Servlets;
 
+import WSDL_generado.DtUsuario;
+import WSDL_generado.DtUsuarioArray;
+import WSDL_generado.Publicador;
+import WSDL_generado.PublicadorService;
+import WSDL_generado.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -36,7 +41,11 @@ public class ListarUsuarios extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        pkgWS.ArrayList usuarios = port.getUsuarios();
+        PublicadorService service = new WSDL_generado.PublicadorService();
+        Publicador port = service.getPublicadorPort();
+        DtUsuarioArray usu = port.getUsuarios();
+        List<DtUsuario> usuarios = usu.getItem();
+        
         request.setAttribute("usuarios", usuarios);
         response.sendRedirect("consultausuario.jsp");
         

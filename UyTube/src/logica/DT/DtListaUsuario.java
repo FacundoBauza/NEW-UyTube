@@ -5,12 +5,18 @@ import javax.xml.bind.annotation.XmlAccessorType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DTListaUsuario {
+public class DtListaUsuario {
     private String usuario;
     private String lista;
     
-    public DTListaUsuario(){}
-    public DTListaUsuario(String usuario, String lista) {
+    public DtListaUsuario(){}
+    
+    public void setear (String usuario, String lista) {
+        this.usuario = usuario;
+        this.lista = lista;
+    }
+
+    public DtListaUsuario(String usuario, String lista) {
         this.usuario = usuario;
         this.lista = lista;
     }

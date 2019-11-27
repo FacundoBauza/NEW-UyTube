@@ -4,9 +4,11 @@
     Author     : Usuario
 --%>
 
-<%@page import="logica.Manejador"%>
+<%@page import="WSDL_generado.DtUsuario"%>
+<%@page import="WSDL_generado.DtUsuarioArray"%>
+<%@page import="WSDL_generado.Publicador"%>
+<%@page import="WSDL_generado.PublicadorService"%>
 <%@page import="java.util.List"%>
-<%@page import="logica.DT.DTUsuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -34,8 +36,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                       <% Manejador m = Manejador.getinstance();
-                        List<DTUsuario> usuarios = m.getUsuarios();
+                       <% 
+                        PublicadorService service = new PublicadorService();
+                        Publicador port = service.getPublicadorPort();
+    
+                        DtUsuarioArray usu = port.getUsuarios();
+                        List<DtUsuario> usuarios = usu.getItem();
                         for(int i = 0; i < usuarios.size(); i++){ %>
                             <tr>
                                 <td><%= usuarios.get(i).getNickname()  %></td>

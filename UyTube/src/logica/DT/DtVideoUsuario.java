@@ -4,13 +4,18 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DTVideoUsuario {
+public class DtVideoUsuario {
     private String usuario;
     private String video;
 
-    public DTVideoUsuario(){}
+    public DtVideoUsuario(){}
     
-    public DTVideoUsuario(String usuario, String video) {
+    public void setear (String usuario, String video) {
+        this.usuario = usuario;
+        this.video = video;
+    }
+    
+    public DtVideoUsuario(String usuario, String video) {
         this.usuario = usuario;
         this.video = video;
     }

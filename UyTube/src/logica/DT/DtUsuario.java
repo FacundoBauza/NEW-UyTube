@@ -19,19 +19,18 @@ public class DtUsuario {
     private List<String> seguidores;
     private List<String> seguidos;
     private DtCanal canal;
-    private List<DTValoracion> valoraciones;
+    private List<DtValoracion> valoraciones;
     private boolean Eliminado;
 
     public DtUsuario(){}
     
-    
-    public void seteando(String nickname, String contrasenia, String nombre, String apellido, String email, String imagen, DtCanal canal, boolean Eliminado) {
+    public void setear (String nickname, String contrasenia, String nombre, String apellido, String email, Date fechaNac, String imagen, DtCanal canal, boolean Eliminado) {
         this.nickname = nickname;
         this.contrasenia = contrasenia;
         this.nombre = nombre;
         this.apellido = apellido;
         this.email = email;
-
+        this.fechaNac = fechaNac;
         this.imagen = imagen; 
         this.canal = canal;
         this.Eliminado = Eliminado;
@@ -111,7 +110,7 @@ public class DtUsuario {
         return canal;
     }
 
-    public List<DTValoracion> getValoraciones() {
+    public List<DtValoracion> getValoraciones() {
         return valoraciones;
     }
 
@@ -159,7 +158,7 @@ public class DtUsuario {
         this.canal = canal;
     }
 
-    public void setValoraciones(List<DTValoracion> valoraciones) {
+    public void setValoraciones(List<DtValoracion> valoraciones) {
         this.valoraciones = valoraciones;
     }
 

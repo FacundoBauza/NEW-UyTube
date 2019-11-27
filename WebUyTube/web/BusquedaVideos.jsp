@@ -4,15 +4,18 @@
     Author     : Usuario
 --%>
 
-<%@page import="logica.DT.DTUsuario"%>
+<%@page import="WSDL_generado.DtUsuarioArray"%>
+<%@page import="WSDL_generado.DtUsuario"%>
+<%@page import="WSDL_generado.StringArray"%>
+<%@page import="WSDL_generado.VideoArray"%>
+<%@page import="WSDL_generado.Video"%>
+<%@page import="WSDL_generado.Publicador"%>
+<%@page import="WSDL_generado.PublicadorService"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="logica.Lista"%>
-<%@page import="logica.Manejador"%>
-<%@page import="logica.ISistema"%>
-<%@page import="logica.Video"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
-<%@page import="logica.Fabrica"%>
+
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
@@ -79,18 +82,17 @@
                 </ul>
             </div>
             
-        </div>
-        <%%>
-        
+        </div>        
         <%
-            ISistema s = null;
-            s = Fabrica.getInstance();
-            Manejador m = Manejador.getinstance();
-            
+            PublicadorService service = new PublicadorService();
+            Publicador port = service.getPublicadorPort();
+                        
             List<Video> aux = null;
             List<Video> l = new ArrayList();
-            List<Video> l14 = m.getVideos();
-            List<String> l2 = m.listarCategorias();
+            VideoArray videos = port.getVideos();
+            List<Video> l14 = videos.getItem();
+            StringArray categorias = port.listarCategorias();
+            List<String> l2 = categorias.getItem();
 
             if(request.getAttribute("Filtrado").equals("SinFiltro"))
             {
@@ -114,7 +116,9 @@
             }
             if(request.getAttribute("Filtrado").equals("Canal"))
             {
-                List<DTUsuario> usus = m.getUsuarios();
+                DtUsuarioArray usuarios = port.getUsuarios();
+                List<DtUsuario> usus = usuarios.getItem();
+                
                 for(int i7=0; i7<usus.size(); i7++)
                 {
                     if(usus.get(i7).getCanal().getNombre().equals(request.getAttribute("TextoFiltrado")))

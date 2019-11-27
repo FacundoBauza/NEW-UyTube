@@ -4,10 +4,12 @@
     Author     : visua
 --%>
 
-<%@page import="logica.Manejador"%>
+<%@page import="WSDL_generado.DtCategoriaArray"%>
+<%@page import="WSDL_generado.DtCategoria"%>
+<%@page import="WSDL_generado.Publicador"%>
+<%@page import="WSDL_generado.PublicadorService"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
-<%@page import="logica.DT.DTCategoria"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -26,14 +28,16 @@
             <center>
             <div id="Contenedor1">
             <%
-                Manejador m = Manejador.getinstance();      
-                List<DTCategoria> DtCat = m.getCategorias();
+                PublicadorService service = new WSDL_generado.PublicadorService();
+                Publicador port = service.getPublicadorPort();   
+                DtCategoriaArray Cat = port.getCategorias();
+                List<DtCategoria> DtCat = Cat.getItem();
             %> 
             <select name="ComboCat" id="ComboCatego" style='width:200px; height:50px'>
               <%
             if(DtCat != null)
             {
-                for(DTCategoria dc: DtCat)
+                for(DtCategoria dc: DtCat)
                 {
                     %> 
                      <option value="<%=dc.getNombre()%>"><%=dc.getNombre()%></option>

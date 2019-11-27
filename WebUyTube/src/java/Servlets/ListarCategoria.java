@@ -5,6 +5,10 @@
  */
 package Servlets;
 
+import WSDL_generado.DtCategoria;
+import WSDL_generado.DtCategoriaArray;
+import WSDL_generado.Publicador;
+import WSDL_generado.PublicadorService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import static java.lang.System.out;
@@ -88,10 +92,14 @@ public class ListarCategoria extends HttpServlet {
             out.println("</head>");
             out.println("<body>");
                
-                ArrayList<DTCategoria> DtCat = port.getCategorias();
-               
-                for(int i=0; i<DtCat.size(); i++)
-                    out.println(DtCat.get(i).getNombre());
+            PublicadorService service = new WSDL_generado.PublicadorService();
+            Publicador port = service.getPublicadorPort();
+            
+            DtCategoriaArray cat = port.getCategorias();
+            List<DtCategoria> DtCat = cat.getItem();
+              
+            for(int i=0; i<DtCat.size(); i++)
+                out.println(DtCat.get(i).getNombre());
            
             out.println("</body>");
             out.println("</html>");

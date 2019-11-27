@@ -4,17 +4,16 @@
     Author     : visua
 --%>
 
+<%@page import="WSDL_generado.Comentario"%>
+<%@page import="WSDL_generado.ListaArray"%>
+<%@page import="WSDL_generado.Lista"%>
+<%@page import="WSDL_generado.Video"%>
+<%@page import="WSDL_generado.VideoArray"%>
+<%@page import="WSDL_generado.Publicador"%>
+<%@page import="WSDL_generado.PublicadorService"%>
+<%@page import="WSDL_generado.Usuario"%>
 <%@page import="Servlets.Login"%>
-<%@page import="logica.DT.DTLista"%>
-<%@page import="logica.Lista"%>
-<%@page import="logica.DT.DTComentario"%>
-<%@page import="logica.ISistema"%>
-<%@page import="logica.Fabrica"%>
-<%@page import="logica.Usuario"%>
-<%@page import="logica.Comentario"%>
-<%@page import="logica.Video"%>
 <%@page import="java.util.List"%>
-<%@page import="logica.Manejador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -44,7 +43,7 @@
         
         <script type="text/javascript">
             function Refrescar() {
-                String NomVid = document.getElementById("");  
+                String nomVid = document.getElementById("");  
                 request.setAttribute("Nombre", NomVid);
             }
         </script>
@@ -94,8 +93,11 @@
             </nav>   
         </header>
         <%
-            Manejador m = Manejador.getinstance();
-            List<Video> Vid = m.getVideos();         
+            PublicadorService service = new PublicadorService();
+            Publicador port = service.getPublicadorPort();
+    
+            VideoArray videos = port.getVideos();
+            List<Video> Vid = videos.getItem();
             for(int i=0; i<Vid.size(); i++)
             {
                 if(Vid.get(i).getNombre().equals(request.getAttribute("Nombre")))
@@ -113,8 +115,9 @@
                             %>
                                 <input class="btn btn-primary" type="submit" name="BotonAgregar" value="Agregar a Lista" id="BotonCatego" style='width:150px; height:30px'>
                                 <select class="btn btn-outline-success my-2 my-sm-0" name="ComboListas" id="ComboCatego" style='width:150px; height:30px'>
-                                <%    
-                                List<Lista> listas = m.getListas(infoLogueado.getNickname());
+                                <% 
+                                ListaArray lis = port.getAllListas();
+                                List<Lista> listas = lis.getItem();
                                 if(listas != null)
                                 {
                                     for(Lista dc: listas)
@@ -157,7 +160,8 @@
                         <br>
                         <div style="background-color: white; border: 5px solid black; width: 650px; height: auto">
                             <%
-                                List<Video> v = m.getVideos();
+                                VideoArray v2 = port.getVideos();
+                                List<Video> v = v2.getItem();
                             
                                 for(int i2=0; i2<v.size(); i2++)
                                 {
@@ -172,16 +176,16 @@
                                                 <div style="background-color: white; border: 1px solid black; width: 640px; height: auto">
                                                     <div>
                                                         
-                                                        <img src="<%=c.get(i3).getUsuario().getImagen()%>" style="margin: 4px; width: 2px; height: 2px; float: left;"></img>
-                                                        <text name="comment" style="color: black; float: top;"><p><font size="1">*<%=c.get(i3).getUsuario().getNickname()%> <%=c.get(i3).getFecha()%></font></p></text>
+                                                        <img src="<%//=c.get(i3).getUsuario().getImagen()%>" style="margin: 4px; width: 2px; height: 2px; float: left;"></img>
+                                                        <text name="comment" style="color: black; float: top;"><p><font size="1">*<%//=c.get(i3).getUsuario().getNickname()%> <%=c.get(i3).getFecha()%></font></p></text>
                                                         <text name="com1" style="color: black; float: top;"><%=c.get(i3).getTexto()%></text> 
                                                         <%
                                                         if(infoLogueado != null)
                                                         {
                                                             %>    
                                                                 <br>
-                                                                <textarea id="Comentar" name="<%= Integer.toString(c.get(i3).getId())%>" style="float: left; font-family: Arial; font-size: 8pt; width:200px; height:25px"></textarea>
-                                                                <button value="<%=c.get(i3).getId()%>" type="submit" name="BotonSubComentar" style="float: left; font-family: Arial; font-size: 8pt;width:100px; height:25px">Comentar</button>                                 
+                                                                <textarea id="Comentar" name="<%//= Integer.toString(c.get(i3).getId())%>" style="float: left; font-family: Arial; font-size: 8pt; width:200px; height:25px"></textarea>
+                                                                <button value="<%//=c.get(i3).getId()%>" type="submit" name="BotonSubComentar" style="float: left; font-family: Arial; font-size: 8pt;width:100px; height:25px">Comentar</button>                                 
                                                             <%
                                                         }
                                                         else
@@ -195,7 +199,7 @@
                                                         <br>
                                                         <p style="color: black; float: top;"><font size="1">//Subcomentarios</font></p>
                                                     </div>
-                                                    <%
+                                                    <%--
                                                     List<Comentario> c1 = c.get(i3).getHijos();    
                                                     if(c1.size()>0)
                                                     {
@@ -212,7 +216,7 @@
                                                         }
 
                                                     }
-                                                    %>
+                                                    --%>
                                                      <br>
                                                 </div>     
                                                 <%

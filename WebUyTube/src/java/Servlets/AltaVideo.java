@@ -1,7 +1,11 @@
 package Servlets;
 
+import WSDL_generado.Categoria;
+import WSDL_generado.DtVideo;
+import WSDL_generado.ParseException_Exception;
 import WSDL_generado.Publicador;
 import WSDL_generado.PublicadorService;
+import WSDL_generado.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
@@ -29,7 +33,7 @@ public class AltaVideo extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException {
+            throws ServletException, IOException, ParseException, ParseException_Exception {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
             PublicadorService service = new WSDL_generado.PublicadorService();
@@ -45,13 +49,17 @@ public class AltaVideo extends HttpServlet {
             if (privado == null) {
                 priv = false;
             }
-            SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
-            Date date = null;
-            date = simple.parse(f);
-            //                   String nombre,  descripcion,  duracion, date, url, privado, categoria
-            DTVideo video = new DTVideo(nombre, descripcion, duracion, date, url, priv, categoria);
             
-            //port.altaVideo(video, "Gime");
+//            SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
+//            Date date = null;
+//            date = simple.parse(f);
+            Categoria cat = new Categoria();
+            cat.setNombre(categoria);
+
+            DtVideo video = port.setVideo(nombre, descripcion, duracion, f, url, priv, cat);
+            Usuario u = (Usuario) Login.getUsuarioLogueado(request);
+            
+            port.altaVideo(video, u.getNickname());
             
 
             //out.println("<html><body onload=\"alert ('Video Creado')\"></body></html>");
@@ -75,6 +83,8 @@ public class AltaVideo extends HttpServlet {
             processRequest(request, response);
         } catch (ParseException ex) {
             Logger.getLogger(AltaVideo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException_Exception ex) {
+            Logger.getLogger(AltaVideo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -92,6 +102,8 @@ public class AltaVideo extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ParseException ex) {
+            Logger.getLogger(AltaVideo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException_Exception ex) {
             Logger.getLogger(AltaVideo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

@@ -9,15 +9,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 import logica.DT.DtCanal;
-import logica.DT.DTCategoria;
-import logica.DT.DTComentario;
-import logica.DT.DTLista;
-import logica.DT.DTListaUsuario;
-import logica.DT.DTSesion;
+import logica.DT.DtCategoria;
+import logica.DT.DtComentario;
+import logica.DT.DtLista;
+import logica.DT.DtListaUsuario;
+import logica.DT.DtSesion;
 import logica.DT.DtUsuario;
-import logica.DT.DTValoracion;
-import logica.DT.DTVideo;
-import logica.DT.DTVideoUsuario;
+import logica.DT.DtValoracion;
+import logica.DT.DtVideo;
+import logica.DT.DtVideoUsuario;
 
 public class Sistema implements ISistema{
 
@@ -83,7 +83,7 @@ public class Sistema implements ISistema{
         
     }
     
-    public void altaVideo(DTVideo video, String usuario){
+    public void altaVideo(DtVideo video, String usuario){
         Manejador m = Manejador.getinstance();
         Categoria cat = null;
        
@@ -104,7 +104,7 @@ public class Sistema implements ISistema{
         
     }
     
-    public void modificarVideo (DTVideo video, String usuario, String nomVideo){
+    public void modificarVideo (DtVideo video, String usuario, String nomVideo){
         Manejador m = Manejador.getinstance();
         EntityManager em5 = Manejador.getEntityManager();
         EntityTransaction tx = em5.getTransaction();
@@ -126,7 +126,7 @@ public class Sistema implements ISistema{
         
     }
 
-    public void altaLista(DTLista lista, String usuario){ // particular valga la redundancia
+    public void altaLista(DtLista lista, String usuario){ // particular valga la redundancia
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(usuario);
         //Canal_Lista cl = new Canal_Lista();
@@ -140,7 +140,7 @@ public class Sistema implements ISistema{
         
     }
     
-    public void altaListaPorDefecto(DTLista lista, String usuario){
+    public void altaListaPorDefecto(DtLista lista, String usuario){
         Manejador m = Manejador.getinstance();
        //Usuario u = m.buscarUsuario(usuario);
         Lista l;
@@ -220,31 +220,31 @@ public class Sistema implements ISistema{
         tx.commit();
     }
     
-    public DTLista consultaLista(String usuario, String nombreLista){
+    public DtLista consultaLista(String usuario, String nombreLista){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(usuario);
         Canal c = u.getCanal();
         c.listarListas();
         Lista listaConsultar = c.buscarLista(nombreLista);
         
-        return new DTLista(listaConsultar.getNombre(),listaConsultar.isPorDefecto(),listaConsultar.isPrivado(), listaConsultar.getCategoria().getNombre());
+        return new DtLista(listaConsultar.getNombre(),listaConsultar.isPorDefecto(),listaConsultar.isPrivado(), listaConsultar.getCategoria().getNombre());
         
     }
     
-    public void altaCategoria(DTCategoria categoria){
+    public void altaCategoria(DtCategoria categoria){
         Categoria cat = new Categoria(categoria.getNombre());
         Manejador m = Manejador.getinstance();
         m.addCategoria(cat);
     }
     
-    public List<DTVideoUsuario> consultaVideosPorCategoria(String categoria){
+    public List<DtVideoUsuario> consultaVideosPorCategoria(String categoria){
         Manejador m = Manejador.getinstance();
-        List <DTVideoUsuario> listaVideos = new ArrayList();
+        List <DtVideoUsuario> listaVideos = new ArrayList();
         for (DtUsuario usu : m.getUsuarios()){
             Usuario u = m.buscarUsuario(usu.getNickname());
             for(Video v : u.getCanal().getVideos()){
                 if (v.getCategoria().getNombre().equals(categoria)){
-                    DTVideoUsuario video = new DTVideoUsuario(u.getNickname(), v.getNombre());
+                    DtVideoUsuario video = new DtVideoUsuario(u.getNickname(), v.getNombre());
                     listaVideos.add(video);
                 }
             }
@@ -256,14 +256,14 @@ public class Sistema implements ISistema{
             return listaVideos;
     }
     
-    public List<DTListaUsuario> consultaListasPorCategoria(String categoria){
+    public List<DtListaUsuario> consultaListasPorCategoria(String categoria){
         Manejador m = Manejador.getinstance();
-        List <DTListaUsuario> listaListas = new ArrayList();
+        List <DtListaUsuario> listaListas = new ArrayList();
         for (DtUsuario usu : m.getUsuarios()){
             Usuario u = m.buscarUsuario(usu.getNickname());
             for(Lista l : u.getCanal().getListas()){
                 if (l.getCategoria().getNombre().equals(categoria)){
-                    DTListaUsuario lista = new DTListaUsuario(u.getNickname(), l.getNombre());
+                    DtListaUsuario lista = new DtListaUsuario(u.getNickname(), l.getNombre());
                     listaListas.add(lista);
                 }
             }
@@ -275,19 +275,19 @@ public class Sistema implements ISistema{
             return listaListas;
     }
     
-     public DTVideo consultarVideo(String usuario, String video){
+     public DtVideo consultarVideo(String usuario, String video){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(usuario);
         Canal canal = u.getCanal();
         Video v = canal.buscarVideo(video);
         
-        return new DTVideo (v.getNombre(), v.getDescripcion(), v.getDuracion(), v.getFecha(), v.getUrl(), 
+        return new DtVideo (v.getNombre(), v.getDescripcion(), v.getDuracion(), v.getFecha(), v.getUrl(), 
                 v.isPrivado(), v.getCategoria());  
     }    
         
 
     @Override
-    public void comentarVideo(String usuario,DTComentario comentario,String video, int padre){
+    public void comentarVideo(String usuario,DtComentario comentario,String video, int padre){
         EntityManager em = Manejador.getEntityManager();
         EntityTransaction tx = em.getTransaction();
         Manejador m = Manejador.getinstance();
@@ -329,7 +329,7 @@ public class Sistema implements ISistema{
     }
     
     @Override
-    public void valorarVideo(String usuario,String video, DTValoracion valoracion ){
+    public void valorarVideo(String usuario,String video, DtValoracion valoracion ){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(usuario);
         Canal canal = u.getCanal();
@@ -436,7 +436,7 @@ public class Sistema implements ISistema{
         return v.listaNMG();
     }
     
-    public List<DTLista> listasParticulares(String usuario){
+    public List<DtLista> listasParticulares(String usuario){
         Manejador m = Manejador.getinstance();
         Usuario u = m.buscarUsuario(usuario);
         Canal c = u.getCanal();
@@ -451,7 +451,7 @@ public class Sistema implements ISistema{
         return l.listarVideosEnLista();
     }
     
-    public DTSesion getUserSession(String identificador, String pass){
+    public DtSesion getUserSession(String identificador, String pass){
         Manejador M=Manejador.getinstance();
         return M.getUserSession(identificador, pass);
     } 

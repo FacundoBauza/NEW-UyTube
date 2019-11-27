@@ -1,13 +1,19 @@
-<%@page import="logica.Usuario"%>
+
+<%@page import="WSDL_generado.DtCategoria"%>
+<%@page import="WSDL_generado.Usuario"%>
+<%@page import="WSDL_generado.DtCategoriaArray"%>
+<%@page import="WSDL_generado.Publicador"%>
+<%@page import="WSDL_generado.PublicadorService"%>
 <%@page import="Servlets.Login"%>
-<%@page import="logica.Manejador"%>
 <%@page import="java.util.List"%>
-<%@page import="logica.DT.DTCategoria"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
-    Manejador m = Manejador.getinstance();      
-    List<DTCategoria> DtCat = m.getCategorias();
+    PublicadorService service = new PublicadorService();
+    Publicador port = service.getPublicadorPort();
+    
+    DtCategoriaArray categorias = port.getCategorias();
+    List<DtCategoria> DtCat = categorias.getItem();
     Usuario usr = Login.getUsuarioLogueado(request);
     if (usr == null){
         out.println("<html><body onload=\"alert ('Debes estar logueado')\"></body></html>");
@@ -127,7 +133,7 @@
                             <select name="ComboCat" id="ComboCatego" style='width:200px; height:50px'>
                                 <%
                               if(DtCat != null){
-                                  for(DTCategoria dc: DtCat){
+                                  for(DtCategoria dc: DtCat){
                                       %> 
                                        <option value="<%=dc.getNombre()%>"><%=dc.getNombre()%></option>
                                       <%

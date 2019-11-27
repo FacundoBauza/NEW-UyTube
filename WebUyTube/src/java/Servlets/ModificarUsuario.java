@@ -1,5 +1,8 @@
  package Servlets;
 
+import WSDL_generado.ParseException_Exception;
+import WSDL_generado.Publicador;
+import WSDL_generado.PublicadorService;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.ParseException;
@@ -26,7 +29,7 @@ public class ModificarUsuario extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ParseException {
+            throws ServletException, IOException, ParseException, ParseException_Exception {
         
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
@@ -44,11 +47,14 @@ public class ModificarUsuario extends HttpServlet {
             if(privado==null){
                 priv = false;
             }
-            SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
-            Date date = null;
-            date = simple.parse(fNac);
+//            SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
+//            Date date = null;
+//            date = simple.parse(fNac);
 
-            port.modificarUsuario(nickname, contrasenia, nombre, apellido, date, null, canal, descrcanal, priv);
+            PublicadorService service = new PublicadorService();
+            Publicador port = service.getPublicadorPort();
+            
+            port.modificarUsuario(nickname, contrasenia, nombre, apellido, fNac, null, canal, descrcanal, priv);
             //out.println("<html><body onload=\"alert ('Usuario Modificado')\"></body></html>");
            
            response.setHeader("Refresh", "0; URL=http://localhost:8080/WebUyTube/homeLogIn.jsp");
@@ -72,6 +78,8 @@ public class ModificarUsuario extends HttpServlet {
             processRequest(request, response);
         } catch (ParseException ex) {
             Logger.getLogger(ModificarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException_Exception ex) {
+            Logger.getLogger(ModificarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -89,6 +97,8 @@ public class ModificarUsuario extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (ParseException ex) {
+            Logger.getLogger(ModificarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException_Exception ex) {
             Logger.getLogger(ModificarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

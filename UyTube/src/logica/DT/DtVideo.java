@@ -10,7 +10,7 @@ import logica.Valoracion;
 import logica.Video;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DTVideo {
+public class DtVideo {
    
     private String nombre;
     private String descripcion;
@@ -19,12 +19,22 @@ public class DTVideo {
     private String url;
     private boolean privado;
     private Categoria categoria;
-    private List<DTComentario> comentarios;
-    private List<DTValoracion> valoraciones;
+    private List<DtComentario> comentarios;
+    private List<DtValoracion> valoraciones;
     
-    public DTVideo(){}
+    public DtVideo(){}
+    
+    public void setear (String nombre, String descripcion, String duracion, Date fecha, String url, boolean privado, Categoria categoria) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.duracion = duracion;
+        this.fecha = fecha;
+        this.url = url;
+        this.privado = privado;
+        this.categoria = categoria;        
+    }
 
-    public DTVideo(String nombre, String descripcion, String duracion, Date fecha, String url, boolean privado, Categoria categoria) {
+    public DtVideo(String nombre, String descripcion, String duracion, Date fecha, String url, boolean privado, Categoria categoria) {
         this.nombre = nombre;
         this.descripcion = descripcion;
         this.duracion = duracion;
@@ -34,7 +44,7 @@ public class DTVideo {
         this.categoria = categoria;        
     }
     
-    public DTVideo(Video v){
+    public DtVideo(Video v){
         
         this.nombre = v.getNombre();
         this.descripcion = v.getDescripcion();
@@ -43,16 +53,16 @@ public class DTVideo {
         this.url = v.getUrl();
         this.privado = v.isPrivado();
         this.categoria = v.getCategoria();
-        List<DTValoracion> valoraciones = new ArrayList();
+        List<DtValoracion> valoraciones = new ArrayList();
         if (v.getValoraciones() != null)
         for (Valoracion val : v.getValoraciones()){
-            DTValoracion valoracion = new DTValoracion(val);
+            DtValoracion valoracion = new DtValoracion(val);
             valoraciones.add(valoracion);
         }
         this.valoraciones = valoraciones;        
     }
 
-    public List<DTValoracion> getValoraciones() {
+    public List<DtValoracion> getValoraciones() {
         return valoraciones;
     }
 
@@ -84,7 +94,7 @@ public class DTVideo {
         return privado;
     }
 
-    public List<DTComentario> getComentarios() {
+    public List<DtComentario> getComentarios() {
         return comentarios;
     }
 
@@ -116,11 +126,11 @@ public class DTVideo {
         this.categoria = categoria;
     }
 
-    public void setComentarios(List<DTComentario> comentarios) {
+    public void setComentarios(List<DtComentario> comentarios) {
         this.comentarios = comentarios;
     }
 
-    public void setValoraciones(List<DTValoracion> valoraciones) {
+    public void setValoraciones(List<DtValoracion> valoraciones) {
         this.valoraciones = valoraciones;
     }
     

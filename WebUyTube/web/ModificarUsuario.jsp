@@ -1,13 +1,16 @@
+<%@page import="WSDL_generado.StringArray"%>
+<%@page import="WSDL_generado.Publicador"%>
+<%@page import="WSDL_generado.PublicadorService"%>
+<%@page import="WSDL_generado.VideoArray"%>
+<%@page import="WSDL_generado.Lista"%>
+<%@page import="WSDL_generado.Video"%>
+<%@page import="WSDL_generado.Canal"%>
+<%@page import="WSDL_generado.Usuario"%>
 <%@page import="java.text.SimpleDateFormat"%>
-<%@page import="logica.Lista"%>
-<%@page import="logica.Video"%>
-<%@page import="logica.Canal"%>
-<%@page import="logica.Usuario"%>
 <%@page import="Servlets.Login"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.Date"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="logica.DT.DTUsuario"%>
 
 <%
     Usuario usuario = Login.getUsuarioLogueado(request);
@@ -17,17 +20,25 @@
     }
     else{
     Canal canal = usuario.getCanal();
-    Date fNac = usuario.getFechaNac();
+    Date fNac = new Date();
+    fNac.setDate(usuario.getFechaNac().getDay());
+    fNac.setMonth(usuario.getFechaNac().getMonth());
+    fNac.setYear(usuario.getFechaNac().getYear());
+    
     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
     String date = sdf.format(fNac);
   
 %>
 
 <%
-    List<Video> videos = canal.getVideos();
+    PublicadorService service = new PublicadorService();
+    Publicador port = service.getPublicadorPort();     
+    
+    StringArray vid = port.listarVidesPorUsuario(usuario.getNickname());
+    List<String> videos = vid.getItem();
     List<Lista> listas = canal.getListas();
-    List<Usuario> seguidores = usuario.getSeguidores();
-    List<Usuario> seguidos = usuario.getSeguidos();
+    //List<Usuario> seguidores = usuario.getSeguidores();
+    //List<Usuario> seguidos = usuario.getSeguidos();
 %>
 
 <!DOCTYPE html>
@@ -181,9 +192,9 @@
                     <div id="tab2" class="tab">
                         <ul>
                             <%if (videos != null && videos.size() > 0) {%>
-                            <%for (Video v : videos) {%>  
-                            <h5><a href = "/WebUyTube/ModificarVideo.jsp?v=<% out.print(v.getNombre()); %>"><% out.print(v.getNombre()); %></h5>
-                            <h6><% out.print(v.getUrl()); %></h6>
+                            <%for (String v : videos) {%>  
+                            <h5><a href = "/WebUyTube/ModificarVideo.jsp?v=<% out.print(v); %>"><% out.print(v); %></h5>
+                            <%--<h6><% out.print(v.getUrl()); %></h6>--%>
                             <% } %>
                             <% } else { %>
                             <h5>No se encontraron videos</h5>
@@ -205,25 +216,25 @@
 
                     <div id="tab4" class="tab">
                         <ul>
-                            <%if (seguidores != null && seguidores.size() > 0) {%>
+                            <%--if (seguidores != null && seguidores.size() > 0) {%>
                             <%for (Usuario s : seguidores) {%>  
                             <h6><% out.print(s.getNickname()); %></h6>
                             <% } %>
-                            <% } else { %>
+                            <% } else { --%>
                             <h5>No se encontraron seguidores</h5>
-                            <% }%>
+                            <%// }%>
                         </ul>
                     </div>           
                            
                     <div id="tab5" class="tab">
                         <ul>
-                            <%if (seguidos != null && seguidos.size() > 0) {%>
+                            <%--if (seguidos != null && seguidos.size() > 0) {%>
                             <%for (Usuario seguido : seguidos) {%>  
                             <h6><% out.print(seguido.getNickname()); %></h6>
                             <% } %>
-                            <% } else { %>
+                            <% } else { --%>
                             <h5>No se encontraron seguidos</h5>
-                            <% }%>
+                            <%// }%>
                         </ul>
                     </div> 
                         

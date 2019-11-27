@@ -5,6 +5,9 @@
  */
 package Servlets;
 
+import WSDL_generado.Publicador;
+import WSDL_generado.PublicadorService;
+import WSDL_generado.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -33,6 +36,9 @@ public class VerInfoUsu extends HttpServlet {
         PrintWriter out=response.getWriter();
         String nick = request.getParameter("dataname");
         
+        PublicadorService service = new PublicadorService();
+        Publicador port = service.getPublicadorPort();
+            
         Usuario usuario = port.buscarUsuario(nick);
         if(usuario!=null){
             HttpSession session = request.getSession();

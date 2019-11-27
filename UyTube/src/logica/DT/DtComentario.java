@@ -7,21 +7,27 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import logica.Comentario;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-public class DTComentario {
+public class DtComentario {
     private int id;
     private String texto;
     private Date fecha;
     private String usuario;
-    private List<DTComentario> hijos;
+    private List<DtComentario> hijos;
 
-    public DTComentario(){
+    public DtComentario(){
     }
-    public DTComentario(String texto, String usuario){
+    
+    public void setear (String texto, String usuario){
+        this.texto = texto;
+        this.usuario = usuario;
+    }
+    
+    public DtComentario(String texto, String usuario){
         this.texto = texto;
         this.usuario = usuario;
     }
    
-    public DTComentario(Comentario c) {
+    public DtComentario(Comentario c) {
         this.id = c.getId();
         this.texto = c.getTexto();
         this.fecha = c.getFecha();
@@ -37,7 +43,7 @@ public class DTComentario {
         return fecha;
     }
 
-    public List<DTComentario> getHijos() {
+    public List<DtComentario> getHijos() {
         return hijos;
     }
 
@@ -65,7 +71,7 @@ public class DTComentario {
         this.usuario = usuario;
     }
 
-    public void setHijos(List<DTComentario> hijos) {
+    public void setHijos(List<DtComentario> hijos) {
         this.hijos = hijos;
     }
     
