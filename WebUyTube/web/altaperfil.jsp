@@ -25,13 +25,14 @@
         <script src="http://code.jquery.com/jquery-1.10.2.js" type="text/javascript"></script>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <script src="jquery-1.8.0.min.js"></script>
-        <script src="resources/js/CheckMailUse.js"></script>
+        
         <title>Registrarse</title>
 
         
         
     </head>
     <body>
+        
         <div class="container p-4">
             <div class="row">
                 <div class="col-md-4 mx-auto">
@@ -42,10 +43,10 @@
                         <div class="card-body">
                             <form action="AltaPerfil" method="POST">
                                 <div class="form-group">
-                                    <input id="nickname" type="text" name='nickname' placeholder="Nickname"  class='form-control' autofocus required><div id="nick"></div>
+                                    <input id="nickname" type="text" name='nickname' placeholder="Nickname"  class='form-control' autofocus required onkeyup="CallcheckNick();"><div id="nick"></div>
                                 </div>
                                 <div class="form-group">
-                                    <input id="email" type="email" name='email' placeholder="Email" class='form-control' required><div id="mail"></div>
+                                    <input id="email" type="email" name='email' placeholder="Email" class='form-control' required onkeyup="CallcheckEmail();"><div id="mail"></div>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" name='nombre' placeholder="Nombre" class='form-control' required>
@@ -83,8 +84,45 @@
                 </div>
             </div>
         </div>
-    
         
+        <script>function CallcheckEmail(){
+        checkEmail.call();  
+        }
+        </script>
+        
+        <script>function CallcheckNick(){
+        checkNickname.call();  
+        }
+        </script>
+    
+        <script>function checkEmail(){
+            
+                $('#email').keyup(function(){
+                    $.ajax({
+                        url : "CheckMail",
+                        data:{ email : $('#email').val() },
+                        success : function(responseText){
+                            $('#mail').text(responseText);
+                        }
+                    });
+                });
+            });
+        
+        </script>
+        <script>function checkNickname(){
+            
+            $('#email').keyup(function(){
+                    $.ajax({
+                        url : "CheckMail",
+                        data:{ email : $('#email').val() },
+                        success : function(responseText){
+                            $('#mail').text(responseText);
+                        }
+                    });
+                });
+             });
+        
+        </script>
     
     
     <script>function checkPasswordMatch() {

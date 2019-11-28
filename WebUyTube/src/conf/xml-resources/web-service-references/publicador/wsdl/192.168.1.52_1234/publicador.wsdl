@@ -16,6 +16,19 @@
 <message name="SetListaResponse">
 <part name="return" type="tns:dtLista"></part>
 </message>
+<message name="SetCategoria">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="SetCategoriaResponse">
+<part name="return" type="tns:dtCategoria"></part>
+</message>
+<message name="SetComentario">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+</message>
+<message name="SetComentarioResponse">
+<part name="return" type="tns:dtComentario"></part>
+</message>
 <message name="SetUsuario">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:string"></part>
@@ -41,22 +54,9 @@
 <message name="SetCanalResponse">
 <part name="return" type="tns:dtCanal"></part>
 </message>
-<message name="SetCategoria">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="SetCategoriaResponse">
-<part name="return" type="tns:dtCategoria"></part>
-</message>
-<message name="SetComentario">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-</message>
-<message name="SetComentarioResponse">
-<part name="return" type="tns:dtComentario"></part>
-</message>
-<message name="DtComentario"></message>
-<message name="DtComentarioResponse">
-<part name="return" type="tns:dtComentario"></part>
+<message name="DtCanal"></message>
+<message name="DtCanalResponse">
+<part name="return" type="tns:dtCanal"></part>
 </message>
 <message name="getListas">
 <part name="arg0" type="xsd:string"></part>
@@ -68,23 +68,46 @@
 <message name="listarCategoriasResponse">
 <part xmlns:ns1="http://jaxb.dev.java.net/array" name="return" type="ns1:stringArray"></part>
 </message>
-<message name="DtVideo"></message>
-<message name="DtVideoResponse">
-<part name="return" type="tns:dtVideo"></part>
-</message>
 <message name="DtLista"></message>
 <message name="DtListaResponse">
 <part name="return" type="tns:dtLista"></part>
-</message>
-<message name="DtListaUsuario"></message>
-<message name="DtListaUsuarioResponse">
-<part name="return" type="tns:dtListaUsuario"></part>
 </message>
 <message name="buscarUsuario">
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="buscarUsuarioResponse">
 <part name="return" type="tns:usuario"></part>
+</message>
+<message name="DtListaUsuario"></message>
+<message name="DtListaUsuarioResponse">
+<part name="return" type="tns:dtListaUsuario"></part>
+</message>
+<message name="buscarCategoria">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="buscarCategoriaResponse">
+<part name="return" type="tns:categoria"></part>
+</message>
+<message name="buscarLista">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+</message>
+<message name="buscarListaResponse">
+<part name="return" type="tns:lista"></part>
+</message>
+<message name="nombreListaLibre">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="nombreListaLibreResponse">
+<part name="return" type="xsd:boolean"></part>
+</message>
+<message name="listarUsuarios"></message>
+<message name="listarUsuariosResponse">
+<part xmlns:ns2="http://jaxb.dev.java.net/array" name="return" type="ns2:stringArray"></part>
+</message>
+<message name="DtComentario"></message>
+<message name="DtComentarioResponse">
+<part name="return" type="tns:dtComentario"></part>
 </message>
 <message name="DtUsuario"></message>
 <message name="DtUsuarioResponse">
@@ -98,64 +121,23 @@
 <message name="DtCategoriaResponse">
 <part name="return" type="tns:dtCategoria"></part>
 </message>
-<message name="buscarLista">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
+<message name="DtVideo"></message>
+<message name="DtVideoResponse">
+<part name="return" type="tns:dtVideo"></part>
 </message>
-<message name="buscarListaResponse">
-<part name="return" type="tns:lista"></part>
+<message name="DtVideoUsuario"></message>
+<message name="DtVideoUsuarioResponse">
+<part name="return" type="tns:dtVideoUsuario"></part>
 </message>
 <message name="addLista">
 <part name="arg0" type="tns:lista"></part>
 <part name="arg1" type="xsd:string"></part>
 </message>
 <message name="addListaResponse"></message>
-<message name="buscarCategoria">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="buscarCategoriaResponse">
-<part name="return" type="tns:categoria"></part>
-</message>
-<message name="getAllListas"></message>
-<message name="getAllListasResponse">
-<part name="return" type="tns:listaArray"></part>
-</message>
 <message name="nicknameLibre">
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="nicknameLibreResponse">
-<part name="return" type="xsd:boolean"></part>
-</message>
-<message name="addUsuario">
-<part name="arg0" type="tns:usuario"></part>
-</message>
-<message name="addUsuarioResponse"></message>
-<message name="getUserData">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="getUserDataResponse">
-<part name="return" type="tns:dtUsuario"></part>
-</message>
-<message name="listarUsuarios"></message>
-<message name="listarUsuariosResponse">
-<part xmlns:ns2="http://jaxb.dev.java.net/array" name="return" type="ns2:stringArray"></part>
-</message>
-<message name="DtCanal"></message>
-<message name="DtCanalResponse">
-<part name="return" type="tns:dtCanal"></part>
-</message>
-<message name="DtValoracion"></message>
-<message name="DtValoracionResponse">
-<part name="return" type="tns:dtValoracion"></part>
-</message>
-<message name="DtVideoUsuario"></message>
-<message name="DtVideoUsuarioResponse">
-<part name="return" type="tns:dtVideoUsuario"></part>
-</message>
-<message name="nombreListaLibre">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="nombreListaLibreResponse">
 <part name="return" type="xsd:boolean"></part>
 </message>
 <message name="mailLibre">
@@ -164,122 +146,34 @@
 <message name="mailLibreResponse">
 <part name="return" type="xsd:boolean"></part>
 </message>
+<message name="DtValoracion"></message>
+<message name="DtValoracionResponse">
+<part name="return" type="tns:dtValoracion"></part>
+</message>
+<message name="getUserData">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="getUserDataResponse">
+<part name="return" type="tns:dtUsuario"></part>
+</message>
+<message name="addUsuario">
+<part name="arg0" type="tns:usuario"></part>
+</message>
+<message name="addUsuarioResponse"></message>
 <message name="DtSesion"></message>
 <message name="DtSesionResponse">
 <part name="return" type="tns:dtSesion"></part>
 </message>
-<message name="SetSesion">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
+<message name="getAllListas"></message>
+<message name="getAllListasResponse">
+<part name="return" type="tns:listaArray"></part>
 </message>
-<message name="SetSesionResponse">
-<part name="return" type="tns:dtSesion"></part>
-</message>
-<message name="listarNMG">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-</message>
-<message name="listarNMGResponse">
-<part xmlns:ns3="http://jaxb.dev.java.net/array" name="return" type="ns3:stringArray"></part>
-</message>
-<message name="getUsuarios"></message>
-<message name="getUsuariosResponse">
-<part name="return" type="tns:dtUsuarioArray"></part>
-</message>
-<message name="getCategorias"></message>
-<message name="getCategoriasResponse">
-<part name="return" type="tns:dtCategoriaArray"></part>
-</message>
-<message name="seguirUsuario">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-</message>
-<message name="seguirUsuarioResponse"></message>
-<message name="altaLista">
-<part name="arg0" type="tns:dtLista"></part>
-<part name="arg1" type="xsd:string"></part>
-</message>
-<message name="altaListaResponse"></message>
 <message name="valorarVideo">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:string"></part>
 <part name="arg2" type="tns:dtValoracion"></part>
 </message>
 <message name="valorarVideoResponse"></message>
-<message name="getVideos"></message>
-<message name="getVideosResponse">
-<part name="return" type="tns:videoArray"></part>
-</message>
-<message name="SetValoracion">
-<part name="arg0" type="xsd:boolean"></part>
-<part name="arg1" type="xsd:string"></part>
-<part name="arg2" type="xsd:string"></part>
-</message>
-<message name="SetValoracionResponse">
-<part name="return" type="tns:dtValoracion"></part>
-</message>
-<message name="SetListaUsuario">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-</message>
-<message name="SetListaUsuarioResponse">
-<part name="return" type="tns:dtListaUsuario"></part>
-</message>
-<message name="SetVideoUsuario">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-</message>
-<message name="SetVideoUsuarioResponse">
-<part name="return" type="tns:dtVideoUsuario"></part>
-</message>
-<message name="modificarVideo">
-<part name="arg0" type="tns:dtVideo"></part>
-<part name="arg1" type="xsd:string"></part>
-<part name="arg2" type="xsd:string"></part>
-</message>
-<message name="modificarVideoResponse"></message>
-<message name="altaCategoria">
-<part name="arg0" type="tns:dtCategoria"></part>
-</message>
-<message name="altaCategoriaResponse"></message>
-<message name="altaUsuario">
-<part name="arg0" type="tns:dtUsuario"></part>
-<part name="arg1" type="tns:dtCanal"></part>
-</message>
-<message name="altaUsuarioResponse"></message>
-<message name="listarVideos">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="listarVideosResponse">
-<part xmlns:ns4="http://jaxb.dev.java.net/array" name="return" type="ns4:stringArray"></part>
-</message>
-<message name="listarListas">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="listarListasResponse">
-<part xmlns:ns5="http://jaxb.dev.java.net/array" name="return" type="ns5:stringArray"></part>
-</message>
-<message name="comentarVideo">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="tns:dtComentario"></part>
-<part name="arg2" type="xsd:string"></part>
-<part name="arg3" type="xsd:int"></part>
-</message>
-<message name="comentarVideoResponse"></message>
-<message name="listarMG">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-</message>
-<message name="listarMGResponse">
-<part xmlns:ns6="http://jaxb.dev.java.net/array" name="return" type="ns6:stringArray"></part>
-</message>
-<message name="consultaLista">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-</message>
-<message name="consultaListaResponse">
-<part name="return" type="tns:dtLista"></part>
-</message>
 <message name="modificarUsuario">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:string"></part>
@@ -292,12 +186,95 @@
 <part name="arg8" type="xsd:boolean"></part>
 </message>
 <message name="modificarUsuarioResponse"></message>
+<message name="SetSesion">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+</message>
+<message name="SetSesionResponse">
+<part name="return" type="tns:dtSesion"></part>
+</message>
+<message name="altaUsuario">
+<part name="arg0" type="tns:dtUsuario"></part>
+<part name="arg1" type="tns:dtCanal"></part>
+</message>
+<message name="altaUsuarioResponse"></message>
+<message name="comentarVideo">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="tns:dtComentario"></part>
+<part name="arg2" type="xsd:string"></part>
+<part name="arg3" type="xsd:int"></part>
+</message>
+<message name="comentarVideoResponse"></message>
+<message name="consultaUsuario">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="consultaUsuarioResponse">
+<part name="return" type="tns:dtUsuario"></part>
+</message>
 <message name="getUserSession">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:string"></part>
 </message>
 <message name="getUserSessionResponse">
 <part name="return" type="tns:dtSesion"></part>
+</message>
+<message name="bajaUsuario">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="bajaUsuarioResponse"></message>
+<message name="altaCategoria">
+<part name="arg0" type="tns:dtCategoria"></part>
+</message>
+<message name="altaCategoriaResponse"></message>
+<message name="altaLista">
+<part name="arg0" type="tns:dtLista"></part>
+<part name="arg1" type="xsd:string"></part>
+</message>
+<message name="altaListaResponse"></message>
+<message name="listarListas">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="listarListasResponse">
+<part xmlns:ns3="http://jaxb.dev.java.net/array" name="return" type="ns3:stringArray"></part>
+</message>
+<message name="getVideos"></message>
+<message name="getVideosResponse">
+<part name="return" type="tns:videoArray"></part>
+</message>
+<message name="consultarVideo">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+</message>
+<message name="consultarVideoResponse">
+<part name="return" type="tns:dtVideo"></part>
+</message>
+<message name="seguirUsuario">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+</message>
+<message name="seguirUsuarioResponse"></message>
+<message name="consultaLista">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+</message>
+<message name="consultaListaResponse">
+<part name="return" type="tns:dtLista"></part>
+</message>
+<message name="getUsuarios"></message>
+<message name="getUsuariosResponse">
+<part name="return" type="tns:dtUsuarioArray"></part>
+</message>
+<message name="getCategorias"></message>
+<message name="getCategoriasResponse">
+<part name="return" type="tns:dtCategoriaArray"></part>
+</message>
+<message name="SetValoracion">
+<part name="arg0" type="xsd:boolean"></part>
+<part name="arg1" type="xsd:string"></part>
+<part name="arg2" type="xsd:string"></part>
+</message>
+<message name="SetValoracionResponse">
+<part name="return" type="tns:dtValoracion"></part>
 </message>
 <message name="SetVideo">
 <part name="arg0" type="xsd:string"></part>
@@ -311,32 +288,120 @@
 <message name="SetVideoResponse">
 <part name="return" type="tns:dtVideo"></part>
 </message>
-<message name="consultaUsuario">
+<message name="SetVideoUsuario">
 <part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
 </message>
-<message name="consultaUsuarioResponse">
-<part name="return" type="tns:dtUsuario"></part>
+<message name="SetVideoUsuarioResponse">
+<part name="return" type="tns:dtVideoUsuario"></part>
 </message>
 <message name="altaVideo">
 <part name="arg0" type="tns:dtVideo"></part>
 <part name="arg1" type="xsd:string"></part>
 </message>
 <message name="altaVideoResponse"></message>
-<message name="consultarVideo">
+<message name="listarNMG">
 <part name="arg0" type="xsd:string"></part>
 <part name="arg1" type="xsd:string"></part>
 </message>
-<message name="consultarVideoResponse">
-<part name="return" type="tns:dtVideo"></part>
+<message name="listarNMGResponse">
+<part xmlns:ns4="http://jaxb.dev.java.net/array" name="return" type="ns4:stringArray"></part>
 </message>
-<message name="bajaUsuario">
+<message name="modificarVideo">
+<part name="arg0" type="tns:dtVideo"></part>
+<part name="arg1" type="xsd:string"></part>
+<part name="arg2" type="xsd:string"></part>
+</message>
+<message name="modificarVideoResponse"></message>
+<message name="listarMG">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+</message>
+<message name="listarMGResponse">
+<part xmlns:ns5="http://jaxb.dev.java.net/array" name="return" type="ns5:stringArray"></part>
+</message>
+<message name="listarVideos">
 <part name="arg0" type="xsd:string"></part>
 </message>
-<message name="bajaUsuarioResponse"></message>
+<message name="listarVideosResponse">
+<part xmlns:ns6="http://jaxb.dev.java.net/array" name="return" type="ns6:stringArray"></part>
+</message>
+<message name="SetListaUsuario">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+</message>
+<message name="SetListaUsuarioResponse">
+<part name="return" type="tns:dtListaUsuario"></part>
+</message>
+<message name="modificarListaPart">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+<part name="arg2" type="xsd:string"></part>
+<part name="arg3" type="xsd:boolean"></part>
+</message>
+<message name="modificarListaPartResponse"></message>
+<message name="quitarVideoDeLista">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+<part name="arg2" type="xsd:string"></part>
+</message>
+<message name="quitarVideoDeListaResponse"></message>
+<message name="listarVideosLista">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+</message>
+<message name="listarVideosListaResponse">
+<part xmlns:ns7="http://jaxb.dev.java.net/array" name="return" type="ns7:stringArray"></part>
+</message>
+<message name="consultaVideosPorCategoria">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="consultaVideosPorCategoriaResponse">
+<part name="return" type="tns:dtVideoUsuarioArray"></part>
+</message>
+<message name="altaListaPorDefecto">
+<part name="arg0" type="tns:dtLista"></part>
+<part name="arg1" type="xsd:string"></part>
+</message>
+<message name="altaListaPorDefectoResponse"></message>
+<message name="listasParticulares">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="listasParticularesResponse">
+<part name="return" type="tns:dtListaArray"></part>
+</message>
+<message name="consultaListasPorCategoria">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="consultaListasPorCategoriaResponse">
+<part name="return" type="tns:dtListaUsuarioArray"></part>
+</message>
+<message name="dejarDeSeguirUsuario">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+</message>
+<message name="dejarDeSeguirUsuarioResponse"></message>
+<message name="agregarVideoAlista">
+<part name="arg0" type="xsd:string"></part>
+<part name="arg1" type="xsd:string"></part>
+<part name="arg2" type="xsd:string"></part>
+<part name="arg3" type="xsd:string"></part>
+</message>
+<message name="agregarVideoAlistaResponse"></message>
+<message name="getListasPorDefecto"></message>
+<message name="getListasPorDefectoResponse">
+<part xmlns:ns8="http://jaxb.dev.java.net/array" name="return" type="ns8:stringArray"></part>
+</message>
 <message name="obtenerUsuarioPorNickname">
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="obtenerUsuarioPorNicknameResponse">
+<part name="return" type="tns:usuario"></part>
+</message>
+<message name="obtenerUsuarioPorMail">
+<part name="arg0" type="xsd:string"></part>
+</message>
+<message name="obtenerUsuarioPorMailResponse">
 <part name="return" type="tns:usuario"></part>
 </message>
 <message name="nombreCategoriaLibre">
@@ -344,12 +409,6 @@
 </message>
 <message name="nombreCategoriaLibreResponse">
 <part name="return" type="xsd:boolean"></part>
-</message>
-<message name="obtenerUsuarioPorMail">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="obtenerUsuarioPorMailResponse">
-<part name="return" type="tns:usuario"></part>
 </message>
 <message name="buscarUsuarioPorVideo">
 <part name="arg0" type="xsd:string"></part>
@@ -361,71 +420,20 @@
 <part name="arg0" type="xsd:string"></part>
 </message>
 <message name="listarVidesPorUsuarioResponse">
-<part xmlns:ns7="http://jaxb.dev.java.net/array" name="return" type="ns7:stringArray"></part>
-</message>
-<message name="dejarDeSeguirUsuario">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-</message>
-<message name="dejarDeSeguirUsuarioResponse"></message>
-<message name="listasParticulares">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="listasParticularesResponse">
-<part name="return" type="tns:dtListaArray"></part>
-</message>
-<message name="quitarVideoDeLista">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-<part name="arg2" type="xsd:string"></part>
-</message>
-<message name="quitarVideoDeListaResponse"></message>
-<message name="consultaListasPorCategoria">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="consultaListasPorCategoriaResponse">
-<part name="return" type="tns:dtListaUsuarioArray"></part>
-</message>
-<message name="listarVideosLista">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-</message>
-<message name="listarVideosListaResponse">
-<part xmlns:ns8="http://jaxb.dev.java.net/array" name="return" type="ns8:stringArray"></part>
-</message>
-<message name="consultaVideosPorCategoria">
-<part name="arg0" type="xsd:string"></part>
-</message>
-<message name="consultaVideosPorCategoriaResponse">
-<part name="return" type="tns:dtVideoUsuarioArray"></part>
-</message>
-<message name="getListasPorDefecto"></message>
-<message name="getListasPorDefectoResponse">
 <part xmlns:ns9="http://jaxb.dev.java.net/array" name="return" type="ns9:stringArray"></part>
 </message>
-<message name="modificarListaPart">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-<part name="arg2" type="xsd:string"></part>
-<part name="arg3" type="xsd:boolean"></part>
-</message>
-<message name="modificarListaPartResponse"></message>
-<message name="agregarVideoAlista">
-<part name="arg0" type="xsd:string"></part>
-<part name="arg1" type="xsd:string"></part>
-<part name="arg2" type="xsd:string"></part>
-<part name="arg3" type="xsd:string"></part>
-</message>
-<message name="agregarVideoAlistaResponse"></message>
-<message name="altaListaPorDefecto">
-<part name="arg0" type="tns:dtLista"></part>
-<part name="arg1" type="xsd:string"></part>
-</message>
-<message name="altaListaPorDefectoResponse"></message>
 <portType name="Publicador">
 <operation name="SetLista" parameterOrder="arg0 arg1 arg2 arg3">
 <input wsam:Action="http://servidor/Publicador/SetListaRequest" message="tns:SetLista"></input>
 <output wsam:Action="http://servidor/Publicador/SetListaResponse" message="tns:SetListaResponse"></output>
+</operation>
+<operation name="SetCategoria">
+<input wsam:Action="http://servidor/Publicador/SetCategoriaRequest" message="tns:SetCategoria"></input>
+<output wsam:Action="http://servidor/Publicador/SetCategoriaResponse" message="tns:SetCategoriaResponse"></output>
+</operation>
+<operation name="SetComentario" parameterOrder="arg0 arg1">
+<input wsam:Action="http://servidor/Publicador/SetComentarioRequest" message="tns:SetComentario"></input>
+<output wsam:Action="http://servidor/Publicador/SetComentarioResponse" message="tns:SetComentarioResponse"></output>
 </operation>
 <operation name="SetUsuario" parameterOrder="arg0 arg1 arg2 arg3 arg4 arg5 arg6 arg7 arg8">
 <input wsam:Action="http://servidor/Publicador/SetUsuarioRequest" message="tns:SetUsuario"></input>
@@ -436,17 +444,9 @@
 <input wsam:Action="http://servidor/Publicador/SetCanalRequest" message="tns:SetCanal"></input>
 <output wsam:Action="http://servidor/Publicador/SetCanalResponse" message="tns:SetCanalResponse"></output>
 </operation>
-<operation name="SetCategoria">
-<input wsam:Action="http://servidor/Publicador/SetCategoriaRequest" message="tns:SetCategoria"></input>
-<output wsam:Action="http://servidor/Publicador/SetCategoriaResponse" message="tns:SetCategoriaResponse"></output>
-</operation>
-<operation name="SetComentario" parameterOrder="arg0 arg1">
-<input wsam:Action="http://servidor/Publicador/SetComentarioRequest" message="tns:SetComentario"></input>
-<output wsam:Action="http://servidor/Publicador/SetComentarioResponse" message="tns:SetComentarioResponse"></output>
-</operation>
-<operation name="DtComentario">
-<input wsam:Action="http://servidor/Publicador/DtComentarioRequest" message="tns:DtComentario"></input>
-<output wsam:Action="http://servidor/Publicador/DtComentarioResponse" message="tns:DtComentarioResponse"></output>
+<operation name="DtCanal">
+<input wsam:Action="http://servidor/Publicador/DtCanalRequest" message="tns:DtCanal"></input>
+<output wsam:Action="http://servidor/Publicador/DtCanalResponse" message="tns:DtCanalResponse"></output>
 </operation>
 <operation name="getListas">
 <input wsam:Action="http://servidor/Publicador/getListasRequest" message="tns:getListas"></input>
@@ -456,21 +456,37 @@
 <input wsam:Action="http://servidor/Publicador/listarCategoriasRequest" message="tns:listarCategorias"></input>
 <output wsam:Action="http://servidor/Publicador/listarCategoriasResponse" message="tns:listarCategoriasResponse"></output>
 </operation>
-<operation name="DtVideo">
-<input wsam:Action="http://servidor/Publicador/DtVideoRequest" message="tns:DtVideo"></input>
-<output wsam:Action="http://servidor/Publicador/DtVideoResponse" message="tns:DtVideoResponse"></output>
-</operation>
 <operation name="DtLista">
 <input wsam:Action="http://servidor/Publicador/DtListaRequest" message="tns:DtLista"></input>
 <output wsam:Action="http://servidor/Publicador/DtListaResponse" message="tns:DtListaResponse"></output>
+</operation>
+<operation name="buscarUsuario">
+<input wsam:Action="http://servidor/Publicador/buscarUsuarioRequest" message="tns:buscarUsuario"></input>
+<output wsam:Action="http://servidor/Publicador/buscarUsuarioResponse" message="tns:buscarUsuarioResponse"></output>
 </operation>
 <operation name="DtListaUsuario">
 <input wsam:Action="http://servidor/Publicador/DtListaUsuarioRequest" message="tns:DtListaUsuario"></input>
 <output wsam:Action="http://servidor/Publicador/DtListaUsuarioResponse" message="tns:DtListaUsuarioResponse"></output>
 </operation>
-<operation name="buscarUsuario">
-<input wsam:Action="http://servidor/Publicador/buscarUsuarioRequest" message="tns:buscarUsuario"></input>
-<output wsam:Action="http://servidor/Publicador/buscarUsuarioResponse" message="tns:buscarUsuarioResponse"></output>
+<operation name="buscarCategoria">
+<input wsam:Action="http://servidor/Publicador/buscarCategoriaRequest" message="tns:buscarCategoria"></input>
+<output wsam:Action="http://servidor/Publicador/buscarCategoriaResponse" message="tns:buscarCategoriaResponse"></output>
+</operation>
+<operation name="buscarLista" parameterOrder="arg0 arg1">
+<input wsam:Action="http://servidor/Publicador/buscarListaRequest" message="tns:buscarLista"></input>
+<output wsam:Action="http://servidor/Publicador/buscarListaResponse" message="tns:buscarListaResponse"></output>
+</operation>
+<operation name="nombreListaLibre">
+<input wsam:Action="http://servidor/Publicador/nombreListaLibreRequest" message="tns:nombreListaLibre"></input>
+<output wsam:Action="http://servidor/Publicador/nombreListaLibreResponse" message="tns:nombreListaLibreResponse"></output>
+</operation>
+<operation name="listarUsuarios">
+<input wsam:Action="http://servidor/Publicador/listarUsuariosRequest" message="tns:listarUsuarios"></input>
+<output wsam:Action="http://servidor/Publicador/listarUsuariosResponse" message="tns:listarUsuariosResponse"></output>
+</operation>
+<operation name="DtComentario">
+<input wsam:Action="http://servidor/Publicador/DtComentarioRequest" message="tns:DtComentario"></input>
+<output wsam:Action="http://servidor/Publicador/DtComentarioResponse" message="tns:DtComentarioResponse"></output>
 </operation>
 <operation name="DtUsuario">
 <input wsam:Action="http://servidor/Publicador/DtUsuarioRequest" message="tns:DtUsuario"></input>
@@ -484,69 +500,106 @@
 <input wsam:Action="http://servidor/Publicador/DtCategoriaRequest" message="tns:DtCategoria"></input>
 <output wsam:Action="http://servidor/Publicador/DtCategoriaResponse" message="tns:DtCategoriaResponse"></output>
 </operation>
-<operation name="buscarLista" parameterOrder="arg0 arg1">
-<input wsam:Action="http://servidor/Publicador/buscarListaRequest" message="tns:buscarLista"></input>
-<output wsam:Action="http://servidor/Publicador/buscarListaResponse" message="tns:buscarListaResponse"></output>
-</operation>
-<operation name="addLista" parameterOrder="arg0 arg1">
-<input wsam:Action="http://servidor/Publicador/addListaRequest" message="tns:addLista"></input>
-<output wsam:Action="http://servidor/Publicador/addListaResponse" message="tns:addListaResponse"></output>
-</operation>
-<operation name="buscarCategoria">
-<input wsam:Action="http://servidor/Publicador/buscarCategoriaRequest" message="tns:buscarCategoria"></input>
-<output wsam:Action="http://servidor/Publicador/buscarCategoriaResponse" message="tns:buscarCategoriaResponse"></output>
-</operation>
-<operation name="getAllListas">
-<input wsam:Action="http://servidor/Publicador/getAllListasRequest" message="tns:getAllListas"></input>
-<output wsam:Action="http://servidor/Publicador/getAllListasResponse" message="tns:getAllListasResponse"></output>
-</operation>
-<operation name="nicknameLibre">
-<input wsam:Action="http://servidor/Publicador/nicknameLibreRequest" message="tns:nicknameLibre"></input>
-<output wsam:Action="http://servidor/Publicador/nicknameLibreResponse" message="tns:nicknameLibreResponse"></output>
-</operation>
-<operation name="addUsuario">
-<input wsam:Action="http://servidor/Publicador/addUsuarioRequest" message="tns:addUsuario"></input>
-<output wsam:Action="http://servidor/Publicador/addUsuarioResponse" message="tns:addUsuarioResponse"></output>
-</operation>
-<operation name="getUserData">
-<input wsam:Action="http://servidor/Publicador/getUserDataRequest" message="tns:getUserData"></input>
-<output wsam:Action="http://servidor/Publicador/getUserDataResponse" message="tns:getUserDataResponse"></output>
-</operation>
-<operation name="listarUsuarios">
-<input wsam:Action="http://servidor/Publicador/listarUsuariosRequest" message="tns:listarUsuarios"></input>
-<output wsam:Action="http://servidor/Publicador/listarUsuariosResponse" message="tns:listarUsuariosResponse"></output>
-</operation>
-<operation name="DtCanal">
-<input wsam:Action="http://servidor/Publicador/DtCanalRequest" message="tns:DtCanal"></input>
-<output wsam:Action="http://servidor/Publicador/DtCanalResponse" message="tns:DtCanalResponse"></output>
-</operation>
-<operation name="DtValoracion">
-<input wsam:Action="http://servidor/Publicador/DtValoracionRequest" message="tns:DtValoracion"></input>
-<output wsam:Action="http://servidor/Publicador/DtValoracionResponse" message="tns:DtValoracionResponse"></output>
+<operation name="DtVideo">
+<input wsam:Action="http://servidor/Publicador/DtVideoRequest" message="tns:DtVideo"></input>
+<output wsam:Action="http://servidor/Publicador/DtVideoResponse" message="tns:DtVideoResponse"></output>
 </operation>
 <operation name="DtVideoUsuario">
 <input wsam:Action="http://servidor/Publicador/DtVideoUsuarioRequest" message="tns:DtVideoUsuario"></input>
 <output wsam:Action="http://servidor/Publicador/DtVideoUsuarioResponse" message="tns:DtVideoUsuarioResponse"></output>
 </operation>
-<operation name="nombreListaLibre">
-<input wsam:Action="http://servidor/Publicador/nombreListaLibreRequest" message="tns:nombreListaLibre"></input>
-<output wsam:Action="http://servidor/Publicador/nombreListaLibreResponse" message="tns:nombreListaLibreResponse"></output>
+<operation name="addLista" parameterOrder="arg0 arg1">
+<input wsam:Action="http://servidor/Publicador/addListaRequest" message="tns:addLista"></input>
+<output wsam:Action="http://servidor/Publicador/addListaResponse" message="tns:addListaResponse"></output>
+</operation>
+<operation name="nicknameLibre">
+<input wsam:Action="http://servidor/Publicador/nicknameLibreRequest" message="tns:nicknameLibre"></input>
+<output wsam:Action="http://servidor/Publicador/nicknameLibreResponse" message="tns:nicknameLibreResponse"></output>
 </operation>
 <operation name="mailLibre">
 <input wsam:Action="http://servidor/Publicador/mailLibreRequest" message="tns:mailLibre"></input>
 <output wsam:Action="http://servidor/Publicador/mailLibreResponse" message="tns:mailLibreResponse"></output>
 </operation>
+<operation name="DtValoracion">
+<input wsam:Action="http://servidor/Publicador/DtValoracionRequest" message="tns:DtValoracion"></input>
+<output wsam:Action="http://servidor/Publicador/DtValoracionResponse" message="tns:DtValoracionResponse"></output>
+</operation>
+<operation name="getUserData">
+<input wsam:Action="http://servidor/Publicador/getUserDataRequest" message="tns:getUserData"></input>
+<output wsam:Action="http://servidor/Publicador/getUserDataResponse" message="tns:getUserDataResponse"></output>
+</operation>
+<operation name="addUsuario">
+<input wsam:Action="http://servidor/Publicador/addUsuarioRequest" message="tns:addUsuario"></input>
+<output wsam:Action="http://servidor/Publicador/addUsuarioResponse" message="tns:addUsuarioResponse"></output>
+</operation>
 <operation name="DtSesion">
 <input wsam:Action="http://servidor/Publicador/DtSesionRequest" message="tns:DtSesion"></input>
 <output wsam:Action="http://servidor/Publicador/DtSesionResponse" message="tns:DtSesionResponse"></output>
+</operation>
+<operation name="getAllListas">
+<input wsam:Action="http://servidor/Publicador/getAllListasRequest" message="tns:getAllListas"></input>
+<output wsam:Action="http://servidor/Publicador/getAllListasResponse" message="tns:getAllListasResponse"></output>
+</operation>
+<operation name="valorarVideo" parameterOrder="arg0 arg1 arg2">
+<input wsam:Action="http://servidor/Publicador/valorarVideoRequest" message="tns:valorarVideo"></input>
+<output wsam:Action="http://servidor/Publicador/valorarVideoResponse" message="tns:valorarVideoResponse"></output>
+</operation>
+<operation name="modificarUsuario" parameterOrder="arg0 arg1 arg2 arg3 arg4 arg5 arg6 arg7 arg8">
+<input wsam:Action="http://servidor/Publicador/modificarUsuarioRequest" message="tns:modificarUsuario"></input>
+<output wsam:Action="http://servidor/Publicador/modificarUsuarioResponse" message="tns:modificarUsuarioResponse"></output>
+<fault message="tns:ParseException" name="ParseException" wsam:Action="http://servidor/Publicador/modificarUsuario/Fault/ParseException"></fault>
 </operation>
 <operation name="SetSesion" parameterOrder="arg0 arg1">
 <input wsam:Action="http://servidor/Publicador/SetSesionRequest" message="tns:SetSesion"></input>
 <output wsam:Action="http://servidor/Publicador/SetSesionResponse" message="tns:SetSesionResponse"></output>
 </operation>
-<operation name="listarNMG" parameterOrder="arg0 arg1">
-<input wsam:Action="http://servidor/Publicador/listarNMGRequest" message="tns:listarNMG"></input>
-<output wsam:Action="http://servidor/Publicador/listarNMGResponse" message="tns:listarNMGResponse"></output>
+<operation name="altaUsuario" parameterOrder="arg0 arg1">
+<input wsam:Action="http://servidor/Publicador/altaUsuarioRequest" message="tns:altaUsuario"></input>
+<output wsam:Action="http://servidor/Publicador/altaUsuarioResponse" message="tns:altaUsuarioResponse"></output>
+</operation>
+<operation name="comentarVideo" parameterOrder="arg0 arg1 arg2 arg3">
+<input wsam:Action="http://servidor/Publicador/comentarVideoRequest" message="tns:comentarVideo"></input>
+<output wsam:Action="http://servidor/Publicador/comentarVideoResponse" message="tns:comentarVideoResponse"></output>
+</operation>
+<operation name="consultaUsuario">
+<input wsam:Action="http://servidor/Publicador/consultaUsuarioRequest" message="tns:consultaUsuario"></input>
+<output wsam:Action="http://servidor/Publicador/consultaUsuarioResponse" message="tns:consultaUsuarioResponse"></output>
+</operation>
+<operation name="getUserSession" parameterOrder="arg0 arg1">
+<input wsam:Action="http://servidor/Publicador/getUserSessionRequest" message="tns:getUserSession"></input>
+<output wsam:Action="http://servidor/Publicador/getUserSessionResponse" message="tns:getUserSessionResponse"></output>
+</operation>
+<operation name="bajaUsuario">
+<input wsam:Action="http://servidor/Publicador/bajaUsuarioRequest" message="tns:bajaUsuario"></input>
+<output wsam:Action="http://servidor/Publicador/bajaUsuarioResponse" message="tns:bajaUsuarioResponse"></output>
+</operation>
+<operation name="altaCategoria">
+<input wsam:Action="http://servidor/Publicador/altaCategoriaRequest" message="tns:altaCategoria"></input>
+<output wsam:Action="http://servidor/Publicador/altaCategoriaResponse" message="tns:altaCategoriaResponse"></output>
+</operation>
+<operation name="altaLista" parameterOrder="arg0 arg1">
+<input wsam:Action="http://servidor/Publicador/altaListaRequest" message="tns:altaLista"></input>
+<output wsam:Action="http://servidor/Publicador/altaListaResponse" message="tns:altaListaResponse"></output>
+</operation>
+<operation name="listarListas">
+<input wsam:Action="http://servidor/Publicador/listarListasRequest" message="tns:listarListas"></input>
+<output wsam:Action="http://servidor/Publicador/listarListasResponse" message="tns:listarListasResponse"></output>
+</operation>
+<operation name="getVideos">
+<input wsam:Action="http://servidor/Publicador/getVideosRequest" message="tns:getVideos"></input>
+<output wsam:Action="http://servidor/Publicador/getVideosResponse" message="tns:getVideosResponse"></output>
+</operation>
+<operation name="consultarVideo" parameterOrder="arg0 arg1">
+<input wsam:Action="http://servidor/Publicador/consultarVideoRequest" message="tns:consultarVideo"></input>
+<output wsam:Action="http://servidor/Publicador/consultarVideoResponse" message="tns:consultarVideoResponse"></output>
+</operation>
+<operation name="seguirUsuario" parameterOrder="arg0 arg1">
+<input wsam:Action="http://servidor/Publicador/seguirUsuarioRequest" message="tns:seguirUsuario"></input>
+<output wsam:Action="http://servidor/Publicador/seguirUsuarioResponse" message="tns:seguirUsuarioResponse"></output>
+</operation>
+<operation name="consultaLista" parameterOrder="arg0 arg1">
+<input wsam:Action="http://servidor/Publicador/consultaListaRequest" message="tns:consultaLista"></input>
+<output wsam:Action="http://servidor/Publicador/consultaListaResponse" message="tns:consultaListaResponse"></output>
 </operation>
 <operation name="getUsuarios">
 <input wsam:Action="http://servidor/Publicador/getUsuariosRequest" message="tns:getUsuarios"></input>
@@ -556,131 +609,50 @@
 <input wsam:Action="http://servidor/Publicador/getCategoriasRequest" message="tns:getCategorias"></input>
 <output wsam:Action="http://servidor/Publicador/getCategoriasResponse" message="tns:getCategoriasResponse"></output>
 </operation>
-<operation name="seguirUsuario" parameterOrder="arg0 arg1">
-<input wsam:Action="http://servidor/Publicador/seguirUsuarioRequest" message="tns:seguirUsuario"></input>
-<output wsam:Action="http://servidor/Publicador/seguirUsuarioResponse" message="tns:seguirUsuarioResponse"></output>
-</operation>
-<operation name="altaLista" parameterOrder="arg0 arg1">
-<input wsam:Action="http://servidor/Publicador/altaListaRequest" message="tns:altaLista"></input>
-<output wsam:Action="http://servidor/Publicador/altaListaResponse" message="tns:altaListaResponse"></output>
-</operation>
-<operation name="valorarVideo" parameterOrder="arg0 arg1 arg2">
-<input wsam:Action="http://servidor/Publicador/valorarVideoRequest" message="tns:valorarVideo"></input>
-<output wsam:Action="http://servidor/Publicador/valorarVideoResponse" message="tns:valorarVideoResponse"></output>
-</operation>
-<operation name="getVideos">
-<input wsam:Action="http://servidor/Publicador/getVideosRequest" message="tns:getVideos"></input>
-<output wsam:Action="http://servidor/Publicador/getVideosResponse" message="tns:getVideosResponse"></output>
-</operation>
 <operation name="SetValoracion" parameterOrder="arg0 arg1 arg2">
 <input wsam:Action="http://servidor/Publicador/SetValoracionRequest" message="tns:SetValoracion"></input>
 <output wsam:Action="http://servidor/Publicador/SetValoracionResponse" message="tns:SetValoracionResponse"></output>
-</operation>
-<operation name="SetListaUsuario" parameterOrder="arg0 arg1">
-<input wsam:Action="http://servidor/Publicador/SetListaUsuarioRequest" message="tns:SetListaUsuario"></input>
-<output wsam:Action="http://servidor/Publicador/SetListaUsuarioResponse" message="tns:SetListaUsuarioResponse"></output>
-</operation>
-<operation name="SetVideoUsuario" parameterOrder="arg0 arg1">
-<input wsam:Action="http://servidor/Publicador/SetVideoUsuarioRequest" message="tns:SetVideoUsuario"></input>
-<output wsam:Action="http://servidor/Publicador/SetVideoUsuarioResponse" message="tns:SetVideoUsuarioResponse"></output>
-</operation>
-<operation name="modificarVideo" parameterOrder="arg0 arg1 arg2">
-<input wsam:Action="http://servidor/Publicador/modificarVideoRequest" message="tns:modificarVideo"></input>
-<output wsam:Action="http://servidor/Publicador/modificarVideoResponse" message="tns:modificarVideoResponse"></output>
-</operation>
-<operation name="altaCategoria">
-<input wsam:Action="http://servidor/Publicador/altaCategoriaRequest" message="tns:altaCategoria"></input>
-<output wsam:Action="http://servidor/Publicador/altaCategoriaResponse" message="tns:altaCategoriaResponse"></output>
-</operation>
-<operation name="altaUsuario" parameterOrder="arg0 arg1">
-<input wsam:Action="http://servidor/Publicador/altaUsuarioRequest" message="tns:altaUsuario"></input>
-<output wsam:Action="http://servidor/Publicador/altaUsuarioResponse" message="tns:altaUsuarioResponse"></output>
-</operation>
-<operation name="listarVideos">
-<input wsam:Action="http://servidor/Publicador/listarVideosRequest" message="tns:listarVideos"></input>
-<output wsam:Action="http://servidor/Publicador/listarVideosResponse" message="tns:listarVideosResponse"></output>
-</operation>
-<operation name="listarListas">
-<input wsam:Action="http://servidor/Publicador/listarListasRequest" message="tns:listarListas"></input>
-<output wsam:Action="http://servidor/Publicador/listarListasResponse" message="tns:listarListasResponse"></output>
-</operation>
-<operation name="comentarVideo" parameterOrder="arg0 arg1 arg2 arg3">
-<input wsam:Action="http://servidor/Publicador/comentarVideoRequest" message="tns:comentarVideo"></input>
-<output wsam:Action="http://servidor/Publicador/comentarVideoResponse" message="tns:comentarVideoResponse"></output>
-</operation>
-<operation name="listarMG" parameterOrder="arg0 arg1">
-<input wsam:Action="http://servidor/Publicador/listarMGRequest" message="tns:listarMG"></input>
-<output wsam:Action="http://servidor/Publicador/listarMGResponse" message="tns:listarMGResponse"></output>
-</operation>
-<operation name="consultaLista" parameterOrder="arg0 arg1">
-<input wsam:Action="http://servidor/Publicador/consultaListaRequest" message="tns:consultaLista"></input>
-<output wsam:Action="http://servidor/Publicador/consultaListaResponse" message="tns:consultaListaResponse"></output>
-</operation>
-<operation name="modificarUsuario" parameterOrder="arg0 arg1 arg2 arg3 arg4 arg5 arg6 arg7 arg8">
-<input wsam:Action="http://servidor/Publicador/modificarUsuarioRequest" message="tns:modificarUsuario"></input>
-<output wsam:Action="http://servidor/Publicador/modificarUsuarioResponse" message="tns:modificarUsuarioResponse"></output>
-<fault message="tns:ParseException" name="ParseException" wsam:Action="http://servidor/Publicador/modificarUsuario/Fault/ParseException"></fault>
-</operation>
-<operation name="getUserSession" parameterOrder="arg0 arg1">
-<input wsam:Action="http://servidor/Publicador/getUserSessionRequest" message="tns:getUserSession"></input>
-<output wsam:Action="http://servidor/Publicador/getUserSessionResponse" message="tns:getUserSessionResponse"></output>
 </operation>
 <operation name="SetVideo" parameterOrder="arg0 arg1 arg2 arg3 arg4 arg5 arg6">
 <input wsam:Action="http://servidor/Publicador/SetVideoRequest" message="tns:SetVideo"></input>
 <output wsam:Action="http://servidor/Publicador/SetVideoResponse" message="tns:SetVideoResponse"></output>
 <fault message="tns:ParseException" name="ParseException" wsam:Action="http://servidor/Publicador/SetVideo/Fault/ParseException"></fault>
 </operation>
-<operation name="consultaUsuario">
-<input wsam:Action="http://servidor/Publicador/consultaUsuarioRequest" message="tns:consultaUsuario"></input>
-<output wsam:Action="http://servidor/Publicador/consultaUsuarioResponse" message="tns:consultaUsuarioResponse"></output>
+<operation name="SetVideoUsuario" parameterOrder="arg0 arg1">
+<input wsam:Action="http://servidor/Publicador/SetVideoUsuarioRequest" message="tns:SetVideoUsuario"></input>
+<output wsam:Action="http://servidor/Publicador/SetVideoUsuarioResponse" message="tns:SetVideoUsuarioResponse"></output>
 </operation>
 <operation name="altaVideo" parameterOrder="arg0 arg1">
 <input wsam:Action="http://servidor/Publicador/altaVideoRequest" message="tns:altaVideo"></input>
 <output wsam:Action="http://servidor/Publicador/altaVideoResponse" message="tns:altaVideoResponse"></output>
 </operation>
-<operation name="consultarVideo" parameterOrder="arg0 arg1">
-<input wsam:Action="http://servidor/Publicador/consultarVideoRequest" message="tns:consultarVideo"></input>
-<output wsam:Action="http://servidor/Publicador/consultarVideoResponse" message="tns:consultarVideoResponse"></output>
+<operation name="listarNMG" parameterOrder="arg0 arg1">
+<input wsam:Action="http://servidor/Publicador/listarNMGRequest" message="tns:listarNMG"></input>
+<output wsam:Action="http://servidor/Publicador/listarNMGResponse" message="tns:listarNMGResponse"></output>
 </operation>
-<operation name="bajaUsuario">
-<input wsam:Action="http://servidor/Publicador/bajaUsuarioRequest" message="tns:bajaUsuario"></input>
-<output wsam:Action="http://servidor/Publicador/bajaUsuarioResponse" message="tns:bajaUsuarioResponse"></output>
+<operation name="modificarVideo" parameterOrder="arg0 arg1 arg2">
+<input wsam:Action="http://servidor/Publicador/modificarVideoRequest" message="tns:modificarVideo"></input>
+<output wsam:Action="http://servidor/Publicador/modificarVideoResponse" message="tns:modificarVideoResponse"></output>
 </operation>
-<operation name="obtenerUsuarioPorNickname">
-<input wsam:Action="http://servidor/Publicador/obtenerUsuarioPorNicknameRequest" message="tns:obtenerUsuarioPorNickname"></input>
-<output wsam:Action="http://servidor/Publicador/obtenerUsuarioPorNicknameResponse" message="tns:obtenerUsuarioPorNicknameResponse"></output>
+<operation name="listarMG" parameterOrder="arg0 arg1">
+<input wsam:Action="http://servidor/Publicador/listarMGRequest" message="tns:listarMG"></input>
+<output wsam:Action="http://servidor/Publicador/listarMGResponse" message="tns:listarMGResponse"></output>
 </operation>
-<operation name="nombreCategoriaLibre">
-<input wsam:Action="http://servidor/Publicador/nombreCategoriaLibreRequest" message="tns:nombreCategoriaLibre"></input>
-<output wsam:Action="http://servidor/Publicador/nombreCategoriaLibreResponse" message="tns:nombreCategoriaLibreResponse"></output>
+<operation name="listarVideos">
+<input wsam:Action="http://servidor/Publicador/listarVideosRequest" message="tns:listarVideos"></input>
+<output wsam:Action="http://servidor/Publicador/listarVideosResponse" message="tns:listarVideosResponse"></output>
 </operation>
-<operation name="obtenerUsuarioPorMail">
-<input wsam:Action="http://servidor/Publicador/obtenerUsuarioPorMailRequest" message="tns:obtenerUsuarioPorMail"></input>
-<output wsam:Action="http://servidor/Publicador/obtenerUsuarioPorMailResponse" message="tns:obtenerUsuarioPorMailResponse"></output>
+<operation name="SetListaUsuario" parameterOrder="arg0 arg1">
+<input wsam:Action="http://servidor/Publicador/SetListaUsuarioRequest" message="tns:SetListaUsuario"></input>
+<output wsam:Action="http://servidor/Publicador/SetListaUsuarioResponse" message="tns:SetListaUsuarioResponse"></output>
 </operation>
-<operation name="buscarUsuarioPorVideo">
-<input wsam:Action="http://servidor/Publicador/buscarUsuarioPorVideoRequest" message="tns:buscarUsuarioPorVideo"></input>
-<output wsam:Action="http://servidor/Publicador/buscarUsuarioPorVideoResponse" message="tns:buscarUsuarioPorVideoResponse"></output>
-</operation>
-<operation name="listarVidesPorUsuario">
-<input wsam:Action="http://servidor/Publicador/listarVidesPorUsuarioRequest" message="tns:listarVidesPorUsuario"></input>
-<output wsam:Action="http://servidor/Publicador/listarVidesPorUsuarioResponse" message="tns:listarVidesPorUsuarioResponse"></output>
-</operation>
-<operation name="dejarDeSeguirUsuario" parameterOrder="arg0 arg1">
-<input wsam:Action="http://servidor/Publicador/dejarDeSeguirUsuarioRequest" message="tns:dejarDeSeguirUsuario"></input>
-<output wsam:Action="http://servidor/Publicador/dejarDeSeguirUsuarioResponse" message="tns:dejarDeSeguirUsuarioResponse"></output>
-</operation>
-<operation name="listasParticulares">
-<input wsam:Action="http://servidor/Publicador/listasParticularesRequest" message="tns:listasParticulares"></input>
-<output wsam:Action="http://servidor/Publicador/listasParticularesResponse" message="tns:listasParticularesResponse"></output>
+<operation name="modificarListaPart" parameterOrder="arg0 arg1 arg2 arg3">
+<input wsam:Action="http://servidor/Publicador/modificarListaPartRequest" message="tns:modificarListaPart"></input>
+<output wsam:Action="http://servidor/Publicador/modificarListaPartResponse" message="tns:modificarListaPartResponse"></output>
 </operation>
 <operation name="quitarVideoDeLista" parameterOrder="arg0 arg1 arg2">
 <input wsam:Action="http://servidor/Publicador/quitarVideoDeListaRequest" message="tns:quitarVideoDeLista"></input>
 <output wsam:Action="http://servidor/Publicador/quitarVideoDeListaResponse" message="tns:quitarVideoDeListaResponse"></output>
-</operation>
-<operation name="consultaListasPorCategoria">
-<input wsam:Action="http://servidor/Publicador/consultaListasPorCategoriaRequest" message="tns:consultaListasPorCategoria"></input>
-<output wsam:Action="http://servidor/Publicador/consultaListasPorCategoriaResponse" message="tns:consultaListasPorCategoriaResponse"></output>
 </operation>
 <operation name="listarVideosLista" parameterOrder="arg0 arg1">
 <input wsam:Action="http://servidor/Publicador/listarVideosListaRequest" message="tns:listarVideosLista"></input>
@@ -690,26 +662,72 @@
 <input wsam:Action="http://servidor/Publicador/consultaVideosPorCategoriaRequest" message="tns:consultaVideosPorCategoria"></input>
 <output wsam:Action="http://servidor/Publicador/consultaVideosPorCategoriaResponse" message="tns:consultaVideosPorCategoriaResponse"></output>
 </operation>
-<operation name="getListasPorDefecto">
-<input wsam:Action="http://servidor/Publicador/getListasPorDefectoRequest" message="tns:getListasPorDefecto"></input>
-<output wsam:Action="http://servidor/Publicador/getListasPorDefectoResponse" message="tns:getListasPorDefectoResponse"></output>
+<operation name="altaListaPorDefecto" parameterOrder="arg0 arg1">
+<input wsam:Action="http://servidor/Publicador/altaListaPorDefectoRequest" message="tns:altaListaPorDefecto"></input>
+<output wsam:Action="http://servidor/Publicador/altaListaPorDefectoResponse" message="tns:altaListaPorDefectoResponse"></output>
 </operation>
-<operation name="modificarListaPart" parameterOrder="arg0 arg1 arg2 arg3">
-<input wsam:Action="http://servidor/Publicador/modificarListaPartRequest" message="tns:modificarListaPart"></input>
-<output wsam:Action="http://servidor/Publicador/modificarListaPartResponse" message="tns:modificarListaPartResponse"></output>
+<operation name="listasParticulares">
+<input wsam:Action="http://servidor/Publicador/listasParticularesRequest" message="tns:listasParticulares"></input>
+<output wsam:Action="http://servidor/Publicador/listasParticularesResponse" message="tns:listasParticularesResponse"></output>
+</operation>
+<operation name="consultaListasPorCategoria">
+<input wsam:Action="http://servidor/Publicador/consultaListasPorCategoriaRequest" message="tns:consultaListasPorCategoria"></input>
+<output wsam:Action="http://servidor/Publicador/consultaListasPorCategoriaResponse" message="tns:consultaListasPorCategoriaResponse"></output>
+</operation>
+<operation name="dejarDeSeguirUsuario" parameterOrder="arg0 arg1">
+<input wsam:Action="http://servidor/Publicador/dejarDeSeguirUsuarioRequest" message="tns:dejarDeSeguirUsuario"></input>
+<output wsam:Action="http://servidor/Publicador/dejarDeSeguirUsuarioResponse" message="tns:dejarDeSeguirUsuarioResponse"></output>
 </operation>
 <operation name="agregarVideoAlista" parameterOrder="arg0 arg1 arg2 arg3">
 <input wsam:Action="http://servidor/Publicador/agregarVideoAlistaRequest" message="tns:agregarVideoAlista"></input>
 <output wsam:Action="http://servidor/Publicador/agregarVideoAlistaResponse" message="tns:agregarVideoAlistaResponse"></output>
 </operation>
-<operation name="altaListaPorDefecto" parameterOrder="arg0 arg1">
-<input wsam:Action="http://servidor/Publicador/altaListaPorDefectoRequest" message="tns:altaListaPorDefecto"></input>
-<output wsam:Action="http://servidor/Publicador/altaListaPorDefectoResponse" message="tns:altaListaPorDefectoResponse"></output>
+<operation name="getListasPorDefecto">
+<input wsam:Action="http://servidor/Publicador/getListasPorDefectoRequest" message="tns:getListasPorDefecto"></input>
+<output wsam:Action="http://servidor/Publicador/getListasPorDefectoResponse" message="tns:getListasPorDefectoResponse"></output>
+</operation>
+<operation name="obtenerUsuarioPorNickname">
+<input wsam:Action="http://servidor/Publicador/obtenerUsuarioPorNicknameRequest" message="tns:obtenerUsuarioPorNickname"></input>
+<output wsam:Action="http://servidor/Publicador/obtenerUsuarioPorNicknameResponse" message="tns:obtenerUsuarioPorNicknameResponse"></output>
+</operation>
+<operation name="obtenerUsuarioPorMail">
+<input wsam:Action="http://servidor/Publicador/obtenerUsuarioPorMailRequest" message="tns:obtenerUsuarioPorMail"></input>
+<output wsam:Action="http://servidor/Publicador/obtenerUsuarioPorMailResponse" message="tns:obtenerUsuarioPorMailResponse"></output>
+</operation>
+<operation name="nombreCategoriaLibre">
+<input wsam:Action="http://servidor/Publicador/nombreCategoriaLibreRequest" message="tns:nombreCategoriaLibre"></input>
+<output wsam:Action="http://servidor/Publicador/nombreCategoriaLibreResponse" message="tns:nombreCategoriaLibreResponse"></output>
+</operation>
+<operation name="buscarUsuarioPorVideo">
+<input wsam:Action="http://servidor/Publicador/buscarUsuarioPorVideoRequest" message="tns:buscarUsuarioPorVideo"></input>
+<output wsam:Action="http://servidor/Publicador/buscarUsuarioPorVideoResponse" message="tns:buscarUsuarioPorVideoResponse"></output>
+</operation>
+<operation name="listarVidesPorUsuario">
+<input wsam:Action="http://servidor/Publicador/listarVidesPorUsuarioRequest" message="tns:listarVidesPorUsuario"></input>
+<output wsam:Action="http://servidor/Publicador/listarVidesPorUsuarioResponse" message="tns:listarVidesPorUsuarioResponse"></output>
 </operation>
 </portType>
 <binding name="PublicadorPortBinding" type="tns:Publicador">
 <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc"></soap:binding>
 <operation name="SetLista">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="SetCategoria">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="SetComentario">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -739,25 +757,7 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="SetCategoria">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="SetComentario">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="DtComentario">
+<operation name="DtCanal">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -784,7 +784,7 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="DtVideo">
+<operation name="DtLista">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -793,7 +793,7 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="DtLista">
+<operation name="buscarUsuario">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -811,7 +811,43 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="buscarUsuario">
+<operation name="buscarCategoria">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="buscarLista">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="nombreListaLibre">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="listarUsuarios">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="DtComentario">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -847,88 +883,7 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="buscarLista">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="addLista">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="buscarCategoria">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="getAllListas">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="nicknameLibre">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="addUsuario">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="getUserData">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="listarUsuarios">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="DtCanal">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="DtValoracion">
+<operation name="DtVideo">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -946,7 +901,16 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="nombreListaLibre">
+<operation name="addLista">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="nicknameLibre">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -964,6 +928,33 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
+<operation name="DtValoracion">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="getUserData">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="addUsuario">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
 <operation name="DtSesion">
 <soap:operation soapAction=""></soap:operation>
 <input>
@@ -972,6 +963,36 @@
 <output>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
+</operation>
+<operation name="getAllListas">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="valorarVideo">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="modificarUsuario">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+<fault name="ParseException">
+<soap:fault name="ParseException" use="literal"></soap:fault>
+</fault>
 </operation>
 <operation name="SetSesion">
 <soap:operation soapAction=""></soap:operation>
@@ -982,7 +1003,106 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="listarNMG">
+<operation name="altaUsuario">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="comentarVideo">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="consultaUsuario">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="getUserSession">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="bajaUsuario">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="altaCategoria">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="altaLista">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="listarListas">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="getVideos">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="consultarVideo">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="seguirUsuario">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="consultaLista">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -1009,154 +1129,7 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="seguirUsuario">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="altaLista">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="valorarVideo">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="getVideos">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
 <operation name="SetValoracion">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="SetListaUsuario">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="SetVideoUsuario">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="modificarVideo">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="altaCategoria">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="altaUsuario">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="listarVideos">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="listarListas">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="comentarVideo">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="listarMG">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="consultaLista">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="modificarUsuario">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-<fault name="ParseException">
-<soap:fault name="ParseException" use="literal"></soap:fault>
-</fault>
-</operation>
-<operation name="getUserSession">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -1177,7 +1150,7 @@
 <soap:fault name="ParseException" use="literal"></soap:fault>
 </fault>
 </operation>
-<operation name="consultaUsuario">
+<operation name="SetVideoUsuario">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -1195,7 +1168,7 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="consultarVideo">
+<operation name="listarNMG">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -1204,7 +1177,7 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="bajaUsuario">
+<operation name="modificarVideo">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -1213,7 +1186,7 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="obtenerUsuarioPorNickname">
+<operation name="listarMG">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -1222,7 +1195,7 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="nombreCategoriaLibre">
+<operation name="listarVideos">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -1231,7 +1204,7 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="obtenerUsuarioPorMail">
+<operation name="SetListaUsuario">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -1240,34 +1213,7 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="buscarUsuarioPorVideo">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="listarVidesPorUsuario">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="dejarDeSeguirUsuario">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="listasParticulares">
+<operation name="modificarListaPart">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -1277,15 +1223,6 @@
 </output>
 </operation>
 <operation name="quitarVideoDeLista">
-<soap:operation soapAction=""></soap:operation>
-<input>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</input>
-<output>
-<soap:body use="literal" namespace="http://servidor/"></soap:body>
-</output>
-</operation>
-<operation name="consultaListasPorCategoria">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -1312,7 +1249,7 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="getListasPorDefecto">
+<operation name="altaListaPorDefecto">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -1321,7 +1258,25 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="modificarListaPart">
+<operation name="listasParticulares">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="consultaListasPorCategoria">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="dejarDeSeguirUsuario">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
@@ -1339,7 +1294,52 @@
 <soap:body use="literal" namespace="http://servidor/"></soap:body>
 </output>
 </operation>
-<operation name="altaListaPorDefecto">
+<operation name="getListasPorDefecto">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="obtenerUsuarioPorNickname">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="obtenerUsuarioPorMail">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="nombreCategoriaLibre">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="buscarUsuarioPorVideo">
+<soap:operation soapAction=""></soap:operation>
+<input>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</input>
+<output>
+<soap:body use="literal" namespace="http://servidor/"></soap:body>
+</output>
+</operation>
+<operation name="listarVidesPorUsuario">
 <soap:operation soapAction=""></soap:operation>
 <input>
 <soap:body use="literal" namespace="http://servidor/"></soap:body>

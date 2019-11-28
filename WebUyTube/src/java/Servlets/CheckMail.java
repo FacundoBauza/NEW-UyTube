@@ -34,7 +34,7 @@ public class CheckMail extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-        String mail = request.getParameter("mail");
+        String mail = request.getParameter("email");
         //IControlador controlador = new Controlador();
         PublicadorService service = new WSDL_generado.PublicadorService();
         Publicador ICU = service.getPublicadorPort();
