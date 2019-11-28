@@ -2,6 +2,17 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/Gime/Desktop/NEW-UyTube/NEW-UyTube/WebUyTube/web/infoconsultausuario.jsp</file>
+            <file>file:/C:/Users/Gime/Desktop/NEW-UyTube/NEW-UyTube/WebUyTube/web/ModificarLista.jsp</file>
+            <file>file:/C:/Users/Gime/Desktop/NEW-UyTube/NEW-UyTube/WebUyTube/web/ModificarUsuario.jsp</file>
+            <file>file:/C:/Users/Gime/Desktop/NEW-UyTube/NEW-UyTube/WebUyTube/web/BusquedaVideos.jsp</file>
+            <file>file:/C:/Users/Gime/Desktop/NEW-UyTube/NEW-UyTube/WebUyTube/web/ModificarVideo.jsp</file>
+            <file>file:/C:/Users/Gime/Desktop/NEW-UyTube/NEW-UyTube/WebUyTube/web/ListarCategorias.jsp</file>
+            <file>file:/C:/Users/Gime/Desktop/NEW-UyTube/NEW-UyTube/WebUyTube/web/ConsultaLista.jsp</file>
+            <file>file:/C:/Users/Gime/Desktop/NEW-UyTube/NEW-UyTube/WebUyTube/web/index.jsp</file>
+            <file>file:/C:/Users/Gime/Desktop/NEW-UyTube/NEW-UyTube/WebUyTube/web/login.jsp</file>
+            <file>file:/C:/Users/Gime/Desktop/NEW-UyTube/NEW-UyTube/WebUyTube/src/java/Servlets/ConsultaCategoria.java</file>
+        </group>
     </open-files>
 </project-private>

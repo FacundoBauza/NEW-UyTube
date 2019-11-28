@@ -106,9 +106,10 @@ public class ConsultaCategoria extends HttpServlet {
                     PublicadorService service = new WSDL_generado.PublicadorService();
                     Publicador port = service.getPublicadorPort();
             
-                    DtListaUsuarioArray listas = port.consultaListasPorCategoria(CatEl);
+                    //DtListaUsuarioArray listas = port.consultaListasPorCategoria(CatEl);
                     DtVideoUsuarioArray videos = port.consultaVideosPorCategoria(CatEl);
-                    List<DtListaUsuario> Lus = listas.getItem();
+                    //List<DtListaUsuario> Lus = listas.getItem();
+                    List<DtListaUsuario> Lus = null;
                     List<DtVideoUsuario> Vus = videos.getItem();
                     
                     out.println("<H4>");   

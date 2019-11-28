@@ -56,9 +56,8 @@ public class Login extends HttpServlet {
         
         PublicadorService service = new PublicadorService();
         Publicador port = service.getPublicadorPort();
-               
-        return port.buscarUsuario(
-                (String) request.getSession().getAttribute("usuarioLogueado"));
+        String nick = (String) request.getSession().getAttribute("usuarioLogueado");
+        return port.buscarUsuario(nick);
 				
 			
     }

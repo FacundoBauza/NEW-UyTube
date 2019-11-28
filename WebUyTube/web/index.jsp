@@ -11,7 +11,6 @@
 <%@page import="WSDL_generado.Publicador"%>
 <%@page import="WSDL_generado.PublicadorService"%>
 <%@page import="java.util.List"%>
-<%@page import="java.util.List"%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
@@ -91,16 +90,15 @@
             </div>
             
         </div>
-        <%%>
         
-        <%
+        <%--
             PublicadorService service = new PublicadorService();
             Publicador port = service.getPublicadorPort();
     
             
             List<Video> aux = null;
             VideoArray videos = port.getVideos();
-            List<Video> l = videos.getItem();
+            List<Video> l = (List<Video>) videos.getItem();
             StringArray categorias = port.listarCategorias();
             List<String> l2 = categorias.getItem();
             
@@ -149,7 +147,7 @@
                     </ul>
                 </div>    
                 <%
-        %>
+        --%>
          
         <footer>
             <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -53,13 +53,13 @@ public class AltaVideo extends HttpServlet {
 //            SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
 //            Date date = null;
 //            date = simple.parse(f);
-            Categoria cat = new Categoria();
-            cat.setNombre(categoria);
+            Categoria cat = port.buscarCategoria(categoria);
+            //cat.setNombre(categoria);
 
             DtVideo video = port.setVideo(nombre, descripcion, duracion, f, url, priv, cat);
             Usuario u = (Usuario) Login.getUsuarioLogueado(request);
-            
-            port.altaVideo(video, u.getNickname());
+            String nick = u.getNickname();
+            port.altaVideo(video, nick);
             
 
             //out.println("<html><body onload=\"alert ('Video Creado')\"></body></html>");

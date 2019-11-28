@@ -132,12 +132,12 @@ public class Publicador {
     }
     
     @WebMethod
-    public void modificarUsuario(String nickname, String contrasenia, String nombre, String apellido, String fechaNac, String imagen, String nombreCanal, String DescCanal, boolean priv) throws ParseException{
+    public void modificarUsuario(String nickname, String contrasenia, String nombre, String apellido, String fechaNac, String nombreCanal, String DescCanal, boolean priv) throws ParseException{
         ISistema s = new Sistema();
         SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
         Date date = null;
         date = simple.parse(fechaNac);
-        s.modificarUsuario(nickname, contrasenia, nombre, apellido, date, imagen, nombreCanal, DescCanal, priv);
+        s.modificarUsuario(nickname, contrasenia, nombre, apellido, date, null, nombreCanal, DescCanal, priv);
     }
     
     @WebMethod
@@ -208,7 +208,7 @@ public class Publicador {
         ISistema s = null;
         s = Fabrica.getInstance();
         ArrayList<DtListaUsuario> l = (ArrayList)s.consultaListasPorCategoria(categoria);
-        DtListaUsuario[] lis = {};
+        DtListaUsuario[] lis = null;
         return l.toArray(lis);
     }
     
@@ -313,7 +313,7 @@ public class Publicador {
     public Video[] getVideos() {
         Manejador m = new Manejador();
         ArrayList<Video> v = (ArrayList)m.getVideos();
-        Video[] videos = {};
+        Video[] videos = null;
         return v.toArray(videos);
     }
     

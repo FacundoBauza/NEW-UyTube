@@ -104,7 +104,7 @@
             <div class="card" style="width: 18rem;">
                 <ul class="list-group list-group-flush">
                     <li class="list-group-item">CATEGORÍAS:</li>
-                    <li class="list-group-item"><a href="#" role="button">Consulta de categoría</a></li>
+                    <li class="list-group-item"><a href="/WebUyTube/ConsultaCategoria.jsp" role="button">Consulta de categoría</a></li>
                     <li class="list-group-item"><a href="#" role="button">listar categorias existentes</a></li>
                     
                 </ul>
@@ -118,16 +118,16 @@
             PublicadorService service = new PublicadorService();
             Publicador port = service.getPublicadorPort();
     
-            List<Video> aux = null;
-            VideoArray videos = port.getVideos();
-            List<Video> l = videos.getItem();
+            //List<Video> aux = null;
+            //VideoArray videos = port.getVideos();
+            //List<Video> l = videos.getItem();
             StringArray categorias = port.listarCategorias();
             List<String> l2 = categorias.getItem();
             
             %>        
                 <div id="capsulaVid" align="center" style="width: 80rem; margin: 10px">
                     <ul class="list-group list-group-flush">
-                    <%
+                    <%--
                         for(int i=0; i<l2.size(); i++)
                         {
                             int cont = 0;
@@ -163,9 +163,9 @@
                                 <br>
                                 <%
                             }
-                            aux = null;
+                            //aux = null;
                         }
-                    %>
+                    --%>
                     </ul>
                 </div>    
                 <%

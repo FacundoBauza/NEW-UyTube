@@ -258,12 +258,19 @@ public class Manejador {
    
      public ArrayList<String> listarVidesPorUsuario(String Usuario){
         EntityManager em = Manejador.getEntityManager();
-        Usuario u = buscarUsuario(Usuario);
-        Query query = Manejador.getEntityManager().createQuery("select v from video v Inner Join Canal_Video cv"
-                + "on v.nombre =: cv.videos_nombre where cv.canal_nombre =: nom");
-        query.setHint("nom", u.getCanal().getNombre());
-              
-        List<Categoria> aux = (List<Categoria>) query.getResultList();
+        Usuario u = this.buscarUsuario(Usuario);
+        Query query;
+        //query = em.createQuery("select v FROM Video v, canal_video cv "
+        //        + "where v.id = videos_id AND cv.Canal_Nombre = :nom");
+        
+        String nom = u.getCanal().getNombre();
+        query = em.createQuery("select c from Canal c where c.nombre = :nom");
+        query.setParameter("nom", nom);
+        
+        List<Canal> c = (List<Canal>) query.getResultList();
+        
+        Canal canal = c.get(0);
+        List<Video> aux  = canal.getVideos();
         
         ArrayList<String> result = new ArrayList<>();
         
