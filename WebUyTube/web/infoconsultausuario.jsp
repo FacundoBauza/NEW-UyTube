@@ -42,7 +42,8 @@
             
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuarioConsult");
         Canal canal = usuario.getCanal();
-        StringArray vid = port.listarVidesPorUsuario(usuario.getNickname());
+        String nick = usuario.getNickname();
+        StringArray vid = port.listarVidesPorUsuario(nick);
         List<String> videos = vid.getItem();
         //List<Video> videos = canal.getVideos(); 
         List<Lista> listas = canal.getListas();

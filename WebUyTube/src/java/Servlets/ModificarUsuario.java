@@ -39,7 +39,7 @@ public class ModificarUsuario extends HttpServlet {
             String apellido = request.getParameter("Apellido");
             String contrasenia = request.getParameter("pass");
             String fNac = request.getParameter("Fecha");
-            // String imagen = request.getParameter("imagen");
+            String imagen = request.getParameter("imagen");
             String canal = request.getParameter("NombreCanal");
             String descrcanal = request.getParameter("DescCanal");
             String privado = request.getParameter("privado");
@@ -47,14 +47,14 @@ public class ModificarUsuario extends HttpServlet {
             if(privado==null){
                 priv = false;
             }
-//            SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
-//            Date date = null;
-//            date = simple.parse(fNac);
-
+            //SimpleDateFormat simple= new SimpleDateFormat("yyyy-MM-dd"); 
+            //Date date = null;
+            //date = simple.parse(fNac);
+        
             PublicadorService service = new PublicadorService();
             Publicador port = service.getPublicadorPort();
             
-            port.modificarUsuario(nickname, contrasenia, nombre, apellido, fNac, null, canal, descrcanal, priv);
+            port.modificarUsuario(nickname, contrasenia, nombre, apellido, fNac, canal, descrcanal, priv);
             //out.println("<html><body onload=\"alert ('Usuario Modificado')\"></body></html>");
            
            response.setHeader("Refresh", "0; URL=http://localhost:8080/WebUyTube/homeLogIn.jsp");
