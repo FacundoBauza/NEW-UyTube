@@ -10,4 +10,10 @@
     <system systemId="http://192.168.1.52:1234/publicador?wsdl" uri="src/conf/xml-resources/web-service-references/publicador/wsdl/192.168.1.52_1234/publicador.wsdl"/>
     <system systemId="http://192.168.1.52:1234/publicador?xsd=1" uri="src/conf/xml-resources/web-service-references/publicador/wsdl/192.168.1.52_1234/publicador.xsd_1.xsd"/>
     <system systemId="http://192.168.1.52:1234/publicador?xsd=2" uri="src/conf/xml-resources/web-service-references/publicador/wsdl/192.168.1.52_1234/publicador.xsd_2.xsd"/>
+    <system systemId="http://192.168.0.155:1234/publicador?wsdl" uri="src/conf/xml-resources/web-service-references/publicador/wsdl/192.168.0.155_1234/publicador.wsdl"/>
+    <system systemId="http://192.168.0.155:1234/publicador?xsd=1" uri="src/conf/xml-resources/web-service-references/publicador/wsdl/192.168.0.155_1234/publicador.xsd_1.xsd"/>
+    <system systemId="http://192.168.0.155:1234/publicador?xsd=2" uri="src/conf/xml-resources/web-service-references/publicador/wsdl/192.168.0.155_1234/publicador.xsd_2.xsd"/>
+    <system systemId="http://192.168.1.57:1234/publicador?wsdl" uri="src/conf/xml-resources/web-service-references/publicador/wsdl/192.168.1.57_1234/publicador.wsdl"/>
+    <system systemId="http://192.168.1.57:1234/publicador?xsd=1" uri="src/conf/xml-resources/web-service-references/publicador/wsdl/192.168.1.57_1234/publicador.xsd_1.xsd"/>
+    <system systemId="http://192.168.1.57:1234/publicador?xsd=2" uri="src/conf/xml-resources/web-service-references/publicador/wsdl/192.168.1.57_1234/publicador.xsd_2.xsd"/>
 </catalog>

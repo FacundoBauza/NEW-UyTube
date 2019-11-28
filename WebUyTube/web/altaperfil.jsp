@@ -111,12 +111,12 @@
         </script>
         <script>function checkNickname(){
             
-            $('#email').keyup(function(){
+            $('#nickname').keyup(function(){
                     $.ajax({
-                        url : "CheckMail",
-                        data:{ email : $('#email').val() },
+                        url : "CheckNick",
+                        data:{ usernick : $('#nickname').val() },
                         success : function(responseText){
-                            $('#mail').text(responseText);
+                            $('#nick').text(responseText);
                         }
                     });
                 });
